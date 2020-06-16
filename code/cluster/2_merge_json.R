@@ -54,6 +54,9 @@ tbl <- do.call(rbind, rds)
 rm(rds)
 
 # Watch out for variable conversion to character
+area <- tbl %>%
+  mutate(area = sf::st_area(tbl))
+
 tbl <- tbl %>%
   mutate(countries = factor(countries, levels = cntry[[3]], labels = cntry[[1]]),
     elevation = as.numeric(elevation),
@@ -74,7 +77,8 @@ tbl <- tbl %>%
     area_accumulated_forest_loss = as.numeric(area_accumulated_forest_loss),
     area_forest_2000_mine_lease = as.numeric(area_forest_2000_mine_lease),
     area_accumulated_loss_mine_lease = as.numeric(area_accumulated_loss_mine_lease),
-    area_mine = as.numeric(area_mine) # ,
+    area_mine = as.numeric(area_mine),
+    area = as.numeric(area) # ,
     # id_grid,
     # geometry
   )

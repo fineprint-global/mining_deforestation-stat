@@ -1,0 +1,5 @@
+
+scp wu-cluster:~/data/countries/central_america-PAN.rds data/
+scp wu-cluster:~/data/countries/africa-NGA.rds data/
+scp wu-cluster:~/data/countries/oceania-MYS.rds data/
+scp wu-cluster:~/data/countries/south_america-GUY.rds data/
