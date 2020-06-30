@@ -4,13 +4,15 @@
 #' @param has_forest Logical. Whether to subset to `forest > 0`.
 #' @param has_access Logical. Whether to kick accessiblity NAs (coded as < 0).
 #' @param calc_dist Logical. Whether to calculate additional distances.
-#' @param factors Logical. Whether to factorise soilgrids and land use.
+#' @param adjust_soil Logical. Whether to group soilgrids.
+#' @param adjust_esa Logical. Whether to group and label land use.
 #' @param geom Logical. Whether to keep sf's geometry column.
 #'
 #' @return Returns a modified x.
 
 prep_data <- function(x,
-  has_forest = TRUE, has_access = TRUE, calc_dist = TRUE, factors = TRUE,
+  has_forest = TRUE, has_access = TRUE, calc_dist = TRUE,
+  adjust_soil = TRUE, adjust_esa = TRUE,
   geom = FALSE) {
 
   if(!isTRUE(geom)) {x$geometry <- NULL}
@@ -29,10 +31,22 @@ prep_data <- function(x,
     x$dist_waterway = pmin(
       x$distance_waterway_canal, x$distance_waterway_river, na.rm = TRUE)
   }
-  # Fix factors
-  if(isTRUE(factors)) {
+  # Create a grouped soilgrid variable
+  if(isTRUE(group_soil)) {
+    groups <- read.csv("input/soilgrid_grouped.csv")
+    x$soilgrid_grouped <- as.factor(
+      groups[match(tbl_raw$soilgrid, groups$Number), "WRB_group"])
     x$soilgrid <- as.factor(x$soilgrid)
-    x$esa_cci_2000 <- as.factor(x$esa_cci_2000)
+  }
+  # Create a grouped ESA CCI variable, add labels to ESA CCI
+  if(isTRUE(group_esa)) {
+    groups <- read.csv("input/esa_cci_legend.csv")
+    x$esa_cci_2000_grouped <- as.factor(
+      groups[match(tbl_raw$esa_cci_2000, groups$Value), "Group_custom"])
+    x$esa_cci_2000_grouped <- as.factor(
+      groups[match(tbl_raw$esa_cci_2000, groups$Value), "Group_custom"])
+    x$esa_cci_2000 <- factor(x$esa_cci_2000,
+      levels = groups$Value, labels = groups$Label)
   }
 
   return(x)
