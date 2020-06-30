@@ -1,4 +1,5 @@
 
+# Rebuilt cem::att
 cem_reg <- function(obj, formula, data, model = "linear", extrapolate = FALSE, ntree = 2000) {
 
   mod.type <- NULL
