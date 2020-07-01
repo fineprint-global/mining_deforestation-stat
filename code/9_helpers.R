@@ -32,21 +32,21 @@ prep_data <- function(x,
       x$distance_waterway_canal, x$distance_waterway_river, na.rm = TRUE)
   }
   # Create a grouped soilgrid variable
-  if(isTRUE(group_soil)) {
+  if(isTRUE(adjust_soil)) {
     groups <- read.csv("input/soilgrid_grouped.csv")
     x$soilgrid_grouped <- as.factor(
       groups[match(tbl_raw$soilgrid, groups$Number), "WRB_group"])
     x$soilgrid <- as.factor(x$soilgrid)
   }
   # Create a grouped ESA CCI variable, add labels to ESA CCI
-  if(isTRUE(group_esa)) {
+  if(isTRUE(adjust_esa)) {
     groups <- read.csv("input/esa_cci_legend.csv")
     x$esa_cci_2000_grouped <- as.factor(
       groups[match(tbl_raw$esa_cci_2000, groups$Value), "Group_custom"])
     x$esa_cci_2000_grouped <- as.factor(
       groups[match(tbl_raw$esa_cci_2000, groups$Value), "Group_custom"])
-    x$esa_cci_2000 <- factor(x$esa_cci_2000,
-      levels = groups$Value, labels = groups$Label)
+    x$esa_cci_2000 <- droplevels(factor(x$esa_cci_2000,
+      levels = groups$Value, labels = groups$Label))
   }
 
   return(x)

@@ -9,7 +9,8 @@ source("code/9_helpers.R")
 # Prepare data -----
 
 # Cloud or cluster
-path_in <- "/mnt/nfs_fineprint/tmp/mining_def/"
+# path_in <- "/mnt/nfs_fineprint/tmp/mining_def/"
+path_in <- "data/"
 files <- list.files(path_in)
 
 # file <- files[[1]]
