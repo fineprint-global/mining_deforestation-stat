@@ -6,7 +6,7 @@ library("cem")
 library("BMS")
 library("grf")
 
-stopifnot(exists("tbl"))
+if(!exists("tbl")) {stop("Please prepare the data in `tbl`.")}
 
 # CEM -----
 
@@ -16,7 +16,7 @@ imb1 <- imbalance(tbl$treated, as.data.frame(tbl),
 out1 <- cem(treatment = "treated", data = tbl,
   drop = drop_but(tbl,
     c("elevation", "slope", "area_forest_2000", "dist_road", "pop_2000",
-    "dist_waterway"),
+    "dist_waterway")),
   keep.all = TRUE)
 
 lm1 <- att(out1, area_accumulated_forest_loss ~

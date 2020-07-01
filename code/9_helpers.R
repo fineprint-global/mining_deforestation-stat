@@ -34,17 +34,17 @@ prep_data <- function(x,
   # Create a grouped soilgrid variable
   if(isTRUE(adjust_soil)) {
     groups <- read.csv("input/soilgrid_grouped.csv")
-    x$soilgrid_grouped <- as.factor(
-      groups[match(tbl_raw$soilgrid, groups$Number), "WRB_group"])
+    x$soilgrid_grouped <- droplevels(as.factor(
+      groups[match(x$soilgrid, groups$Number), "WRB_group"]))
     x$soilgrid <- as.factor(x$soilgrid)
   }
   # Create a grouped ESA CCI variable, add labels to ESA CCI
   if(isTRUE(adjust_esa)) {
     groups <- read.csv("input/esa_cci_legend.csv")
     x$esa_cci_2000_grouped <- as.factor(
-      groups[match(tbl_raw$esa_cci_2000, groups$Value), "Group_custom"])
+      groups[match(x$esa_cci_2000, groups$Value), "Group_custom"])
     x$esa_cci_2000_grouped <- as.factor(
-      groups[match(tbl_raw$esa_cci_2000, groups$Value), "Group_custom"])
+      groups[match(x$esa_cci_2000, groups$Value), "Group_custom"])
     x$esa_cci_2000 <- droplevels(factor(x$esa_cci_2000,
       levels = groups$Value, labels = groups$Label))
   }

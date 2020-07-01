@@ -1,0 +1,46 @@
+country,iso,continent
+Angola,AGO,africa
+Australia,AUS,oceania
+Bolivia,BOL,south_america
+Brazil,BRA,south_america
+Burkina Faso,BFA,africa
+China,CHN,africa
+Colombia,COL,south_america
+Congo - Brazzaville,COG,africa
+Congo - Kinshasa,COD,africa
+Côte d’Ivoire,CIV,africa
+Dominican Republic,DOM,central_america
+Ecuador,ECU,south_america
+Ethiopia,ETH,africa
+Gabon,GAB,africa
+Ghana,GHA,africa
+Guatemala,GTM,central_america
+Guinea,GIN,africa
+Guyana,GUY,south_america
+Honduras,HND,central_america
+India,IND,asia
+Indonesia,IDN,oceania
+Kenya,KEN,africa
+Laos,LAO,asia
+Liberia,LBR,africa
+Madagascar,MDG,africa
+Malaysia,MYS,oceania
+Mexico,MEX,central_america
+Mozambique,MOZ,africa
+Myanmar (Burma),MMR,asia
+Nicaragua,NIC,central_america
+Papua New Guinea,PNG,oceania
+Paraguay,PRY,south_america
+Peru,PER,south_america
+Philippines,PHL,asia
+Senegal,SEN,africa
+Sierra Leone,SLE,africa
+Suriname,SUR,south_america
+Tanzania,TZA,africa
+Thailand,THA,asia
+Togo,TGO,africa
+Uganda,UGA,africa
+Uruguay,URY,south_america
+Venezuela,VEN,south_america
+Vietnam,VNM,asia
+Zambia,ZMB,africa

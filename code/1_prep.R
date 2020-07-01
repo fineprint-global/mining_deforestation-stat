@@ -8,15 +8,18 @@ source("code/9_helpers.R")
 
 # Prepare data -----
 
-# Cloud or cluster
-# path_in <- "/mnt/nfs_fineprint/tmp/mining_def/"
-path_in <- "data/"
+# Cloud, home, or cluster?
+path_in <- "/mnt/nfs_fineprint/tmp/mining_def/"
+if(!dir.exists(path_in)) {
+  path_in <- "data/"
+  if(!dir.exists(path_in)) {stop("Feed me data!")}
+}
 files <- list.files(path_in)
 
 # file <- files[[1]]
 file <- files[grep("africa-NGA", files)]
 
 tbl_raw <- readRDS(paste0(path_in, file))
-tbl <- prep_data(tbl_raw)
+tbl <- prep_data(tbl_raw, has_forest = FALSE)
 tbl$treated <- calc_treatment(tbl,
   dist_treated = c(-1, 5e4), dist_control = 5e4)
