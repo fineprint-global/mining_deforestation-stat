@@ -22,10 +22,13 @@ repl_coord <- function(x, coord = c("S", "N"), width = 2) {
   x1 <- if(any(x < 0)) {
     gsub("^-([0-9]+)", paste0("\\1", coord[1]),
          formatC(x[x < 0], width = width + 1, flag = 0))} else {NULL}
-  x2 <- if(any(x >= 0)) {
+  x2 <- if(any(x > 0)) {
     gsub("([0-9]+)", paste0("\\1", coord[2]),
-         formatC(x[x >= 0], width = width, flag = 0))} else {NULL}
-  c(x1,  x2)
+         formatC(x[x > 0], width = width, flag = 0))} else {NULL}
+  x3 <- if(any(x == 0)) {
+    gsub("([0-9]+)", paste0("\\1", if("N" %in% coord) "N" else "E"),
+      formatC(x[x == 0], width = width, flag = 0))} else {NULL}
+  c(x1, x3, x2)
 }
 
 
