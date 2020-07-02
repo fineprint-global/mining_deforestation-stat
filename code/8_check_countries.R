@@ -1,5 +1,6 @@
 
 library("dplyr")
+library("sf")
 
 countries <- read.csv("input/countries.csv")
 
@@ -10,6 +11,8 @@ if(!dir.exists(path_in)) {
 }
 
 files <- paste0(path_in, countries$continent, "-", countries$iso, ".rds")
+
+# Summarise the data -----
 
 data_sm <- lapply(files, function(x) {
   y <- readRDS(x)
@@ -22,8 +25,20 @@ data_sm <- lapply(files, function(x) {
       c("min" = min(x, na.rm = TRUE), quantile(x, 0.2, na.rm = TRUE),
         "mean" = mean(x, na.rm = TRUE), quantile(x, 0.8, na.rm = TRUE),
         "max" = max(x, na.rm = TRUE, "NAs" = sum(is.na(x))))
-  }))
+    })
+  )
 })
 data_sm <- do.call(rbind, data_sm)
 
-write.csv(data_sm)
+write.csv(data_sm, "output/country_data-summary.csv")
+
+# Plot the countries
+
+for(file in files) {
+  x <- readRDS(file)
+  png(paste0("output/plots/draw_", sub(".*([A-Z]{3}).rds", "\\1", file), ".png"),
+    width = 960, height = 960)
+  x[sample(nrow(x), min(nrow(x) / 4, 100000)), ] %>% 
+    select(distance_mine) %>% plot()
+  dev.off()
+}

@@ -1,73 +1,71 @@
 
 # Dependencies -----
 
-library("glmnet")
-library("cem")
-library("BMS")
-library("grf")
+library("cem") # Matching
 
 if(!exists("tbl")) {stop("Please prepare the data in `tbl`.")}
 
 # CEM -----
 
-imb1 <- imbalance(tbl$treated, as.data.frame(tbl),
-  drop = c("countries", "id_grid"))
+# out_imb <- imbalance(tbl$treated, as.data.frame(tbl),
+#   drop = c("countries", "id_grid"))
 
-out1 <- cem(treatment = "treated", data = tbl,
+out_cem <- cem(treatment = "treated", data = tbl,
   drop = drop_but(tbl,
     c("elevation", "slope", "area_forest_2000", "dist_road", "pop_2000",
-    "dist_waterway")),
+    "dist_waterway", "soilgrid_grouped", "esa_cci_2000_grouped")),
   keep.all = TRUE)
-
-lm1 <- att(out1, area_accumulated_forest_loss ~
-  poly(distance_mine, 2) + slope + elevation + area_forest_2000 + pop_2000,
-  data = as.data.frame(tbl))
-summary(lm1)
-
-lm2 <- lm(area_accumulated_forest_loss ~
-  poly(distance_mine, 3) + slope + elevation + area_forest_2000 + pop_2000,
-  data = as.data.frame(tbl), weights = out1$w)
-summary(lm2)
 
 # Models -----
 
 form1 <- area_accumulated_forest_loss ~
-  poly(distance_mine, 3) + poly(elevation, 3) + poly(slope, 3) +
-  poly(pop_2000, 3) + poly(area_forest_2000, 3) +
-  poly(dist_road, 3) + poly(dist_waterway, 3) +
-  soilgrid_grouped + esa_cci_2000_grouped +
-  I(elevation * slope) +
-  I(pop_2000 * distance_mine) + I(pop_2000 * area_forest_2000) +
-  I(area_forest_2000 * elevation) + I(area_forest_2000 * slope) +
-  I(dist_road * pop_2000) + I(dist_road * area_forest_2000)
-
-form2 <- area_accumulated_forest_loss ~
-  distance_mine + elevation + slope +
+  distance_mine + I(distance_mine * treated) + elevation + slope +
   pop_2000 + area_forest_2000 +
-  dist_road + dist_waterway +
+  dist_road + dist_waterway + distance_protected_area +
   soilgrid_grouped + esa_cci_2000_grouped
 
 y <- tbl[["area_accumulated_forest_loss"]]
 X <- model.matrix(form1, data = tbl)[, -1] # Screw the constant
 X <- scale(X)
 
-cv_ridge <- cv.glmnet(x = X, y = y, weights = NULL, alpha = 0)
-out_ridge <- glmnet(x = X, y = y, weights = NULL, alpha = 0)
+# LM -----
 
-coef(out_ridge, exact = TRUE, s = cv_ridge[["lambda.min"]])
-plot(out_ridge)
+out_lm1 <- lm(y ~ X, weights = out_cem[["w"]])
+summary(out_lm1)
+out_lm2 <- lm(y ~ X, weights = NULL)
+summary(out_lm2)
 
-cv_lasso <- cv.glmnet(x = X, y = y, weights = NULL, alpha = 1)
-out_lasso <- glmnet(x = X, y = y, weights = NULL, alpha = 1)
+# Penalized regression -----
 
-coef(out_lasso, exact = TRUE, s = cv_lasso[["lambda.min"]])
-plot(out_lasso)
+library("glmnet")
 
-out_lm <- lm(y ~ X)
-sm(out_lm)
+cv_lasso <- cv.glmnet(x = X, y = y, weights = out_cem[["w"]], alpha = 1)
+out_lasso <- glmnet(x = X, y = y, weights = out_cem[["w"]], alpha = 1)
 
-out_bma <- BMS::bms(cbind(y, X), user.int = FALSE)
-print(out_bma)
+# Outputs -----
 
-out_rf <- causal_forest(X = model.matrix(form2, data = tbl),
-  Y = y, W = tbl[["distance_mine"]], sample.weights = NULL)
+png(paste0("output/plots/lasso_simple_", 
+  sub(".*([A-Z]{3}).rds", "\\1", file), ".png"), width = 960, height = 720)
+plot(out_lasso, label = TRUE)
+dev.off()
+
+readr::write_csv(tibble(
+  "vars" = c("constant", colnames(X)),
+  "lm_coef" = coef(out_lm1),
+  "lm_unweighted_coef" = coef(out_lm2),
+  "lasso_cv_coef" = (coef(out_lasso, exact = TRUE, s = cv_lasso[["lambda.min"]]))[, 1],
+  "lasso_n_coef" = apply(coef(out_lasso), 1, function(x) sum(x < 0.01))),
+  path = paste0("output/txt/coef_", sub(".*([A-Z]{3}).rds", "\\1", file), ".csv"))
+
+readr::write_csv(tibble(
+  "N" = sum(out_cem[["w"]]),
+  "N_full" = nrow(tbl),
+  "N_treated" = out_cem[["tab"]][1, 2],
+  "N_untreated" = out_cem[["tab"]][1, 1],
+  "N_tr_matched" = out_cem[["tab"]][2, 2],
+  "N_tr_unmatched" = out_cem[["tab"]][2, 1],
+  "BIC" = BIC(out_lm1),
+  "BIC_unweighted" = BIC(out_lm2)),
+  path = paste0("output/txt/info_", sub(".*([A-Z]{3}).rds", "\\1", file), ".csv"))
+
+rm(X, y, out_lm1, out_lm2, out_lasso); gc()

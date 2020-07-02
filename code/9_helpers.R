@@ -12,16 +12,17 @@
 
 prep_data <- function(x,
   has_forest = TRUE, has_access = TRUE, calc_dist = TRUE,
-  adjust_soil = TRUE, adjust_esa = TRUE,
+  adjust_soil = TRUE, adjust_esa = TRUE, 
+  country_specific = TRUE,
   geom = FALSE) {
 
   if(!isTRUE(geom)) {x$geometry <- NULL}
   # Subset grids to ones with forest
-  if(!isTRUE(has_forest)) {x <- x[x$area_forest_2000 > 0, ]}
+  if(isTRUE(has_forest)) {x <- x[x$area_forest_2000 > 0, ]}
   # Fix accessibility to cities / kick errors
+  # Note that NAs are erroneously coded as < 0
+  x$accessibility_cities_2015[x$accessibility_cities_2015 < 0] <- NA
   if(isTRUE(has_access)) {
-    # Note that NAs are erroneously coded as < 0
-    x$accessibility_cities_2015[x$accessibility_cities_2015 < 0] <- NA
     x <- x[!is.na(x$accessibility_cities_2015), ]
   }
   # Create distance to road and waterway value
@@ -47,6 +48,12 @@ prep_data <- function(x,
       groups[match(x$esa_cci_2000, groups$Value), "Group_custom"])
     x$esa_cci_2000 <- droplevels(factor(x$esa_cci_2000,
       levels = groups$Value, labels = groups$Label))
+  }
+  
+  if(isTRUE(country_specific)) {
+    if(all(x$countries == "ECU")) {
+      x <- x[x$distance_mine <= 1e6, ] # Cut islands
+    }
   }
 
   return(x)

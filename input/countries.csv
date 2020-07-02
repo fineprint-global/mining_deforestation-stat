@@ -4,7 +4,7 @@ Australia,AUS,oceania
 Bolivia,BOL,south_america
 Brazil,BRA,south_america
 Burkina Faso,BFA,africa
-China,CHN,africa
+China,CHN,asia
 Colombia,COL,south_america
 Congo - Brazzaville,COG,africa
 Congo - Kinshasa,COD,africa
@@ -30,7 +30,6 @@ Mozambique,MOZ,africa
 Myanmar (Burma),MMR,asia
 Nicaragua,NIC,central_america
 Papua New Guinea,PNG,oceania
-Paraguay,PRY,south_america
 Peru,PER,south_america
 Philippines,PHL,asia
 Senegal,SEN,africa
@@ -38,7 +37,6 @@ Sierra Leone,SLE,africa
 Suriname,SUR,south_america
 Tanzania,TZA,africa
 Thailand,THA,asia
-Togo,TGO,africa
 Uganda,UGA,africa
 Uruguay,URY,south_america
 Venezuela,VEN,south_america
