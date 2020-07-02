@@ -63,7 +63,7 @@ readr::write_csv(tibble(
   "N_treated" = out_cem[["tab"]][1, 2],
   "N_untreated" = out_cem[["tab"]][1, 1],
   "N_tr_matched" = out_cem[["tab"]][2, 2],
-  "N_tr_unmatched" = out_cem[["tab"]][2, 1],
+  "N_untr_unmatched" = out_cem[["tab"]][2, 1],
   "BIC" = BIC(out_lm1),
   "BIC_unweighted" = BIC(out_lm2)),
   path = paste0("output/txt/info_", sub(".*([A-Z]{3}).rds", "\\1", file), ".csv"))
