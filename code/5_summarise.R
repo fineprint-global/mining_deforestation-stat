@@ -3,6 +3,8 @@ library("splines")
 
 if(!exists("tbl")) {stop("Please prepare the data in `tbl`.")}
 
+cat("Fitting naive splines.\n")
+
 # Plot y ~ X
 
 # Forest > 0

@@ -10,6 +10,8 @@ if(!exists("tbl")) {stop("Please prepare the data in `tbl`.")}
 # out_imb <- imbalance(tbl$treated, as.data.frame(tbl),
 #   drop = c("countries", "id_grid"))
 
+cat("Retrieving matches.\n")
+
 out_cem <- cem(treatment = "treated", data = tbl,
   drop = drop_but(tbl,
     c("elevation", "slope", "area_forest_2000", "dist_road", "pop_2000",
@@ -27,8 +29,11 @@ form1 <- area_accumulated_forest_loss ~
 y <- tbl[["area_accumulated_forest_loss"]]
 X <- model.matrix(form1, data = tbl)[, -1] # Screw the constant
 X <- scale(X)
+X <- X[, !apply(X, 2, function(x) all(is.na(x)))]
 
 # LM -----
+
+cat("Fitting models.\n")
 
 out_lm1 <- lm(y ~ X, weights = out_cem[["w"]])
 summary(out_lm1)
@@ -68,4 +73,4 @@ readr::write_csv(tibble(
   "BIC_unweighted" = BIC(out_lm2)),
   path = paste0("output/txt/info_", sub(".*([A-Z]{3}).rds", "\\1", file), ".csv"))
 
-rm(X, y, out_lm1, out_lm2, out_lasso); gc()
+rm(X, y, out_lm1, out_lm2, out_lasso, cv_lasso); gc()
