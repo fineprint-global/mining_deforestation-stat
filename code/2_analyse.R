@@ -24,7 +24,7 @@ form1 <- area_accumulated_forest_loss ~
   distance_mine + I(distance_mine ^ 2) + I(distance_mine ^ 0.5) +
   elevation + slope +
   pop_2000 + area_forest_2000 +
-  dist_road + I(distance_mine ^ 2) + dist_waterway + I(distance_waterway ^ 2) + distance_protected_area + I(distance_protected_area ^ 2) +
+  dist_road + I(dist_road ^ 2) + dist_waterway + I(dist_waterway ^ 2) + distance_protected_area + I(distance_protected_area ^ 2) +
   soilgrid_grouped # + esa_cci_2000_grouped
 
 y <- tbl[["area_accumulated_forest_loss"]]
