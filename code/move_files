@@ -1,0 +1,2 @@
+
+scp -r cloud1:/mnt/nfs_fineprint/config/rstudio/home/kuschnig/mining_deforestation-stat/output/* output/

@@ -21,10 +21,11 @@ out_cem <- cem(treatment = "treated", data = tbl,
 # Models -----
 
 form1 <- area_accumulated_forest_loss ~
-  distance_mine + I(distance_mine * treated) + elevation + slope +
+  distance_mine + I(distance_mine ^ 2) + I(distance_mine ^ 0.5) +
+  elevation + slope +
   pop_2000 + area_forest_2000 +
-  dist_road + dist_waterway + distance_protected_area +
-  soilgrid_grouped + esa_cci_2000_grouped
+  dist_road + I(distance_mine ^ 2) + dist_waterway + I(distance_waterway ^ 2) + distance_protected_area + I(distance_protected_area ^ 2) +
+  soilgrid_grouped # + esa_cci_2000_grouped
 
 y <- tbl[["area_accumulated_forest_loss"]]
 X <- model.matrix(form1, data = tbl)[, -1] # Screw the constant
@@ -49,7 +50,7 @@ out_lasso <- glmnet(x = X, y = y, weights = out_cem[["w"]], alpha = 1)
 
 # Outputs -----
 
-png(paste0("output/plots/lasso_simple_", 
+png(paste0("output/plots/lasso_simple_",
   sub(".*([A-Z]{3}).rds", "\\1", file), ".png"), width = 960, height = 720)
 plot(out_lasso, label = TRUE)
 dev.off()
@@ -72,5 +73,21 @@ readr::write_csv(tibble(
   "BIC" = BIC(out_lm1),
   "BIC_unweighted" = BIC(out_lm2)),
   path = paste0("output/txt/info_", sub(".*([A-Z]{3}).rds", "\\1", file), ".csv"))
+
+xs <- seq(0, max(tbl[["distance_mine"]]), length.out = 1000)
+smpl <- sample(nrow(tbl), min(10000, nrow(tbl) / 4))
+
+png(paste0("output/plots/fitted_",
+  sub(".*([A-Z]{3}).rds", "\\1", file), ".png"), width = 960, height = 720)
+y = xs * coef(out_lm1)[2] + xs ^ 2 * coef(out_lm1)[3] + xs ^ 0.5 * coef(out_lm1)[4]
+plot(x = tbl[["distance_mine"]][smpl],
+  y = y,
+  col = "grey", xlab = "Distance to mine", ylab = "Forest loss",
+  main = paste0("Fitted - ", gsub(".*([A-Z]{3}).rds", "\\1", file)),
+  ylim = c(0, min(max(pred) * 5, max(data[["area_accumulated_forest_loss"]]))))
+points(xs, pred, col = "darkgreen", lwd = 2, type = "l")
+grid()
+dev.off()
+
 
 rm(X, y, out_lm1, out_lm2, out_lasso, cv_lasso); gc()

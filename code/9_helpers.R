@@ -12,7 +12,7 @@
 
 prep_data <- function(x,
   has_forest = TRUE, has_access = TRUE, calc_dist = TRUE,
-  adjust_soil = TRUE, adjust_esa = TRUE, 
+  adjust_soil = TRUE, adjust_esa = TRUE,
   country_specific = TRUE,
   geom = FALSE) {
 
@@ -49,10 +49,16 @@ prep_data <- function(x,
     x$esa_cci_2000 <- droplevels(factor(x$esa_cci_2000,
       levels = groups$Value, labels = groups$Label))
   }
-  
+
   if(isTRUE(country_specific)) {
     if(all(x$countries == "ECU")) {
       x <- x[x$distance_mine <= 1e6, ] # Cut islands
+    }
+    if(all(x$countries == "IND")) {
+      x <- x[x$distance_mine <= 750000, ] # Cut islands
+    }
+    if(all(x$countries == "NIC")) {
+      x <- x[x$distance_mine <= 200000, ] # Cut islands
     }
   }
 
