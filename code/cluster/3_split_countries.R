@@ -8,11 +8,15 @@ library("sf")
 separate_countries <- function(file, path, continent) {
   x <- readRDS(file)
   countries <- unique(x[["countries"]])
-  x_list <- lapply(countries, function(y) {dplyr::filter(x, countries == y)})
+  x_list <- lapply(countries, function(y) {
+    saveRDS(dplyr::filter(x, countries == y),
+      paste0(path, continent, "-", y, ".rds"))
+    gc()
+  })
 
-  for(i in seq_along(x_list)) {
-    saveRDS(x_list[[i]], paste0(path, continent, "-", countries[i], ".rds"))
-  }
+  # for(i in seq_along(x_list)) {
+  #   saveRDS(x_list[[i]], paste0(path, continent, "-", countries[i], ".rds"))
+  # }
   NULL
 }
 
