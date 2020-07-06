@@ -21,11 +21,13 @@ out_cem <- cem(treatment = "treated", data = tbl,
 # Models -----
 
 form1 <- area_accumulated_forest_loss ~
-  distance_mine + I(distance_mine ^ 2) + I(distance_mine ^ 0.5) +
+  poly(distance_mine, 4) + 
   elevation + slope +
   pop_2000 + area_forest_2000 +
-  dist_road + I(dist_road ^ 2) + dist_waterway + I(dist_waterway ^ 2) + distance_protected_area + I(distance_protected_area ^ 2) +
-  soilgrid_grouped # + esa_cci_2000_grouped
+  poly(dist_road, 2) +
+  poly(dist_waterway, 2) +
+  poly(distance_protected_area, 2) +
+  soilgrid_grouped + esa_cci_2000_grouped
 
 y <- tbl[["area_accumulated_forest_loss"]]
 X <- model.matrix(form1, data = tbl)[, -1] # Screw the constant
@@ -60,7 +62,7 @@ readr::write_csv(tibble(
   "lm_coef" = coef(out_lm1),
   "lm_unweighted_coef" = coef(out_lm2),
   "lasso_cv_coef" = (coef(out_lasso, exact = TRUE, s = cv_lasso[["lambda.min"]]))[, 1],
-  "lasso_n_coef" = apply(coef(out_lasso), 1, function(x) sum(x < 0.01))),
+  "lasso_n_0" = apply(coef(out_lasso), 1, function(x) sum(x < 0.01))),
   path = paste0("output/txt/coef_", sub(".*([A-Z]{3}).rds", "\\1", file), ".csv"))
 
 readr::write_csv(tibble(
@@ -79,14 +81,16 @@ smpl <- sample(nrow(tbl), min(10000, nrow(tbl) / 4))
 
 png(paste0("output/plots/fitted_",
   sub(".*([A-Z]{3}).rds", "\\1", file), ".png"), width = 960, height = 720)
-y = xs * coef(out_lm1)[2] + xs ^ 2 * coef(out_lm1)[3] + xs ^ 0.5 * coef(out_lm1)[4]
+ys = xs * coef(out_lm1)[2] + xs ^ 2 * coef(out_lm1)[3] + xs ^ 0.5 * coef(out_lm1)[4]
+op <- par(mfrow = c(2, 1))
 plot(x = tbl[["distance_mine"]][smpl],
-  y = y,
+  y = tbl[["area_accumulated_forest_loss"]][smpl],
   col = "grey", xlab = "Distance to mine", ylab = "Forest loss",
   main = paste0("Fitted - ", gsub(".*([A-Z]{3}).rds", "\\1", file)),
-  ylim = c(0, min(max(pred) * 5, max(data[["area_accumulated_forest_loss"]]))))
-points(xs, pred, col = "darkgreen", lwd = 2, type = "l")
-grid()
+  ylim = c(0, min(max(ys) * 5, max(tbl[["area_accumulated_forest_loss"]]))))
+plot(xs, ys, lwd = 2, type = "l", main = "Fitted coefficients",
+  xlab = "Distance to mine", ylab = "Forest loss",)
+par(op)
 dev.off()
 
 

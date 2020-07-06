@@ -33,6 +33,6 @@ for(file in files) {
     dist_treated = c(-1, 5e4), dist_control = 5e4)
 
   # Create outputs
-  source("code/2_analyse.R")
-  source("code/5_summarise.R")
+  source("code/2_analyse.R") # Match and fit models
+  # source("code/5_summarise.R") # Check out unconditional effects
 }
