@@ -58,7 +58,8 @@ rm(rds)
 
 # Watch out for variable conversion to character
 area <- tbl %>%
-  mutate(area = sf::st_area(tbl))
+  mutate(area = sf::st_area(tbl)) %>%
+  .$area
 
 tbl <- tbl %>%
   mutate(countries = factor(countries, levels = cntry[[3]], labels = cntry[[1]]),
