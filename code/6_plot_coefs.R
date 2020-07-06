@@ -20,8 +20,8 @@ lapply(files, function(x) {
   dev.off()
 })
 
-sign <- sapply(files, function(x) {
+(sign <- sapply(files, function(x) {
   info <- filter(country_sm, iso == sub("coef_([A-Z]+).*", "\\1", x))
   y <- read.csv(paste0("output/txt/", x))
-  y[2, 2] < 0
-})
+  round(y[9, 4], 2)
+}))

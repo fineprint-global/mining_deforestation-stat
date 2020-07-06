@@ -21,16 +21,17 @@ out_cem <- cem(treatment = "treated", data = tbl,
 # Models -----
 
 form1 <- area_accumulated_forest_loss ~
-  poly(distance_mine, 4) + 
+  distance_mine + I(distance_mine ^ 0.5) +
+  I(distance_mine * treated) + I(distance_mine ^ 0.5 * treated) +
   elevation + slope +
   pop_2000 + area_forest_2000 +
-  poly(dist_road, 2) +
-  poly(dist_waterway, 2) +
-  poly(distance_protected_area, 2) +
+  dist_road + I(dist_road ^ 0.5) + I(distance_mine * dist_road) +
+  dist_waterway + I(dist_waterway ^ 0.5) + I(distance_mine * dist_waterway) +
+  distance_protected_area + I(distance_protected_area ^ 0.5) +
   soilgrid_grouped + esa_cci_2000_grouped
 
 y <- tbl[["area_accumulated_forest_loss"]]
-X <- model.matrix(form1, data = tbl)[, -1] # Screw the constant
+X <- model.matrix(form1, data = tbl)[, -1] # no constant (added automatically)
 X <- scale(X)
 X <- X[, !apply(X, 2, function(x) all(is.na(x)))]
 
