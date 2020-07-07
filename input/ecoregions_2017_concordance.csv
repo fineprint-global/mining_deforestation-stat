@@ -1,848 +1,848 @@
-ECO_NAME,BIOME_NUM,BIOME_NAME
-Adelie Land tundra,11,Tundra
-Admiralty Islands lowland rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Aegean and Western Turkey sclerophyllous and mixed forests,12,"Mediterranean Forests, Woodlands & Scrub"
-Afghan Mountains semi-desert,13,Deserts & Xeric Shrublands
-Ahklun and Kilbuck Upland Tundra,11,Tundra
-Al-Hajar foothill xeric woodlands and shrublands,8,"Temperate Grasslands, Savannas & Shrublands"
-Al-Hajar montane woodlands and shrublands,8,"Temperate Grasslands, Savannas & Shrublands"
-Alai-Western Tian Shan steppe,8,"Temperate Grasslands, Savannas & Shrublands"
-Alashan Plateau semi-desert,13,Deserts & Xeric Shrublands
-Alaska-St. Elias Range tundra,11,Tundra
-Alaska Peninsula montane taiga,6,Boreal Forests/Taiga
-Albany thickets,12,"Mediterranean Forests, Woodlands & Scrub"
-Alberta-British Columbia foothills forests,5,Temperate Conifer Forests
-Albertine Rift montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Aldabra Island xeric scrub,13,Deserts & Xeric Shrublands
-Aleutian Islands tundra,11,Tundra
-Allegheny Highlands forests,4,Temperate Broadleaf & Mixed Forests
-Alps conifer and mixed forests,5,Temperate Conifer Forests
-Altai alpine meadow and tundra,10,Montane Grasslands & Shrublands
-Altai montane forest and forest steppe,5,Temperate Conifer Forests
-Altai steppe and semi-desert,8,"Temperate Grasslands, Savannas & Shrublands"
-Alto Paraná Atlantic forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Amazon-Orinoco-Southern Caribbean mangroves,14,Mangroves
-Amsterdam-Saint Paul Islands temperate grasslands,8,"Temperate Grasslands, Savannas & Shrublands"
-Amur meadow steppe,9,Flooded Grasslands & Savannas
-Anatolian conifer and deciduous mixed forests,12,"Mediterranean Forests, Woodlands & Scrub"
-Andaman Islands rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Angolan montane forest-grassland,10,Montane Grasslands & Shrublands
-Angolan mopane woodlands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Angolan scarp savanna and woodlands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Angolan wet miombo woodlands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Antipodes Subantarctic Islands tundra,11,Tundra
-Appalachian-Blue Ridge forests,4,Temperate Broadleaf & Mixed Forests
-Appalachian mixed mesophytic forests,4,Temperate Broadleaf & Mixed Forests
-Appalachian Piedmont forests,4,Temperate Broadleaf & Mixed Forests
-Appenine deciduous montane forests,4,Temperate Broadleaf & Mixed Forests
-Apure-Villavicencio dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Arabian sand desert,13,Deserts & Xeric Shrublands
-Araucaria moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Araya and Paria xeric scrub,13,Deserts & Xeric Shrublands
-Arctic coastal tundra,11,Tundra
-Russian Arctic desert,11,Tundra
-Arctic foothills tundra,11,Tundra
-Arizona Mountains forests,5,Temperate Conifer Forests
-Arnhem Land tropical savanna,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Ascension scrub and grasslands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Atacama desert,13,Deserts & Xeric Shrublands
-Atlantic Coast restingas,1,Tropical & Subtropical Moist Broadleaf Forests
-Saharan Atlantic coastal desert,13,Deserts & Xeric Shrublands
-Atlantic coastal pine barrens,5,Temperate Conifer Forests
-Congolian coastal forests,1,Tropical & Subtropical Moist Broadleaf Forests
-European Atlantic mixed forests,4,Temperate Broadleaf & Mixed Forests
-Australian Alps montane grasslands,10,Montane Grasslands & Shrublands
-Azerbaijan shrub desert and steppe,13,Deserts & Xeric Shrublands
-Azores temperate mixed forests,4,Temperate Broadleaf & Mixed Forests
-Badghyz and Karabil semi-desert,13,Deserts & Xeric Shrublands
-Bahamian-Antillean mangroves,14,Mangroves
-Bahia coastal forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Bahia interior forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Baja California desert,13,Deserts & Xeric Shrublands
-Bajío dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Balkan mixed forests,4,Temperate Broadleaf & Mixed Forests
-Balsas dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Baltic mixed forests,4,Temperate Broadleaf & Mixed Forests
-Baluchistan xeric woodlands,13,Deserts & Xeric Shrublands
-Banda Sea Islands moist deciduous forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Belizian pine savannas,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Beni savanna,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Russian Bering tundra,11,Tundra
-Beringia lowland tundra,11,Tundra
-Beringia upland tundra,11,Tundra
-Bermuda subtropical conifer forests,3,Tropical & Subtropical Coniferous Forests
-Biak-Numfoor rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Blue Mountains forests,5,Temperate Conifer Forests
-Bohai Sea saline meadow,9,Flooded Grasslands & Savannas
-Bolivian montane dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Bolivian Yungas,1,Tropical & Subtropical Moist Broadleaf Forests
-Borneo lowland rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Borneo peat swamp forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Brahmaputra Valley semi-evergreen forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Brigalow tropical savanna,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-British Columbia coastal conifer forests,5,Temperate Conifer Forests
-Brooks-British Range tundra,11,Tundra
-Buru rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Caatinga,2,Tropical & Subtropical Dry Broadleaf Forests
-Caatinga Enclaves moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Caledon conifer forests,5,Temperate Conifer Forests
-California Central Valley grasslands,8,"Temperate Grasslands, Savannas & Shrublands"
-California coastal sage and chaparral,12,"Mediterranean Forests, Woodlands & Scrub"
-California interior chaparral and woodlands,12,"Mediterranean Forests, Woodlands & Scrub"
-California montane chaparral and woodlands,12,"Mediterranean Forests, Woodlands & Scrub"
-Cameroon Highlands forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Campos Rupestres montane savanna,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Canadian Aspen forests and parklands,8,"Temperate Grasslands, Savannas & Shrublands"
-Canadian Low Arctic tundra,11,Tundra
-Canary Islands dry woodlands and forests,12,"Mediterranean Forests, Woodlands & Scrub"
-Cantabrian mixed forests,4,Temperate Broadleaf & Mixed Forests
-Canterbury-Otago tussock grasslands,8,"Temperate Grasslands, Savannas & Shrublands"
-Cape Verde Islands dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Cape York Peninsula tropical savanna,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Caqueta moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Cardamom Mountains rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Caribbean shrublands,13,Deserts & Xeric Shrublands
-Carnarvon xeric shrublands,13,Deserts & Xeric Shrublands
-Carolines tropical moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Carpathian montane forests,5,Temperate Conifer Forests
-Carpentaria tropical savanna,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Caspian Hyrcanian mixed forests,4,Temperate Broadleaf & Mixed Forests
-Caspian lowland desert,13,Deserts & Xeric Shrublands
-Catatumbo moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Cauca Valley dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Cauca Valley montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Caucasus mixed forests,4,Temperate Broadleaf & Mixed Forests
-Cayos Miskitos-San Andrés and Providencia moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Celtic broadleaf forests,4,Temperate Broadleaf & Mixed Forests
-Central Afghan Mountains xeric woodlands,13,Deserts & Xeric Shrublands
-Central African mangroves,14,Mangroves
-Central American Atlantic moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Central American dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Central American montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Central American pine-oak forests,3,Tropical & Subtropical Coniferous Forests
-Central Anatolian steppe,8,"Temperate Grasslands, Savannas & Shrublands"
-Central Anatolian steppe and woodlands,4,Temperate Broadleaf & Mixed Forests
-Central-Southern Cascades Forests,5,Temperate Conifer Forests
-Central-Southern US mixed grasslands,8,"Temperate Grasslands, Savannas & Shrublands"
-Central Andean dry puna,10,Montane Grasslands & Shrublands
-Central Andean puna,10,Montane Grasslands & Shrublands
-Central Andean wet puna,10,Montane Grasslands & Shrublands
-Central Asian northern desert,13,Deserts & Xeric Shrublands
-Central Asian riparian woodlands,13,Deserts & Xeric Shrublands
-Central Asian southern desert,13,Deserts & Xeric Shrublands
-Central British Columbia Mountain forests,5,Temperate Conifer Forests
-Central bushveld,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Central Canadian Shield forests,6,Boreal Forests/Taiga
-Central China Loess Plateau mixed forests,4,Temperate Broadleaf & Mixed Forests
-Central Congolian lowland forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Central Deccan Plateau dry deciduous forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Central European mixed forests,4,Temperate Broadleaf & Mixed Forests
-Central US forest-grasslands transition,8,"Temperate Grasslands, Savannas & Shrublands"
-Central Indochina dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Central Korean deciduous forests,4,Temperate Broadleaf & Mixed Forests
-Central Mexican matorral,13,Deserts & Xeric Shrublands
-Central Pacific Northwest coastal forests,5,Temperate Conifer Forests
-Central Persian desert basins,13,Deserts & Xeric Shrublands
-Central Polynesian tropical moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Central Range Papuan montane rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Papuan Central Range sub-alpine grasslands,10,Montane Grasslands & Shrublands
-Central Ranges xeric scrub,13,Deserts & Xeric Shrublands
-Central South Antarctic Peninsula tundra,11,Tundra
-Central Tallgrass prairie,8,"Temperate Grasslands, Savannas & Shrublands"
-Central Tibetan Plateau alpine steppe,10,Montane Grasslands & Shrublands
-Central Zambezian wet miombo woodlands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Cerrado,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Changbai Mountains mixed forests,4,Temperate Broadleaf & Mixed Forests
-Changjiang Plain evergreen forests,4,Temperate Broadleaf & Mixed Forests
-Chao Phraya freshwater swamp forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Chao Phraya lowland moist deciduous forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Chatham Island temperate forests,4,Temperate Broadleaf & Mixed Forests
-Cherskii-Kolyma mountain tundra,11,Tundra
-Chhota-Nagpur dry deciduous forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Chiapas Depression dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Chiapas montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Chihuahuan desert,13,Deserts & Xeric Shrublands
-Chilean Matorral,12,"Mediterranean Forests, Woodlands & Scrub"
-Chimalapas montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Chin Hills-Arakan Yoma montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Chiquitano dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Chocó-Darién moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Christmas and Cocos Islands tropical forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Chukchi Peninsula tundra,11,Tundra
-Clipperton Island shrub and grasslands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Cocos Island moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Colorado Plateau shrublands,13,Deserts & Xeric Shrublands
-Colorado Rockies forests,5,Temperate Conifer Forests
-Comoros forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Cook Inlet taiga,6,Boreal Forests/Taiga
-Cook Islands tropical moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Coolgardie woodlands,12,"Mediterranean Forests, Woodlands & Scrub"
-Copper Plateau taiga,6,Boreal Forests/Taiga
-Cordillera Central páramo,10,Montane Grasslands & Shrublands
-Cordillera de Merida páramo,10,Montane Grasslands & Shrublands
-Cordillera La Costa montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Cordillera Oriental montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Corsican montane broadleaf and mixed forests,12,"Mediterranean Forests, Woodlands & Scrub"
-Costa Rican seasonal moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Crete Mediterranean forests,12,"Mediterranean Forests, Woodlands & Scrub"
-Crimean Submediterranean forest complex,4,Temperate Broadleaf & Mixed Forests
-Cross-Niger transition forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Cross-Sanaga-Bioko coastal forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Cross-Timbers savanna-woodland,8,"Temperate Grasslands, Savannas & Shrublands"
-Cuban cactus scrub,13,Deserts & Xeric Shrublands
-Cuban dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Cuban moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Cuban pine forests,3,Tropical & Subtropical Coniferous Forests
-Cuban wetlands,9,Flooded Grasslands & Savannas
-Cyprus Mediterranean forests,12,"Mediterranean Forests, Woodlands & Scrub"
-Da Hinggan-Dzhagdy Mountains conifer forests,5,Temperate Conifer Forests
-Daba Mountains evergreen forests,4,Temperate Broadleaf & Mixed Forests
-Daurian forest steppe,8,"Temperate Grasslands, Savannas & Shrublands"
-Davis Highlands tundra,11,Tundra
-Deccan thorn scrub forests,13,Deserts & Xeric Shrublands
-Dinaric Mountains mixed forests,4,Temperate Broadleaf & Mixed Forests
-Djibouti xeric shrublands,13,Deserts & Xeric Shrublands
-Drakensberg Escarpment savanna and thicket,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Drakensberg grasslands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Rock and Ice,11,N/A
-Dry Chaco,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-East Afghan montane conifer forests,5,Temperate Conifer Forests
-East African halophytics,9,Flooded Grasslands & Savannas
-East African mangroves,14,Mangroves
-East Antarctic tundra,11,Tundra
-East Arabian fog shrublands and sand desert,13,Deserts & Xeric Shrublands
-East Central Texas forests,4,Temperate Broadleaf & Mixed Forests
-East Deccan dry-evergreen forests,2,Tropical & Subtropical Dry Broadleaf Forests
-East European forest steppe,4,Temperate Broadleaf & Mixed Forests
-East Sahara Desert,13,Deserts & Xeric Shrublands
-East Saharan montane xeric woodlands,13,Deserts & Xeric Shrublands
-East Siberian taiga,6,Boreal Forests/Taiga
-East Sudanian savanna,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Eastern Anatolian deciduous forests,4,Temperate Broadleaf & Mixed Forests
-Eastern Anatolian montane steppe,8,"Temperate Grasslands, Savannas & Shrublands"
-Eastern Australia mulga shrublands,8,"Temperate Grasslands, Savannas & Shrublands"
-Eastern Australian temperate forests,4,Temperate Broadleaf & Mixed Forests
-Eastern Canadian forests,6,Boreal Forests/Taiga
-Eastern Canadian Shield taiga,6,Boreal Forests/Taiga
-Eastern Cascades forests,5,Temperate Conifer Forests
-Eastern Congolian swamp forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Eastern Cordillera Real montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Eastern Canadian Forest-Boreal transition,4,Temperate Broadleaf & Mixed Forests
-Eastern Gobi desert steppe,13,Deserts & Xeric Shrublands
-Eastern Great Lakes lowland forests,4,Temperate Broadleaf & Mixed Forests
-Eastern Guinean forests,1,Tropical & Subtropical Moist Broadleaf Forests
-East Deccan moist deciduous forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Eastern Himalayan alpine shrub and meadows,10,Montane Grasslands & Shrublands
-Eastern Himalayan broadleaf forests,4,Temperate Broadleaf & Mixed Forests
-Eastern Himalayan subalpine conifer forests,5,Temperate Conifer Forests
-Eastern Java-Bali montane rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Eastern Java-Bali rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Eastern Mediterranean conifer-broadleaf forests,12,"Mediterranean Forests, Woodlands & Scrub"
-Eastern Micronesia tropical moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Eastern Panamanian montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Ecuadorian dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Edwards Plateau savanna,8,"Temperate Grasslands, Savannas & Shrublands"
-Einasleigh upland savanna,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Elburz Range forest steppe,5,Temperate Conifer Forests
-Ellsworth Land tundra,11,Tundra
-Ellsworth Mountains tundra,11,Tundra
-Emin Valley steppe,8,"Temperate Grasslands, Savannas & Shrublands"
-Enderby Land tundra,11,Tundra
-English Lowlands beech forests,4,Temperate Broadleaf & Mixed Forests
-Enriquillo wetlands,9,Flooded Grasslands & Savannas
-Eritrean coastal desert,13,Deserts & Xeric Shrublands
-Esperance mallee,12,"Mediterranean Forests, Woodlands & Scrub"
-Espinal,8,"Temperate Grasslands, Savannas & Shrublands"
-Ethiopian montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Ethiopian montane grasslands and woodlands,10,Montane Grasslands & Shrublands
-Ethiopian montane moorlands,10,Montane Grasslands & Shrublands
-Etosha Pan halophytics,9,Flooded Grasslands & Savannas
-Euxine-Colchic broadleaf forests,4,Temperate Broadleaf & Mixed Forests
-Everglades flooded grasslands,9,Flooded Grasslands & Savannas
-Eyre and York mallee,12,"Mediterranean Forests, Woodlands & Scrub"
-Faroe Islands boreal grasslands,8,"Temperate Grasslands, Savannas & Shrublands"
-Fernando de Noronha-Atol das Rocas moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Fiji tropical dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Fiji tropical moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Fiordland temperate forests,4,Temperate Broadleaf & Mixed Forests
-Flinders-Lofty montane woodlands,12,"Mediterranean Forests, Woodlands & Scrub"
-Flint Hills tallgrass prairie,8,"Temperate Grasslands, Savannas & Shrublands"
-Fraser Plateau and Basin conifer forests,5,Temperate Conifer Forests
-Fynbos shrubland,12,"Mediterranean Forests, Woodlands & Scrub"
-Galápagos Islands xeric scrub,13,Deserts & Xeric Shrublands
-Gariep Karoo,13,Deserts & Xeric Shrublands
-Ghorat-Hazarajat alpine meadow,10,Montane Grasslands & Shrublands
-Gibson desert,13,Deserts & Xeric Shrublands
-Gissaro-Alai open woodlands,8,"Temperate Grasslands, Savannas & Shrublands"
-Godavari-Krishna mangroves,13,Deserts & Xeric Shrublands
-Gobi Lakes Valley desert steppe,13,Deserts & Xeric Shrublands
-Granitic Seychelles forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Great Basin montane forests,5,Temperate Conifer Forests
-Great Basin shrub steppe,13,Deserts & Xeric Shrublands
-Great Lakes Basin desert steppe,13,Deserts & Xeric Shrublands
-Great Sandy-Tanami desert,13,Deserts & Xeric Shrublands
-Great Victoria desert,13,Deserts & Xeric Shrublands
-Greater Negros-Panay rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Guajira-Barranquilla xeric scrub,13,Deserts & Xeric Shrublands
-Guayaquil flooded grasslands,9,Flooded Grasslands & Savannas
-Guianan freshwater swamp forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Guianan Highlands moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Guianan lowland moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Guianan piedmont moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Guianan savanna,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Guinean forest-savanna,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Guinean mangroves,14,Mangroves
-Guinean montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Guizhou Plateau broadleaf and mixed forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Gulf of California xeric scrub,13,Deserts & Xeric Shrublands
-Gulf of St. Lawrence lowland forests,4,Temperate Broadleaf & Mixed Forests
-Gurupa várzea,1,Tropical & Subtropical Moist Broadleaf Forests
-Hainan Island monsoon rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Halmahera rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Hampton mallee and woodlands,12,"Mediterranean Forests, Woodlands & Scrub"
-Hawai'i tropical dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Hawai'i tropical high shrublands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Hawai'i tropical low shrublands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Hawai'i tropical moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Helanshan montane conifer forests,5,Temperate Conifer Forests
-Hengduan Mountains subalpine conifer forests,5,Temperate Conifer Forests
-Canadian High Arctic tundra,11,Tundra
-High Monte,10,Montane Grasslands & Shrublands
-Highveld grasslands,10,Montane Grasslands & Shrublands
-Himalayan subtropical broadleaf forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Himalayan subtropical pine forests,3,Tropical & Subtropical Coniferous Forests
-Hindu Kush alpine meadow,10,Montane Grasslands & Shrublands
-Hispaniolan dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Hispaniolan moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Hispaniolan pine forests,3,Tropical & Subtropical Coniferous Forests
-Hobyo grasslands and shrublands,13,Deserts & Xeric Shrublands
-Hokkaido deciduous forests,4,Temperate Broadleaf & Mixed Forests
-Hokkaido montane conifer forests,5,Temperate Conifer Forests
-Honshu alpine conifer forests,5,Temperate Conifer Forests
-Horn of Africa xeric bushlands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Huang He Plain mixed forests,4,Temperate Broadleaf & Mixed Forests
-Humid Chaco,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Humid Pampas,8,"Temperate Grasslands, Savannas & Shrublands"
-Huon Peninsula montane rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Iberian conifer forests,12,"Mediterranean Forests, Woodlands & Scrub"
-Iberian sclerophyllous and semi-deciduous forests,12,"Mediterranean Forests, Woodlands & Scrub"
-Iceland boreal birch forests and alpine tundra,6,Boreal Forests/Taiga
-Illyrian deciduous forests,12,"Mediterranean Forests, Woodlands & Scrub"
-Indochina mangroves,14,Mangroves
-Indus River Delta-Arabian Sea mangroves,14,Mangroves
-Indus Valley desert,13,Deserts & Xeric Shrublands
-Inner Niger Delta flooded savanna,9,Flooded Grasslands & Savannas
-Interior Alaska-Yukon lowland taiga,6,Boreal Forests/Taiga
-Interior Plateau US Hardwood Forests,4,Temperate Broadleaf & Mixed Forests
-Interior Yukon-Alaska alpine tundra,11,Tundra
-Iquitos várzea,1,Tropical & Subtropical Moist Broadleaf Forests
-Irrawaddy dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Irrawaddy freshwater swamp forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Irrawaddy moist deciduous forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Islas Revillagigedo dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Isthmian-Atlantic moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Isthmian-Pacific moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Italian sclerophyllous and semi-deciduous forests,12,"Mediterranean Forests, Woodlands & Scrub"
-Itigi-Sumbu thicket,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Jalisco dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Jamaican dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Jamaican moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Japurá-Solimões-Negro moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Jarrah-Karri forest and shrublands,12,"Mediterranean Forests, Woodlands & Scrub"
-Jian Nan subtropical evergreen forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Jos Plateau forest-grassland,10,Montane Grasslands & Shrublands
-Juan Fernández Islands temperate forests,4,Temperate Broadleaf & Mixed Forests
-Junggar Basin semi-desert,13,Deserts & Xeric Shrublands
-Juruá-Purus moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Kalaallit Nunaat High Arctic tundra,11,Tundra
-Kalahari Acacia woodlands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Kalahari xeric savanna,13,Deserts & Xeric Shrublands
-Kamchatka-Kurile meadows and sparse forests,6,Boreal Forests/Taiga
-Kamchatka taiga,6,Boreal Forests/Taiga
-Kaokoveld desert,13,Deserts & Xeric Shrublands
-Karakoram-West Tibetan Plateau alpine steppe,10,Montane Grasslands & Shrublands
-Kayah-Karen montane rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Kazakh forest steppe,8,"Temperate Grasslands, Savannas & Shrublands"
-Kazakh semi-desert,13,Deserts & Xeric Shrublands
-Kazakh steppe,8,"Temperate Grasslands, Savannas & Shrublands"
-Kazakh upland steppe,8,"Temperate Grasslands, Savannas & Shrublands"
-Kermadec Islands subtropical moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Khangai Mountains alpine meadow,10,Montane Grasslands & Shrublands
-Khangai Mountains conifer forests,5,Temperate Conifer Forests
-Khathiar-Gir dry deciduous forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Kimberly tropical savanna,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Klamath-Siskiyou forests,5,Temperate Conifer Forests
-Knysna-Amatole montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Kola Peninsula tundra,11,Tundra
-Kopet Dag semi-desert,13,Deserts & Xeric Shrublands
-Kopet Dag woodlands and forest steppe,10,Montane Grasslands & Shrublands
-Kuh Rud and Eastern Iran montane woodlands,10,Montane Grasslands & Shrublands
-Kwazulu Natal-Cape coastal forests,1,Tropical & Subtropical Moist Broadleaf Forests
-La Costa xeric shrublands,13,Deserts & Xeric Shrublands
-Lake Chad flooded savanna,9,Flooded Grasslands & Savannas
-Lara-Falcón dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Leeward Islands moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Lesser Sundas deciduous forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Limpopo lowveld,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Llanos,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Lord Howe Island subtropical forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Louisiade Archipelago rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Low Monte,8,"Temperate Grasslands, Savannas & Shrublands"
-Lower Gangetic Plains moist deciduous forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Luang Prabang montane rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Luzon montane rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Luzon rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Luzon tropical pine forests,3,Tropical & Subtropical Coniferous Forests
-Madagascar dry deciduous forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Madagascar ericoid thickets,10,Montane Grasslands & Shrublands
-Madagascar humid forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Madagascar mangroves,14,Mangroves
-Madagascar spiny thickets,13,Deserts & Xeric Shrublands
-Madagascar subhumid forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Madagascar succulent woodlands,13,Deserts & Xeric Shrublands
-Madeira-Tapajós moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Madeira evergreen forests,4,Temperate Broadleaf & Mixed Forests
-Magdalena-Urabá moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Magdalena Valley dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Magdalena Valley montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Magellanic subpolar forests,4,Temperate Broadleaf & Mixed Forests
-Makgadikgadi halophytics,9,Flooded Grasslands & Savannas
-Malabar Coast moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Maldives-Lakshadweep-Chagos Archipelago tropical moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Malpelo Island xeric scrub,13,Deserts & Xeric Shrublands
-Manchurian mixed forests,4,Temperate Broadleaf & Mixed Forests
-Mandara Plateau woodlands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Maputaland coastal forests and woodlands,1,Tropical & Subtropical Moist Broadleaf Forests
-Maracaibo dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Marajó várzea,1,Tropical & Subtropical Moist Broadleaf Forests
-Maranhão Babaçu forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Marañón dry forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Marianas tropical dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Marquesas tropical moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Masai xeric grasslands and shrublands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Mascarene forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Mato Grosso tropical dry forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Mediterranean Acacia-Argania dry woodlands and succulent thickets,12,"Mediterranean Forests, Woodlands & Scrub"
-Mediterranean conifer and mixed forests,5,Temperate Conifer Forests
-Mediterranean dry woodlands and steppe,12,"Mediterranean Forests, Woodlands & Scrub"
-Mediterranean High Atlas juniper steppe,10,Montane Grasslands & Shrublands
-Mediterranean woodlands and forests,12,"Mediterranean Forests, Woodlands & Scrub"
-Meghalaya subtropical forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Mentawai Islands rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Meseta Central matorral,13,Deserts & Xeric Shrublands
-Mesoamerican Gulf-Caribbean mangroves,14,Mangroves
-Mesopotamian shrub desert,13,Deserts & Xeric Shrublands
-Mid-Canada Boreal Plains forests,6,Boreal Forests/Taiga
-Canadian Middle Arctic Tundra,11,Tundra
-Mid-Atlantic US coastal savannas,8,"Temperate Grasslands, Savannas & Shrublands"
-Midwest Canadian Shield forests,6,Boreal Forests/Taiga
-Mindanao-Eastern Visayas rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Mindanao montane rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Mindoro rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Miskito pine forests,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Mississippi lowland forests,4,Temperate Broadleaf & Mixed Forests
-Mitchell Grass Downs,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Mizoram-Manipur-Kachin rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Mojave desert,13,Deserts & Xeric Shrublands
-Mongolian-Manchurian grassland,8,"Temperate Grasslands, Savannas & Shrublands"
-Montana Valley and Foothill grasslands,8,"Temperate Grasslands, Savannas & Shrublands"
-Monte Alegre várzea,1,Tropical & Subtropical Moist Broadleaf Forests
-Motagua Valley thornscrub,13,Deserts & Xeric Shrublands
-Mount Cameroon and Bioko montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Mulanje Montane forest-grassland,10,Montane Grasslands & Shrublands
-Murray-Darling woodlands and mallee,12,"Mediterranean Forests, Woodlands & Scrub"
-Muskwa-Slave Lake taiga,6,Boreal Forests/Taiga
-Myanmar Coast mangroves,14,Mangroves
-Myanmar coastal rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Nama Karoo shrublands,13,Deserts & Xeric Shrublands
-Namaqualand-Richtersveld steppe,13,Deserts & Xeric Shrublands
-Namib Desert,13,Deserts & Xeric Shrublands
-Namibian savanna woodlands,13,Deserts & Xeric Shrublands
-Nansei Islands subtropical evergreen forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Napo moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Naracoorte woodlands,12,"Mediterranean Forests, Woodlands & Scrub"
-Narmada Valley dry deciduous forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Nebraska Sand Hills mixed grasslands,8,"Temperate Grasslands, Savannas & Shrublands"
-Negro-Branco moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Nelson Coast temperate forests,4,Temperate Broadleaf & Mixed Forests
-Nenjiang River grassland,9,Flooded Grasslands & Savannas
-New Britain-New Ireland lowland rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-New Britain-New Ireland montane rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-New Caledonia dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-New Caledonia rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-New England-Acadian forests,4,Temperate Broadleaf & Mixed Forests
-New Guinea mangroves,14,Mangroves
-Nicobar Islands rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Niger Delta swamp forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Nigerian lowland forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Nihonkai evergreen forests,4,Temperate Broadleaf & Mixed Forests
-Nihonkai montane deciduous forests,4,Temperate Broadleaf & Mixed Forests
-Nile Delta flooded savanna,9,Flooded Grasslands & Savannas
-Norfolk Island subtropical forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Northeast Antarctic Peninsula tundra,11,Tundra
-Northwest Antarctic Peninsula tundra,11,Tundra
-North Arabian desert,13,Deserts & Xeric Shrublands
-North Arabian highland shrublands,13,Deserts & Xeric Shrublands
-New Zealand North Island temperate forests,4,Temperate Broadleaf & Mixed Forests
-North Saharan Xeric Steppe and Woodland,13,Deserts & Xeric Shrublands
-Somali montane xeric woodlands,13,Deserts & Xeric Shrublands
-North Tibetan Plateau-Kunlun Mountains alpine desert,10,Montane Grasslands & Shrublands
-North Victoria Land tundra,11,Tundra
-North Western Ghats moist deciduous forests,1,Tropical & Subtropical Moist Broadleaf Forests
-North Western Ghats montane rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Northeast China Plain deciduous forests,4,Temperate Broadleaf & Mixed Forests
-Northeast India-Myanmar pine forests,3,Tropical & Subtropical Coniferous Forests
-Northeast Siberian coastal tundra,11,Tundra
-Northeast Siberian taiga,6,Boreal Forests/Taiga
-Northeast Brazil restingas,1,Tropical & Subtropical Moist Broadleaf Forests
-Northeast Congolian lowland forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Northeast Himalayan subalpine conifer forests,5,Temperate Conifer Forests
-Northeast Spain and Southern France Mediterranean forests,12,"Mediterranean Forests, Woodlands & Scrub"
-Northeast US Coastal forests,4,Temperate Broadleaf & Mixed Forests
-Northern Acacia-Commiphora bushlands and thickets,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Northern Anatolian conifer and deciduous forests,5,Temperate Conifer Forests
-Northern Andean páramo,10,Montane Grasslands & Shrublands
-Northern Annamites rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Northern California coastal forests,5,Temperate Conifer Forests
-Northern Canadian Shield taiga,6,Boreal Forests/Taiga
-Northern Congolian Forest-Savanna,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-North Deccan dry deciduous forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Northern Indochina subtropical forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Northern Khorat Plateau moist deciduous forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Northern Mesoamerican Pacific mangroves,14,Mangroves
-Northern New Guinea lowland rain and freshwater swamp forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Northern New Guinea montane rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Northern Shortgrass prairie,8,"Temperate Grasslands, Savannas & Shrublands"
-Northern Swahili coastal forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Northern Tallgrass prairie,8,"Temperate Grasslands, Savannas & Shrublands"
-Northern Thailand-Laos moist deciduous forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Northern Triangle subtropical forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Northern Triangle temperate forests,4,Temperate Broadleaf & Mixed Forests
-Northern Vietnam lowland rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Northland temperate kauri forests,4,Temperate Broadleaf & Mixed Forests
-Northwest Iberian montane forests,12,"Mediterranean Forests, Woodlands & Scrub"
-Northwest Russian-Novaya Zemlya tundra,11,Tundra
-Northwest Andean montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Northwest Congolian lowland forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Northwest Hawai'i scrub,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Northwestern Himalayan alpine shrub and meadows,10,Montane Grasslands & Shrublands
-Aravalli west thorn scrub forests,13,Deserts & Xeric Shrublands
-Novosibirsk Islands Arctic desert,11,Tundra
-Nujiang Langcang Gorge alpine conifer and mixed forests,5,Temperate Conifer Forests
-Nullarbor Plains xeric shrublands,13,Deserts & Xeric Shrublands
-Nyanga-Chimanimani Montane forest-grassland,10,Montane Grasslands & Shrublands
-Oaxacan montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Ogasawara subtropical moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Ogilvie-MacKenzie alpine tundra,11,Tundra
-Okanogan dry forests,5,Temperate Conifer Forests
-Okhotsk-Manchurian taiga,6,Boreal Forests/Taiga
-Ordos Plateau steppe,10,Montane Grasslands & Shrublands
-Orinoco Delta swamp forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Orinoco wetlands,9,Flooded Grasslands & Savannas
-Orissa semi-evergreen forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Ozark Highlands mixed forests,4,Temperate Broadleaf & Mixed Forests
-Ozark Mountain forests,4,Temperate Broadleaf & Mixed Forests
-Pacific Coastal Mountain icefields and tundra,11,Tundra
-Palau tropical moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Palawan rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Palouse prairie,8,"Temperate Grasslands, Savannas & Shrublands"
-Pamir alpine desert and tundra,10,Montane Grasslands & Shrublands
-Panamanian dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Pannonian mixed forests,4,Temperate Broadleaf & Mixed Forests
-Pantanal,9,Flooded Grasslands & Savannas
-Pantanos de Centla,1,Tropical & Subtropical Moist Broadleaf Forests
-Pantepui forests & shrublands,1,Tropical & Subtropical Moist Broadleaf Forests
-Paraguaná xeric scrub,13,Deserts & Xeric Shrublands
-Paraná flooded savanna,9,Flooded Grasslands & Savannas
-Paropamisus xeric woodlands,13,Deserts & Xeric Shrublands
-Patagonian steppe,8,"Temperate Grasslands, Savannas & Shrublands"
-Patía valley dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Peninsular Malaysian montane rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Peninsular Malaysian peat swamp forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Peninsular Malaysian rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Pernambuco coastal forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Pernambuco interior forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Peruvian Yungas,1,Tropical & Subtropical Moist Broadleaf Forests
-Petén-Veracruz moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Pilbara shrublands,13,Deserts & Xeric Shrublands
-Pindus Mountains mixed forests,12,"Mediterranean Forests, Woodlands & Scrub"
-Piney Woods,5,Temperate Conifer Forests
-Po Basin mixed forests,4,Temperate Broadleaf & Mixed Forests
-Pontic steppe,8,"Temperate Grasslands, Savannas & Shrublands"
-Prince Charles Mountains tundra,11,Tundra
-Puerto Rican dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Puerto Rican moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Puget lowland forests,5,Temperate Conifer Forests
-Purus-Madeira moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Purus várzea,1,Tropical & Subtropical Moist Broadleaf Forests
-Pyrenees conifer and mixed forests,4,Temperate Broadleaf & Mixed Forests
-Qaidam Basin semi-desert,13,Deserts & Xeric Shrublands
-Qilian Mountains conifer forests,5,Temperate Conifer Forests
-Qilian Mountains subalpine meadows,10,Montane Grasslands & Shrublands
-Qin Ling Mountains deciduous forests,4,Temperate Broadleaf & Mixed Forests
-Qionglai-Minshan conifer forests,5,Temperate Conifer Forests
-Queensland tropical rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Rakiura Island temperate forests,4,Temperate Broadleaf & Mixed Forests
-Rann of Kutch seasonal salt marsh,9,Flooded Grasslands & Savannas
-Rapa Nui and Sala y Gómez subtropical forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Red River freshwater swamp forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Red Sea-Arabian Desert shrublands,13,Deserts & Xeric Shrublands
-Red Sea coastal desert,13,Deserts & Xeric Shrublands
-Red Sea mangroves,14,Mangroves
-Registan-North Pakistan sandy desert,13,Deserts & Xeric Shrublands
-Renosterveld shrubland,12,"Mediterranean Forests, Woodlands & Scrub"
-Richmond temperate forests,4,Temperate Broadleaf & Mixed Forests
-Rio Negro campinarana,1,Tropical & Subtropical Moist Broadleaf Forests
-Rodope montane mixed forests,4,Temperate Broadleaf & Mixed Forests
-Rwenzori-Virunga montane moorlands,10,Montane Grasslands & Shrublands
-Saharan halophytics,9,Flooded Grasslands & Savannas
-Sahelian Acacia savanna,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Sakhalin Island taiga,6,Boreal Forests/Taiga
-Samoan tropical moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-San Félix-San Ambrosio Islands temperate forests,4,Temperate Broadleaf & Mixed Forests
-San Lucan xeric scrub,13,Deserts & Xeric Shrublands
-Santa Lucia Montane Chaparral & Woodlands,12,"Mediterranean Forests, Woodlands & Scrub"
-Santa Marta montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Santa Marta páramo,10,Montane Grasslands & Shrublands
-"São Tomé, Príncipe, and Annobón forests",1,Tropical & Subtropical Moist Broadleaf Forests
-Sarmatic mixed forests,4,Temperate Broadleaf & Mixed Forests
-Sayan alpine meadows and tundra,10,Montane Grasslands & Shrublands
-Sayan Intermontane steppe,8,"Temperate Grasslands, Savannas & Shrublands"
-Sayan montane conifer forests,5,Temperate Conifer Forests
-Scandinavian and Russian taiga,6,Boreal Forests/Taiga
-Scandinavian coastal conifer forests,5,Temperate Conifer Forests
-Scandinavian Montane Birch forest and grasslands,11,Tundra
-Scotia Sea Islands tundra,11,Tundra
-Sechura desert,13,Deserts & Xeric Shrublands
-Selenge-Orkhon forest steppe,8,"Temperate Grasslands, Savannas & Shrublands"
-Seram rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Serengeti volcanic grasslands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Serra do Mar coastal forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Sichuan Basin evergreen broadleaf forests,4,Temperate Broadleaf & Mixed Forests
-Sierra de la Laguna dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Sierra de la Laguna pine-oak forests,3,Tropical & Subtropical Coniferous Forests
-Sierra de los Tuxtlas,1,Tropical & Subtropical Moist Broadleaf Forests
-Sierra Madre de Chiapas moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Sierra Madre de Oaxaca pine-oak forests,3,Tropical & Subtropical Coniferous Forests
-Sierra Madre del Sur pine-oak forests,3,Tropical & Subtropical Coniferous Forests
-Sierra Madre Occidental pine-oak forests,3,Tropical & Subtropical Coniferous Forests
-Sierra Madre Oriental pine-oak forests,3,Tropical & Subtropical Coniferous Forests
-Sierra Nevada forests,5,Temperate Conifer Forests
-Simpson desert,13,Deserts & Xeric Shrublands
-Sinaloan dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Sinú Valley dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Snake-Columbia shrub steppe,13,Deserts & Xeric Shrublands
-Society Islands tropical moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Socotra Island xeric shrublands,13,Deserts & Xeric Shrublands
-Solimões-Japurá moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Solomon Islands rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Somali Acacia-Commiphora bushlands and thickets,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Sonoran-Sinaloan subtropical dry forest,2,Tropical & Subtropical Dry Broadleaf Forests
-Sonoran desert,13,Deserts & Xeric Shrublands
-South American Pacific mangroves,14,Mangroves
-South Antarctic Peninsula tundra,11,Tundra
-South Apennine mixed montane forests,12,"Mediterranean Forests, Woodlands & Scrub"
-South Central Rockies forests,5,Temperate Conifer Forests
-South China-Vietnam subtropical evergreen forests,1,Tropical & Subtropical Moist Broadleaf Forests
-South China Sea Islands,1,Tropical & Subtropical Moist Broadleaf Forests
-South Deccan Plateau dry deciduous forests,2,Tropical & Subtropical Dry Broadleaf Forests
-South Iran Nubo-Sindian desert and semi-desert,13,Deserts & Xeric Shrublands
-New Zealand South Island montane grasslands,10,Montane Grasslands & Shrublands
-New Zealand South Island temperate forests,4,Temperate Broadleaf & Mixed Forests
-South Orkney Islands tundra,11,Tundra
-South Sahara desert,13,Deserts & Xeric Shrublands
-South Siberian forest steppe,8,"Temperate Grasslands, Savannas & Shrublands"
-South Taiwan monsoon rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-South Victoria Land tundra,11,Tundra
-South Western Ghats moist deciduous forests,1,Tropical & Subtropical Moist Broadleaf Forests
-South Western Ghats montane rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Southeast Australia temperate forests,4,Temperate Broadleaf & Mixed Forests
-Southeast Australia temperate savanna,8,"Temperate Grasslands, Savannas & Shrublands"
-Southeast Tibet shrublands and meadows,10,Montane Grasslands & Shrublands
-Southeast US mixed woodlands and savannas,8,"Temperate Grasslands, Savannas & Shrublands"
-Southeast US conifer savannas,8,"Temperate Grasslands, Savannas & Shrublands"
-Southeast Iberian shrubs and woodlands,12,"Mediterranean Forests, Woodlands & Scrub"
-Southeast Indochina dry evergreen forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Southeast Papuan rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Southern Acacia-Commiphora bushlands and thickets,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Southern Africa mangroves,14,Mangroves
-Southern Anatolian montane conifer and deciduous forests,12,"Mediterranean Forests, Woodlands & Scrub"
-Southern Andean steppe,10,Montane Grasslands & Shrublands
-Southern Andean Yungas,1,Tropical & Subtropical Moist Broadleaf Forests
-Southern Annamites montane rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Southern Atlantic Brazilian mangroves,14,Mangroves
-Southern Cone Mesopotamian savanna,9,Flooded Grasslands & Savannas
-Southern Congolian forest-savanna,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Southern Great Lakes forests,4,Temperate Broadleaf & Mixed Forests
-Southern Hudson Bay taiga,6,Boreal Forests/Taiga
-Southern Indian Ocean Islands tundra,11,Tundra
-Southern Korea evergreen forests,4,Temperate Broadleaf & Mixed Forests
-Southern Mesoamerican Pacific mangroves,14,Mangroves
-Southern New Guinea freshwater swamp forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Southern New Guinea lowland rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Southern Pacific dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Southern Rift Montane forest-grassland,10,Montane Grasslands & Shrublands
-Southern Swahili coastal forests and woodlands,1,Tropical & Subtropical Moist Broadleaf Forests
-Southern Vietnam lowland dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Southwest Amazon moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Southwest Arabian Escarpment shrublands and woodlands,13,Deserts & Xeric Shrublands
-Southwest Arabian highland xeric scrub,13,Deserts & Xeric Shrublands
-Southwest Australia savanna,12,"Mediterranean Forests, Woodlands & Scrub"
-Southwest Australia woodlands,12,"Mediterranean Forests, Woodlands & Scrub"
-Southwest Borneo freshwater swamp forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Southwest Iberian Mediterranean sclerophyllous and mixed forests,12,"Mediterranean Forests, Woodlands & Scrub"
-Sri Lanka dry-zone dry evergreen forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Sri Lanka lowland rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Sri Lanka montane rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-St. Peter and St. Paul Rocks,13,Deserts & Xeric Shrublands
-Succulent Karoo xeric shrublands,13,Deserts & Xeric Shrublands
-Sudd flooded grasslands,9,Flooded Grasslands & Savannas
-Suiphun-Khanka meadows and forest meadows,9,Flooded Grasslands & Savannas
-Sulaiman Range alpine meadows,10,Montane Grasslands & Shrublands
-Sulawesi montane rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Sulu Archipelago rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Sumatran freshwater swamp forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Sumatran lowland rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Sumatran montane rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Sumatran peat swamp forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Sumatran tropical pine forests,3,Tropical & Subtropical Coniferous Forests
-Sumba deciduous forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Sunda Shelf mangroves,14,Mangroves
-Sundaland heath forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Sundarbans freshwater swamp forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Sundarbans mangroves,14,Mangroves
-Syrian xeric grasslands and shrublands,8,"Temperate Grasslands, Savannas & Shrublands"
-Taiheiyo evergreen forests,4,Temperate Broadleaf & Mixed Forests
-Taiheiyo montane deciduous forests,4,Temperate Broadleaf & Mixed Forests
-Taimyr-Central Siberian tundra,11,Tundra
-Taiwan subtropical evergreen forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Taklimakan desert,13,Deserts & Xeric Shrublands
-Talamancan montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Tamaulipan matorral,13,Deserts & Xeric Shrublands
-Tamaulipan mezquital,13,Deserts & Xeric Shrublands
-Tapajós-Xingu moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Tarim Basin deciduous forests and steppe,4,Temperate Broadleaf & Mixed Forests
-Tasmanian Central Highland forests,4,Temperate Broadleaf & Mixed Forests
-Tasmanian temperate forests,4,Temperate Broadleaf & Mixed Forests
-Tasmanian temperate rain forests,4,Temperate Broadleaf & Mixed Forests
-Tehuacán Valley matorral,13,Deserts & Xeric Shrublands
-Tenasserim-South Thailand semi-evergreen rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Terai-Duar savanna and grasslands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Texas blackland prairies,8,"Temperate Grasslands, Savannas & Shrublands"
-Thar desert,13,Deserts & Xeric Shrublands
-Tian Shan foothill arid steppe,8,"Temperate Grasslands, Savannas & Shrublands"
-Tian Shan montane conifer forests,5,Temperate Conifer Forests
-Tian Shan montane steppe and meadows,10,Montane Grasslands & Shrublands
-Tibesti-Jebel Uweinat montane xeric woodlands,13,Deserts & Xeric Shrublands
-Tibetan Plateau alpine shrublands and meadows,10,Montane Grasslands & Shrublands
-Tigris-Euphrates alluvial salt marsh,9,Flooded Grasslands & Savannas
-Timor and Wetar deciduous forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Tirari-Sturt stony desert,13,Deserts & Xeric Shrublands
-Tongan tropical moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Tonle Sap-Mekong peat swamp forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Tonle Sap freshwater swamp forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Torngat Mountain tundra,11,Tundra
-Trans-Baikal Bald Mountain tundra,11,Tundra
-Trans-Baikal conifer forests,6,Boreal Forests/Taiga
-Trans-Mexican Volcanic Belt pine-oak forests,3,Tropical & Subtropical Coniferous Forests
-Trans Fly savanna and grasslands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Transantarctic Mountains tundra,11,Tundra
-Trinidad and Tobago moist forest,1,Tropical & Subtropical Moist Broadleaf Forests
-Tristan Da Cunha-Gough Islands shrub and grasslands,8,"Temperate Grasslands, Savannas & Shrublands"
-Trobriand Islands rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Tuamotu tropical moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Tubuai tropical moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Tumbes-Piura dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Tyrrhenian-Adriatic sclerophyllous and mixed forests,12,"Mediterranean Forests, Woodlands & Scrub"
-Uatumã-Trombetas moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Ucayali moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Upper Gangetic Plains moist deciduous forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Upper Midwest US forest-savanna transition,4,Temperate Broadleaf & Mixed Forests
-Urals montane forest and taiga,6,Boreal Forests/Taiga
-Uruguayan savanna,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Ussuri broadleaf and mixed forests,4,Temperate Broadleaf & Mixed Forests
-Valdivian temperate forests,4,Temperate Broadleaf & Mixed Forests
-Vanuatu rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Venezuelan Andes montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Veracruz dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Veracruz moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Veracruz montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Victoria Plains tropical savanna,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Vogelkop-Aru lowland rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Vogelkop montane rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Wasatch and Uinta montane forests,5,Temperate Conifer Forests
-Watson Highlands taiga,6,Boreal Forests/Taiga
-West Sahara desert,13,Deserts & Xeric Shrublands
-West Saharan montane xeric woodlands,13,Deserts & Xeric Shrublands
-West Siberian taiga,6,Boreal Forests/Taiga
-West Sudanian savanna,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Western Australian Mulga shrublands,13,Deserts & Xeric Shrublands
-Western Congolian swamp forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Western Ecuador moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Western European broadleaf forests,4,Temperate Broadleaf & Mixed Forests
-Western Great Lakes forests,4,Temperate Broadleaf & Mixed Forests
-Western Guinean lowland forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Western Gulf coastal grasslands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Western Himalayan alpine shrub and meadows,10,Montane Grasslands & Shrublands
-Western Himalayan broadleaf forests,4,Temperate Broadleaf & Mixed Forests
-Western Himalayan subalpine conifer forests,5,Temperate Conifer Forests
-Western Java montane rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Western Java rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Western Polynesian tropical moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Western shortgrass prairie,8,"Temperate Grasslands, Savannas & Shrublands"
-Western Siberian hemiboreal forests,4,Temperate Broadleaf & Mixed Forests
-Westland temperate forests,4,Temperate Broadleaf & Mixed Forests
-Willamette Valley oak savanna,8,"Temperate Grasslands, Savannas & Shrublands"
-Windward Islands moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Wrangel Island Arctic desert,11,Tundra
-Wyoming Basin shrub steppe,13,Deserts & Xeric Shrublands
-Xingu-Tocantins-Araguaia moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Yamal-Gydan tundra,11,Tundra
-Yap tropical dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Yapen rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Yarlung Zanbo arid steppe,10,Montane Grasslands & Shrublands
-Yellow Sea saline meadow,9,Flooded Grasslands & Savannas
-Yucatán dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Yucatán moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Yunnan Plateau subtropical evergreen forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Zagros Mountains forest steppe,4,Temperate Broadleaf & Mixed Forests
-Zambezian-Limpopo mixed woodlands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Zambezian Baikiaea woodlands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Zambezian coastal flooded savanna,9,Flooded Grasslands & Savannas
-Dry miombo woodlands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Zambezian evergreen dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Zambezian flooded grasslands,9,Flooded Grasslands & Savannas
-Zambezian mopane woodlands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Brazilian Atlantic dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-Northern Cordillera forests,6,Boreal Forests/Taiga
-St. Helena scrub and woodlands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Victoria Basin forest-savanna,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Western Congolian forest-savanna,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-East African montane moorlands,10,Montane Grasslands & Shrublands
-Queen Charlotte Islands conifer forests,5,Temperate Conifer Forests
-Northern Pacific Alaskan coastal forests,5,Temperate Conifer Forests
-Northwest Territories taiga,6,Boreal Forests/Taiga
-Southwest Arabian coastal xeric shrublands,13,Deserts & Xeric Shrublands
-Arabian-Persian Gulf coastal plain desert,13,Deserts & Xeric Shrublands
-South Arabian plains and plateau desert,13,Deserts & Xeric Shrublands
-Arabian desert,13,Deserts & Xeric Shrublands
-Bahamian pineyards,3,Tropical & Subtropical Coniferous Forests
-Ile Europa and Bassas da India xeric scrub,13,Deserts & Xeric Shrublands
-Kamchatka tundra,11,Tundra
-Tocantins/Pindare moist forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Kalaallit Nunaat Arctic steppe,11,Tundra
-North Cascades conifer forests,5,Temperate Conifer Forests
-Northern Rockies conifer forests,5,Temperate Conifer Forests
-Trindade-Martin Vaz Islands tropical forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Southwest Arabian montane woodlands and grasslands,7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-"South Arabian fog woodlands, shrublands, and dune",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands"
-Trinidad and Tobago dry forest,2,Tropical & Subtropical Dry Broadleaf Forests
-Lesser Antillean dry forests,2,Tropical & Subtropical Dry Broadleaf Forests
-North Atlantic moist mixed forests,4,Temperate Broadleaf & Mixed Forests
-Dronning Maud Land tundra,11,Tundra
-Marie Byrd Land tundra,11,Tundra
-Sulawesi lowland rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-East African montane forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Eastern Arc forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Borneo montane rain forests,1,Tropical & Subtropical Moist Broadleaf Forests
-Kinabalu montane alpine meadows,10,Montane Grasslands & Shrublands
+"","ECO_NAME","BIOME_NUM","BIOME_NAME","id"
+"1","Adelie Land tundra",11,"Tundra",1
+"2","Admiralty Islands lowland rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",2
+"3","Aegean and Western Turkey sclerophyllous and mixed forests",12,"Mediterranean Forests, Woodlands & Scrub",3
+"4","Afghan Mountains semi-desert",13,"Deserts & Xeric Shrublands",4
+"5","Ahklun and Kilbuck Upland Tundra",11,"Tundra",5
+"6","Al-Hajar foothill xeric woodlands and shrublands",8,"Temperate Grasslands, Savannas & Shrublands",6
+"7","Al-Hajar montane woodlands and shrublands",8,"Temperate Grasslands, Savannas & Shrublands",7
+"8","Alai-Western Tian Shan steppe",8,"Temperate Grasslands, Savannas & Shrublands",8
+"9","Alashan Plateau semi-desert",13,"Deserts & Xeric Shrublands",9
+"10","Alaska-St. Elias Range tundra",11,"Tundra",10
+"11","Alaska Peninsula montane taiga",6,"Boreal Forests/Taiga",11
+"12","Albany thickets",12,"Mediterranean Forests, Woodlands & Scrub",12
+"13","Alberta-British Columbia foothills forests",5,"Temperate Conifer Forests",13
+"14","Albertine Rift montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",14
+"15","Aldabra Island xeric scrub",13,"Deserts & Xeric Shrublands",15
+"16","Aleutian Islands tundra",11,"Tundra",16
+"17","Allegheny Highlands forests",4,"Temperate Broadleaf & Mixed Forests",17
+"18","Alps conifer and mixed forests",5,"Temperate Conifer Forests",18
+"19","Altai alpine meadow and tundra",10,"Montane Grasslands & Shrublands",19
+"20","Altai montane forest and forest steppe",5,"Temperate Conifer Forests",20
+"21","Altai steppe and semi-desert",8,"Temperate Grasslands, Savannas & Shrublands",21
+"22","Alto Paraná Atlantic forests",1,"Tropical & Subtropical Moist Broadleaf Forests",22
+"23","Amazon-Orinoco-Southern Caribbean mangroves",14,"Mangroves",23
+"24","Amsterdam-Saint Paul Islands temperate grasslands",8,"Temperate Grasslands, Savannas & Shrublands",24
+"25","Amur meadow steppe",9,"Flooded Grasslands & Savannas",25
+"26","Anatolian conifer and deciduous mixed forests",12,"Mediterranean Forests, Woodlands & Scrub",26
+"27","Andaman Islands rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",27
+"28","Angolan montane forest-grassland",10,"Montane Grasslands & Shrublands",28
+"29","Angolan mopane woodlands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",29
+"30","Angolan scarp savanna and woodlands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",30
+"31","Angolan wet miombo woodlands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",31
+"32","Antipodes Subantarctic Islands tundra",11,"Tundra",32
+"33","Appalachian-Blue Ridge forests",4,"Temperate Broadleaf & Mixed Forests",33
+"34","Appalachian mixed mesophytic forests",4,"Temperate Broadleaf & Mixed Forests",34
+"35","Appalachian Piedmont forests",4,"Temperate Broadleaf & Mixed Forests",35
+"36","Appenine deciduous montane forests",4,"Temperate Broadleaf & Mixed Forests",36
+"37","Apure-Villavicencio dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",37
+"38","Arabian sand desert",13,"Deserts & Xeric Shrublands",38
+"39","Araucaria moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",39
+"40","Araya and Paria xeric scrub",13,"Deserts & Xeric Shrublands",40
+"41","Arctic coastal tundra",11,"Tundra",41
+"42","Russian Arctic desert",11,"Tundra",42
+"43","Arctic foothills tundra",11,"Tundra",43
+"44","Arizona Mountains forests",5,"Temperate Conifer Forests",44
+"45","Arnhem Land tropical savanna",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",45
+"46","Ascension scrub and grasslands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",46
+"47","Atacama desert",13,"Deserts & Xeric Shrublands",47
+"48","Atlantic Coast restingas",1,"Tropical & Subtropical Moist Broadleaf Forests",48
+"49","Saharan Atlantic coastal desert",13,"Deserts & Xeric Shrublands",49
+"50","Atlantic coastal pine barrens",5,"Temperate Conifer Forests",50
+"51","Congolian coastal forests",1,"Tropical & Subtropical Moist Broadleaf Forests",51
+"52","European Atlantic mixed forests",4,"Temperate Broadleaf & Mixed Forests",52
+"53","Australian Alps montane grasslands",10,"Montane Grasslands & Shrublands",53
+"54","Azerbaijan shrub desert and steppe",13,"Deserts & Xeric Shrublands",54
+"55","Azores temperate mixed forests",4,"Temperate Broadleaf & Mixed Forests",55
+"56","Badghyz and Karabil semi-desert",13,"Deserts & Xeric Shrublands",56
+"57","Bahamian-Antillean mangroves",14,"Mangroves",57
+"58","Bahia coastal forests",1,"Tropical & Subtropical Moist Broadleaf Forests",58
+"59","Bahia interior forests",1,"Tropical & Subtropical Moist Broadleaf Forests",59
+"60","Baja California desert",13,"Deserts & Xeric Shrublands",60
+"61","Bajío dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",61
+"62","Balkan mixed forests",4,"Temperate Broadleaf & Mixed Forests",62
+"63","Balsas dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",63
+"64","Baltic mixed forests",4,"Temperate Broadleaf & Mixed Forests",64
+"65","Baluchistan xeric woodlands",13,"Deserts & Xeric Shrublands",65
+"66","Banda Sea Islands moist deciduous forests",1,"Tropical & Subtropical Moist Broadleaf Forests",66
+"67","Belizian pine savannas",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",67
+"68","Beni savanna",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",68
+"69","Russian Bering tundra",11,"Tundra",69
+"70","Beringia lowland tundra",11,"Tundra",70
+"71","Beringia upland tundra",11,"Tundra",71
+"72","Bermuda subtropical conifer forests",3,"Tropical & Subtropical Coniferous Forests",72
+"73","Biak-Numfoor rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",73
+"74","Blue Mountains forests",5,"Temperate Conifer Forests",74
+"75","Bohai Sea saline meadow",9,"Flooded Grasslands & Savannas",75
+"76","Bolivian montane dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",76
+"77","Bolivian Yungas",1,"Tropical & Subtropical Moist Broadleaf Forests",77
+"78","Borneo lowland rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",78
+"79","Borneo peat swamp forests",1,"Tropical & Subtropical Moist Broadleaf Forests",79
+"80","Brahmaputra Valley semi-evergreen forests",1,"Tropical & Subtropical Moist Broadleaf Forests",80
+"81","Brigalow tropical savanna",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",81
+"82","British Columbia coastal conifer forests",5,"Temperate Conifer Forests",82
+"83","Brooks-British Range tundra",11,"Tundra",83
+"84","Buru rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",84
+"85","Caatinga",2,"Tropical & Subtropical Dry Broadleaf Forests",85
+"86","Caatinga Enclaves moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",86
+"87","Caledon conifer forests",5,"Temperate Conifer Forests",87
+"88","California Central Valley grasslands",8,"Temperate Grasslands, Savannas & Shrublands",88
+"89","California coastal sage and chaparral",12,"Mediterranean Forests, Woodlands & Scrub",89
+"90","California interior chaparral and woodlands",12,"Mediterranean Forests, Woodlands & Scrub",90
+"91","California montane chaparral and woodlands",12,"Mediterranean Forests, Woodlands & Scrub",91
+"92","Cameroon Highlands forests",1,"Tropical & Subtropical Moist Broadleaf Forests",92
+"93","Campos Rupestres montane savanna",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",93
+"94","Canadian Aspen forests and parklands",8,"Temperate Grasslands, Savannas & Shrublands",94
+"95","Canadian Low Arctic tundra",11,"Tundra",95
+"96","Canary Islands dry woodlands and forests",12,"Mediterranean Forests, Woodlands & Scrub",96
+"97","Cantabrian mixed forests",4,"Temperate Broadleaf & Mixed Forests",97
+"98","Canterbury-Otago tussock grasslands",8,"Temperate Grasslands, Savannas & Shrublands",98
+"99","Cape Verde Islands dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",99
+"100","Cape York Peninsula tropical savanna",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",100
+"101","Caqueta moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",101
+"102","Cardamom Mountains rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",102
+"103","Caribbean shrublands",13,"Deserts & Xeric Shrublands",103
+"104","Carnarvon xeric shrublands",13,"Deserts & Xeric Shrublands",104
+"105","Carolines tropical moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",105
+"106","Carpathian montane forests",5,"Temperate Conifer Forests",106
+"107","Carpentaria tropical savanna",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",107
+"108","Caspian Hyrcanian mixed forests",4,"Temperate Broadleaf & Mixed Forests",108
+"109","Caspian lowland desert",13,"Deserts & Xeric Shrublands",109
+"110","Catatumbo moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",110
+"111","Cauca Valley dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",111
+"112","Cauca Valley montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",112
+"113","Caucasus mixed forests",4,"Temperate Broadleaf & Mixed Forests",113
+"114","Cayos Miskitos-San Andrés and Providencia moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",114
+"115","Celtic broadleaf forests",4,"Temperate Broadleaf & Mixed Forests",115
+"116","Central Afghan Mountains xeric woodlands",13,"Deserts & Xeric Shrublands",116
+"117","Central African mangroves",14,"Mangroves",117
+"118","Central American Atlantic moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",118
+"119","Central American dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",119
+"120","Central American montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",120
+"121","Central American pine-oak forests",3,"Tropical & Subtropical Coniferous Forests",121
+"122","Central Anatolian steppe",8,"Temperate Grasslands, Savannas & Shrublands",122
+"123","Central Anatolian steppe and woodlands",4,"Temperate Broadleaf & Mixed Forests",123
+"124","Central-Southern Cascades Forests",5,"Temperate Conifer Forests",124
+"125","Central-Southern US mixed grasslands",8,"Temperate Grasslands, Savannas & Shrublands",125
+"126","Central Andean dry puna",10,"Montane Grasslands & Shrublands",126
+"127","Central Andean puna",10,"Montane Grasslands & Shrublands",127
+"128","Central Andean wet puna",10,"Montane Grasslands & Shrublands",128
+"129","Central Asian northern desert",13,"Deserts & Xeric Shrublands",129
+"130","Central Asian riparian woodlands",13,"Deserts & Xeric Shrublands",130
+"131","Central Asian southern desert",13,"Deserts & Xeric Shrublands",131
+"132","Central British Columbia Mountain forests",5,"Temperate Conifer Forests",132
+"133","Central bushveld",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",133
+"134","Central Canadian Shield forests",6,"Boreal Forests/Taiga",134
+"135","Central China Loess Plateau mixed forests",4,"Temperate Broadleaf & Mixed Forests",135
+"136","Central Congolian lowland forests",1,"Tropical & Subtropical Moist Broadleaf Forests",136
+"137","Central Deccan Plateau dry deciduous forests",2,"Tropical & Subtropical Dry Broadleaf Forests",137
+"138","Central European mixed forests",4,"Temperate Broadleaf & Mixed Forests",138
+"139","Central US forest-grasslands transition",8,"Temperate Grasslands, Savannas & Shrublands",139
+"140","Central Indochina dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",140
+"141","Central Korean deciduous forests",4,"Temperate Broadleaf & Mixed Forests",141
+"142","Central Mexican matorral",13,"Deserts & Xeric Shrublands",142
+"143","Central Pacific Northwest coastal forests",5,"Temperate Conifer Forests",143
+"144","Central Persian desert basins",13,"Deserts & Xeric Shrublands",144
+"145","Central Polynesian tropical moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",145
+"146","Central Range Papuan montane rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",146
+"147","Papuan Central Range sub-alpine grasslands",10,"Montane Grasslands & Shrublands",147
+"148","Central Ranges xeric scrub",13,"Deserts & Xeric Shrublands",148
+"149","Central South Antarctic Peninsula tundra",11,"Tundra",149
+"150","Central Tallgrass prairie",8,"Temperate Grasslands, Savannas & Shrublands",150
+"151","Central Tibetan Plateau alpine steppe",10,"Montane Grasslands & Shrublands",151
+"152","Central Zambezian wet miombo woodlands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",152
+"153","Cerrado",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",153
+"154","Changbai Mountains mixed forests",4,"Temperate Broadleaf & Mixed Forests",154
+"155","Changjiang Plain evergreen forests",4,"Temperate Broadleaf & Mixed Forests",155
+"156","Chao Phraya freshwater swamp forests",1,"Tropical & Subtropical Moist Broadleaf Forests",156
+"157","Chao Phraya lowland moist deciduous forests",1,"Tropical & Subtropical Moist Broadleaf Forests",157
+"158","Chatham Island temperate forests",4,"Temperate Broadleaf & Mixed Forests",158
+"159","Cherskii-Kolyma mountain tundra",11,"Tundra",159
+"160","Chhota-Nagpur dry deciduous forests",2,"Tropical & Subtropical Dry Broadleaf Forests",160
+"161","Chiapas Depression dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",161
+"162","Chiapas montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",162
+"163","Chihuahuan desert",13,"Deserts & Xeric Shrublands",163
+"164","Chilean Matorral",12,"Mediterranean Forests, Woodlands & Scrub",164
+"165","Chimalapas montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",165
+"166","Chin Hills-Arakan Yoma montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",166
+"167","Chiquitano dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",167
+"168","Chocó-Darién moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",168
+"169","Christmas and Cocos Islands tropical forests",1,"Tropical & Subtropical Moist Broadleaf Forests",169
+"170","Chukchi Peninsula tundra",11,"Tundra",170
+"171","Clipperton Island shrub and grasslands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",171
+"172","Cocos Island moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",172
+"173","Colorado Plateau shrublands",13,"Deserts & Xeric Shrublands",173
+"174","Colorado Rockies forests",5,"Temperate Conifer Forests",174
+"175","Comoros forests",1,"Tropical & Subtropical Moist Broadleaf Forests",175
+"176","Cook Inlet taiga",6,"Boreal Forests/Taiga",176
+"177","Cook Islands tropical moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",177
+"178","Coolgardie woodlands",12,"Mediterranean Forests, Woodlands & Scrub",178
+"179","Copper Plateau taiga",6,"Boreal Forests/Taiga",179
+"180","Cordillera Central páramo",10,"Montane Grasslands & Shrublands",180
+"181","Cordillera de Merida páramo",10,"Montane Grasslands & Shrublands",181
+"182","Cordillera La Costa montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",182
+"183","Cordillera Oriental montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",183
+"184","Corsican montane broadleaf and mixed forests",12,"Mediterranean Forests, Woodlands & Scrub",184
+"185","Costa Rican seasonal moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",185
+"186","Crete Mediterranean forests",12,"Mediterranean Forests, Woodlands & Scrub",186
+"187","Crimean Submediterranean forest complex",4,"Temperate Broadleaf & Mixed Forests",187
+"188","Cross-Niger transition forests",1,"Tropical & Subtropical Moist Broadleaf Forests",188
+"189","Cross-Sanaga-Bioko coastal forests",1,"Tropical & Subtropical Moist Broadleaf Forests",189
+"190","Cross-Timbers savanna-woodland",8,"Temperate Grasslands, Savannas & Shrublands",190
+"191","Cuban cactus scrub",13,"Deserts & Xeric Shrublands",191
+"192","Cuban dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",192
+"193","Cuban moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",193
+"194","Cuban pine forests",3,"Tropical & Subtropical Coniferous Forests",194
+"195","Cuban wetlands",9,"Flooded Grasslands & Savannas",195
+"196","Cyprus Mediterranean forests",12,"Mediterranean Forests, Woodlands & Scrub",196
+"197","Da Hinggan-Dzhagdy Mountains conifer forests",5,"Temperate Conifer Forests",197
+"198","Daba Mountains evergreen forests",4,"Temperate Broadleaf & Mixed Forests",198
+"199","Daurian forest steppe",8,"Temperate Grasslands, Savannas & Shrublands",199
+"200","Davis Highlands tundra",11,"Tundra",200
+"201","Deccan thorn scrub forests",13,"Deserts & Xeric Shrublands",201
+"202","Dinaric Mountains mixed forests",4,"Temperate Broadleaf & Mixed Forests",202
+"203","Djibouti xeric shrublands",13,"Deserts & Xeric Shrublands",203
+"204","Drakensberg Escarpment savanna and thicket",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",204
+"205","Drakensberg grasslands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",205
+"206","Rock and Ice",11,"N/A",206
+"207","Dry Chaco",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",207
+"208","East Afghan montane conifer forests",5,"Temperate Conifer Forests",208
+"209","East African halophytics",9,"Flooded Grasslands & Savannas",209
+"210","East African mangroves",14,"Mangroves",210
+"211","East Antarctic tundra",11,"Tundra",211
+"212","East Arabian fog shrublands and sand desert",13,"Deserts & Xeric Shrublands",212
+"213","East Central Texas forests",4,"Temperate Broadleaf & Mixed Forests",213
+"214","East Deccan dry-evergreen forests",2,"Tropical & Subtropical Dry Broadleaf Forests",214
+"215","East European forest steppe",4,"Temperate Broadleaf & Mixed Forests",215
+"216","East Sahara Desert",13,"Deserts & Xeric Shrublands",216
+"217","East Saharan montane xeric woodlands",13,"Deserts & Xeric Shrublands",217
+"218","East Siberian taiga",6,"Boreal Forests/Taiga",218
+"219","East Sudanian savanna",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",219
+"220","Eastern Anatolian deciduous forests",4,"Temperate Broadleaf & Mixed Forests",220
+"221","Eastern Anatolian montane steppe",8,"Temperate Grasslands, Savannas & Shrublands",221
+"222","Eastern Australia mulga shrublands",8,"Temperate Grasslands, Savannas & Shrublands",222
+"223","Eastern Australian temperate forests",4,"Temperate Broadleaf & Mixed Forests",223
+"224","Eastern Canadian forests",6,"Boreal Forests/Taiga",224
+"225","Eastern Canadian Shield taiga",6,"Boreal Forests/Taiga",225
+"226","Eastern Cascades forests",5,"Temperate Conifer Forests",226
+"227","Eastern Congolian swamp forests",1,"Tropical & Subtropical Moist Broadleaf Forests",227
+"228","Eastern Cordillera Real montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",228
+"229","Eastern Canadian Forest-Boreal transition",4,"Temperate Broadleaf & Mixed Forests",229
+"230","Eastern Gobi desert steppe",13,"Deserts & Xeric Shrublands",230
+"231","Eastern Great Lakes lowland forests",4,"Temperate Broadleaf & Mixed Forests",231
+"232","Eastern Guinean forests",1,"Tropical & Subtropical Moist Broadleaf Forests",232
+"233","East Deccan moist deciduous forests",1,"Tropical & Subtropical Moist Broadleaf Forests",233
+"234","Eastern Himalayan alpine shrub and meadows",10,"Montane Grasslands & Shrublands",234
+"235","Eastern Himalayan broadleaf forests",4,"Temperate Broadleaf & Mixed Forests",235
+"236","Eastern Himalayan subalpine conifer forests",5,"Temperate Conifer Forests",236
+"237","Eastern Java-Bali montane rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",237
+"238","Eastern Java-Bali rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",238
+"239","Eastern Mediterranean conifer-broadleaf forests",12,"Mediterranean Forests, Woodlands & Scrub",239
+"240","Eastern Micronesia tropical moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",240
+"241","Eastern Panamanian montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",241
+"242","Ecuadorian dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",242
+"243","Edwards Plateau savanna",8,"Temperate Grasslands, Savannas & Shrublands",243
+"244","Einasleigh upland savanna",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",244
+"245","Elburz Range forest steppe",5,"Temperate Conifer Forests",245
+"246","Ellsworth Land tundra",11,"Tundra",246
+"247","Ellsworth Mountains tundra",11,"Tundra",247
+"248","Emin Valley steppe",8,"Temperate Grasslands, Savannas & Shrublands",248
+"249","Enderby Land tundra",11,"Tundra",249
+"250","English Lowlands beech forests",4,"Temperate Broadleaf & Mixed Forests",250
+"251","Enriquillo wetlands",9,"Flooded Grasslands & Savannas",251
+"252","Eritrean coastal desert",13,"Deserts & Xeric Shrublands",252
+"253","Esperance mallee",12,"Mediterranean Forests, Woodlands & Scrub",253
+"254","Espinal",8,"Temperate Grasslands, Savannas & Shrublands",254
+"255","Ethiopian montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",255
+"256","Ethiopian montane grasslands and woodlands",10,"Montane Grasslands & Shrublands",256
+"257","Ethiopian montane moorlands",10,"Montane Grasslands & Shrublands",257
+"258","Etosha Pan halophytics",9,"Flooded Grasslands & Savannas",258
+"259","Euxine-Colchic broadleaf forests",4,"Temperate Broadleaf & Mixed Forests",259
+"260","Everglades flooded grasslands",9,"Flooded Grasslands & Savannas",260
+"261","Eyre and York mallee",12,"Mediterranean Forests, Woodlands & Scrub",261
+"262","Faroe Islands boreal grasslands",8,"Temperate Grasslands, Savannas & Shrublands",262
+"263","Fernando de Noronha-Atol das Rocas moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",263
+"264","Fiji tropical dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",264
+"265","Fiji tropical moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",265
+"266","Fiordland temperate forests",4,"Temperate Broadleaf & Mixed Forests",266
+"267","Flinders-Lofty montane woodlands",12,"Mediterranean Forests, Woodlands & Scrub",267
+"268","Flint Hills tallgrass prairie",8,"Temperate Grasslands, Savannas & Shrublands",268
+"269","Fraser Plateau and Basin conifer forests",5,"Temperate Conifer Forests",269
+"270","Fynbos shrubland",12,"Mediterranean Forests, Woodlands & Scrub",270
+"271","Galápagos Islands xeric scrub",13,"Deserts & Xeric Shrublands",271
+"272","Gariep Karoo",13,"Deserts & Xeric Shrublands",272
+"273","Ghorat-Hazarajat alpine meadow",10,"Montane Grasslands & Shrublands",273
+"274","Gibson desert",13,"Deserts & Xeric Shrublands",274
+"275","Gissaro-Alai open woodlands",8,"Temperate Grasslands, Savannas & Shrublands",275
+"276","Godavari-Krishna mangroves",13,"Deserts & Xeric Shrublands",276
+"277","Gobi Lakes Valley desert steppe",13,"Deserts & Xeric Shrublands",277
+"278","Granitic Seychelles forests",1,"Tropical & Subtropical Moist Broadleaf Forests",278
+"279","Great Basin montane forests",5,"Temperate Conifer Forests",279
+"280","Great Basin shrub steppe",13,"Deserts & Xeric Shrublands",280
+"281","Great Lakes Basin desert steppe",13,"Deserts & Xeric Shrublands",281
+"282","Great Sandy-Tanami desert",13,"Deserts & Xeric Shrublands",282
+"283","Great Victoria desert",13,"Deserts & Xeric Shrublands",283
+"284","Greater Negros-Panay rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",284
+"285","Guajira-Barranquilla xeric scrub",13,"Deserts & Xeric Shrublands",285
+"286","Guayaquil flooded grasslands",9,"Flooded Grasslands & Savannas",286
+"287","Guianan freshwater swamp forests",1,"Tropical & Subtropical Moist Broadleaf Forests",287
+"288","Guianan Highlands moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",288
+"289","Guianan lowland moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",289
+"290","Guianan piedmont moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",290
+"291","Guianan savanna",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",291
+"292","Guinean forest-savanna",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",292
+"293","Guinean mangroves",14,"Mangroves",293
+"294","Guinean montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",294
+"295","Guizhou Plateau broadleaf and mixed forests",1,"Tropical & Subtropical Moist Broadleaf Forests",295
+"296","Gulf of California xeric scrub",13,"Deserts & Xeric Shrublands",296
+"297","Gulf of St. Lawrence lowland forests",4,"Temperate Broadleaf & Mixed Forests",297
+"298","Gurupa várzea",1,"Tropical & Subtropical Moist Broadleaf Forests",298
+"299","Hainan Island monsoon rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",299
+"300","Halmahera rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",300
+"301","Hampton mallee and woodlands",12,"Mediterranean Forests, Woodlands & Scrub",301
+"302","Hawai'i tropical dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",302
+"303","Hawai'i tropical high shrublands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",303
+"304","Hawai'i tropical low shrublands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",304
+"305","Hawai'i tropical moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",305
+"306","Helanshan montane conifer forests",5,"Temperate Conifer Forests",306
+"307","Hengduan Mountains subalpine conifer forests",5,"Temperate Conifer Forests",307
+"308","Canadian High Arctic tundra",11,"Tundra",308
+"309","High Monte",10,"Montane Grasslands & Shrublands",309
+"310","Highveld grasslands",10,"Montane Grasslands & Shrublands",310
+"311","Himalayan subtropical broadleaf forests",1,"Tropical & Subtropical Moist Broadleaf Forests",311
+"312","Himalayan subtropical pine forests",3,"Tropical & Subtropical Coniferous Forests",312
+"313","Hindu Kush alpine meadow",10,"Montane Grasslands & Shrublands",313
+"314","Hispaniolan dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",314
+"315","Hispaniolan moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",315
+"316","Hispaniolan pine forests",3,"Tropical & Subtropical Coniferous Forests",316
+"317","Hobyo grasslands and shrublands",13,"Deserts & Xeric Shrublands",317
+"318","Hokkaido deciduous forests",4,"Temperate Broadleaf & Mixed Forests",318
+"319","Hokkaido montane conifer forests",5,"Temperate Conifer Forests",319
+"320","Honshu alpine conifer forests",5,"Temperate Conifer Forests",320
+"321","Horn of Africa xeric bushlands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",321
+"322","Huang He Plain mixed forests",4,"Temperate Broadleaf & Mixed Forests",322
+"323","Humid Chaco",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",323
+"324","Humid Pampas",8,"Temperate Grasslands, Savannas & Shrublands",324
+"325","Huon Peninsula montane rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",325
+"326","Iberian conifer forests",12,"Mediterranean Forests, Woodlands & Scrub",326
+"327","Iberian sclerophyllous and semi-deciduous forests",12,"Mediterranean Forests, Woodlands & Scrub",327
+"328","Iceland boreal birch forests and alpine tundra",6,"Boreal Forests/Taiga",328
+"329","Illyrian deciduous forests",12,"Mediterranean Forests, Woodlands & Scrub",329
+"330","Indochina mangroves",14,"Mangroves",330
+"331","Indus River Delta-Arabian Sea mangroves",14,"Mangroves",331
+"332","Indus Valley desert",13,"Deserts & Xeric Shrublands",332
+"333","Inner Niger Delta flooded savanna",9,"Flooded Grasslands & Savannas",333
+"334","Interior Alaska-Yukon lowland taiga",6,"Boreal Forests/Taiga",334
+"335","Interior Plateau US Hardwood Forests",4,"Temperate Broadleaf & Mixed Forests",335
+"336","Interior Yukon-Alaska alpine tundra",11,"Tundra",336
+"337","Iquitos várzea",1,"Tropical & Subtropical Moist Broadleaf Forests",337
+"338","Irrawaddy dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",338
+"339","Irrawaddy freshwater swamp forests",1,"Tropical & Subtropical Moist Broadleaf Forests",339
+"340","Irrawaddy moist deciduous forests",1,"Tropical & Subtropical Moist Broadleaf Forests",340
+"341","Islas Revillagigedo dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",341
+"342","Isthmian-Atlantic moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",342
+"343","Isthmian-Pacific moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",343
+"344","Italian sclerophyllous and semi-deciduous forests",12,"Mediterranean Forests, Woodlands & Scrub",344
+"345","Itigi-Sumbu thicket",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",345
+"346","Jalisco dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",346
+"347","Jamaican dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",347
+"348","Jamaican moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",348
+"349","Japurá-Solimões-Negro moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",349
+"350","Jarrah-Karri forest and shrublands",12,"Mediterranean Forests, Woodlands & Scrub",350
+"351","Jian Nan subtropical evergreen forests",1,"Tropical & Subtropical Moist Broadleaf Forests",351
+"352","Jos Plateau forest-grassland",10,"Montane Grasslands & Shrublands",352
+"353","Juan Fernández Islands temperate forests",4,"Temperate Broadleaf & Mixed Forests",353
+"354","Junggar Basin semi-desert",13,"Deserts & Xeric Shrublands",354
+"355","Juruá-Purus moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",355
+"356","Kalaallit Nunaat High Arctic tundra",11,"Tundra",356
+"357","Kalahari Acacia woodlands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",357
+"358","Kalahari xeric savanna",13,"Deserts & Xeric Shrublands",358
+"359","Kamchatka-Kurile meadows and sparse forests",6,"Boreal Forests/Taiga",359
+"360","Kamchatka taiga",6,"Boreal Forests/Taiga",360
+"361","Kaokoveld desert",13,"Deserts & Xeric Shrublands",361
+"362","Karakoram-West Tibetan Plateau alpine steppe",10,"Montane Grasslands & Shrublands",362
+"363","Kayah-Karen montane rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",363
+"364","Kazakh forest steppe",8,"Temperate Grasslands, Savannas & Shrublands",364
+"365","Kazakh semi-desert",13,"Deserts & Xeric Shrublands",365
+"366","Kazakh steppe",8,"Temperate Grasslands, Savannas & Shrublands",366
+"367","Kazakh upland steppe",8,"Temperate Grasslands, Savannas & Shrublands",367
+"368","Kermadec Islands subtropical moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",368
+"369","Khangai Mountains alpine meadow",10,"Montane Grasslands & Shrublands",369
+"370","Khangai Mountains conifer forests",5,"Temperate Conifer Forests",370
+"371","Khathiar-Gir dry deciduous forests",2,"Tropical & Subtropical Dry Broadleaf Forests",371
+"372","Kimberly tropical savanna",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",372
+"373","Klamath-Siskiyou forests",5,"Temperate Conifer Forests",373
+"374","Knysna-Amatole montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",374
+"375","Kola Peninsula tundra",11,"Tundra",375
+"376","Kopet Dag semi-desert",13,"Deserts & Xeric Shrublands",376
+"377","Kopet Dag woodlands and forest steppe",10,"Montane Grasslands & Shrublands",377
+"378","Kuh Rud and Eastern Iran montane woodlands",10,"Montane Grasslands & Shrublands",378
+"379","Kwazulu Natal-Cape coastal forests",1,"Tropical & Subtropical Moist Broadleaf Forests",379
+"380","La Costa xeric shrublands",13,"Deserts & Xeric Shrublands",380
+"381","Lake Chad flooded savanna",9,"Flooded Grasslands & Savannas",381
+"382","Lara-Falcón dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",382
+"383","Leeward Islands moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",383
+"384","Lesser Sundas deciduous forests",2,"Tropical & Subtropical Dry Broadleaf Forests",384
+"385","Limpopo lowveld",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",385
+"386","Llanos",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",386
+"387","Lord Howe Island subtropical forests",1,"Tropical & Subtropical Moist Broadleaf Forests",387
+"388","Louisiade Archipelago rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",388
+"389","Low Monte",8,"Temperate Grasslands, Savannas & Shrublands",389
+"390","Lower Gangetic Plains moist deciduous forests",1,"Tropical & Subtropical Moist Broadleaf Forests",390
+"391","Luang Prabang montane rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",391
+"392","Luzon montane rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",392
+"393","Luzon rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",393
+"394","Luzon tropical pine forests",3,"Tropical & Subtropical Coniferous Forests",394
+"395","Madagascar dry deciduous forests",2,"Tropical & Subtropical Dry Broadleaf Forests",395
+"396","Madagascar ericoid thickets",10,"Montane Grasslands & Shrublands",396
+"397","Madagascar humid forests",1,"Tropical & Subtropical Moist Broadleaf Forests",397
+"398","Madagascar mangroves",14,"Mangroves",398
+"399","Madagascar spiny thickets",13,"Deserts & Xeric Shrublands",399
+"400","Madagascar subhumid forests",1,"Tropical & Subtropical Moist Broadleaf Forests",400
+"401","Madagascar succulent woodlands",13,"Deserts & Xeric Shrublands",401
+"402","Madeira-Tapajós moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",402
+"403","Madeira evergreen forests",4,"Temperate Broadleaf & Mixed Forests",403
+"404","Magdalena-Urabá moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",404
+"405","Magdalena Valley dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",405
+"406","Magdalena Valley montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",406
+"407","Magellanic subpolar forests",4,"Temperate Broadleaf & Mixed Forests",407
+"408","Makgadikgadi halophytics",9,"Flooded Grasslands & Savannas",408
+"409","Malabar Coast moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",409
+"410","Maldives-Lakshadweep-Chagos Archipelago tropical moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",410
+"411","Malpelo Island xeric scrub",13,"Deserts & Xeric Shrublands",411
+"412","Manchurian mixed forests",4,"Temperate Broadleaf & Mixed Forests",412
+"413","Mandara Plateau woodlands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",413
+"414","Maputaland coastal forests and woodlands",1,"Tropical & Subtropical Moist Broadleaf Forests",414
+"415","Maracaibo dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",415
+"416","Marajó várzea",1,"Tropical & Subtropical Moist Broadleaf Forests",416
+"417","Maranhão Babaçu forests",2,"Tropical & Subtropical Dry Broadleaf Forests",417
+"418","Marañón dry forests",1,"Tropical & Subtropical Moist Broadleaf Forests",418
+"419","Marianas tropical dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",419
+"420","Marquesas tropical moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",420
+"421","Masai xeric grasslands and shrublands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",421
+"422","Mascarene forests",1,"Tropical & Subtropical Moist Broadleaf Forests",422
+"423","Mato Grosso tropical dry forests",1,"Tropical & Subtropical Moist Broadleaf Forests",423
+"424","Mediterranean Acacia-Argania dry woodlands and succulent thickets",12,"Mediterranean Forests, Woodlands & Scrub",424
+"425","Mediterranean conifer and mixed forests",5,"Temperate Conifer Forests",425
+"426","Mediterranean dry woodlands and steppe",12,"Mediterranean Forests, Woodlands & Scrub",426
+"427","Mediterranean High Atlas juniper steppe",10,"Montane Grasslands & Shrublands",427
+"428","Mediterranean woodlands and forests",12,"Mediterranean Forests, Woodlands & Scrub",428
+"429","Meghalaya subtropical forests",1,"Tropical & Subtropical Moist Broadleaf Forests",429
+"430","Mentawai Islands rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",430
+"431","Meseta Central matorral",13,"Deserts & Xeric Shrublands",431
+"432","Mesoamerican Gulf-Caribbean mangroves",14,"Mangroves",432
+"433","Mesopotamian shrub desert",13,"Deserts & Xeric Shrublands",433
+"434","Mid-Canada Boreal Plains forests",6,"Boreal Forests/Taiga",434
+"435","Canadian Middle Arctic Tundra",11,"Tundra",435
+"436","Mid-Atlantic US coastal savannas",8,"Temperate Grasslands, Savannas & Shrublands",436
+"437","Midwest Canadian Shield forests",6,"Boreal Forests/Taiga",437
+"438","Mindanao-Eastern Visayas rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",438
+"439","Mindanao montane rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",439
+"440","Mindoro rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",440
+"441","Miskito pine forests",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",441
+"442","Mississippi lowland forests",4,"Temperate Broadleaf & Mixed Forests",442
+"443","Mitchell Grass Downs",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",443
+"444","Mizoram-Manipur-Kachin rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",444
+"445","Mojave desert",13,"Deserts & Xeric Shrublands",445
+"446","Mongolian-Manchurian grassland",8,"Temperate Grasslands, Savannas & Shrublands",446
+"447","Montana Valley and Foothill grasslands",8,"Temperate Grasslands, Savannas & Shrublands",447
+"448","Monte Alegre várzea",1,"Tropical & Subtropical Moist Broadleaf Forests",448
+"449","Motagua Valley thornscrub",13,"Deserts & Xeric Shrublands",449
+"450","Mount Cameroon and Bioko montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",450
+"451","Mulanje Montane forest-grassland",10,"Montane Grasslands & Shrublands",451
+"452","Murray-Darling woodlands and mallee",12,"Mediterranean Forests, Woodlands & Scrub",452
+"453","Muskwa-Slave Lake taiga",6,"Boreal Forests/Taiga",453
+"454","Myanmar Coast mangroves",14,"Mangroves",454
+"455","Myanmar coastal rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",455
+"456","Nama Karoo shrublands",13,"Deserts & Xeric Shrublands",456
+"457","Namaqualand-Richtersveld steppe",13,"Deserts & Xeric Shrublands",457
+"458","Namib Desert",13,"Deserts & Xeric Shrublands",458
+"459","Namibian savanna woodlands",13,"Deserts & Xeric Shrublands",459
+"460","Nansei Islands subtropical evergreen forests",1,"Tropical & Subtropical Moist Broadleaf Forests",460
+"461","Napo moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",461
+"462","Naracoorte woodlands",12,"Mediterranean Forests, Woodlands & Scrub",462
+"463","Narmada Valley dry deciduous forests",2,"Tropical & Subtropical Dry Broadleaf Forests",463
+"464","Nebraska Sand Hills mixed grasslands",8,"Temperate Grasslands, Savannas & Shrublands",464
+"465","Negro-Branco moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",465
+"466","Nelson Coast temperate forests",4,"Temperate Broadleaf & Mixed Forests",466
+"467","Nenjiang River grassland",9,"Flooded Grasslands & Savannas",467
+"468","New Britain-New Ireland lowland rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",468
+"469","New Britain-New Ireland montane rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",469
+"470","New Caledonia dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",470
+"471","New Caledonia rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",471
+"472","New England-Acadian forests",4,"Temperate Broadleaf & Mixed Forests",472
+"473","New Guinea mangroves",14,"Mangroves",473
+"474","Nicobar Islands rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",474
+"475","Niger Delta swamp forests",1,"Tropical & Subtropical Moist Broadleaf Forests",475
+"476","Nigerian lowland forests",1,"Tropical & Subtropical Moist Broadleaf Forests",476
+"477","Nihonkai evergreen forests",4,"Temperate Broadleaf & Mixed Forests",477
+"478","Nihonkai montane deciduous forests",4,"Temperate Broadleaf & Mixed Forests",478
+"479","Nile Delta flooded savanna",9,"Flooded Grasslands & Savannas",479
+"480","Norfolk Island subtropical forests",1,"Tropical & Subtropical Moist Broadleaf Forests",480
+"481","Northeast Antarctic Peninsula tundra",11,"Tundra",481
+"482","Northwest Antarctic Peninsula tundra",11,"Tundra",482
+"483","North Arabian desert",13,"Deserts & Xeric Shrublands",483
+"484","North Arabian highland shrublands",13,"Deserts & Xeric Shrublands",484
+"485","New Zealand North Island temperate forests",4,"Temperate Broadleaf & Mixed Forests",485
+"486","North Saharan Xeric Steppe and Woodland",13,"Deserts & Xeric Shrublands",486
+"487","Somali montane xeric woodlands",13,"Deserts & Xeric Shrublands",487
+"488","North Tibetan Plateau-Kunlun Mountains alpine desert",10,"Montane Grasslands & Shrublands",488
+"489","North Victoria Land tundra",11,"Tundra",489
+"490","North Western Ghats moist deciduous forests",1,"Tropical & Subtropical Moist Broadleaf Forests",490
+"491","North Western Ghats montane rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",491
+"492","Northeast China Plain deciduous forests",4,"Temperate Broadleaf & Mixed Forests",492
+"493","Northeast India-Myanmar pine forests",3,"Tropical & Subtropical Coniferous Forests",493
+"494","Northeast Siberian coastal tundra",11,"Tundra",494
+"495","Northeast Siberian taiga",6,"Boreal Forests/Taiga",495
+"496","Northeast Brazil restingas",1,"Tropical & Subtropical Moist Broadleaf Forests",496
+"497","Northeast Congolian lowland forests",1,"Tropical & Subtropical Moist Broadleaf Forests",497
+"498","Northeast Himalayan subalpine conifer forests",5,"Temperate Conifer Forests",498
+"499","Northeast Spain and Southern France Mediterranean forests",12,"Mediterranean Forests, Woodlands & Scrub",499
+"500","Northeast US Coastal forests",4,"Temperate Broadleaf & Mixed Forests",500
+"501","Northern Acacia-Commiphora bushlands and thickets",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",501
+"502","Northern Anatolian conifer and deciduous forests",5,"Temperate Conifer Forests",502
+"503","Northern Andean páramo",10,"Montane Grasslands & Shrublands",503
+"504","Northern Annamites rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",504
+"505","Northern California coastal forests",5,"Temperate Conifer Forests",505
+"506","Northern Canadian Shield taiga",6,"Boreal Forests/Taiga",506
+"507","Northern Congolian Forest-Savanna",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",507
+"508","North Deccan dry deciduous forests",2,"Tropical & Subtropical Dry Broadleaf Forests",508
+"509","Northern Indochina subtropical forests",1,"Tropical & Subtropical Moist Broadleaf Forests",509
+"510","Northern Khorat Plateau moist deciduous forests",1,"Tropical & Subtropical Moist Broadleaf Forests",510
+"511","Northern Mesoamerican Pacific mangroves",14,"Mangroves",511
+"512","Northern New Guinea lowland rain and freshwater swamp forests",1,"Tropical & Subtropical Moist Broadleaf Forests",512
+"513","Northern New Guinea montane rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",513
+"514","Northern Shortgrass prairie",8,"Temperate Grasslands, Savannas & Shrublands",514
+"515","Northern Swahili coastal forests",1,"Tropical & Subtropical Moist Broadleaf Forests",515
+"516","Northern Tallgrass prairie",8,"Temperate Grasslands, Savannas & Shrublands",516
+"517","Northern Thailand-Laos moist deciduous forests",1,"Tropical & Subtropical Moist Broadleaf Forests",517
+"518","Northern Triangle subtropical forests",1,"Tropical & Subtropical Moist Broadleaf Forests",518
+"519","Northern Triangle temperate forests",4,"Temperate Broadleaf & Mixed Forests",519
+"520","Northern Vietnam lowland rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",520
+"521","Northland temperate kauri forests",4,"Temperate Broadleaf & Mixed Forests",521
+"522","Northwest Iberian montane forests",12,"Mediterranean Forests, Woodlands & Scrub",522
+"523","Northwest Russian-Novaya Zemlya tundra",11,"Tundra",523
+"524","Northwest Andean montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",524
+"525","Northwest Congolian lowland forests",1,"Tropical & Subtropical Moist Broadleaf Forests",525
+"526","Northwest Hawai'i scrub",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",526
+"527","Northwestern Himalayan alpine shrub and meadows",10,"Montane Grasslands & Shrublands",527
+"528","Aravalli west thorn scrub forests",13,"Deserts & Xeric Shrublands",528
+"529","Novosibirsk Islands Arctic desert",11,"Tundra",529
+"530","Nujiang Langcang Gorge alpine conifer and mixed forests",5,"Temperate Conifer Forests",530
+"531","Nullarbor Plains xeric shrublands",13,"Deserts & Xeric Shrublands",531
+"532","Nyanga-Chimanimani Montane forest-grassland",10,"Montane Grasslands & Shrublands",532
+"533","Oaxacan montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",533
+"534","Ogasawara subtropical moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",534
+"535","Ogilvie-MacKenzie alpine tundra",11,"Tundra",535
+"536","Okanogan dry forests",5,"Temperate Conifer Forests",536
+"537","Okhotsk-Manchurian taiga",6,"Boreal Forests/Taiga",537
+"538","Ordos Plateau steppe",10,"Montane Grasslands & Shrublands",538
+"539","Orinoco Delta swamp forests",1,"Tropical & Subtropical Moist Broadleaf Forests",539
+"540","Orinoco wetlands",9,"Flooded Grasslands & Savannas",540
+"541","Orissa semi-evergreen forests",1,"Tropical & Subtropical Moist Broadleaf Forests",541
+"542","Ozark Highlands mixed forests",4,"Temperate Broadleaf & Mixed Forests",542
+"543","Ozark Mountain forests",4,"Temperate Broadleaf & Mixed Forests",543
+"544","Pacific Coastal Mountain icefields and tundra",11,"Tundra",544
+"545","Palau tropical moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",545
+"546","Palawan rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",546
+"547","Palouse prairie",8,"Temperate Grasslands, Savannas & Shrublands",547
+"548","Pamir alpine desert and tundra",10,"Montane Grasslands & Shrublands",548
+"549","Panamanian dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",549
+"550","Pannonian mixed forests",4,"Temperate Broadleaf & Mixed Forests",550
+"551","Pantanal",9,"Flooded Grasslands & Savannas",551
+"552","Pantanos de Centla",1,"Tropical & Subtropical Moist Broadleaf Forests",552
+"553","Pantepui forests & shrublands",1,"Tropical & Subtropical Moist Broadleaf Forests",553
+"554","Paraguaná xeric scrub",13,"Deserts & Xeric Shrublands",554
+"555","Paraná flooded savanna",9,"Flooded Grasslands & Savannas",555
+"556","Paropamisus xeric woodlands",13,"Deserts & Xeric Shrublands",556
+"557","Patagonian steppe",8,"Temperate Grasslands, Savannas & Shrublands",557
+"558","Patía valley dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",558
+"559","Peninsular Malaysian montane rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",559
+"560","Peninsular Malaysian peat swamp forests",1,"Tropical & Subtropical Moist Broadleaf Forests",560
+"561","Peninsular Malaysian rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",561
+"562","Pernambuco coastal forests",1,"Tropical & Subtropical Moist Broadleaf Forests",562
+"563","Pernambuco interior forests",1,"Tropical & Subtropical Moist Broadleaf Forests",563
+"564","Peruvian Yungas",1,"Tropical & Subtropical Moist Broadleaf Forests",564
+"565","Petén-Veracruz moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",565
+"566","Pilbara shrublands",13,"Deserts & Xeric Shrublands",566
+"567","Pindus Mountains mixed forests",12,"Mediterranean Forests, Woodlands & Scrub",567
+"568","Piney Woods",5,"Temperate Conifer Forests",568
+"569","Po Basin mixed forests",4,"Temperate Broadleaf & Mixed Forests",569
+"570","Pontic steppe",8,"Temperate Grasslands, Savannas & Shrublands",570
+"571","Prince Charles Mountains tundra",11,"Tundra",571
+"572","Puerto Rican dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",572
+"573","Puerto Rican moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",573
+"574","Puget lowland forests",5,"Temperate Conifer Forests",574
+"575","Purus-Madeira moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",575
+"576","Purus várzea",1,"Tropical & Subtropical Moist Broadleaf Forests",576
+"577","Pyrenees conifer and mixed forests",4,"Temperate Broadleaf & Mixed Forests",577
+"578","Qaidam Basin semi-desert",13,"Deserts & Xeric Shrublands",578
+"579","Qilian Mountains conifer forests",5,"Temperate Conifer Forests",579
+"580","Qilian Mountains subalpine meadows",10,"Montane Grasslands & Shrublands",580
+"581","Qin Ling Mountains deciduous forests",4,"Temperate Broadleaf & Mixed Forests",581
+"582","Qionglai-Minshan conifer forests",5,"Temperate Conifer Forests",582
+"583","Queensland tropical rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",583
+"584","Rakiura Island temperate forests",4,"Temperate Broadleaf & Mixed Forests",584
+"585","Rann of Kutch seasonal salt marsh",9,"Flooded Grasslands & Savannas",585
+"586","Rapa Nui and Sala y Gómez subtropical forests",1,"Tropical & Subtropical Moist Broadleaf Forests",586
+"587","Red River freshwater swamp forests",1,"Tropical & Subtropical Moist Broadleaf Forests",587
+"588","Red Sea-Arabian Desert shrublands",13,"Deserts & Xeric Shrublands",588
+"589","Red Sea coastal desert",13,"Deserts & Xeric Shrublands",589
+"590","Red Sea mangroves",14,"Mangroves",590
+"591","Registan-North Pakistan sandy desert",13,"Deserts & Xeric Shrublands",591
+"592","Renosterveld shrubland",12,"Mediterranean Forests, Woodlands & Scrub",592
+"593","Richmond temperate forests",4,"Temperate Broadleaf & Mixed Forests",593
+"594","Rio Negro campinarana",1,"Tropical & Subtropical Moist Broadleaf Forests",594
+"595","Rodope montane mixed forests",4,"Temperate Broadleaf & Mixed Forests",595
+"596","Rwenzori-Virunga montane moorlands",10,"Montane Grasslands & Shrublands",596
+"597","Saharan halophytics",9,"Flooded Grasslands & Savannas",597
+"598","Sahelian Acacia savanna",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",598
+"599","Sakhalin Island taiga",6,"Boreal Forests/Taiga",599
+"600","Samoan tropical moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",600
+"601","San Félix-San Ambrosio Islands temperate forests",4,"Temperate Broadleaf & Mixed Forests",601
+"602","San Lucan xeric scrub",13,"Deserts & Xeric Shrublands",602
+"603","Santa Lucia Montane Chaparral & Woodlands",12,"Mediterranean Forests, Woodlands & Scrub",603
+"604","Santa Marta montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",604
+"605","Santa Marta páramo",10,"Montane Grasslands & Shrublands",605
+"606","São Tomé, Príncipe, and Annobón forests",1,"Tropical & Subtropical Moist Broadleaf Forests",606
+"607","Sarmatic mixed forests",4,"Temperate Broadleaf & Mixed Forests",607
+"608","Sayan alpine meadows and tundra",10,"Montane Grasslands & Shrublands",608
+"609","Sayan Intermontane steppe",8,"Temperate Grasslands, Savannas & Shrublands",609
+"610","Sayan montane conifer forests",5,"Temperate Conifer Forests",610
+"611","Scandinavian and Russian taiga",6,"Boreal Forests/Taiga",611
+"612","Scandinavian coastal conifer forests",5,"Temperate Conifer Forests",612
+"613","Scandinavian Montane Birch forest and grasslands",11,"Tundra",613
+"614","Scotia Sea Islands tundra",11,"Tundra",614
+"615","Sechura desert",13,"Deserts & Xeric Shrublands",615
+"616","Selenge-Orkhon forest steppe",8,"Temperate Grasslands, Savannas & Shrublands",616
+"617","Seram rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",617
+"618","Serengeti volcanic grasslands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",618
+"619","Serra do Mar coastal forests",1,"Tropical & Subtropical Moist Broadleaf Forests",619
+"620","Sichuan Basin evergreen broadleaf forests",4,"Temperate Broadleaf & Mixed Forests",620
+"621","Sierra de la Laguna dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",621
+"622","Sierra de la Laguna pine-oak forests",3,"Tropical & Subtropical Coniferous Forests",622
+"623","Sierra de los Tuxtlas",1,"Tropical & Subtropical Moist Broadleaf Forests",623
+"624","Sierra Madre de Chiapas moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",624
+"625","Sierra Madre de Oaxaca pine-oak forests",3,"Tropical & Subtropical Coniferous Forests",625
+"626","Sierra Madre del Sur pine-oak forests",3,"Tropical & Subtropical Coniferous Forests",626
+"627","Sierra Madre Occidental pine-oak forests",3,"Tropical & Subtropical Coniferous Forests",627
+"628","Sierra Madre Oriental pine-oak forests",3,"Tropical & Subtropical Coniferous Forests",628
+"629","Sierra Nevada forests",5,"Temperate Conifer Forests",629
+"630","Simpson desert",13,"Deserts & Xeric Shrublands",630
+"631","Sinaloan dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",631
+"632","Sinú Valley dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",632
+"633","Snake-Columbia shrub steppe",13,"Deserts & Xeric Shrublands",633
+"634","Society Islands tropical moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",634
+"635","Socotra Island xeric shrublands",13,"Deserts & Xeric Shrublands",635
+"636","Solimões-Japurá moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",636
+"637","Solomon Islands rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",637
+"638","Somali Acacia-Commiphora bushlands and thickets",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",638
+"639","Sonoran-Sinaloan subtropical dry forest",2,"Tropical & Subtropical Dry Broadleaf Forests",639
+"640","Sonoran desert",13,"Deserts & Xeric Shrublands",640
+"641","South American Pacific mangroves",14,"Mangroves",641
+"642","South Antarctic Peninsula tundra",11,"Tundra",642
+"643","South Apennine mixed montane forests",12,"Mediterranean Forests, Woodlands & Scrub",643
+"644","South Central Rockies forests",5,"Temperate Conifer Forests",644
+"645","South China-Vietnam subtropical evergreen forests",1,"Tropical & Subtropical Moist Broadleaf Forests",645
+"646","South China Sea Islands",1,"Tropical & Subtropical Moist Broadleaf Forests",646
+"647","South Deccan Plateau dry deciduous forests",2,"Tropical & Subtropical Dry Broadleaf Forests",647
+"648","South Iran Nubo-Sindian desert and semi-desert",13,"Deserts & Xeric Shrublands",648
+"649","New Zealand South Island montane grasslands",10,"Montane Grasslands & Shrublands",649
+"650","New Zealand South Island temperate forests",4,"Temperate Broadleaf & Mixed Forests",650
+"651","South Orkney Islands tundra",11,"Tundra",651
+"652","South Sahara desert",13,"Deserts & Xeric Shrublands",652
+"653","South Siberian forest steppe",8,"Temperate Grasslands, Savannas & Shrublands",653
+"654","South Taiwan monsoon rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",654
+"655","South Victoria Land tundra",11,"Tundra",655
+"656","South Western Ghats moist deciduous forests",1,"Tropical & Subtropical Moist Broadleaf Forests",656
+"657","South Western Ghats montane rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",657
+"658","Southeast Australia temperate forests",4,"Temperate Broadleaf & Mixed Forests",658
+"659","Southeast Australia temperate savanna",8,"Temperate Grasslands, Savannas & Shrublands",659
+"660","Southeast Tibet shrublands and meadows",10,"Montane Grasslands & Shrublands",660
+"661","Southeast US mixed woodlands and savannas",8,"Temperate Grasslands, Savannas & Shrublands",661
+"662","Southeast US conifer savannas",8,"Temperate Grasslands, Savannas & Shrublands",662
+"663","Southeast Iberian shrubs and woodlands",12,"Mediterranean Forests, Woodlands & Scrub",663
+"664","Southeast Indochina dry evergreen forests",2,"Tropical & Subtropical Dry Broadleaf Forests",664
+"665","Southeast Papuan rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",665
+"666","Southern Acacia-Commiphora bushlands and thickets",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",666
+"667","Southern Africa mangroves",14,"Mangroves",667
+"668","Southern Anatolian montane conifer and deciduous forests",12,"Mediterranean Forests, Woodlands & Scrub",668
+"669","Southern Andean steppe",10,"Montane Grasslands & Shrublands",669
+"670","Southern Andean Yungas",1,"Tropical & Subtropical Moist Broadleaf Forests",670
+"671","Southern Annamites montane rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",671
+"672","Southern Atlantic Brazilian mangroves",14,"Mangroves",672
+"673","Southern Cone Mesopotamian savanna",9,"Flooded Grasslands & Savannas",673
+"674","Southern Congolian forest-savanna",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",674
+"675","Southern Great Lakes forests",4,"Temperate Broadleaf & Mixed Forests",675
+"676","Southern Hudson Bay taiga",6,"Boreal Forests/Taiga",676
+"677","Southern Indian Ocean Islands tundra",11,"Tundra",677
+"678","Southern Korea evergreen forests",4,"Temperate Broadleaf & Mixed Forests",678
+"679","Southern Mesoamerican Pacific mangroves",14,"Mangroves",679
+"680","Southern New Guinea freshwater swamp forests",1,"Tropical & Subtropical Moist Broadleaf Forests",680
+"681","Southern New Guinea lowland rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",681
+"682","Southern Pacific dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",682
+"683","Southern Rift Montane forest-grassland",10,"Montane Grasslands & Shrublands",683
+"684","Southern Swahili coastal forests and woodlands",1,"Tropical & Subtropical Moist Broadleaf Forests",684
+"685","Southern Vietnam lowland dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",685
+"686","Southwest Amazon moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",686
+"687","Southwest Arabian Escarpment shrublands and woodlands",13,"Deserts & Xeric Shrublands",687
+"688","Southwest Arabian highland xeric scrub",13,"Deserts & Xeric Shrublands",688
+"689","Southwest Australia savanna",12,"Mediterranean Forests, Woodlands & Scrub",689
+"690","Southwest Australia woodlands",12,"Mediterranean Forests, Woodlands & Scrub",690
+"691","Southwest Borneo freshwater swamp forests",1,"Tropical & Subtropical Moist Broadleaf Forests",691
+"692","Southwest Iberian Mediterranean sclerophyllous and mixed forests",12,"Mediterranean Forests, Woodlands & Scrub",692
+"693","Sri Lanka dry-zone dry evergreen forests",2,"Tropical & Subtropical Dry Broadleaf Forests",693
+"694","Sri Lanka lowland rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",694
+"695","Sri Lanka montane rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",695
+"696","St. Peter and St. Paul Rocks",13,"Deserts & Xeric Shrublands",696
+"697","Succulent Karoo xeric shrublands",13,"Deserts & Xeric Shrublands",697
+"698","Sudd flooded grasslands",9,"Flooded Grasslands & Savannas",698
+"699","Suiphun-Khanka meadows and forest meadows",9,"Flooded Grasslands & Savannas",699
+"700","Sulaiman Range alpine meadows",10,"Montane Grasslands & Shrublands",700
+"701","Sulawesi montane rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",701
+"702","Sulu Archipelago rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",702
+"703","Sumatran freshwater swamp forests",1,"Tropical & Subtropical Moist Broadleaf Forests",703
+"704","Sumatran lowland rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",704
+"705","Sumatran montane rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",705
+"706","Sumatran peat swamp forests",1,"Tropical & Subtropical Moist Broadleaf Forests",706
+"707","Sumatran tropical pine forests",3,"Tropical & Subtropical Coniferous Forests",707
+"708","Sumba deciduous forests",2,"Tropical & Subtropical Dry Broadleaf Forests",708
+"709","Sunda Shelf mangroves",14,"Mangroves",709
+"710","Sundaland heath forests",1,"Tropical & Subtropical Moist Broadleaf Forests",710
+"711","Sundarbans freshwater swamp forests",1,"Tropical & Subtropical Moist Broadleaf Forests",711
+"712","Sundarbans mangroves",14,"Mangroves",712
+"713","Syrian xeric grasslands and shrublands",8,"Temperate Grasslands, Savannas & Shrublands",713
+"714","Taiheiyo evergreen forests",4,"Temperate Broadleaf & Mixed Forests",714
+"715","Taiheiyo montane deciduous forests",4,"Temperate Broadleaf & Mixed Forests",715
+"716","Taimyr-Central Siberian tundra",11,"Tundra",716
+"717","Taiwan subtropical evergreen forests",1,"Tropical & Subtropical Moist Broadleaf Forests",717
+"718","Taklimakan desert",13,"Deserts & Xeric Shrublands",718
+"719","Talamancan montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",719
+"720","Tamaulipan matorral",13,"Deserts & Xeric Shrublands",720
+"721","Tamaulipan mezquital",13,"Deserts & Xeric Shrublands",721
+"722","Tapajós-Xingu moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",722
+"723","Tarim Basin deciduous forests and steppe",4,"Temperate Broadleaf & Mixed Forests",723
+"724","Tasmanian Central Highland forests",4,"Temperate Broadleaf & Mixed Forests",724
+"725","Tasmanian temperate forests",4,"Temperate Broadleaf & Mixed Forests",725
+"726","Tasmanian temperate rain forests",4,"Temperate Broadleaf & Mixed Forests",726
+"727","Tehuacán Valley matorral",13,"Deserts & Xeric Shrublands",727
+"728","Tenasserim-South Thailand semi-evergreen rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",728
+"729","Terai-Duar savanna and grasslands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",729
+"730","Texas blackland prairies",8,"Temperate Grasslands, Savannas & Shrublands",730
+"731","Thar desert",13,"Deserts & Xeric Shrublands",731
+"732","Tian Shan foothill arid steppe",8,"Temperate Grasslands, Savannas & Shrublands",732
+"733","Tian Shan montane conifer forests",5,"Temperate Conifer Forests",733
+"734","Tian Shan montane steppe and meadows",10,"Montane Grasslands & Shrublands",734
+"735","Tibesti-Jebel Uweinat montane xeric woodlands",13,"Deserts & Xeric Shrublands",735
+"736","Tibetan Plateau alpine shrublands and meadows",10,"Montane Grasslands & Shrublands",736
+"737","Tigris-Euphrates alluvial salt marsh",9,"Flooded Grasslands & Savannas",737
+"738","Timor and Wetar deciduous forests",2,"Tropical & Subtropical Dry Broadleaf Forests",738
+"739","Tirari-Sturt stony desert",13,"Deserts & Xeric Shrublands",739
+"740","Tongan tropical moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",740
+"741","Tonle Sap-Mekong peat swamp forests",1,"Tropical & Subtropical Moist Broadleaf Forests",741
+"742","Tonle Sap freshwater swamp forests",1,"Tropical & Subtropical Moist Broadleaf Forests",742
+"743","Torngat Mountain tundra",11,"Tundra",743
+"744","Trans-Baikal Bald Mountain tundra",11,"Tundra",744
+"745","Trans-Baikal conifer forests",6,"Boreal Forests/Taiga",745
+"746","Trans-Mexican Volcanic Belt pine-oak forests",3,"Tropical & Subtropical Coniferous Forests",746
+"747","Trans Fly savanna and grasslands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",747
+"748","Transantarctic Mountains tundra",11,"Tundra",748
+"749","Trinidad and Tobago moist forest",1,"Tropical & Subtropical Moist Broadleaf Forests",749
+"750","Tristan Da Cunha-Gough Islands shrub and grasslands",8,"Temperate Grasslands, Savannas & Shrublands",750
+"751","Trobriand Islands rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",751
+"752","Tuamotu tropical moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",752
+"753","Tubuai tropical moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",753
+"754","Tumbes-Piura dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",754
+"755","Tyrrhenian-Adriatic sclerophyllous and mixed forests",12,"Mediterranean Forests, Woodlands & Scrub",755
+"756","Uatumã-Trombetas moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",756
+"757","Ucayali moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",757
+"758","Upper Gangetic Plains moist deciduous forests",1,"Tropical & Subtropical Moist Broadleaf Forests",758
+"759","Upper Midwest US forest-savanna transition",4,"Temperate Broadleaf & Mixed Forests",759
+"760","Urals montane forest and taiga",6,"Boreal Forests/Taiga",760
+"761","Uruguayan savanna",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",761
+"762","Ussuri broadleaf and mixed forests",4,"Temperate Broadleaf & Mixed Forests",762
+"763","Valdivian temperate forests",4,"Temperate Broadleaf & Mixed Forests",763
+"764","Vanuatu rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",764
+"765","Venezuelan Andes montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",765
+"766","Veracruz dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",766
+"767","Veracruz moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",767
+"768","Veracruz montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",768
+"769","Victoria Plains tropical savanna",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",769
+"770","Vogelkop-Aru lowland rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",770
+"771","Vogelkop montane rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",771
+"772","Wasatch and Uinta montane forests",5,"Temperate Conifer Forests",772
+"773","Watson Highlands taiga",6,"Boreal Forests/Taiga",773
+"774","West Sahara desert",13,"Deserts & Xeric Shrublands",774
+"775","West Saharan montane xeric woodlands",13,"Deserts & Xeric Shrublands",775
+"776","West Siberian taiga",6,"Boreal Forests/Taiga",776
+"777","West Sudanian savanna",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",777
+"778","Western Australian Mulga shrublands",13,"Deserts & Xeric Shrublands",778
+"779","Western Congolian swamp forests",1,"Tropical & Subtropical Moist Broadleaf Forests",779
+"780","Western Ecuador moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",780
+"781","Western European broadleaf forests",4,"Temperate Broadleaf & Mixed Forests",781
+"782","Western Great Lakes forests",4,"Temperate Broadleaf & Mixed Forests",782
+"783","Western Guinean lowland forests",1,"Tropical & Subtropical Moist Broadleaf Forests",783
+"784","Western Gulf coastal grasslands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",784
+"785","Western Himalayan alpine shrub and meadows",10,"Montane Grasslands & Shrublands",785
+"786","Western Himalayan broadleaf forests",4,"Temperate Broadleaf & Mixed Forests",786
+"787","Western Himalayan subalpine conifer forests",5,"Temperate Conifer Forests",787
+"788","Western Java montane rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",788
+"789","Western Java rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",789
+"790","Western Polynesian tropical moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",790
+"791","Western shortgrass prairie",8,"Temperate Grasslands, Savannas & Shrublands",791
+"792","Western Siberian hemiboreal forests",4,"Temperate Broadleaf & Mixed Forests",792
+"793","Westland temperate forests",4,"Temperate Broadleaf & Mixed Forests",793
+"794","Willamette Valley oak savanna",8,"Temperate Grasslands, Savannas & Shrublands",794
+"795","Windward Islands moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",795
+"796","Wrangel Island Arctic desert",11,"Tundra",796
+"797","Wyoming Basin shrub steppe",13,"Deserts & Xeric Shrublands",797
+"798","Xingu-Tocantins-Araguaia moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",798
+"799","Yamal-Gydan tundra",11,"Tundra",799
+"800","Yap tropical dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",800
+"801","Yapen rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",801
+"802","Yarlung Zanbo arid steppe",10,"Montane Grasslands & Shrublands",802
+"803","Yellow Sea saline meadow",9,"Flooded Grasslands & Savannas",803
+"804","Yucatán dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",804
+"805","Yucatán moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",805
+"806","Yunnan Plateau subtropical evergreen forests",1,"Tropical & Subtropical Moist Broadleaf Forests",806
+"807","Zagros Mountains forest steppe",4,"Temperate Broadleaf & Mixed Forests",807
+"808","Zambezian-Limpopo mixed woodlands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",808
+"809","Zambezian Baikiaea woodlands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",809
+"810","Zambezian coastal flooded savanna",9,"Flooded Grasslands & Savannas",810
+"811","Dry miombo woodlands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",811
+"812","Zambezian evergreen dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",812
+"813","Zambezian flooded grasslands",9,"Flooded Grasslands & Savannas",813
+"814","Zambezian mopane woodlands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",814
+"815","Brazilian Atlantic dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",815
+"816","Northern Cordillera forests",6,"Boreal Forests/Taiga",816
+"817","St. Helena scrub and woodlands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",817
+"818","Victoria Basin forest-savanna",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",818
+"819","Western Congolian forest-savanna",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",819
+"820","East African montane moorlands",10,"Montane Grasslands & Shrublands",820
+"821","Queen Charlotte Islands conifer forests",5,"Temperate Conifer Forests",821
+"822","Northern Pacific Alaskan coastal forests",5,"Temperate Conifer Forests",822
+"823","Northwest Territories taiga",6,"Boreal Forests/Taiga",823
+"824","Southwest Arabian coastal xeric shrublands",13,"Deserts & Xeric Shrublands",824
+"825","Arabian-Persian Gulf coastal plain desert",13,"Deserts & Xeric Shrublands",825
+"826","South Arabian plains and plateau desert",13,"Deserts & Xeric Shrublands",826
+"827","Arabian desert",13,"Deserts & Xeric Shrublands",827
+"828","Bahamian pineyards",3,"Tropical & Subtropical Coniferous Forests",828
+"829","Ile Europa and Bassas da India xeric scrub",13,"Deserts & Xeric Shrublands",829
+"830","Kamchatka tundra",11,"Tundra",830
+"831","Tocantins/Pindare moist forests",1,"Tropical & Subtropical Moist Broadleaf Forests",831
+"832","Kalaallit Nunaat Arctic steppe",11,"Tundra",832
+"833","North Cascades conifer forests",5,"Temperate Conifer Forests",833
+"834","Northern Rockies conifer forests",5,"Temperate Conifer Forests",834
+"835","Trindade-Martin Vaz Islands tropical forests",1,"Tropical & Subtropical Moist Broadleaf Forests",835
+"836","Southwest Arabian montane woodlands and grasslands",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",836
+"837","South Arabian fog woodlands, shrublands, and dune",7,"Tropical & Subtropical Grasslands, Savannas & Shrublands",837
+"838","Trinidad and Tobago dry forest",2,"Tropical & Subtropical Dry Broadleaf Forests",838
+"839","Lesser Antillean dry forests",2,"Tropical & Subtropical Dry Broadleaf Forests",839
+"840","North Atlantic moist mixed forests",4,"Temperate Broadleaf & Mixed Forests",840
+"841","Dronning Maud Land tundra",11,"Tundra",841
+"842","Marie Byrd Land tundra",11,"Tundra",842
+"843","Sulawesi lowland rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",843
+"844","East African montane forests",1,"Tropical & Subtropical Moist Broadleaf Forests",844
+"845","Eastern Arc forests",1,"Tropical & Subtropical Moist Broadleaf Forests",845
+"846","Borneo montane rain forests",1,"Tropical & Subtropical Moist Broadleaf Forests",846
+"847","Kinabalu montane alpine meadows",10,"Montane Grasslands & Shrublands",847
