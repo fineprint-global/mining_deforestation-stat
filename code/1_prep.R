@@ -23,7 +23,23 @@ files <- paste0(countries$continent, "-", countries$iso, ".rds")
 file <- files[grep("sou.*ECU", files)]
 
 
-for(file in files) {
+# for(file in files) {
+library("parallel")
+
+cl <- makeCluster(detectCores() - 1)
+parLapply(cl, files, function(file) {
+
+  # Stuff for para
+  library("dplyr")
+  library("sf")
+  source("code/9_helpers.R")
+  countries <- read.csv("input/countries.csv")
+  path_in <- "/mnt/nfs_fineprint/tmp/mining_def/"
+  if(!dir.exists(path_in)) {
+    path_in <- "data/"
+    if(!dir.exists(path_in)) {stop("Feed me data!")}
+  }
+
 
   cat("Running for ", get_iso(file), ".\n", sep = "")
 
@@ -66,9 +82,10 @@ for(file in files) {
       elevation + slope +
       pop_2000 + area_forest_2000 +
       dist_road + dist_waterway + distance_cropland_2000 +
-      soilgrid_grouped + esa_cci_2000_grouped,)
+      soilgrid_grouped + esa_cci_2000_grouped)
   source("3_models.R")
 
-  # Create outputs
-  source("code/2_analyse.R") # Match and fit models
-}
+})
+stopCluster(cl)
+
+# }
