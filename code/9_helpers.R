@@ -36,7 +36,7 @@ prep_data <- function(x,
   if(isTRUE(calc_dist)) {
     x$dist_road <- pmin(
       x$distance_highway_motorway, x$distance_highway_primary, na.rm = TRUE)
-    x$dist_waterway <- Pmin(
+    x$dist_waterway <- pmin(
       x$distance_waterway_canal, x$distance_waterway_river, na.rm = TRUE)
   }
   # Create a grouped soilgrid variable
