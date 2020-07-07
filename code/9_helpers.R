@@ -60,9 +60,9 @@ prep_data <- function(x,
   if(isTRUE(adjust_eco)) {
     groups <- read.csv("input/ecoregions_2017_concordance.csv")
     x$ecoregions_2017 <- droplevels(factor(x$ecoregions_2017,
-      levels = groups$id, label = groups$ECO_NAME))
+      levels = groups$ECO_ID, label = groups$ECO_NAME))
     x$biomes_2017 <- as.factor(
-      groups[match(x$ecoregions_2017, groups$id), "BIOME_NAME"])
+      groups[match(x$ecoregions_2017, groups$ECO_NAME), "BIOME_NAME"])
     if(!is.null(sub_eco)) {
       x <- x[grep(sub_eco, x$biomes_2017), ]
     }
