@@ -6,6 +6,8 @@
 #' @param calc_dist Logical. Whether to calculate additional distances.
 #' @param adjust_soil Logical. Whether to group soilgrids.
 #' @param adjust_esa Logical. Whether to group and label land use.
+#' @param adjust_eco Logical. Whether to label ecoregions.
+#' @param sub_eco String for regex to subset ecoregions. NULL to skip.
 #' @param geom Logical. Whether to keep sf's geometry column.
 #'
 #' @return Returns a modified x.
@@ -13,8 +15,13 @@
 prep_data <- function(x,
   has_forest = TRUE, has_access = TRUE, calc_dist = TRUE,
   adjust_soil = TRUE, adjust_esa = TRUE,
+  adjust_eco = TRUE, sub_eco = "Tropical",
   country_specific = TRUE,
   geom = FALSE) {
+
+  # Note: Can remove this after next run
+  x$distance_cropland_2000 <- as.numeric(x$distance_cropland_2000)
+  x$ecoregions_2017 <- as.numeric(x$ecoregions_2017)
 
   if(!isTRUE(geom)) {x$geometry <- NULL}
   # Subset grids to ones with forest
@@ -29,7 +36,7 @@ prep_data <- function(x,
   if(isTRUE(calc_dist)) {
     x$dist_road <- pmin(
       x$distance_highway_motorway, x$distance_highway_primary, na.rm = TRUE)
-    x$dist_waterway = pmin(
+    x$dist_waterway <- Pmin(
       x$distance_waterway_canal, x$distance_waterway_river, na.rm = TRUE)
   }
   # Create a grouped soilgrid variable
@@ -48,6 +55,15 @@ prep_data <- function(x,
       groups[match(x$esa_cci_2000, groups$Value), "Group_custom"])
     x$esa_cci_2000 <- droplevels(factor(x$esa_cci_2000,
       levels = groups$Value, labels = groups$Label))
+  }
+
+  if(isTRUE(adjust_eco)) {
+    groups <- read.csv("input/ecoregions_2017_concordance.csv")
+    x$ecoregions_2017 <- droplevels(factor(x$ecoregions_2017,
+      levels = groups$BIOME_NUM, label = groups$BIOME_NAME))
+    if(!is.null(sub_eco)) {
+      x <- x[grep(sub_eco, x$ecoregions_2017), ]
+    }
   }
 
   if(isTRUE(country_specific)) {
