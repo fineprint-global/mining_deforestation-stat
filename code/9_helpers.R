@@ -13,7 +13,7 @@
 #' @return Returns a modified x.
 
 prep_data <- function(x,
-  has_forest = TRUE, has_access = TRUE, calc_dist = TRUE,
+  has_forest = FALSE, has_access = FALSE, calc_dist = TRUE,
   adjust_soil = TRUE, adjust_esa = TRUE,
   adjust_eco = TRUE, sub_eco = "Tropical",
   country_specific = TRUE,
@@ -126,4 +126,15 @@ cem_data <- function(x) {
 drop_but <- function(x, but) {
 
   names(x)[!grepl(paste0(but, collapse = "|"), names(x))]
+}
+
+
+#' @title Helper to get ISO from a file-string.
+#'
+#' @param x Object with the string.
+#'
+#' @return Returns a character vector with just the ISO
+get_iso <- function(x) {
+
+  sub(".*([A-Z]{3}).*.rds", "\\1", x)
 }

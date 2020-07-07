@@ -13,10 +13,6 @@ separate_countries <- function(file, path, continent) {
       paste0(path, continent, "-", y, ".rds"))
     gc()
   })
-
-  # for(i in seq_along(x_list)) {
-  #   saveRDS(x_list[[i]], paste0(path, continent, "-", countries[i], ".rds"))
-  # }
   NULL
 }
 
