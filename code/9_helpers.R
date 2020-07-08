@@ -35,7 +35,7 @@ prep_data <- function(x,
   # Create distance to road and waterway value
   if(isTRUE(calc_dist)) {
     x$dist_road <- pmin(
-      x$distance_highway_motorway, x$distance_highway_primary, na.rm = TRUE)
+      x$distance_highway_motorway, x$distance_highway_trunk, na.rm = TRUE)
     x$dist_waterway <- pmin(
       x$distance_waterway_canal, x$distance_waterway_river, na.rm = TRUE)
   }

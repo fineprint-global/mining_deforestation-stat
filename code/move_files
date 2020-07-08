@@ -1,2 +1,4 @@
 
 scp -r cloud1:/mnt/nfs_fineprint/config/rstudio/home/kuschnig/mining_deforestation-stat/output/* output/
+
+scp -r cloud1:/mnt/nfs_fineprint/data/geoserver/fineprint_grid_30sec/*.tif data/

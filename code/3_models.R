@@ -58,6 +58,7 @@ readr::write_csv(tibble(
   "N_untr_unmatched" = out_cem[["tab"]][2, 1],
   "BIC" = BIC(out_lm1),
   "BIC_unweighted" = BIC(out_lm2)),
+  "R2" = summary(out_lm1)$r.squared,
   path = paste0("output/txt/info_", get_iso(file), "_",
     names(formulas)[i], ".csv"))
 
