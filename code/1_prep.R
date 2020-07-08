@@ -23,11 +23,11 @@ files <- paste0(countries$continent, "-", countries$iso, ".rds")
 file <- files[grep("sou.*ECU", files)]
 
 
-# for(file in files) {
-library("parallel")
+for(file in files) {
 
-cl <- makeCluster(detectCores() - 1)
-parLapply(cl, files, function(file) {
+# library("parallel")
+# cl <- makeCluster(detectCores() - 1)
+# parLapply(cl, files, function(file) {
 
   # Stuff for para
   library("dplyr")
@@ -85,7 +85,7 @@ parLapply(cl, files, function(file) {
       soilgrid_grouped + esa_cci_2000_grouped)
   source("3_models.R")
 
-})
-stopCluster(cl)
+# })
+# stopCluster(cl)
 
-# }
+}
