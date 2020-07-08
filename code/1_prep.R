@@ -20,7 +20,7 @@ if(!dir.exists(path_in)) {
 files <- paste0(countries$continent, "-", countries$iso, ".rds")
 
 # file <- files[[1]]
-file <- files[grep("sou.*ECU", files)]
+file <- files[grep("ECU", files)]
 
 
 for(file in files) {
@@ -66,6 +66,6 @@ for(file in files) {
       distance_cropland_2000 + I(distance_cropland_2000 * dist_road) +
       soilgrid_grouped + esa_cci_2000_grouped)
   
-  source("3_models.R")
+  source("code/3_models.R")
 
 }
