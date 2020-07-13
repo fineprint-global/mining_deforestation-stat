@@ -1,4 +1,6 @@
 
+# Evaluate coefficients from fitted models on data summaries.
+
 library("dplyr")
 
 country_sm <- read.csv("output/country_data-summary.csv")

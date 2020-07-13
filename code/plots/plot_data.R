@@ -1,4 +1,6 @@
 
+# Generate a global plot for each of our variables
+
 library("dplyr")
 library("raster")
 library("rasterVis")

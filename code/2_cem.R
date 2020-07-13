@@ -1,4 +1,6 @@
 
+# Perform CEM, optionally store summary statistics.
+
 # Dependencies -----
 
 library("cem") # Matching

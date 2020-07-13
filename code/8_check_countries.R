@@ -1,24 +1,29 @@
 
+# Summarise information about countries of interest
+
 library("dplyr")
 library("sf")
 
 countries <- read.csv("input/countries.csv")
 
+# Cloud, home, or cluster?
 path_in <- "/mnt/nfs_fineprint/tmp/mining_def/"
 if(!dir.exists(path_in)) {
   path_in <- "data/"
   if(!dir.exists(path_in)) {stop("Feed me data!")}
 }
 
-files <- paste0(path_in, countries$continent, "-", countries$iso, ".rds")
+# files <- list.files(path_in)
+files <- paste0(countries$continent, "-", countries$iso, ".rds")
 
-# Summarise the data -----
 
-data_sm <- lapply(files, function(x) {
-  y <- readRDS(x)
+# Summarise data -----
+
+data_sm <- lapply(files, function(file) {
+  y <- readRDS(paste0(path_in, file))
   y$geometry <- NULL
   cbind(
-    "iso" = gsub(".*([A-Z]{3}).rds", "\\1", x),
+    "iso" = gsub(".*([A-Z]{3}).rds", "\\1", file),
     sapply(y[, c("distance_mine", "area_forest_2000",
     "area_accumulated_forest_loss", "elevation", "slope", "pop_2000")],
     function(x) {
@@ -32,13 +37,14 @@ data_sm <- do.call(rbind, data_sm)
 
 write.csv(data_sm, "output/country_data-summary.csv")
 
-# Plot the countries
+
+# Plot countries -----
 
 for(file in files) {
-  x <- readRDS(file)
+  x <- readRDS(paste0(path_in, file))
   png(paste0("output/plots/draw_", sub(".*([A-Z]{3}).rds", "\\1", file), ".png"),
     width = 960, height = 960)
-  x[sample(nrow(x), min(nrow(x) / 4, 100000)), ] %>% 
+  x[sample(nrow(x), min(nrow(x) / 4, 100000)), ] %>%
     select(distance_mine) %>% plot()
   dev.off()
 }
