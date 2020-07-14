@@ -140,3 +140,39 @@ get_iso <- function(x) {
 
   sub(".*([A-Z]{3}).*.rds", "\\1", x)
 }
+
+
+#' @title Derive variables for modelling.
+#'
+#' @param x Tibble with the data.
+#' @param treated Numeric vector of length two with bounds for treatment.
+#' @param dist_log Boolean. Whether to create logged distances (with min(1, d)).
+#' @param dist_bool Numeric scalar. Whether and where to create a boolean for
+#' for being within `dist_bool` distance.
+#' @param dist_decay Numeric scalar. Whether and hwo to apply distance decay to
+#' distances as 1 / d ^ `dist_decay` (with min(1, d)).
+#'
+#' @return Returns a character vector with just the ISO
+add_vars <- function(x,
+  treated = c(-1, 5e4),
+  dist_log = TRUE, dist_bool = 1e3, dist_decay = 0.5) {
+
+  x$treated <- calc_treatment(tbl,
+    dist_treated = treated, dist_control = treated[2])
+
+  # Screw you mutate_at
+  if(dist_log) {
+    x <- mutate_at(x, vars(starts_with("dist")),
+      list(log = function(.) log(pmax(., 1))))
+  }
+  if(!is.null(dist_bool)) {
+    x <- mutate_at(x, vars(starts_with("dist")),
+      list(bool = function(.) . > dist_bool))
+  }
+  if(!is_null(dist_decay)) {
+    x <- mutate_at(x, vars(starts_with("dist")),
+      list(decay = function(.) 1 / pmin(., 1) ^ dist_decay))
+  }
+
+  return(x)
+}

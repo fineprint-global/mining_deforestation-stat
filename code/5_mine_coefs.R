@@ -8,6 +8,8 @@ files <- list.files("output/txt/", pattern = "coef")
 files <- list.files("output/txt/", pattern = "coef.*_f_base")
 files <- list.files("output/txt/", pattern = "coef.*_f_interactions")
 
+x <- files[1]
+
 lapply(files, function(x) {
   info <- filter(country_sm, iso == sub("coef_([A-Z]+).*", "\\1", x))
   y <- read.csv(paste0("output/txt/", x))
