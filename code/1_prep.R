@@ -18,9 +18,10 @@ if(!dir.exists(path_in)) {
 
 # files <- list.files(path_in)
 files <- paste0(countries$continent, "-", countries$iso, ".rds")
+# files <- c("africa-GHA.rds", "central_america-NIC.rds", "africa-ZMB.rds")
 
 # file <- files[[1]]
-file <- files[grep("ECU", files)]
+file <- files[grep("GHA", files)]
 
 
 for(file in files) {
@@ -30,7 +31,10 @@ for(file in files) {
   tbl_raw <- readRDS(paste0(path_in, file))
   tbl <- prep_data(tbl_raw, has_forest = FALSE,
     sub_eco = "Tropical", geom = FALSE)
-
+  
+  # on-mine indicator
+  tbl <- tbl %>% dplyr::mutate(on_mine = ifelse(distance_mine < 0.1, 1, 0))
+  
   # CEM
   tbl$treated <- calc_treatment(tbl,
     dist_treated = c(-1, 5e4), dist_control = 5e4)
@@ -38,12 +42,16 @@ for(file in files) {
     dist_treated = c(-1, 1e5), dist_control = 1e5)
   tbl$treated_farer <- calc_treatment(tbl,
     dist_treated = c(-1, 2e5), dist_control = 2e5)
+  
 
   # match_on <- c("elevation", "slope", "area_forest_2000", "pop_2000",
   #   "dist_waterway", "soilgrid_grouped", "esa_cci_2000_grouped")
   match_on <- c("elevation", "slope", "area_forest_2000", "pop_2000",
     "dist_waterway", "soilgrid_grouped", "esa_cci_2000", "ecoregions_2017")
   source("code/2_cem.R")
+  
+  # Analyse matching
+  # Add SEL R-Scripts (only the useful ones)  
 
   # Models
   formulas <- list(
@@ -62,10 +70,53 @@ for(file in files) {
       pop_2000 + area_forest_2000 +
       dist_road + I(distance_mine * dist_road) + I(dist_waterway * dist_road) +
       dist_waterway +
-      distance_protected_area + I(distace_protected_area * dist_road) +
+      distance_protected_area + I(distance_protected_area * dist_road) +
+      distance_cropland_2000 + I(distance_cropland_2000 * dist_road) +
+      soilgrid_grouped + esa_cci_2000_grouped,
+    "f_interactions_highway" = area_accumulated_forest_loss ~
+      distance_mine + I(distance_mine * treated) +
+      elevation + slope + I(elevation * slope) +
+      pop_2000 + area_forest_2000 +
+      distance_highway_motorway + I(distance_mine * distance_highway_motorway) + I(dist_waterway * distance_highway_motorway) +
+      dist_waterway +
+      distance_protected_area + I(distance_protected_area * distance_highway_motorway) +
+      distance_cropland_2000 + I(distance_cropland_2000 * distance_highway_motorway) +
+      soilgrid_grouped + esa_cci_2000_grouped,
+    "f_interactions_quad" = area_accumulated_forest_loss ~
+      distance_mine + I(distance_mine^2) + I(distance_mine * treated) +
+      elevation + slope + I(elevation * slope) +
+      pop_2000 + area_forest_2000 +
+      dist_road + I(distance_mine * dist_road) + I(dist_waterway * dist_road) +
+      dist_waterway +
+      distance_protected_area + I(distance_protected_area * dist_road) +
+      distance_cropland_2000 + I(distance_cropland_2000 * dist_road) +
+      soilgrid_grouped + esa_cci_2000_grouped,
+    "f_interactions_cub" = area_accumulated_forest_loss ~
+      distance_mine + I(distance_mine^2) + I(distance_mine^3) + I(distance_mine * treated) +
+      elevation + slope + I(elevation * slope) +
+      pop_2000 + area_forest_2000 +
+      dist_road + I(distance_mine * dist_road) + I(dist_waterway * dist_road) +
+      dist_waterway +
+      distance_protected_area + I(distance_protected_area * dist_road) +
+      distance_cropland_2000 + I(distance_cropland_2000 * dist_road) +
+      soilgrid_grouped + esa_cci_2000_grouped,
+    "f_more_quad" = area_accumulated_forest_loss ~ # still missing are: sub-national dummies
+      on_mine + distance_mine + I(distance_mine^2) + I(distance_mine * treated) +
+      elevation + slope + I(elevation * slope) +
+      pop_2000 + area_forest_2000 +
+      dist_road + I(distance_mine * dist_road) + I(dist_waterway * dist_road) +
+      dist_waterway +
+      distance_protected_area + I(distance_protected_area * dist_road) +
       distance_cropland_2000 + I(distance_cropland_2000 * dist_road) +
       soilgrid_grouped + esa_cci_2000_grouped)
   
   source("code/3_models.R")
+  
 
 }
+
+
+# Create functions for organized summary stats of regressions
+compare_models(path = "output/txt", 
+               files = c("coef_NIC_f_more_quad.csv", "coef_ZMB_f_more_quad.csv", "coef_GHA_f_more_quad.csv", "coef_BRA_f_more_quad.csv"),
+               coef_subs = c("on_mine", "distance_mine", "I(distance_mine^2)", "I(distance_mine * treated)"))
