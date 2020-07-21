@@ -140,3 +140,29 @@ get_iso <- function(x) {
 
   sub(".*([A-Z]{3}).*.rds", "\\1", x)
 }
+
+
+#' @title Compare model outputs
+#'
+#' @param path Path to csv files from code/3_models.R
+#' @param files Character vector. Selection of csv files to be read.
+#' @param coef_subs Character vector. Subset of coefficients.
+#'
+#' @return Returns a tibble.
+compare_models <- function(path, files, coef_subs = NULL){
+  
+  # read data
+  data <- list.files(path = path,
+               pattern = paste(files, collapse = "|"), 
+               full.names = T) %>% 
+    purrr::map_df(~readr::read_csv(.))
+  
+  # subset
+  if(!is.null(coef_subs)) {
+    data <- data %>% dplyr::filter(vars %in% coef_subs)
+  }
+  
+  return(data)
+}
+
+
