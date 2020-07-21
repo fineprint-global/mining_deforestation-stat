@@ -1,4 +1,6 @@
 
+# Prepare data, formulas, etc, then source functions to run CEM and fit models.
+
 # Dependencies -----
 
 library("dplyr")
@@ -21,7 +23,8 @@ files <- paste0(countries$continent, "-", countries$iso, ".rds")
 # files <- c("africa-GHA.rds", "central_america-NIC.rds", "africa-ZMB.rds")
 
 # file <- files[[1]]
-file <- files[grep("GHA", files)]
+file <- files[grep("MYS", files)]
+
 
 
 for(file in files) {
@@ -31,19 +34,13 @@ for(file in files) {
   tbl_raw <- readRDS(paste0(path_in, file))
   tbl <- prep_data(tbl_raw, has_forest = FALSE,
     sub_eco = "Tropical", geom = FALSE)
-  
-  # on-mine indicator
-  tbl <- tbl %>% dplyr::mutate(on_mine = ifelse(distance_mine < 0.1, 1, 0))
-  
-  # CEM
-  tbl$treated <- calc_treatment(tbl,
-    dist_treated = c(-1, 5e4), dist_control = 5e4)
-  tbl$treated_far <- calc_treatment(tbl,
-    dist_treated = c(-1, 1e5), dist_control = 1e5)
-  tbl$treated_farer <- calc_treatment(tbl,
-    dist_treated = c(-1, 2e5), dist_control = 2e5)
-  
 
+  # Add variables
+  tbl <- add_vars(tbl,
+    treated = c(-1, 5e4),
+    dist_log = TRUE, dist_bool = 1e3, dist_decay = 0.5)
+
+  # CEM
   # match_on <- c("elevation", "slope", "area_forest_2000", "pop_2000",
   #   "dist_waterway", "soilgrid_grouped", "esa_cci_2000_grouped")
   match_on <- c("elevation", "slope", "area_forest_2000", "pop_2000",
@@ -61,7 +58,7 @@ for(file in files) {
       pop_2000 + area_forest_2000 +
       dist_road +
       dist_waterway +
-      distance_protected_area + 
+      distance_protected_area +
       distance_cropland_2000 +
       soilgrid_grouped + esa_cci_2000_grouped,
     "f_interactions" = area_accumulated_forest_loss ~
@@ -107,9 +104,8 @@ for(file in files) {
       dist_road + I(distance_mine * dist_road) + I(dist_waterway * dist_road) +
       dist_waterway +
       distance_protected_area + I(distance_protected_area * dist_road) +
-      distance_cropland_2000 + I(distance_cropland_2000 * dist_road) +
-      soilgrid_grouped + esa_cci_2000_grouped)
-  
+
+
   source("code/3_models.R")
   
 

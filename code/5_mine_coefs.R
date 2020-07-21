@@ -1,10 +1,14 @@
 
+# Evaluate coefficients from fitted models on data summaries.
+
 library("dplyr")
 
 country_sm <- read.csv("output/country_data-summary.csv")
 files <- list.files("output/txt/", pattern = "coef")
-files <- list.files("output/txt/", pattern = "coef.*_f_no-road")
-files <- list.files("output/txt/", pattern = "coef.*_form1")
+files <- list.files("output/txt/", pattern = "coef.*_f_base")
+files <- list.files("output/txt/", pattern = "coef.*_f_interactions")
+
+x <- files[1]
 
 lapply(files, function(x) {
   info <- filter(country_sm, iso == sub("coef_([A-Z]+).*", "\\1", x))

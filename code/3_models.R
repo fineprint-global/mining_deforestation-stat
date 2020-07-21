@@ -1,4 +1,7 @@
 
+# Fit specified models with linear and penalised regression. Save coefficients
+# and summary statistics for later use.
+
 # Dependencies -----
 
 library("glmnet") # LASSO
@@ -9,35 +12,34 @@ if(!exists("out_cem")) {stop("Please provide matched data in `out_cem`.")}
 
 for(i in seq(formulas)) {
 
-# Models -----
+  # Models -----
 
-y <- log(tbl[["area_accumulated_forest_loss"]]+1) # add small constant for taking log
-X <- model.matrix(formulas[[i]], data = tbl)[, -1] # no need for constant here
-X <- scale(X)
-X <- X[, !apply(X, 2, function(x) all(is.na(x)))]
+  y <- log(tbl[["area_accumulated_forest_loss"]]+1) # add small constant for taking log
+  X <- model.matrix(formulas[[i]], data = tbl)[, -1] # no need for constant here
+  X <- scale(X)
+  X <- X[, !apply(X, 2, function(x) all(is.na(x)))]
 
-# LM -----
 
-cat("Fitting models with least squares.\n")
+  cat("Fitting models with least squares.\n")
 
-out_lm1 <- lm(y ~ X, weights = out_cem[["w"]])
-summary(out_lm1)
-# out_lm2 <- lm(y ~ X, weights = NULL)
-# summary(out_lm2)
 
-# Penalized regression -----
+  out_lm1 <- lm(y ~ X, weights = out_cem[["w"]])
+  summary(out_lm1)
+  # out_lm2 <- lm(y ~ X, weights = NULL)
+  # summary(out_lm2)
 
-cat("Fitting penalised models.\n")
+  # Penalized regression -----
+  cat("Fitting penalised models.\n")
 
-cv_lasso <- cv.glmnet(x = X, y = y, weights = out_cem[["w"]], alpha = 1)
-out_lasso <- glmnet(x = X, y = y, weights = out_cem[["w"]], alpha = 1)
+  cv_lasso <- cv.glmnet(x = X, y = y, weights = out_cem[["w"]], alpha = 1)
+  out_lasso <- glmnet(x = X, y = y, weights = out_cem[["w"]], alpha = 1)
 
-# Outputs -----
+  # Outputs -----
 
-png(paste0("output/plots/lasso_simple_",
-  get_iso(file), ".png"), width = 960, height = 720)
-plot(out_lasso, label = TRUE)
-dev.off()
+  png(paste0("output/plots/lasso_simple_",
+    get_iso(file), ".png"), width = 960, height = 720)
+  plot(out_lasso, label = TRUE)
+  dev.off()
 
 readr::write_csv(tibble(
   "vars" = c("constant", colnames(X)),
@@ -68,4 +70,5 @@ readr::write_csv(tibble(
 
 # rm(X, y, out_lm1, out_lm2, out_lasso, cv_lasso); gc()
 rm(X, y, out_lm1, out_lasso, cv_lasso); gc()
+
 }
