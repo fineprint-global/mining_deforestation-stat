@@ -192,7 +192,7 @@ add_vars <- function(x,
     x <- mutate_at(x, vars(starts_with("dist")),
       list(bool = function(.) . > dist_bool))
   }
-  if(!is_null(dist_decay)) {
+  if(!is.null(dist_decay)) {
     x <- mutate_at(x, vars(starts_with("dist")),
       list(decay = function(.) 1 / pmin(., 1) ^ dist_decay))
   }
