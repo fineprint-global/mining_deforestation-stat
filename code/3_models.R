@@ -13,6 +13,7 @@ if(!exists("out_cem")) {stop("Please provide matched data in `out_cem`.")}
 for(i in seq(formulas)) {
 
   # Models -----
+  cat("Running model ", names(formulas)[i], ".\n", sep = "")
 
   y <- log(tbl[["area_accumulated_forest_loss"]]+1) # add small constant for taking log
   X <- model.matrix(formulas[[i]], data = tbl)[, -1] # no need for constant here
