@@ -141,14 +141,14 @@ get_iso <- function(x) {
   sub(".*([A-Z]{3}).*.rds", "\\1", x)
 }
 
-#' @title Compare model outputs
+#' @title Merge model outputs for comparison
 #'
 #' @param path Path to csv files from code/3_models.R
 #' @param files Character vector. Selection of csv files to be read.
 #' @param coef_subs Character vector. Subset of coefficients.
 #'
 #' @return Returns a tibble.
-compare_models <- function(path, files, coef_subs = NULL){
+compare_models_merge <- function(path, files, coef_subs = NULL){
   
   # read data
   data <- list.files(path = path,
@@ -199,4 +199,23 @@ add_vars <- function(x,
 
   return(x)
 }
+
+
+
+#' @title Plot coefficients from merged outputs
+#'
+#' @param data Merged tibble obtained from compare_models_merge()
+#'
+#' @return Returns a ggplot object.
+compare_models_plot <- function(data){
+  
+  p <- data %>% 
+    ggplot2::ggplot(aes(x = vars, y = lm_coef, color = country, shape = model)) +
+    ggplot2::geom_point() +
+    ggplot2::theme_bw() +
+    ggplot2::theme(axis.text.x = element_text(angle=90, hjust = 1))
+ 
+  return(p) 
+}
+
 
