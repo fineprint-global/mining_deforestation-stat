@@ -87,3 +87,19 @@ dat_sum %>% dplyr::arrange(-area_accumulated_forest_loss)
 # forest loss relative to forest 2000
 top_16_rff <- dat_sum %>% dplyr::arrange(-relative_forest_loss)
 top_16_rff <- as.character(top_16_rff$iso[1:16])
+
+
+# Check countries to cover ------------------------------------------------
+
+data_sm <- read.csv("output/country_data-summary-max.csv")
+
+dat_sum <- data_sm %>% as.data.frame() %>%
+  dplyr::mutate(index = rep(seq(1, 6, 1), nrow(data_sm)/6)) %>%
+  dplyr::filter(index == 6) %>%
+  dplyr::mutate(area_forest_2000  = as.numeric(as.character(area_forest_2000))  / 1000000) %>%
+  dplyr::mutate(area_accumulated_forest_loss =  as.numeric(as.character(area_accumulated_forest_loss)) / 1000000) %>%
+  dplyr::mutate(relative_forest_loss = area_accumulated_forest_loss / area_forest_2000)
+top_rff <- dat_sum %>% dplyr::arrange(-relative_forest_loss)
+# top_rff <- as.character(top_rff$iso[1:26]) # top 26 have more than 5% loss
+top_rff <- c("BRA", "IDN", "MYS")
+countries <- countries %>% dplyr::filter(iso %in% top_rff)

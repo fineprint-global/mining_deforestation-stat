@@ -5,6 +5,8 @@
 
 library("cem") # Matching
 library("grid")
+library("cobalt") # Check CEM outputs
+
 
 if(!exists("tbl")) {stop("Please prepare the data in `tbl`.")}
 
@@ -15,9 +17,14 @@ if(!exists("tbl")) {stop("Please prepare the data in `tbl`.")}
 
 cat("Retrieving matches.\n")
 
-out_cem <- cem(treatment = "treated", data = tbl,
-  drop = drop_but(tbl, match_on),
-  keep.all = TRUE)
+if(exists("STORE_CEM") && STORE_CEM && 
+    file.exists(paste0("input/cem_", get_iso(file), ".rds"))) {
+  out_cem <- readRDS(paste0("input/cem_", get_iso(file), ".rds"))
+} else {
+  out_cem <- cem(treatment = "treated", data = tbl,
+   drop = drop_but(tbl, match_on),
+    keep.all = TRUE)
+}
 
 # # Analyse matching: balance diagnostics (Zhang et al 2019)
 # p <- cobalt::bal.plot(out_cem, data = tbl, var.name = 'area_forest_2000', which = 'both')
