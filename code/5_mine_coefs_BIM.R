@@ -9,11 +9,9 @@ compare_models_plot(
                                          files = c("coef_MYS_f_base.csv", "coef_MYS_f_base_log.csv"),
                                          coef_subs = c("distance_mine", "distance_mine_log")))
 
+
 out_merged <- compare_models_merge(path = "output/txt", 
-                       files = c("coef_MYS_f_base.csv", 
-                                 "coef_MYS_f_base_bool.csv", 
-                                 "coef_MYS_f_base_log.csv", 
-                                 "coef.*_f_base_bool_log.csv"))
+                                   files = paste0("coef_", rep(BIM, length( names(formulas))), "_", names(formulas), ".csv"))
 
 # base vs base_bool
 dat_comb <- rbind(
