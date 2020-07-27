@@ -191,7 +191,7 @@ add_vars <- function(x,
   # Screw you mutate_at
   if(!is.null(dist_decay)) {
     x <- mutate_at(x, distance_vars,
-      list(decay = function(.) 1 / pmin(., 1) ^ dist_decay))
+      list(decay = function(.) 1 / pmax(., 100) ^ dist_decay))
   }
   if(dist_log) {
     x <- mutate_at(x, distance_vars,
