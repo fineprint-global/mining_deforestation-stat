@@ -37,10 +37,10 @@ for(i in seq(formulas)) {
 
   # Outputs -----
 
-  png(paste0("output/plots/lasso_simple",
-    get_iso(file), ".png"), width = 960, height = 720)
-  plot(out_lasso, label = TRUE)
-  dev.off()
+  # png(paste0("output/plots/lasso_simple",
+  #   get_iso(file), ".png"), width = 960, height = 720)
+  # plot(out_lasso, label = TRUE)
+  # dev.off()
 
 readr::write_csv(tibble(
   "vars" = c("constant", colnames(X)),
