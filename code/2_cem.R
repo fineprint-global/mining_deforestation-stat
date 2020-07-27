@@ -18,12 +18,13 @@ if(!exists("tbl")) {stop("Please prepare the data in `tbl`.")}
 cat("Retrieving matches.\n")
 
 if(exists("STORE_CEM") && STORE_CEM && 
-    file.exists(paste0("input/cem_", get_iso(file), ".rds"))) {
-  out_cem <- readRDS(paste0("input/cem_", get_iso(file), ".rds"))
+    file.exists(paste0("input/cem/", get_iso(file), ".rds"))) {
+  out_cem <- readRDS(paste0("input/cem/", get_iso(file), ".rds"))
 } else {
   out_cem <- cem(treatment = "treated", data = tbl,
    drop = drop_but(tbl, match_on),
     keep.all = TRUE)
+  saveRDS(out_cem, paste0("input/cem/", get_iso(file), ".rds"))
 }
 
 # # Analyse matching: balance diagnostics (Zhang et al 2019)
