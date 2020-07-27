@@ -5,25 +5,11 @@
 
 library("dplyr")
 library("sf")
-library("cobalt") # for cem analysis
 
 source("code/9_helpers.R")
 countries <- read.csv("input/countries.csv")
 
 # Prepare data -----
-
-# select countries we want to cover
-data_sm <- read.csv("output/country_data-summary-max.csv")
-dat_sum <- data_sm %>% as.data.frame() %>%
-  dplyr::mutate(index = rep(seq(1, 6, 1), nrow(data_sm)/6)) %>%
-  dplyr::filter(index == 6) %>%
-  dplyr::mutate(area_forest_2000  = as.numeric(as.character(area_forest_2000))  / 1000000) %>%
-  dplyr::mutate(area_accumulated_forest_loss =  as.numeric(as.character(area_accumulated_forest_loss)) / 1000000) %>%
-  dplyr::mutate(relative_forest_loss = area_accumulated_forest_loss / area_forest_2000)
-top_rff <- dat_sum %>% dplyr::arrange(-relative_forest_loss)
-# top_rff <- as.character(top_rff$iso[1:26]) # top 26 have more than 5% loss
-top_rff <- c("BRA", "IDN", "MYS")
-countries <- countries %>% dplyr::filter(iso %in% top_rff)
 
 # Cloud, home, or cluster?
 path_in <- "/mnt/nfs_fineprint/tmp/mining_def/"
@@ -33,11 +19,14 @@ if(!dir.exists(path_in)) {
 }
 
 # files <- list.files(path_in)
-files <- paste0(countries$continent, "-", countries$iso, ".rds")
-# files <- c("africa-GHA.rds", "central_america-NIC.rds", "africa-ZMB.rds")
+# files <- paste0(countries$continent, "-", countries$iso, ".rds")
+files <- c("south_america-BRA.rds", "oceania-IDN.rds", "oceania-MYS.rds")
 
-# file <- files[[3]]
+file <- files[[2]]
 # file <- files[grep("NIC", files)]
+
+# Store CEM outputs
+STORE_CEM <- TRUE
 
 for(file in files) {
 
