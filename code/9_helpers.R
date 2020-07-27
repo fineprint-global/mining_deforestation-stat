@@ -182,20 +182,31 @@ add_vars <- function(x,
 
   x$treated <- calc_treatment(tbl,
     dist_treated = treated, dist_control = treated[2])
+  
+  # Distance variables ---
+  
+  distance_vars <- c("distance_mine", "dist_road", "dist_waterway",
+    "distance_cropland_2000", "distance_protected_area")
 
   # Screw you mutate_at
+  if(!is.null(dist_decay)) {
+    x <- mutate_at(x, distance_vars,
+      list(decay = function(.) 1 / pmin(., 1) ^ dist_decay))
+  }
   if(dist_log) {
-    x <- mutate_at(x, vars(starts_with("dist")),
+    x <- mutate_at(x, distance_vars,
       list(log = function(.) log(pmax(., 1))))
   }
   if(!is.null(dist_bool)) {
-    x <- mutate_at(x, vars(starts_with("dist")),
+    x <- mutate_at(x, distance_vars,
       list(bool = function(.) . > dist_bool))
   }
-  if(!is_null(dist_decay)) {
-    x <- mutate_at(x, vars(starts_with("dist")),
-      list(decay = function(.) 1 / pmin(., 1) ^ dist_decay))
-  }
+  
+  # Other variables
+  x <- mutate_at(x, c("area_accumulated_forest_loss", "area_forest_2000", 
+    "pop_2000", "elevation"),
+    list(log = function(.) log(pmax(., 1))))
+  
 
   return(x)
 }
