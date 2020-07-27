@@ -45,3 +45,6 @@ docs/
 data/
 # Results
 output/
+
+# Intermediate
+input/cem

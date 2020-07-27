@@ -5,7 +5,7 @@
 
 library("cem") # Matching
 library("grid")
-library("cobalt") # Check CEM outputs
+# library("cobalt") # Check CEM outputs
 
 
 if(!exists("tbl")) {stop("Please prepare the data in `tbl`.")}

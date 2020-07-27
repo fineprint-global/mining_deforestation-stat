@@ -21,6 +21,10 @@ if(!dir.exists(path_in)) {
 # files <- list.files(path_in)
 # files <- paste0(countries$continent, "-", countries$iso, ".rds")
 files <- c("south_america-BRA.rds", "oceania-IDN.rds", "oceania-MYS.rds")
+# files <- c("south_america-BRA.rds", "oceania-IDN.rds", "oceania-MYS.rds",
+#   "africa-AGO.rds", "south_america-COL.rds", "asia-LAO.rds", "asia-VNM.rds",
+#   "south_america-SUR.rds")
+
 
 file <- files[[3]]
 # file <- files[grep("NIC", files)]
