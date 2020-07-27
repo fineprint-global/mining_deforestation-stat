@@ -5,11 +5,25 @@
 
 library("dplyr")
 library("sf")
+library("cobalt") # for cem analysis
 
 source("code/9_helpers.R")
 countries <- read.csv("input/countries.csv")
 
 # Prepare data -----
+
+# select countries we want to cover
+data_sm <- read.csv("output/country_data-summary-max.csv")
+dat_sum <- data_sm %>% as.data.frame() %>%
+  dplyr::mutate(index = rep(seq(1, 6, 1), nrow(data_sm)/6)) %>%
+  dplyr::filter(index == 6) %>%
+  dplyr::mutate(area_forest_2000  = as.numeric(as.character(area_forest_2000))  / 1000000) %>%
+  dplyr::mutate(area_accumulated_forest_loss =  as.numeric(as.character(area_accumulated_forest_loss)) / 1000000) %>%
+  dplyr::mutate(relative_forest_loss = area_accumulated_forest_loss / area_forest_2000)
+top_rff <- dat_sum %>% dplyr::arrange(-relative_forest_loss)
+# top_rff <- as.character(top_rff$iso[1:26]) # top 26 have more than 5% loss
+top_rff <- c("BRA", "IDN", "MYS")
+countries <- countries %>% dplyr::filter(iso %in% top_rff)
 
 # Cloud, home, or cluster?
 path_in <- "/mnt/nfs_fineprint/tmp/mining_def/"
@@ -22,10 +36,8 @@ if(!dir.exists(path_in)) {
 files <- paste0(countries$continent, "-", countries$iso, ".rds")
 # files <- c("africa-GHA.rds", "central_america-NIC.rds", "africa-ZMB.rds")
 
-# file <- files[[1]]
-file <- files[grep("NIC", files)]
-
-
+# file <- files[[3]]
+# file <- files[grep("NIC", files)]
 
 for(file in files) {
 
@@ -41,19 +53,100 @@ for(file in files) {
     dist_log = TRUE, dist_bool = 0, dist_decay = NULL)
 
   # CEM
-  # match_on <- c("elevation", "slope", "area_forest_2000", "pop_2000",
-  #   "dist_waterway", "soilgrid_grouped", "esa_cci_2000_grouped")
   match_on <- c("elevation", "slope", "area_forest_2000", "pop_2000",
     "dist_waterway", "soilgrid_grouped", "esa_cci_2000", "ecoregions_2017")
   source("code/2_cem.R")
   
-  # Analyse matching
-  # Add SEL R-Scripts (only the useful ones)  
+  # # Analyse data: fit splines distance mine vs forest loss
+  # data <- tbl
+  # xs <- seq(0, max(data[["distance_mine"]]), length.out = 1000)
+  # 
+  # out_spl <- lm(area_accumulated_forest_loss ~
+  #                 bs(distance_mine), data = data, weights = out_cem[["w"]])
+  # smpl <- sample(nrow(data), min(10000, nrow(data) / 4))
+  # 
+  # pred <- predict(out_spl, newdata = list(distance_mine = xs))
+  # png(paste0("output/plots/spline_matched/",
+  #            sub(".*([A-Z]{3}).rds", "\\1", file), ".png"), width = 960, height = 720)
+  # plot(x = data[["distance_mine"]][smpl],
+  #      y = data[["area_accumulated_forest_loss"]][smpl],
+  #      col = "grey", xlab = "Distance to mine", ylab = "Forest loss",
+  #      main = paste0("Spline matched - ", gsub(".*([A-Z]{3}).rds", "\\1", file)),
+  #      ylim = c(0, min(max(pred) * 5, max(data[["area_accumulated_forest_loss"]]))))
+  # points(xs, pred, col = "darkgreen", lwd = 2, type = "l")
+  # grid()
+  # dev.off()
+  # rm(data, out_spl); gc()
 
   # Models
+  
+  # further: base_decay model
+  
   formulas <- list(
-    "f_base" = area_accumulated_forest_loss ~
-      distance_mine + #I(distance_mine * treated) +
+    "f_base" = area_accumulated_forest_loss_log ~
+      distance_mine +
+      elevation + slope +
+      pop_2000 + area_forest_2000 +
+      dist_road +
+      dist_waterway +
+      distance_protected_area +
+      distance_cropland_2000 +
+      soilgrid_grouped + esa_cci_2000,
+    "f_base_bool" = area_accumulated_forest_loss_log ~
+      distance_mine_bool + distance_mine +
+      elevation + slope +
+      pop_2000 + area_forest_2000 +
+      dist_road_bool + dist_road +
+      dist_waterway_bool + dist_waterway +
+      distance_protected_area_bool + distance_protected_area +
+      distance_cropland_2000_bool + distance_cropland_2000 +
+      soilgrid_grouped + esa_cci_2000,
+    "f_base_log" = area_accumulated_forest_loss_log ~
+      distance_mine_log +
+      elevation + slope +
+      pop_2000_log + area_forest_2000_log +
+      dist_road_log +
+      dist_waterway_log +
+      distance_protected_area_log +
+      distance_cropland_2000_log +
+      soilgrid_grouped + esa_cci_2000,
+    "f_base_bool_log" = area_accumulated_forest_loss_log ~
+      distance_mine_bool + distance_mine_log +
+      elevation + slope +
+      pop_2000_log + area_forest_2000_log +
+      dist_road_bool + dist_road_log +
+      dist_waterway_bool + dist_waterway_log +
+      distance_protected_area_bool + distance_protected_area_log +
+      distance_cropland_2000_bool + distance_cropland_2000_log +
+      soilgrid_grouped + esa_cci_2000,
+    "f_no_pop_log" = area_accumulated_forest_loss_log ~
+      distance_mine_log +
+      elevation + slope +
+      area_forest_2000_log +
+      dist_road_log +
+      dist_waterway_log +
+      distance_protected_area_log +
+      distance_cropland_2000_log +
+      soilgrid_grouped + esa_cci_2000,
+    "f_no_pa_log" = area_accumulated_forest_loss_log ~
+      distance_mine_log +
+      elevation + slope +
+      pop_2000_log + area_forest_2000_log +
+      dist_road_log +
+      dist_waterway_log +
+      distance_cropland_2000_log +
+      soilgrid_grouped + esa_cci_2000,
+    "f_no_esa_log" = area_accumulated_forest_loss_log ~
+      distance_mine_log +
+      elevation + slope +
+      pop_2000_log + area_forest_2000_log +
+      dist_road_log +
+      dist_waterway_log +
+      distance_protected_area_log +
+      distance_cropland_2000_log +
+      soilgrid_grouped,
+    "f_esa_group" = area_accumulated_forest_loss_log ~
+      distance_mine +
       elevation + slope +
       pop_2000 + area_forest_2000 +
       dist_road +
@@ -61,60 +154,34 @@ for(file in files) {
       distance_protected_area +
       distance_cropland_2000 +
       soilgrid_grouped + esa_cci_2000_grouped,
-    "f_interactions" = area_accumulated_forest_loss ~
-      distance_mine + #I(distance_mine * treated) +
+    "f_base_decay" = area_accumulated_forest_loss_log ~
+      distance_mine_decay +
+      elevation + slope +
+      pop_2000_log + area_forest_2000_log +
+      dist_road_decay +
+      dist_waterway_decay +
+      distance_protected_area_decay +
+      distance_cropland_2000_decay +
+      soilgrid_grouped + esa_cci_2000,
+    "f_base_log_interactions" = area_accumulated_forest_loss_log ~
+      distance_mine_log +
       elevation + slope + I(elevation * slope) +
-      pop_2000 + area_forest_2000 +
-      dist_road + I(distance_mine * dist_road) + I(dist_waterway * dist_road) +
-      dist_waterway +
-      distance_protected_area + I(distance_protected_area * dist_road) +
-      distance_cropland_2000 + I(distance_cropland_2000 * dist_road) +
-      soilgrid_grouped + esa_cci_2000_grouped,
-    # "f_interactions_highway" = area_accumulated_forest_loss ~
-    #   distance_mine + #I(distance_mine * treated) +
-    #   elevation + slope + I(elevation * slope) +
-    #   pop_2000 + area_forest_2000 +
-    #   distance_highway_motorway + I(distance_mine * distance_highway_motorway) + I(dist_waterway * distance_highway_motorway) +
-    #   dist_waterway +
-    #   distance_protected_area + I(distance_protected_area * distance_highway_motorway) +
-    #   distance_cropland_2000 + I(distance_cropland_2000 * distance_highway_motorway) +
-    #   soilgrid_grouped + esa_cci_2000_grouped,
-    "f_interactions_quad" = area_accumulated_forest_loss ~
-      distance_mine + I(distance_mine^2) + #I(distance_mine * treated) +
+      pop_2000_log + area_forest_2000_log + I(pop_2000_log * area_forest_2000_log) +
+      dist_road_log + I(dist_road_log * pop_2000_log) + I(dist_road_log * distance_cropland_2000_log) +
+      dist_waterway_log +
+      distance_protected_area_log +
+      distance_cropland_2000_log +
+      soilgrid_grouped + esa_cci_2000,
+    "f_base_decay_interactions" = area_accumulated_forest_loss_log ~
+      distance_mine_decay +
       elevation + slope + I(elevation * slope) +
-      pop_2000 + area_forest_2000 +
-      dist_road + I(distance_mine * dist_road) + I(dist_waterway * dist_road) +
-      dist_waterway +
-      distance_protected_area + I(distance_protected_area * dist_road) +
-      distance_cropland_2000 + I(distance_cropland_2000 * dist_road) +
-      soilgrid_grouped + esa_cci_2000_grouped,
-    "f_interactions_cub" = area_accumulated_forest_loss ~
-      distance_mine + I(distance_mine^2) + I(distance_mine^3) + #I(distance_mine * treated) +
-      elevation + slope + I(elevation * slope) +
-      pop_2000 + area_forest_2000 +
-      dist_road + I(distance_mine * dist_road) + I(dist_waterway * dist_road) +
-      dist_waterway +
-      distance_protected_area + I(distance_protected_area * dist_road) +
-      distance_cropland_2000 + I(distance_cropland_2000 * dist_road) +
-      soilgrid_grouped + esa_cci_2000_grouped,
-    "f_interactions_bool_quad" = area_accumulated_forest_loss ~ # still missing are: sub-national dummies
-      distance_mine_bool + distance_mine + I(distance_mine^2) + #I(distance_mine * treated) +
-      elevation + slope + I(elevation * slope) +
-      pop_2000 + area_forest_2000 +
-      dist_road + I(distance_mine * dist_road) + I(dist_waterway * dist_road) +
-      dist_waterway +
-      distance_protected_area + I(distance_protected_area * dist_road) +
-      distance_cropland_2000 + I(distance_cropland_2000 * dist_road) +
-      soilgrid_grouped + esa_cci_2000_grouped,
-    "f_interactions_bool_logdm" = area_accumulated_forest_loss ~
-      distance_mine_bool + distance_mine_log + 
-      elevation + slope + I(elevation * slope) +
-      pop_2000 + area_forest_2000 +
-      dist_road + I(distance_mine * dist_road) + I(dist_waterway * dist_road) +
-      dist_waterway +
-      distance_protected_area + I(distance_protected_area * dist_road) +
-      distance_cropland_2000 + I(distance_cropland_2000 * dist_road) +
-      soilgrid_grouped + esa_cci_2000_grouped)
+      pop_2000_log + area_forest_2000_log + I(pop_2000_log * area_forest_2000_log) +
+      dist_road_decay + I(dist_road_decay * pop_2000_log) + I(dist_road_decay * distance_cropland_2000_decay) +
+      dist_waterway_decay +
+      distance_protected_area_decay +
+      distance_cropland_2000_decay +
+      soilgrid_grouped + esa_cci_2000
+    )
 
   source("code/3_models.R")
   

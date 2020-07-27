@@ -52,7 +52,7 @@ compare_models_plot(compare_models_merge(path = "output/txt",
 
 compare_models_plot(compare_models_merge(path = "output/txt", 
                                     files = list.files("output/txt/", pattern = "coef.*_f_base"),
-                                    coef_subs = c("distance_mine_boolTRUE", "distance_mine", "I(distance_mine^2)")))
+                                    coef_subs = c("distance_mine", "I(distance_mine^2)")))
 
 compare_models_plot(compare_models_merge(path = "output/txt", 
                                          files = c("coef_NIC_f_interactions_bool_logdm.csv", 
@@ -64,91 +64,276 @@ compare_models_plot(compare_models_merge(path = "output/txt",
                                          files = c("coef_NIC_f_interactions_bool_quad.csv", "coef_NIC_f_interactions_bool_logdm.csv",
                                                    "coef_ZMB_f_interactions_bool_quad.csv", "coef_ZMB_f_interactions_bool_logdm.csv", 
                                                    "coef_GHA_f_interactions_bool_quad.csv", "coef_GHA_f_interactions_bool_logdm.csv"),
-                                         coef_subs = c("distance_mine", "distance_mine_log", "I(distance_mine^2)")))
+                                         coef_subs = c("distance_mine_boolTRUE", "distance_mine", "distance_mine_log", "I(distance_mine^2)")))
+
+
+
+# apply functions for fitted values and plot them -------------------------
+
+# select countries we want to cover
+data_sm <- read.csv("output/country_data-summary-max.csv")
+dat_sum <- data_sm %>% as.data.frame() %>% 
+  dplyr::mutate(index = rep(seq(1, 6, 1), nrow(data_sm)/6)) %>%
+  dplyr::filter(index == 6) %>%
+  dplyr::mutate(area_forest_2000  = as.numeric(as.character(area_forest_2000))  / 1000000) %>%
+  dplyr::mutate(area_accumulated_forest_loss =  as.numeric(as.character(area_accumulated_forest_loss)) / 1000000) %>%
+  dplyr::mutate(relative_forest_loss = area_accumulated_forest_loss / area_forest_2000)
+top_rff <- dat_sum %>% dplyr::arrange(-relative_forest_loss)
+top_rff <- as.character(top_rff$iso[1:26]) # top 26 have more than 5% loss
 
 # linear decay
-dat_lin <- compare_models_merge(path = "output/txt",
-                            files = list.files("output/txt/", pattern = "coef.*_f_base.csv"),
-                            coef_subs = c("distance_mine"))
-
-p_dat_lin <- data.frame()
-for(i in unique(dat$country)){
-  
-  dat_sub <- dat_lin %>% dplyr::filter(country == i)
-  pred <- dat_sub$lm_coef * seq(0, 50, 1)
-  dat_sub <- data.frame("forest_loss_fitted" = pred,
-                      "distance_mine" = seq(0, 50, 1),
-                      "country" = i,
-                      "model" = dat_sub$model[1]) 
-  p_dat_lin <- dplyr::bind_rows(p_dat_lin, dat_sub)
-  
-}
-
-p_dat_lin %>% ggplot2::ggplot(aes(x = distance_mine, y = forest_loss_fitted, color = country)) +
+data.frame(get_fitted(path = "output/txt", 
+                      files <- list.files("output/txt/", pattern = "coef.*_f_base.csv"),
+                      countries = top_rff,
+                      npred = 50,
+                      log_dist = FALSE)) %>% 
+  ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)), color = as.character(X3))) +
   ggplot2::geom_line()
 
-p_dat_lin %>% ggplot2::ggplot(aes(x = distance_mine, y = forest_loss_fitted)) +
+data.frame(get_fitted(path = "output/txt", 
+                      files <- list.files("output/txt/", pattern = "coef.*_f_base.csv"),
+                      countries = top_rff,
+                      npred = 50,
+                      log_dist = FALSE)) %>% 
+  ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)))) +
   ggplot2::geom_line() +
-  ggplot2::facet_wrap(country ~ ., scales = "free_y")
+  ggplot2::facet_wrap(X3 ~ ., scales = "free_y")
 
 # quadratic decay
-dat_quad <- compare_models_merge(path = "output/txt",
-                            files = list.files("output/txt/", pattern = "coef.*_f_interactions_quad.csv"),
-                            coef_subs = c("distance_mine", "I(distance_mine^2)"))
-
-p_dat_quad <- data.frame()
-for(i in unique(dat$country)){
-  
-  dat_sub <- dat_quad %>%dplyr::filter(country == i)
-  pred <- dat_sub$lm_coef[1] * seq(0, 50, 1) + dat_sub$lm_coef[2] * seq(0, 50, 1)^2
-  dat_sub <- data.frame("forest_loss_fitted" = pred,
-                        "distance_mine" = seq(0, 50, 1),
-                        "country" = i,
-                        "model" = dat_sub$model[1]) 
-  p_dat_quad <- dplyr::bind_rows(p_dat_quad, dat_sub)
-  
-}
-
-p_dat_quad %>% ggplot2::ggplot(aes(x = distance_mine, y = forest_loss_fitted, color = country)) +
+data.frame(get_fitted(path = "output/txt", 
+           files <- list.files("output/txt/", pattern = "coef.*_f_interactions_quad.csv"),
+           countries = top_rff,
+           npred = 50,
+           log_dist = FALSE)) %>% 
+  ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)), color = as.character(X3))) +
   ggplot2::geom_line()
 
-p_dat_quad %>% ggplot2::ggplot(aes(x = distance_mine, y = forest_loss_fitted)) +
+data.frame(get_fitted(path = "output/txt", 
+                      files <- list.files("output/txt/", pattern = "coef.*_f_interactions_quad.csv"),
+                      countries = top_rff,
+                      npred = 50,
+                      log_dist = FALSE)) %>%
+  ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)))) +
   ggplot2::geom_line() +
-  ggplot2::facet_wrap(country ~ ., scales = "free_y")
+  ggplot2::facet_wrap(X3 ~ ., scales = "free_y")
 
+
+# quadratic decay distance to mine log
+data.frame(get_fitted(path = "output/txt", 
+                      files <- list.files("output/txt/", pattern = "coef.*_f_interactions_quad_logdm.csv"),
+                      countries = top_rff,
+                      npred = 50,
+                      log_dist = TRUE)) %>% 
+  ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)), color = as.character(X3))) +
+  ggplot2::geom_line()
+
+data.frame(get_fitted(path = "output/txt", 
+                      files <- list.files("output/txt/", pattern = "coef.*_f_interactions_quad_logdm.csv"),
+                      countries = top_rff,
+                      npred = 50,
+                      log_dist = TRUE)) %>%
+  ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)))) +
+  ggplot2::geom_line() +
+  ggplot2::facet_wrap(X3 ~ ., scales = "free_y")
 
 
 # logarithmic decay
-dat_log <- compare_models_merge(path = "output/txt",
-                            files = list.files("output/txt/", pattern = "coef.*_f_interactions_bool_logdm.csv"),
-                            coef_subs = c("distance_mine_log"))
-
-p_dat_log <- data.frame()
-for(i in unique(dat$country)){
-  
-  dat_sub <- dat_log %>%dplyr::filter(country == i)
-  pred <- dat_sub$lm_coef * seq(0, 50, 1)
-  dat_sub <- data.frame("forest_loss_fitted" = pred,
-                        "distance_mine" = seq(0, 50, 1),
-                        "country" = i,
-                        "model" = dat_sub$model[1]) 
-  p_dat_log <- dplyr::bind_rows(p_dat_log, dat_sub)
-  
-}
-
-p_dat_log %>% ggplot2::ggplot(aes(x = distance_mine, y = forest_loss_fitted, color = country)) +
+data.frame(get_fitted(path = "output/txt", 
+                      files <- list.files("output/txt/", pattern = "coef.*_f_interactions_bool_logdm.csv"),
+                      countries = top_rff,
+                      npred = 50,
+                      log_dist = TRUE)) %>% 
+  ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)), color = as.character(X3))) +
   ggplot2::geom_line()
 
-p_dat_log %>% ggplot2::ggplot(aes(x = distance_mine, y = forest_loss_fitted)) +
+data.frame(get_fitted(path = "output/txt", 
+                      files <- list.files("output/txt/", pattern = "coef.*_f_interactions_bool_logdm.csv"),
+                      countries = top_rff,
+                      npred = 50,
+                      log_dist = TRUE)) %>%
+  ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)))) +
   ggplot2::geom_line() +
-  ggplot2::facet_wrap(country ~ ., scales = "free_y")
+  ggplot2::facet_wrap(X3 ~ ., scales = "free_y")
+
+
+
+# logarithmic decay 2: log all distances
+data.frame(get_fitted(path = "output/txt", 
+                      files <- list.files("output/txt/", pattern = "coef.*_f_interactions_bool_logalldist.csv"),
+                      countries = top_rff,
+                      npred = 50,
+                      log_dist = TRUE)) %>% 
+  ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)), color = as.character(X3))) +
+  ggplot2::geom_line()
+
+data.frame(get_fitted(path = "output/txt", 
+                      files <- list.files("output/txt/", pattern = "coef.*_f_interactions_bool_logalldist.csv"),
+                      countries = top_rff,
+                      npred = 50,
+                      log_dist = TRUE)) %>%
+  ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)))) +
+  ggplot2::geom_line() +
+  ggplot2::facet_wrap(X3 ~ ., scales = "free_y")
 
 # combine
-p_dat_comb <- dplyr::bind_rows(p_dat_lin, p_dat_quad, p_dat_log)
-rm(dat_lin, dat_quad, dat_log, p_dat_lin, p_dat_quad, p_dat_log)
+dat_comb <- rbind(
+  data.frame(get_fitted(path = "output/txt", 
+             files <- list.files("output/txt/", pattern = "coef.*_f_base.csv"),
+             countries = top_rff,
+             npred = 50,
+             log_dist = FALSE)) %>%
+    dplyr::mutate(model = "base"),
+  data.frame(get_fitted(path = "output/txt", 
+                        files <- list.files("output/txt/", pattern = "coef.*_f_interactions_quad.csv"),
+                        countries = top_rff,
+                        npred = 50,
+                        log_dist = FALSE)) %>%
+    dplyr::mutate(model = "int_quad"),
+  data.frame(get_fitted(path = "output/txt", 
+                        files <- list.files("output/txt/", pattern = "coef.*_f_interactions_bool_logdm.csv"),
+                        countries = top_rff,
+                        npred = 50,
+                        log_dist = TRUE)) %>% 
+    dplyr::mutate(model = "int_bool_logdm")
+)
 
-p_dat_comb %>% ggplot2::ggplot(aes(x = distance_mine, y = forest_loss_fitted, color = country)) +
+dat_comb %>%   ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)), color = as.character(X3))) +
   ggplot2::geom_line(aes(linetype=model)) +
-  ggplot2::ylim(c(-50, 100))
+  ggplot2::ylim(c(-50, 100)) +
+  ggplot2::xlim(c(0, 50))
+
+dat_comb %>%   ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)), fill = as.character(X3), color = model)) +
+  ggplot2::geom_line() +
+  ggplot2::ylim(c(-50, 100)) +
+  ggplot2::xlim(c(0, 50))
+
+
+
+# 100km -------------------------------------------------------------------
+
+dat_comb <- rbind(
+  data.frame(get_fitted(path = "output/txt_100km", 
+                        files <- list.files("output/txt_100km/", pattern = "coef.*_f_base.csv"),
+                        countries = top_rff,
+                        npred = 50,
+                        log_dist = FALSE)) %>%
+    dplyr::mutate(model = "base"),
+  data.frame(get_fitted(path = "output/txt_100km", 
+                        files <- list.files("output/txt_100km/", pattern = "coef.*_f_interactions_quad.csv"),
+                        countries = top_rff,
+                        npred = 50,
+                        log_dist = FALSE)) %>%
+    dplyr::mutate(model = "int_quad"),
+  data.frame(get_fitted(path = "output/txt_100km",
+                        files <- list.files("output/txt_100km/", pattern = "coef.*_f_interactions_bool_logdm.csv"),
+                        countries = top_rff,
+                        npred = 50,
+                        log_dist = TRUE)) %>%
+    dplyr::mutate(model = "int_bool_logdm")
+)
+
+dat_comb %>%   ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)), color = as.character(X3))) +
+  ggplot2::geom_line(aes(linetype=model)) +
+  ggplot2::ylim(c(-50, 100)) +
+  ggplot2::xlim(c(0, 50))
+
+
+dat_comb %>%   ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)), fill = as.character(X3), color = model)) +
+  ggplot2::geom_line() +
+  ggplot2::ylim(c(-50, 100)) +
+  ggplot2::xlim(c(0, 50))
+
+
+data.frame(get_fitted(path = "output/txt_100km", 
+                      files <- list.files("output/txt_100km/", pattern = "coef.*_f_interactions_bool_logdm.csv"),
+                      countries = top_rff,
+                      npred = 50,
+                      log_dist = TRUE)) %>% 
+  ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)), color = as.character(X3))) +
+  ggplot2::geom_line()
+
+data.frame(get_fitted(path = "output/txt_100km", 
+                      files <- list.files("output/txt_100km/", pattern = "coef.*_f_interactions_bool_logdm.csv"),
+                      countries = top_rff,
+                      npred = 50,
+                      log_dist = TRUE)) %>%
+  ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)))) +
+  ggplot2::geom_line() +
+  ggplot2::facet_wrap(X3 ~ ., scales = "free_y")
+
+
+# log all distances, compare full vs 100km subset -------------------------
+
+# MDG totally different just because of model selection?
+
+compare_models_merge(path = "output/txt",
+                     files = "coef.MDG_f_interactions_bool_logalldist.csv",
+                     coef_subs = c("distance_mine_log"))
+
+compare_models_merge(path = "output/txt_100km",
+                     files = "coef.MDG_f_interactions_logalldist.csv",
+                     coef_subs = c("distance_mine_log"))
+
+data.frame(get_fitted(path = "output/txt", 
+                      files = list.files("output/txt/", pattern = "coef.*_f_interactions_bool_logalldist.csv"),
+                      countries = top_rff[-6], # remove MDG
+                      npred = 50,
+                      log_dist = TRUE)) %>% 
+  ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)), color = as.character(X3))) +
+  ggplot2::geom_line()
+
+data.frame(get_fitted(path = "output/txt_100km", 
+                      files = list.files("output/txt_100km/", pattern = "coef.*_f_interactions_logalldist.csv"),
+                      countries = top_rff[-6], # remove MDG
+                      npred = 20,
+                      log_dist = TRUE)) %>% 
+  ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)), color = as.character(X3))) +
+  ggplot2::labs(title = "coef.*_f_interactions_logalldist") +
+  ggplot2::geom_line()
+
+
+# level-level 50km --------------------------------------------------------
+
+compare_models_merge(path = "output/txt_50km_level",
+                     files = "coef.MDG_f_interactions_logalldist.csv",
+                     coef_subs = c("distance_mine_log"))
+
+data.frame(get_fitted(path = "output/txt_50km_level", 
+                      files = list.files("output/txt_50km_level/", pattern = "coef.*_f_interactions_logalldist.csv"),
+                      countries = top_rff[-6], # remove MDG
+                      npred = 20,
+                      log_dist = TRUE)) %>% 
+  ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)), color = as.character(X3))) +
+  ggplot2::labs(title = "coef.*_f_interactions_logalldist") +
+  ggplot2::geom_line()
+
+
+data.frame(get_fitted(path = "output/txt_50km_level", 
+                      files = list.files("output/txt_50km_level/", pattern = "coef.*_f_interactions.csv"),
+                      countries = top_rff[-6], # remove MDG
+                      npred = 20,
+                      log_dist = FALSE)) %>% 
+  ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)), color = as.character(X3))) +
+  ggplot2::labs(title = "coef.*_f_interactions.csv") +
+  ggplot2::geom_line()
+
+data.frame(get_fitted(path = "output/txt_50km_level", 
+                      files = list.files("output/txt_50km_level/", pattern = "coef.*_f_interactions_quad.csv"),
+                      countries = top_rff[-6], # remove MDG
+                      npred = 20,
+                      log_dist = FALSE)) %>% 
+  ggplot2::ggplot(aes(x = as.numeric(as.character(X1)), y = as.numeric(as.character(X2)), color = as.character(X3))) +
+  ggplot2::labs(title = "coef.*_f_interactions_quad") +
+  ggplot2::geom_line()
+
+
+
+
+
+# IDEAS -------------------------------------------------------------------
+
+
+# intercept for "distance_mine_boolTRUE"
+# include scatter to fitted plot
 
 
