@@ -50,7 +50,7 @@ for(file in files) {
   # Add variables
   tbl <- add_vars(tbl,
     treated = c(-1, 5e4),
-    dist_log = TRUE, dist_bool = 0, dist_decay = 0.5)
+    dist_log = TRUE, dist_bool = 5000, dist_decay = 0.5)
 
   # CEM
   match_on <- c("elevation", "slope", "area_forest_2000", "pop_2000",
