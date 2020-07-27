@@ -13,8 +13,9 @@ if(!exists("out_cem")) {stop("Please provide matched data in `out_cem`.")}
 for(i in seq(formulas)) {
 
   # Models -----
+  cat("Running model ", names(formulas)[i], ".\n", sep = "")
 
-  y <- log(tbl[["area_accumulated_forest_loss"]]+1) # add small constant for taking log
+  y <- tbl[[as.character(formulas[[i]][[2]])]]
   X <- model.matrix(formulas[[i]], data = tbl)[, -1] # no need for constant here
   X <- scale(X)
   X <- X[, !apply(X, 2, function(x) all(is.na(x)))]
@@ -36,7 +37,7 @@ for(i in seq(formulas)) {
 
   # Outputs -----
 
-  png(paste0("output/plots/lasso_simple_",
+  png(paste0("output/plots/lasso_simple",
     get_iso(file), ".png"), width = 960, height = 720)
   plot(out_lasso, label = TRUE)
   dev.off()
