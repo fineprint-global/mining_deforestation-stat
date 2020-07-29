@@ -43,5 +43,7 @@ docs/
 
 # Data
 data/
+input/cem
+
 # Results
 output/
