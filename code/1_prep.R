@@ -26,7 +26,7 @@ files <- c("south_america-BRA.rds", "oceania-IDN.rds", "oceania-MYS.rds")
 #   "south_america-SUR.rds")
 
 
-file <- files[[3]]
+file <- files[[1]]
 # file <- files[grep("NIC", files)]
 
 # Store CEM outputs

@@ -57,6 +57,8 @@ readr::write_csv(tibble(
     names(formulas)[i], ".csv"))
 
 readr::write_csv(tibble(
+  "country" = get_iso(file),
+  "model" = names(formulas)[i],
   "N" = sum(out_cem[["w"]]),
   "N_full" = nrow(tbl),
   "N_treated" = out_cem[["tab"]][1, 2],

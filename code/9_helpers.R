@@ -164,6 +164,23 @@ compare_models_merge <- function(path, files, coef_subs = NULL){
   return(data)
 }
 
+#' @title Merge model info outputs for comparison
+#'
+#' @param path Path to csv files from code/3_models.R
+#' @param files Character vector. Selection of csv files to be read.
+#'
+#' @return Returns a tibble.
+compare_models_info <- function(path, files){
+  
+  # read data
+  data <- list.files(path = path,
+                     pattern = paste(files, collapse = "|"), 
+                     full.names = T) %>% 
+    purrr::map_df(~readr::read_csv(.))
+  
+  return(data)
+}
+
 
 #' @title Derive variables for modelling.
 #'
