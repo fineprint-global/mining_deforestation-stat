@@ -141,6 +141,7 @@ get_iso <- function(x) {
   sub(".*([A-Z]{3}).*.rds", "\\1", x)
 }
 
+
 #' @title Merge model outputs for comparison
 #'
 #' @param path Path to csv files from code/3_models.R
@@ -149,18 +150,18 @@ get_iso <- function(x) {
 #'
 #' @return Returns a tibble.
 compare_models_merge <- function(path, files, coef_subs = NULL){
-  
+
   # read data
   data <- list.files(path = path,
-               pattern = paste(files, collapse = "|"), 
-               full.names = T) %>% 
+               pattern = paste(files, collapse = "|"),
+               full.names = T) %>%
     purrr::map_df(~readr::read_csv(.))
-  
+
   # subset
   if(!is.null(coef_subs)) {
     data <- data %>% dplyr::filter(vars %in% coef_subs)
   }
-  
+
   return(data)
 }
 
@@ -171,13 +172,13 @@ compare_models_merge <- function(path, files, coef_subs = NULL){
 #'
 #' @return Returns a tibble.
 compare_models_info <- function(path, files){
-  
+
   # read data
   data <- list.files(path = path,
-                     pattern = paste(files, collapse = "|"), 
-                     full.names = T) %>% 
+                     pattern = paste(files, collapse = "|"),
+                     full.names = T) %>%
     purrr::map_df(~readr::read_csv(.))
-  
+
   return(data)
 }
 
@@ -195,13 +196,13 @@ compare_models_info <- function(path, files){
 #' @return Returns a character vector with just the ISO
 add_vars <- function(x,
   treated = c(-1, 5e4),
-  dist_log = TRUE, dist_bool = 1e3, dist_decay = 0.5) {
+  dist_log = TRUE, dist_bool = TRUE, dist_decay = 0.5) {
 
   x$treated <- calc_treatment(tbl,
     dist_treated = treated, dist_control = treated[2])
-  
+
   # Distance variables ---
-  
+
   distance_vars <- c("distance_mine", "dist_road", "dist_waterway",
     "distance_cropland_2000", "distance_protected_area")
 
@@ -214,16 +215,19 @@ add_vars <- function(x,
     x <- mutate_at(x, distance_vars,
       list(log = function(.) log(pmax(., 1))))
   }
-  if(!is.null(dist_bool)) {
+  if(dist_bool) {
     x <- mutate_at(x, distance_vars,
-      list(bool = function(.) . > dist_bool))
+      list(bool = function(.) . > 1e3))
+    x <- mutate_at(x, distance_vars, list(
+      km5 = function(.) . > 5e3, km10 = function(.) . > 1e4,
+      km20 = function(.) . > 2e4, km50 = function(.) . > 5e4))
   }
 
   # Other variables
-  x <- mutate_at(x, c("area_accumulated_forest_loss", "area_forest_2000", 
+  x <- mutate_at(x, c("area_accumulated_forest_loss", "area_forest_2000",
     "pop_2000", "elevation"),
     list(log = function(.) log(pmax(., 1))))
-  
+
   return(x)
 }
 
@@ -235,14 +239,14 @@ add_vars <- function(x,
 #'
 #' @return Returns a ggplot object.
 compare_models_plot <- function(data){
-  
-  p <- data %>% 
+
+  p <- data %>%
     ggplot2::ggplot(aes(x = vars, y = lm_coef, color = country, shape = model)) +
     ggplot2::geom_point() +
     ggplot2::theme_bw() +
     ggplot2::theme(axis.text.x = element_text(angle=90, hjust = 1))
- 
-  return(p) 
+
+  return(p)
 }
 
 
@@ -257,20 +261,20 @@ compare_models_plot <- function(data){
 #'
 #' @return Returns a matrix. Col 1 refers to x, col 2 to fitted value deforestation, col 3 to country
 get_fitted <- function(path, files, countries, npred, log_dist = FALSE){
-  
+
   dat <- compare_models_merge(path = path,
                               files = files) %>%
     dplyr::filter(country %in% countries) %>%
     dplyr::filter(stringr::str_detect(vars, "distance_mine")) %>%
     dplyr::filter(! stringr::str_detect(vars, " * ")) %>% # remove interactiona - how to deal with them??
     dplyr::filter(! stringr::str_detect(vars, "bool")) # remove bool - how to deal with them??
-  
+
   pred_matrix <- matrix(NA, npred*length(unique(dat$country)), 3)
   for(i in seq_along(unique(dat$country))){
-    
+
     dat_sub <- dat %>% dplyr::filter(country == unique(dat$country)[i])
     pols <- matrix(NA, nrow(dat_sub), npred)
-    
+
     if (log_dist == FALSE){
       for(p in c(1:nrow(pols))){
         pols[p,] <- dat_sub$lm_coef[p] * seq(1, npred, 1)^p
@@ -280,15 +284,15 @@ get_fitted <- function(path, files, countries, npred, log_dist = FALSE){
         pols[p,] <- dat_sub$lm_coef[p] * log(seq(1, npred, 1)^p)
       }
     }
-    
+
     pred <- colSums(pols)
-    pred_matrix[c((npred*(i-1) + 1) : (i*npred)),1] <- seq(1, npred, 1) 
+    pred_matrix[c((npred*(i-1) + 1) : (i*npred)),1] <- seq(1, npred, 1)
     pred_matrix[c((npred*(i-1) + 1) : (i*npred)),2] <- pred
     pred_matrix[c((npred*(i-1) + 1) : (i*npred)),3] <- unique(dat$country)[i]
-    
+
   }
-  
+
   return(pred_matrix)
-  
+
 }
 

@@ -1,16 +1,12 @@
 country,iso,continent
 Angola,AGO,africa
-Australia,AUS,oceania
-Bolivia,BOL,south_america
 Brazil,BRA,south_america
 Burkina Faso,BFA,africa
 China,CHN,asia
 Colombia,COL,south_america
 Congo - Brazzaville,COG,africa
 Côte d’Ivoire,CIV,africa
-Dominican Republic,DOM,central_america
 Ecuador,ECU,south_america
-Ethiopia,ETH,africa
 Gabon,GAB,africa
 Ghana,GHA,africa
 Guatemala,GTM,central_america
@@ -37,7 +33,6 @@ Suriname,SUR,south_america
 Tanzania,TZA,africa
 Thailand,THA,asia
 Uganda,UGA,africa
-Uruguay,URY,south_america
 Venezuela,VEN,south_america
 Vietnam,VNM,asia
 Zambia,ZMB,africa
