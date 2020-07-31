@@ -3,20 +3,24 @@
 
 ## Modell
 
-Log-log Spezifikation sollte am meisten Sinn ergeben - möglicherweise mit on-site Dummy. Distance decay verhält sich ähnlich, lineare explanatories teils auch.
-Heteroskedastizität ist vermutlich ein Problem. Für Brasilien finden wir vier Observationen mit hohem Leverage die mehr Aufwand verdienen.
+Log-log Spezifikation sollte am meisten Sinn ergeben - möglicherweise mit on-site und/oder weiteren Dummies (+ Interaktion?). Distance decay verhält sich (mit 0.5 Parameter) sehr ähnlich, fittet aber nicht so gut. Lineare explanatories sind teils auch ähnlich, aber fitten schlechter und die Linearität ist zweifelhaft.
+
+Ein kurzer Vergleich von Log- und Level-dependent würde Sinn machen.
+Heteroskedastizität ist vermutlich ein Problem (laut Breusch-Pagan).
+Für Brasilien finden wir ~vier Observationen mit hohem Leverage die mehr Aufmerksamkeit verdienen.
+Diagnostics müssten wir generell genauer etwas genauer inspizieren.
 
 ## Ergebnisse
 
-Für folgende Länder gibt es zurzeit erste Ergebnisse: BRA, IDN, MYS, AGO, COL, LAO, VNM, SUR.
+Für folgende Länder gibt es zurzeit erste Ergebnisse (mit unterschiedlichem Detail): BRA, IDN, MYS, AGO, COL, LAO, VNM, SUR.
 
 #### Log-Linear
-Wir finden abnehmenden Forest Loss mit linear steigender Distanz für: BRA, IDN, MYS, AGO, COL, VNM, SUR. Ein Dummy für 5km Umkreis scheint sinnvoll zu sein, aber verändert die Ergebniss nur unbedeutend. Eine Ausnahme ist SUR, wo dann nur dieser relevant ist -- die Abholzung findet im direkten Umfeld statt.
+Wir finden abnehmenden Forest Loss mit linear steigender Distanz für: BRA, IDN, MYS, AGO, COL, VNM, SUR. Ein Dummy für 5km Umkreis scheint sinnvoll zu sein, aber verändert die Ergebniss nur unbedeutend. Eine Ausnahme ist SUR, wo dann nur dieser relevant ist -- der Effekt auf Abholzung findet nur im direkten Umfeld statt.
 LAO reißt hier aus, und zeigt sinkende Abholzung bei steigender Distanz.
 
 #### Log-log
 Ergebnisse bei der logarithmisch steigender Distanz sind etwas gemischter -- wir finden abnehmenden Forest Loss für: BRA, IDN, AGO, COL, SUR. In MYS und VNM ist der Koeffizient nahe bei 0 und nicht sehr robust; bei LAO finden wir steigenden Forest Loss (wie zuvor). Auch hier ist der 5km Dummy relevant, mit tendenziell höherem Einfluss.
-Die Ergebnisse sind robust gegenüber dem Auslassen von Population, Land Use, Land Use Gruppen, und Protected Areas - MYS ist hier die Ausnahme.
+Die Ergebnisse sind robust gegenüber dem Auslassen von Population, Land Use, Land Use Gruppen, und Protected Areas -- MYS ist hier die Ausnahme.
 
 #### Ausmaß
 
@@ -33,9 +37,14 @@ distance-protected-area log: 0.18
 distance-cropland < 5km: -0.18
 distance-cropland log: -1.58
 
+Ein 1% increase in Distance führt also zu einem 0.3% decrease in Loss. Im direkten Umfeld ist der Loss nochmal 1.21% höher.
+Distanz zur Mine spielt auch allein (d.h. mit fix-gehaltenen Distanzen zu Infrastruktur, protected areas und Cropland) eine Rolle.
+Der Effekt von Forest Area ist vermutlich absolut der relevanteste (und vll als Variation des konstanten Effekts zu sehen). Population und Croplands spielen außerdem eine wichtige Rolle. Protected Areas scheinen zu funktionieren, wobei das direkte Umfeld (inklusive selbst) höhere Loss-Raten erfahren. Wegen der zeitlichen Komponente ist die Variable allerdings äußerst fragwürdig (zB könnte Loss zu Protected Areas führen). Interessanterweise hat die Distanz zu Straßen einen positiven Koeffizienten -- wohlgemerkt wäre das der Effekt bei konstanter Distanz zu ua Minen und Croplands.
+
+
 ## Länder
 
-Liste der Länder ist weiter gekürzt, u.a. auf Grund von mangelnden Minen-Daten oder mangelndem Wald. Die verbliebenen Länder sind weiterhin nicht komplett einwandfrei:
+Die Liste der Länder ist weiter gekürzt, u.a. auf Grund von mangelnden Minen-Daten oder mangelndem Wald. Die verbliebenen Länder sind weiterhin nicht komplett einwandfrei:
 
 - Burma wird dominiert von Minen in Indien und China, national gibt es nur eine zentrale Mine.
 - Thailand ist im Norden und im Süden sehr bewaldet - nur im Norden gibt es nationale Minen, im Süden dominiert Malaysia.
