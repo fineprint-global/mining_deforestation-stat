@@ -31,7 +31,7 @@ file <- files[[2]]
 
 # Store CEM outputs
 STORE_CEM <- TRUE
-CALC_LASSO <- TRUE
+CALC_LASSO <- FALSE
 SCALE_CENTER <- TRUE
 
 for(file in files) {
@@ -84,6 +84,16 @@ for(file in files) {
       distance_protected_area_bool + distance_protected_area_log +
       distance_cropland_2000_bool + distance_cropland_2000_log +
       soilgrid_grouped + esa_cci_2000,
+    "f_base_log_steps" = area_accumulated_forest_loss_log ~
+      distance_mine_bool + distance_mine_log + 
+      distance_mine_km5 + distance_mine_km10 + distance_mine_km20 + distance_mine_km50 +
+      elevation + slope +
+      pop_2000_log + area_forest_2000_log +
+      dist_road_bool + dist_road_log +
+      dist_waterway_bool + dist_waterway_log +
+      distance_protected_area_bool + distance_protected_area_log +
+      distance_cropland_2000_bool + distance_cropland_2000_log +
+      soilgrid_grouped + esa_cci_2000,
     "f_no_road_log" = area_accumulated_forest_loss_log ~
       distance_mine_log +
       elevation + slope +
@@ -91,6 +101,7 @@ for(file in files) {
       dist_waterway_log +
       distance_protected_area_log +
       distance_cropland_2000_log +
+      soilgrid_grouped + esa_cci_2000,
     "f_no_pop_log" = area_accumulated_forest_loss_log ~
       distance_mine_log +
       elevation + slope +
@@ -123,7 +134,7 @@ for(file in files) {
       pop_2000_log + area_forest_2000_log + I(pop_2000_log * area_forest_2000_log) +
       dist_road_log + I(dist_road_log * pop_2000_log) + I(dist_road_log * distance_cropland_2000_log) +
       dist_waterway_log +
-      distance_protected_area_log + I(dist_protected_area_log * distance_mine_log) +
+      distance_protected_area_log + I(distance_protected_area_log * distance_mine_log) +
       distance_cropland_2000_log +
       soilgrid_grouped + esa_cci_2000
   )
