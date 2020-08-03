@@ -3,6 +3,8 @@
 
 ## Ergebnisse
 
+#### Allgemein
+
 Für einige Länder haben wir sehr niedrigen Fit:
 
 - AGO < 0.05
@@ -17,6 +19,21 @@ Das Matching ist bei folgenden Ländern interessant:
 - GTM behält 4,950 von 127k Observationen (2,114 treated & 2,836 untreated)
 - ECU behält 4,935 von 262k Observationen (1,970 treated & 2,965 untreated)
 - GAB behält 3,556 von 303k Observationen (1,550 treated & 2,006 untreated)
+
+#### Mining
+
+Für folgenden Länder verhalten sich die Koeffizienten robust wie erwartet:
+
+AGO, BFA, BRA, COL, ECU, GAB, GHA, GUY, HND, IDN, KEN, LBR, MDG, PNG, SLE, SUR, ZMB
+
+Für folgende finden wir robust positive Koeffizienten:
+
+CHN, CIV, GIN, LAO, MOZ, THA, TZA
+
+Für folgende sind die Ergebnisse gemischt:
+
+GTM, MYS, PER, PHL, VEN, VNM
+
 
 # 2020-07-30
 
