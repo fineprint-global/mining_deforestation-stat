@@ -1,4 +1,23 @@
 
+# 2020-08-03
+
+## Ergebnisse
+
+Für einige Länder haben wir sehr niedrigen Fit:
+
+- AGO < 0.05
+- COG, GAB, GUY, SUR < 0.10
+
+Das Matching ist bei folgenden Ländern interessant:
+
+- MDG behält 8005 von 566k Observationen (3,157 treated & 4,848 untreated)
+- LAO behält 12,732 von 284k Observationen (5,489 treated & 7,243 untreated)
+- KEN behält 2,489 von 664k Observationen (1,100 treated & 1,389 untreated)
+- HND behält 2,437 von 131k Observationen (1,217 treated & 1,220 untreated)
+- GTM behält 4,950 von 127k Observationen (2,114 treated & 2,836 untreated)
+- ECU behält 4,935 von 262k Observationen (1,970 treated & 2,965 untreated)
+- GAB behält 3,556 von 303k Observationen (1,550 treated & 2,006 untreated)
+
 # 2020-07-30
 
 ## Modell
