@@ -100,13 +100,9 @@ Distance Cropland (alle Varianten an Dummies inkludiert):
 - MYS: Leicht positive Effekte für alle Kategorien
 - IDN: Signifikant negativer Koeffizient bei distance_cropland_2000_log * distance_cropland_2000_km5 und km10
 
+Ergebnisse erstes Proposal (log-log Spezifikation, keine on-site Dummies):
 
-Distance Mine (Varianten 5 und 20km inkludiert):
-
-- BRA: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km5 und, etwas schwächer, km20
-- MYS: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km5 und km20
-- IDN: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km5 und km20
-
+![](https://github.com/fineprint-global/mining_deforestation-stat/blob/master/proposal_1_BIM.png?raw=true)
 
 #### Ausmaß
 
