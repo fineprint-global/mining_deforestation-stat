@@ -1,4 +1,61 @@
 
+# 2020-08-04
+
+## Modell
+
+Log-log Spezifikation
+
+Nichtlinearitäten: Einsatz von Dummyvariablen, ob Observationen innerhalb einer festgelegten Distanz liegen. Diese werden für Interaktionsterme mit den (log)Distamzvariablen verwendet.
+
+On-site bool wurde exkludiert, da die Koeffizienten kaum reagieren, wenn andere Interaktionsdummies verwendet werden (Effekt wird vermutlich hauptsächlich von 5km Dummy eingefangen).
+
+Welche Distanzen zeigen signifikante Brüche? Explorativer Prozess anhand BRA, IDN und MYS (siehe Ergebnisse). Davon lassen sich folgende vorgeschlagene Distanzen ableiten:
+- Distance Mine Dummies für 5 und 20km
+- Road Dummy für 5 und 50km
+- Waterway Dummy für 10km
+- Protected Area Dummy für 20km
+- Cropland Dummy für 10km
+
+
+## Ergebnisse
+
+#### Explorativ: Log-log + Interaktionen aller Distanzvariablen mit 5, 10, 20 und 50km Dummies
+
+Distance Mine:
+
+- BRA: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km10 (i.e. innerhalb 10km gibt es stärkere Abholzungseffekte)
+- MYS: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km20, negativer Koeffizient bei distance_mine_log * distance_mine_km50 (i.e. 50 ist zu weit gefasst und inkludiert bereits andere Effekte)
+- IDN: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km5 und km20, und km50
+
+Distance Road:
+
+- BRA: Signifikant positiver Koeffizient bei dist_road_log * dist_road_km50 (i.e. innerhalb 50km gibt es stärkere Abholzungseffekte), leicht negativ bei km5 (interessant)
+- MYS: Signifikant positiver Koeffizient bei dist_road_log * dist_road_km20 und km50, auch leicht negativ bei km5
+- IDN: Signifikant negativer (!) Koeffizient bei dist_road_log * dist_road_km10 und km50, leicht negativ bei km5 und 20
+
+Distance Waterway:
+
+- BRA: Signifikant positiver Koeffizient bei dist_waterway_log * dist_road_km5 und km10, negativ bei km50
+- MYS: Signifikant positiver Koeffizient bei dist_waterway_log * dist_road_km5 und km10, negativ bei km20, kein Koeffizient für 50 (vermutlich aufgrund mangelnder Observationen)
+- IDN: Signifikant positiver Koeffizient bei dist_waterway_log * dist_road_km10, negativ bei km5 und km20, kein Koeffizient für 50 (vermutlich aufgrund mangelnder Observationen)
+
+Distance Protected Area:
+
+- BRA: Signifikant schwach positiver Koeffizient bei distance_protected_area_log * distance_protected_area_km5 und km10, schwach negativer Koeffizient bei distance_protected_area_log * distance_protected_area_km20 und km50
+- MYS: Signifikant negativer Koeffizient bei distance_protected_area_log * distance_protected_area_km20
+- IDN: Signifikant negativer Koeffizient bei distance_protected_area_log * distance_protected_area_km5, km20 und km50
+
+Distance Cropland:
+
+- BRA: Signifikant negativer Koeffizient bei distance_cropland_2000_log * distance_cropland_2000_km5, km10 und km20
+- MYS: Leicht positive Effekte für alle Kategorien
+- IDN: Signifikant negativer Koeffizient bei distance_cropland_2000_log * distance_cropland_2000_km5 und km10
+
+
+#### Erstes Proposal (log-log, keine on-site Dummies, ausgewählte Interaktionen):
+
+![](https://github.com/fineprint-global/mining_deforestation-stat/blob/master/proposal_1_BIM.png?raw=true)
+
 # 2020-08-03
 
 ## Ergebnisse
@@ -58,51 +115,6 @@ LAO reißt hier aus, und zeigt sinkende Abholzung bei steigender Distanz.
 Ergebnisse bei der logarithmisch steigender Distanz sind etwas gemischter -- wir finden abnehmenden Forest Loss für: BRA, IDN, AGO, COL, SUR. In MYS und VNM ist der Koeffizient nahe bei 0 und nicht sehr robust; bei LAO finden wir steigenden Forest Loss (wie zuvor). Auch hier ist der 5km Dummy relevant, mit tendenziell höherem Einfluss.
 Die Ergebnisse sind robust gegenüber dem Auslassen von Population, Land Use, Land Use Gruppen, und Protected Areas -- MYS ist hier die Ausnahme.
 
-#### Log-log + on-site und/oder weitere Interaktionen (Distance Dummies)
-
-Kaum ein Unterschied ob bool inkludiert oder nicht (wird vermutlich von 5km Dummy eingefangen). Deshalb vergleichen wir nur base Modell und eines mit zusätzlichen Interaktionstermen.
-
-Vorschläge (Details siehe unten):
-- Distance Mine Dummies für 5 und 20km
-- Road Dummy für 5 und 50km
-- Waterway Dummy für 10km
-- Protected Area Dummy für 20km
-- Cropland Dummy für 10km
-
-
-Distance Mine (alle Varianten an Dummies inkludiert):
-
-- BRA: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km10 (i.e. innerhalb 10km gibt es stärkere Abholzungseffekte)
-- MYS: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km20, negativer Koeffizient bei distance_mine_log * distance_mine_km50 (i.e. 50 ist zu weit gefasst und inkludiert bereits andere Effekte)
-- IDN: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km5 und km20, und km50
-
-Distance Road (alle Varianten an Dummies inkludiert):
-
-- BRA: Signifikant positiver Koeffizient bei dist_road_log * dist_road_km50 (i.e. innerhalb 50km gibt es stärkere Abholzungseffekte), leicht negativ bei km5 (interessant)
-- MYS: Signifikant positiver Koeffizient bei dist_road_log * dist_road_km20 und km50, auch leicht negativ bei km5
-- IDN: Signifikant negativer (!) Koeffizient bei dist_road_log * dist_road_km10 und km50, leicht negativ bei km5 und 20
-
-Distance Waterway (alle Varianten an Dummies inkludiert):
-
-- BRA: Signifikant positiver Koeffizient bei dist_waterway_log * dist_road_km5 und km10, negativ bei km50
-- MYS: Signifikant positiver Koeffizient bei dist_waterway_log * dist_road_km5 und km10, negativ bei km20, kein Koeffizient für 50 (vermutlich aufgrund mangelnder Observationen)
-- IDN: Signifikant positiver Koeffizient bei dist_waterway_log * dist_road_km10, negativ bei km5 und km20, kein Koeffizient für 50 (vermutlich aufgrund mangelnder Observationen)
-
-Distance Protected Area (alle Varianten an Dummies inkludiert):
-
-- BRA: Signifikant schwach positiver Koeffizient bei distance_protected_area_log * distance_protected_area_km5 und km10, schwach negativer Koeffizient bei distance_protected_area_log * distance_protected_area_km20 und km50
-- MYS: Signifikant negativer Koeffizient bei distance_protected_area_log * distance_protected_area_km20
-- IDN: Signifikant negativer Koeffizient bei distance_protected_area_log * distance_protected_area_km5, km20 und km50
-
-Distance Cropland (alle Varianten an Dummies inkludiert):
-
-- BRA: Signifikant negativer Koeffizient bei distance_cropland_2000_log * distance_cropland_2000_km5, km10 und km20
-- MYS: Leicht positive Effekte für alle Kategorien
-- IDN: Signifikant negativer Koeffizient bei distance_cropland_2000_log * distance_cropland_2000_km5 und km10
-
-Ergebnisse erstes Proposal (log-log Spezifikation, keine on-site Dummies):
-
-![](https://github.com/fineprint-global/mining_deforestation-stat/blob/master/proposal_1_BIM.png?raw=true)
 
 #### Ausmaß
 
