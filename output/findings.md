@@ -62,11 +62,29 @@ Die Ergebnisse sind robust gegenüber dem Auslassen von Population, Land Use, La
 
 Kaum ein Unterschied ob bool inkludiert oder nicht (wird vermutlich von 5km Dummy eingefangen). Deshalb vergleichen wir nur base Modell und eines mit zusätzlichen Interaktionstermen.
 
+Vorschläge (Details siehe unten):
+- Distance Mine Dummies für 5 und 20km
+- Road Dummy für 5 und 50km
+- Waterway Dummy für 10km
+
+
 Distance Mine (alle Varianten an Dummies inkludiert):
 
 - BRA: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km10 (i.e. innerhalb 10km gibt es stärkere Abholzungseffekte)
 - MYS: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km20, negativer Koeffizient bei distance_mine_log * distance_mine_km50 (i.e. 50 ist zu weit gefasst und inkludiert bereits andere Effekte)
 - IDN: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km5 und km20, und km50
+
+Distance Road (alle Varianten an Dummies inkludiert):
+
+- BRA: Signifikant positiver Koeffizient bei dist_road_log * dist_road_km50 (i.e. innerhalb 50km gibt es stärkere Abholzungseffekte), leicht negativ bei km5 (interessant)
+- MYS: Signifikant positiver Koeffizient bei dist_road_log * dist_road_km20 und km50, auch leicht negativ bei km5
+- IDN: Signifikant negativer (!) Koeffizient bei dist_road_log * dist_road_km10 und km50, leicht negativ bei km5 und 20
+
+Distance Waterway (alle Varianten an Dummies inkludiert):
+
+- BRA: Signifikant positiver Koeffizient bei dist_waterway_log * dist_road_km5 und km10, negativ bei km50
+- MYS: Signifikant positiver Koeffizient bei dist_waterway_log * dist_road_km5 und km10, negativ bei km20, kein Koeffizient für 50 (vermutlich aufgrund mangelnder Observationen)
+- IDN: Signifikant positiver Koeffizient bei dist_waterway_log * dist_road_km10, negativ bei km5 und km20, kein Koeffizient für 50 (vermutlich aufgrund mangelnder Observationen)
 
 Distance Mine (Varianten 5 und 20km inkludiert):
 
