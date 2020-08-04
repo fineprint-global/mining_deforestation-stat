@@ -214,17 +214,18 @@ p_dat$vars <- factor(p_dat$vars,
                                 "dist_waterway_log", "I(dist_waterway_log * dist_waterway_km10)",
                                 "distance_protected_area_log", "I(distance_protected_area_log * distance_protected_area_km20)",
                                 "distance_cropland_2000_log", "I(distance_cropland_2000_log * distance_cropland_2000_km10)"))
-compare_models_plot(p_dat)
+p <- compare_models_plot(p_dat) + ggplot2::geom_hline(yintercept = 0, color = "black")
+ggplot2::ggsave("output/plots/coefs/proposal_1_BIM.png", 
+                plot = p, device = "png", 
+                scale = 1, width = 300, height = 200, units = "mm")
 
 # plot all coeffs
 p_dat <- compare_models_merge(path = "output/txt",
                               files = paste0(paste0("coef_", rep(BIM, length( model_names)), "_"), 
                                              rep(model_names, each = length(BIM)), ".csv"))
 
-p <- compare_models_plot(p_dat) + ggplot2::geom_hline(yintercept = 0, color = "black")
-ggplot2::ggsave("output/plots/coefs/proposal_1_BIM.pdf", 
-                plot = p, device = "pdf", 
-                scale = 1, width = 300, height = 200, units = "mm")
+compare_models_plot(p_dat) 
+
 
 
 
