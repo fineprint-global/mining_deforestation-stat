@@ -5,7 +5,11 @@
 
 Log-log Spezifikation
 
+2 Modelle: a) ohne weitere Interaktionen wie etwa Elevation * Slope und b) inkl. weitere Interaktionen zwischen den einzelnen Variablen
+
 Nichtlinearitäten: Einsatz von Dummyvariablen, ob Observationen innerhalb einer festgelegten Distanz liegen. Diese werden für Interaktionsterme mit den (log)Distamzvariablen verwendet.
+
+Achtung: e.g. <5km wird mit FALSE kodiert, wenn eine Observation innerhalb 5km liegt (was unintuitiv ist).
 
 On-site bool wurde exkludiert, da die Koeffizienten kaum reagieren, wenn andere Interaktionsdummies verwendet werden (Effekt wird vermutlich hauptsächlich von 5km Dummy eingefangen).
 
@@ -23,15 +27,15 @@ Welche Distanzen zeigen signifikante Brüche? Explorativer Prozess anhand BRA, I
 
 Distance Mine:
 
-- BRA: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km10 (i.e. innerhalb 10km gibt es stärkere Abholzungseffekte)
-- MYS: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km20, negativer Koeffizient bei distance_mine_log * distance_mine_km50 (i.e. 50 ist zu weit gefasst und inkludiert bereits andere Effekte)
+- BRA: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km10 (i.e. außerhalb 10km gibt es stärkere Abholzungseffekte)
+- MYS: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km20, negativer Koeffizient bei distance_mine_log * distance_mine_km50
 - IDN: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km5 und km20, und km50
 
 Distance Road:
 
-- BRA: Signifikant positiver Koeffizient bei dist_road_log * dist_road_km50 (i.e. innerhalb 50km gibt es stärkere Abholzungseffekte), leicht negativ bei km5 (interessant)
+- BRA: Signifikant positiver Koeffizient bei dist_road_log * dist_road_km50 (i.e. außerhalb 50km gibt es stärkere Abholzungseffekte), leicht negativ bei km5
 - MYS: Signifikant positiver Koeffizient bei dist_road_log * dist_road_km20 und km50, auch leicht negativ bei km5
-- IDN: Signifikant negativer (!) Koeffizient bei dist_road_log * dist_road_km10 und km50, leicht negativ bei km5 und 20
+- IDN: Signifikant negativer Koeffizient bei dist_road_log * dist_road_km10 und km50, leicht negativ bei km5 und 20
 
 Distance Waterway:
 
@@ -52,9 +56,15 @@ Distance Cropland:
 - IDN: Signifikant negativer Koeffizient bei distance_cropland_2000_log * distance_cropland_2000_km5 und km10
 
 
-#### Erstes Proposal (log-log, keine on-site Dummies, ausgewählte Interaktionen):
+#### Erstes Proposal (log-log, keine on-site Dummies, ausgewählte Distanzinteraktionen):
 
 ![](https://github.com/fineprint-global/mining_deforestation-stat/blob/master/proposal_1_BIM.png?raw=true)
+
+#### Erstes Proposal, alle Länder:
+
+Hier wird nur das Modell ohne zusätzliche Interaktionen wie etwa Elevation * Slope gezwigt, da das Interaktionsmodell kaum veränderte Koeffizienten und minimal bessererem Fit zeigt.
+
+![](https://github.com/fineprint-global/mining_deforestation-stat/blob/master/proposal_1.png?raw=true)
 
 # 2020-08-03
 
