@@ -66,6 +66,8 @@ Vorschläge (Details siehe unten):
 - Distance Mine Dummies für 5 und 20km
 - Road Dummy für 5 und 50km
 - Waterway Dummy für 10km
+- Protected Area Dummy für 20km
+- Cropland Dummy für 10km
 
 
 Distance Mine (alle Varianten an Dummies inkludiert):
@@ -85,6 +87,19 @@ Distance Waterway (alle Varianten an Dummies inkludiert):
 - BRA: Signifikant positiver Koeffizient bei dist_waterway_log * dist_road_km5 und km10, negativ bei km50
 - MYS: Signifikant positiver Koeffizient bei dist_waterway_log * dist_road_km5 und km10, negativ bei km20, kein Koeffizient für 50 (vermutlich aufgrund mangelnder Observationen)
 - IDN: Signifikant positiver Koeffizient bei dist_waterway_log * dist_road_km10, negativ bei km5 und km20, kein Koeffizient für 50 (vermutlich aufgrund mangelnder Observationen)
+
+Distance Protected Area (alle Varianten an Dummies inkludiert):
+
+- BRA: Signifikant schwach positiver Koeffizient bei distance_protected_area_log * distance_protected_area_km5 und km10, schwach negativer Koeffizient bei distance_protected_area_log * distance_protected_area_km20 und km50
+- MYS: Signifikant negativer Koeffizient bei distance_protected_area_log * distance_protected_area_km20
+- IDN: Signifikant negativer Koeffizient bei distance_protected_area_log * distance_protected_area_km5, km20 und km50
+
+Distance Cropland (alle Varianten an Dummies inkludiert):
+
+- BRA: Signifikant negativer Koeffizient bei distance_cropland_2000_log * distance_cropland_2000_km5, km10 und km20
+- MYS: Leicht positive Effekte für alle Kategorien
+- IDN: Signifikant negativer Koeffizient bei distance_cropland_2000_log * distance_cropland_2000_km5 und km10
+
 
 Distance Mine (Varianten 5 und 20km inkludiert):
 
