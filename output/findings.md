@@ -63,14 +63,16 @@ Die Ergebnisse sind robust gegenüber dem Auslassen von Population, Land Use, La
 Kaum ein Unterschied ob bool inkludiert oder nicht (wird vermutlich von 5km Dummy eingefangen). Deshalb vergleichen wir nur base Modell und eines mit zusätzlichen Interaktionstermen.
 
 Distance Mine (alle Varianten an Dummies inkludiert):
-BRA: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km10 (i.e. innerhalb 10km gibt es stärkere Abholzungseffekte)
-MYS: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km20, negativer Koeffizient bei distance_mine_log * distance_mine_km50 (i.e. 50 ist zu weit gefasst und inkludiert bereits andere Effekte)
-IDN: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km5 und km20, und km50
+
+- BRA: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km10 (i.e. innerhalb 10km gibt es stärkere Abholzungseffekte)
+- MYS: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km20, negativer Koeffizient bei distance_mine_log * distance_mine_km50 (i.e. 50 ist zu weit gefasst und inkludiert bereits andere Effekte)
+- IDN: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km5 und km20, und km50
 
 Distance Mine (Varianten 5 und 20km inkludiert):
-BRA: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km5 und, etwas schwächer, km20
-MYS: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km5 und km20
-IDN: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km5 und km20
+
+- BRA: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km5 und, etwas schwächer, km20
+- MYS: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km5 und km20
+- IDN: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km5 und km20
 
 
 #### Ausmaß
