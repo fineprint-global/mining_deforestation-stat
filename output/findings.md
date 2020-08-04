@@ -58,6 +58,21 @@ LAO reißt hier aus, und zeigt sinkende Abholzung bei steigender Distanz.
 Ergebnisse bei der logarithmisch steigender Distanz sind etwas gemischter -- wir finden abnehmenden Forest Loss für: BRA, IDN, AGO, COL, SUR. In MYS und VNM ist der Koeffizient nahe bei 0 und nicht sehr robust; bei LAO finden wir steigenden Forest Loss (wie zuvor). Auch hier ist der 5km Dummy relevant, mit tendenziell höherem Einfluss.
 Die Ergebnisse sind robust gegenüber dem Auslassen von Population, Land Use, Land Use Gruppen, und Protected Areas -- MYS ist hier die Ausnahme.
 
+#### Log-log + on-site und/oder weitere Interaktionen (Distance Dummies)
+
+Kaum ein Unterschied ob bool inkludiert oder nicht (wird vermutlich von 5km Dummy eingefangen). Deshalb vergleichen wir nur base Modell und eines mit zusätzlichen Interaktionstermen.
+
+Distance Mine (alle Varianten an Dummies inkludiert):
+BRA: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km10 (i.e. innerhalb 10km gibt es stärkere Abholzungseffekte)
+MYS: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km20, negativer Koeffizient bei distance_mine_log * distance_mine_km50 (i.e. 50 ist zu weit gefasst und inkludiert bereits andere Effekte)
+IDN: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km5 und km20, und km50
+
+Distance Mine (Varianten 5 und 20km inkludiert):
+BRA: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km5 und, etwas schwächer, km20
+MYS: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km5 und km20
+IDN: Signifikant positiver Koeffizient bei distance_mine_log * distance_mine_km5 und km20
+
+
 #### Ausmaß
 
 In der log-log Spezifikation für Brasilien erhalten wir u.a. folgende Koeffizienten:
