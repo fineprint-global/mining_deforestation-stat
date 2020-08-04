@@ -244,7 +244,7 @@ compare_models_plot <- function(data){
     ggplot2::ggplot(aes(x = vars, y = lm_coef, color = country, shape = model)) +
     ggplot2::geom_point() +
     ggplot2::theme_bw() +
-    ggplot2::theme(axis.text.x = element_text(angle=90, hjust = 1))
+    ggplot2::theme(axis.text.x = element_text(angle=90, hjust = 1, vjust = 0.5))
 
   return(p)
 }
