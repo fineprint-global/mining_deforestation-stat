@@ -217,10 +217,10 @@ add_vars <- function(x,
   }
   if(dist_bool) {
     x <- mutate_at(x, distance_vars,
-      list(bool = function(.) . > 1e3))
+      list(bool = function(.) . <= 1e3))
     x <- mutate_at(x, distance_vars, list(
-      km5 = function(.) . > 5e3, km10 = function(.) . > 1e4,
-      km20 = function(.) . > 2e4, km50 = function(.) . > 5e4))
+      km5 = function(.) . <= 5e3, km10 = function(.) . <= 1e4,
+      km20 = function(.) . <= 2e4, km50 = function(.) . <= 5e4))
   }
 
   # Other variables
