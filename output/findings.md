@@ -1,4 +1,23 @@
 
+
+# 2020-08-04
+
+## Modell
+
+Siehe 2020-08-04
+
+## Ergebnisse
+
+Darstellung der Ergebnisse in Form von fitted values. Log Modell impliziert logarithmische Kurven, Interaktionen mit Distanzdummies implizieren Sprünge in den Kurven.
+
+#### BIM, 2 Modellvarianten (2 bzw. 4 Interaktionen):
+
+![](https://github.com/fineprint-global/mining_deforestation-stat/blob/master/proposal_1_fitted_BIM.png?raw=true)
+
+#### Alle Länder, 2 Interaktionen
+
+![](https://github.com/fineprint-global/mining_deforestation-stat/blob/master/proposal_1_fitted.png?raw=true)
+
 # 2020-08-04
 
 ## Modell
