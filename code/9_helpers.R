@@ -296,3 +296,46 @@ get_fitted <- function(path, files, countries, npred, log_dist = FALSE){
 
 }
 
+
+#' @title Compute fitted values (wrt distance from mine) from merged outputs, v2 log-log model only
+#'
+#' @param path Path to csv files from code/3_models.R
+#' @param files Character vector. Selection of csv files to be read. Need to stem from the same model!
+#' @param countries ISO3 character vector for country subset.
+#' @param npred No. of steps in x
+#' @param breaks Numeric vector. Selection of interaction distances according to the model.
+#'
+#' @return Returns a matrix. Col 1 refers to x, col 2 to fitted value deforestation, col 3 to country
+get_fitted2 <- function(path, files, countries, npred, breaks){
+  
+  dat <- compare_models_merge(path = path,
+                              files = files) %>%
+    dplyr::filter(country %in% countries) %>%
+    dplyr::filter(stringr::str_detect(vars, "distance_mine"))
+  
+  pred_matrix <- matrix(NA, npred*length(unique(dat$country)), 3)
+  for(i in seq_along(unique(dat$country))){
+    
+    dat_sub <- dat %>% dplyr::filter(country == unique(dat$country)[i])
+    mat <- matrix(NA, nrow(dat_sub), npred)
+    
+    for(j in 1:nrow(dat_sub)){
+      mat[j, c(1:c(npred, breaks)[j])] <- dat_sub$lm_coef[j] * log(seq(1, c(npred, breaks)[j], 1))
+    }
+    
+    # mat[1,] <- dat_sub$lm_coef[1] * log(seq(1, npred, 1))
+    # mat[2,c(1:5000)] <- dat_sub$lm_coef[2] * log(seq(1, 5000, 1))
+    # mat[3,c(1:20000)] <- dat_sub$lm_coef[3] * log(seq(1, 20000, 1))
+    mat[is.na(mat)] <- 0
+    pred <- colSums(mat)
+    
+    pred_matrix[c((npred*(i-1) + 1) : (i*npred)),1] <- seq(1, npred, 1)
+    pred_matrix[c((npred*(i-1) + 1) : (i*npred)),2] <- pred
+    pred_matrix[c((npred*(i-1) + 1) : (i*npred)),3] <- unique(dat$country)[i]
+    
+  }
+  
+  return(pred_matrix)
+  
+}
+
