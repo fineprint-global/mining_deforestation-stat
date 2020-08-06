@@ -14,6 +14,8 @@ Darstellung der Ergebnisse in Form von fitted values. Log Modell impliziert loga
 
 ![](https://github.com/fineprint-global/mining_deforestation-stat/blob/master/proposal_1_fitted_BIM.png?raw=true)
 
+Vielleicht wäre es doch schlauer für mehr als 2 Brüche zu erlauben?
+
 #### Alle Länder, 2 Interaktionen
 
 ![](https://github.com/fineprint-global/mining_deforestation-stat/blob/master/proposal_1_fitted.png?raw=true)
