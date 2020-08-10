@@ -220,7 +220,8 @@ add_vars <- function(x,
       list(bool = function(.) . <= 1e3))
     x <- mutate_at(x, distance_vars, list(
       km5 = function(.) . <= 5e3, km10 = function(.) . <= 1e4,
-      km20 = function(.) . <= 2e4, km50 = function(.) . <= 5e4))
+      km20 = function(.) . <= 2e4, km25 = function(.) . <= 2e4,
+      km50 = function(.) . <= 5e4))
   }
 
   # Other variables
@@ -307,35 +308,35 @@ get_fitted <- function(path, files, countries, npred, log_dist = FALSE){
 #'
 #' @return Returns a matrix. Col 1 refers to x, col 2 to fitted value deforestation, col 3 to country
 get_fitted2 <- function(path, files, countries, npred, breaks){
-  
+
   dat <- compare_models_merge(path = path,
                               files = files) %>%
     dplyr::filter(country %in% countries) %>%
     dplyr::filter(stringr::str_detect(vars, "distance_mine"))
-  
+
   pred_matrix <- matrix(NA, npred*length(unique(dat$country)), 3)
   for(i in seq_along(unique(dat$country))){
-    
+
     dat_sub <- dat %>% dplyr::filter(country == unique(dat$country)[i])
     mat <- matrix(NA, nrow(dat_sub), npred)
-    
+
     for(j in 1:nrow(dat_sub)){
       mat[j, c(1:c(npred, breaks)[j])] <- dat_sub$lm_coef[j] * log(seq(1, c(npred, breaks)[j], 1))
     }
-    
+
     # mat[1,] <- dat_sub$lm_coef[1] * log(seq(1, npred, 1))
     # mat[2,c(1:5000)] <- dat_sub$lm_coef[2] * log(seq(1, 5000, 1))
     # mat[3,c(1:20000)] <- dat_sub$lm_coef[3] * log(seq(1, 20000, 1))
     mat[is.na(mat)] <- 0
     pred <- colSums(mat)
-    
+
     pred_matrix[c((npred*(i-1) + 1) : (i*npred)),1] <- seq(1, npred, 1)
     pred_matrix[c((npred*(i-1) + 1) : (i*npred)),2] <- pred
     pred_matrix[c((npred*(i-1) + 1) : (i*npred)),3] <- unique(dat$country)[i]
-    
+
   }
-  
+
   return(pred_matrix)
-  
+
 }
 
