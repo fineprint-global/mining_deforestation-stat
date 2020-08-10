@@ -11,6 +11,9 @@ BIM <- c("BRA", "IDN", "MYS")
 info <- compare_models_info(path = "output/txt",
                     paste0("info_", rep(BIM, length( names(formulas))), "_", names(formulas), ".csv"))
 
+coefs <- compare_models_merge(path = "output/txt",
+                    paste0("coef_", rep(BIM, length( names(formulas))), "_", names(formulas), ".csv"))
+
 compare_models_plot(
   compare_models_merge(path = "output/txt",
                        files = c("coef_MYS_f_base.csv", "coef_MYS_f_base_log.csv"),

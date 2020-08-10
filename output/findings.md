@@ -12,7 +12,7 @@ Für einige Länder haben wir sehr niedrigen Fit:
 
 Das Matching ist bei folgenden Ländern interessant:
 
-- MDG behält 8005 von 566k Observationen (3,157 treated & 4,848 untreated)
+- MDG behält 8,005 von 566k Observationen (3,157 treated & 4,848 untreated)
 - LAO behält 12,732 von 284k Observationen (5,489 treated & 7,243 untreated)
 - KEN behält 2,489 von 664k Observationen (1,100 treated & 1,389 untreated)
 - HND behält 2,437 von 131k Observationen (1,217 treated & 1,220 untreated)
