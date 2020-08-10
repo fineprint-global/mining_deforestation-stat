@@ -1,4 +1,92 @@
 
+
+# 2020-08-06
+
+## Modell
+
+Siehe 2020-08-04
+
+## Ergebnisse
+
+Darstellung der Ergebnisse in Form von fitted values. Log Modell impliziert logarithmische Kurven, Interaktionen mit Distanzdummies implizieren Sprünge in den Kurven.
+
+#### BIM, 2 Modellvarianten (2 bzw. 4 Interaktionen):
+
+![](https://github.com/fineprint-global/mining_deforestation-stat/blob/master/proposal_1_fitted_BIM.png?raw=true)
+
+Vielleicht wäre es doch schlauer für mehr als 2 Brüche zu erlauben?
+
+#### Alle Länder, 2 Interaktionen
+
+![](https://github.com/fineprint-global/mining_deforestation-stat/blob/master/proposal_1_fitted.png?raw=true)
+
+# 2020-08-04
+
+## Modell
+
+Log-log Spezifikation
+
+2 Modelle: a) ohne weitere Interaktionen wie etwa Elevation * Slope und b) inkl. weitere Interaktionen zwischen den einzelnen Variablen
+
+Nichtlinearitäten: Einsatz von Dummyvariablen, ob Observationen innerhalb einer festgelegten Distanz liegen. Diese werden für Interaktionsterme mit den (log)Distamzvariablen verwendet.
+
+Achtung: e.g. <5km war bisher mit FALSE kodiert, wenn eine Observation innerhalb 5km liegt (was unintuitiv ist), habe das zur besseren Interpretation auf >= 5km, >= 10km usw. in `add_vars()` geändert.
+
+On-site bool wurde exkludiert, da die Koeffizienten kaum reagieren, wenn andere Interaktionsdummies verwendet werden (Effekt wird vermutlich hauptsächlich von 5km Dummy eingefangen).
+
+Welche Distanzen zeigen signifikante Brüche? Explorativer Prozess anhand BRA, IDN und MYS (siehe Ergebnisse). Davon lassen sich folgende vorgeschlagene Distanzen ableiten:
+- Distance Mine Dummies für 5 und 20km
+- Road Dummy für 5 und 50km
+- Waterway Dummy für 10km
+- Protected Area Dummy für 20km
+- Cropland Dummy für 10km
+
+
+## Ergebnisse
+
+#### Explorativ: Log-log + Interaktionen aller Distanzvariablen mit 5, 10, 20 und 50km Dummies
+
+Distance Mine:
+
+- BRA: Signifikant negativer Koeffizient bei distance_mine_log * distance_mine_km10 (i.e. innerhalb 10km gibt es schwächere Abholzungseffekte)
+- MYS: Signifikant negativer Koeffizient bei distance_mine_log * distance_mine_km10 und km20, positiver Koeffizient bei distance_mine_log * distance_mine_km50
+- IDN: Signifikant negativer Koeffizient bei distance_mine_log * distance_mine_km5 und km20, und km50
+
+Distance Road:
+
+- BRA: Signifikant negativer Koeffizient bei dist_road_log * dist_road_km50 (i.e. außerhalb 50km gibt es schwächere Abholzungseffekte), leicht positiv bei km5
+- MYS: Signifikant negativer Koeffizient bei dist_road_log * dist_road_km20 und km50, auch leicht positiv bei km5
+- IDN: Signifikant positiver Koeffizient bei dist_road_log * dist_road_km10 und km50, leicht positiv bei km5 und 20
+
+Distance Waterway:
+
+- BRA: Signifikant negativer Koeffizient bei dist_waterway_log * dist_road_km5 und km10, positiv bei km50
+- MYS: Signifikant negativer Koeffizient bei dist_waterway_log * dist_road_km5 und km10, positiv bei km20, kein Koeffizient für 50 (vermutlich aufgrund mangelnder Observationen)
+- IDN: Signifikant negativer Koeffizient bei dist_waterway_log * dist_road_km10, positiv bei km5 und km20, kein Koeffizient für 50 (vermutlich aufgrund mangelnder Observationen)
+
+Distance Protected Area:
+
+- BRA: Signifikant schwach negativer Koeffizient bei distance_protected_area_log * distance_protected_area_km5 und km10, schwach positiver Koeffizient bei distance_protected_area_log * distance_protected_area_km20 und km50
+- MYS: Signifikant positiver Koeffizient bei distance_protected_area_log * distance_protected_area_km20
+- IDN: Signifikant positiver Koeffizient bei distance_protected_area_log * distance_protected_area_km5, km20 und km50
+
+Distance Cropland:
+
+- BRA: Signifikant positiver Koeffizient bei distance_cropland_2000_log * distance_cropland_2000_km5, km10 und km20
+- MYS: Leicht negative Effekte für alle Kategorien
+- IDN: Signifikant positiver Koeffizient bei distance_cropland_2000_log * distance_cropland_2000_km5 und km10
+
+
+#### Erstes Proposal (log-log, keine on-site Dummies, ausgewählte Distanzinteraktionen):
+
+![](https://github.com/fineprint-global/mining_deforestation-stat/blob/master/proposal_1_BIM.png?raw=true)
+
+#### Erstes Proposal, alle Länder:
+
+Hier wird nur das Modell ohne zusätzliche Interaktionen wie etwa Elevation * Slope gezwigt, da das Interaktionsmodell kaum veränderte Koeffizienten und minimal bessererem Fit zeigt.
+
+![](https://github.com/fineprint-global/mining_deforestation-stat/blob/master/proposal_1.png?raw=true)
+
 # 2020-08-03
 
 ## Ergebnisse
@@ -57,6 +145,7 @@ LAO reißt hier aus, und zeigt sinkende Abholzung bei steigender Distanz.
 #### Log-log
 Ergebnisse bei der logarithmisch steigender Distanz sind etwas gemischter -- wir finden abnehmenden Forest Loss für: BRA, IDN, AGO, COL, SUR. In MYS und VNM ist der Koeffizient nahe bei 0 und nicht sehr robust; bei LAO finden wir steigenden Forest Loss (wie zuvor). Auch hier ist der 5km Dummy relevant, mit tendenziell höherem Einfluss.
 Die Ergebnisse sind robust gegenüber dem Auslassen von Population, Land Use, Land Use Gruppen, und Protected Areas -- MYS ist hier die Ausnahme.
+
 
 #### Ausmaß
 
