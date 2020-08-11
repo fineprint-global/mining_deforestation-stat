@@ -13,7 +13,7 @@ Wir sollten auch mehr Zeit für die Diagnostic Plots aufwenden, vll lässt sich 
 
 Die Ergebnisse scheinen weiterhin robust. Allerdings ist Heteroskedastizität ein given und teils sehen die Residuen komisch aus.
 
-![./img/proposal_2_coefs.png]
+![](./img/proposal_2_coefs.png)
 
 
 # 2020-08-06
@@ -24,13 +24,13 @@ Darstellung der Ergebnisse in Form von fitted values. Log Modell impliziert loga
 
 #### BIM, 2 Modellvarianten (2 bzw. 4 Interaktionen):
 
-![./img/proposal_1_fitted_BIM.png]
+![](./img/proposal_1_fitted_BIM.png)
 
 Vielleicht wäre es doch schlauer für mehr als 2 Brüche zu erlauben?
 
 #### Alle Länder, 2 Interaktionen
 
-![](./img/proposal_1_fitted.png?raw=true)
+![](./img/proposal_1_fitted.png)
 
 # 2020-08-04
 
@@ -91,13 +91,13 @@ Distance Cropland:
 
 #### Erstes Proposal (log-log, keine on-site Dummies, ausgewählte Distanzinteraktionen):
 
-![](./img/proposal_1_BIM.png?raw=true)
+![](./img/proposal_1_BIM.png)
 
 #### Erstes Proposal, alle Länder:
 
 Hier wird nur das Modell ohne zusätzliche Interaktionen wie etwa Elevation * Slope gezwigt, da das Interaktionsmodell kaum veränderte Koeffizienten und minimal bessererem Fit zeigt.
 
-![](./img/proposal_1.png?raw=true)
+![](./img/proposal_1.png)
 
 # 2020-08-03
 
