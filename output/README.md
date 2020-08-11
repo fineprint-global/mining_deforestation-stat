@@ -6,14 +6,14 @@
 Das Biome ist als zusätzliche Explanatory dabei (mit wenig Effekt). Für mehr Detail könnte man stattdessen die Ecoregions heranziehen. Ansonsten ist die `distance_mine` relativ simpel gelogged, mit 5km und 25km Interaktion. Die restlichen Distanzen bekommen die vollen 5/10/25/50km Interaktionen. Auch wenn es vielleicht im Modell nicht besonders wichtig war, würd ich'S doch definitiv erwägen die Booleans trotzdem einzubauen (v.a. etwa bei protected areas).
 Zusätzlich läuft es jetzt nochmal ohne Straßen und ohne protected areas als robustness check.
 
-Erwartungsgemäß haben wir die größten Outlier-Probleme bei bewaldeten Regionen ganz ohne Abholzung. Da ist's fraglich ob/wie das in unserem Modell addressierbar ist.
-Wir sollten auch mehr Zeit für die Diagnostic Plots aufwenden, vll lässt sich hier noch was verbessern.
+Erwartungsgemäß haben wir die größten Outlier-Probleme bei bewaldeten Regionen ganz ohne Abholzung. Da ist die Frage wie das in unserem Modell am besten addressierbar ist. Eventuell two-stage, also binomial und dann linear/count oder censored regression? Auf Basis der Residuen ist das fast zwingend notwendig.
 
 ## Ergebnisse
 
-Die Ergebnisse scheinen weiterhin robust. Allerdings ist Heteroskedastizität ein given und teils sehen die Residuen komisch aus.
+Die Ergebnisse scheinen weiterhin robust. Allerdings ist Heteroskedastizität ein given und bei den Residuen fällt das Problem mit 0 Abholzung stark auf. Dadurch wird dann auch die tatsächliche Abholzung unterschätzt.
 
 ![](./img/proposal_2_coefs.png)
+![](./img/proposal_2_BRA_resid.png)
 
 
 # 2020-08-06
@@ -95,7 +95,7 @@ Distance Cropland:
 
 #### Erstes Proposal, alle Länder:
 
-Hier wird nur das Modell ohne zusätzliche Interaktionen wie etwa Elevation * Slope gezwigt, da das Interaktionsmodell kaum veränderte Koeffizienten und minimal bessererem Fit zeigt.
+Hier wird nur das Modell ohne zusätzliche Interaktionen wie etwa Elevation * Slope gezeigt, da das Interaktionsmodell kaum veränderte Koeffizienten und minimal bessererem Fit zeigt.
 
 ![](./img/proposal_1.png)
 

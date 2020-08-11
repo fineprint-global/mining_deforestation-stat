@@ -26,7 +26,8 @@ files <- files[grep("AGO|BRA|COL|COG|CIV|ECU|GAB|GHA|GTM|GIN|GUY|HND|IND|IDN|KEN
 # Store CEM outputs
 STORE_CEM <- TRUE
 CALC_LASSO <- FALSE
-SCALE_CENTER <- TRUE
+SCALE_CENTER <- FALSE
+CALC_TOBIT <- TRUE
 
 file <- files[1]
 for(file in files) {
