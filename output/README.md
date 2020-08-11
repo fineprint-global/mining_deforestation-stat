@@ -1,10 +1,22 @@
 
-
-# 2020-08-06
+# 2020-08-11
 
 ## Modell
 
-Siehe 2020-08-04
+Das Biome ist als zusätzliche Explanatory dabei (mit wenig Effekt). Für mehr Detail könnte man stattdessen die Ecoregions heranziehen. Ansonsten ist die `distance_mine` relativ simpel gelogged, mit 5km und 25km Interaktion. Die restlichen Distanzen bekommen die vollen 5/10/25/50km Interaktionen. Auch wenn es vielleicht im Modell nicht besonders wichtig war, würd ich'S doch definitiv erwägen die Booleans trotzdem einzubauen (v.a. etwa bei protected areas).
+Zusätzlich läuft es jetzt nochmal ohne Straßen und ohne protected areas als robustness check.
+
+Erwartungsgemäß haben wir die größten Outlier-Probleme bei bewaldeten Regionen ganz ohne Abholzung. Da ist's fraglich ob/wie das in unserem Modell addressierbar ist.
+Wir sollten auch mehr Zeit für die Diagnostic Plots aufwenden, vll lässt sich hier noch was verbessern.
+
+## Ergebnisse
+
+Die Ergebnisse scheinen weiterhin robust. Allerdings ist Heteroskedastizität ein given und teils sehen die Residuen komisch aus.
+
+![./img/proposal_2_coefs.png]
+
+
+# 2020-08-06
 
 ## Ergebnisse
 
@@ -12,13 +24,13 @@ Darstellung der Ergebnisse in Form von fitted values. Log Modell impliziert loga
 
 #### BIM, 2 Modellvarianten (2 bzw. 4 Interaktionen):
 
-![](https://github.com/fineprint-global/mining_deforestation-stat/blob/master/proposal_1_fitted_BIM.png?raw=true)
+![./img/proposal_1_fitted_BIM.png]
 
 Vielleicht wäre es doch schlauer für mehr als 2 Brüche zu erlauben?
 
 #### Alle Länder, 2 Interaktionen
 
-![](https://github.com/fineprint-global/mining_deforestation-stat/blob/master/proposal_1_fitted.png?raw=true)
+![](./img/proposal_1_fitted.png?raw=true)
 
 # 2020-08-04
 
@@ -79,13 +91,13 @@ Distance Cropland:
 
 #### Erstes Proposal (log-log, keine on-site Dummies, ausgewählte Distanzinteraktionen):
 
-![](https://github.com/fineprint-global/mining_deforestation-stat/blob/master/proposal_1_BIM.png?raw=true)
+![](./img/proposal_1_BIM.png?raw=true)
 
 #### Erstes Proposal, alle Länder:
 
 Hier wird nur das Modell ohne zusätzliche Interaktionen wie etwa Elevation * Slope gezwigt, da das Interaktionsmodell kaum veränderte Koeffizienten und minimal bessererem Fit zeigt.
 
-![](https://github.com/fineprint-global/mining_deforestation-stat/blob/master/proposal_1.png?raw=true)
+![](./img/proposal_1.png?raw=true)
 
 # 2020-08-03
 

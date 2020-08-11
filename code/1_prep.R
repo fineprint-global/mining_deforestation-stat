@@ -21,7 +21,7 @@ if(!dir.exists(path_in)) {
 # files <- list.files(path_in)
 files <- paste0(countries$continent, "-", countries$iso, ".rds")
 files <- files[grep("AGO|BRA|COL|COG|CIV|ECU|GAB|GHA|GTM|GIN|GUY|HND|IND|IDN|KEN|LBR|MOZ|MYS|NIC|PNG|SLE|TZA|VEN|VNM|ZMB", files)]
-# files <- files[grep("MYS", files)]
+# files <- files[grep("BRA", files)]
 
 # Store CEM outputs
 STORE_CEM <- TRUE
