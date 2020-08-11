@@ -94,8 +94,8 @@ for(i in seq(formulas)) {
     "N_tr_matched" = out_cem[["tab"]][2, 2],
     "N_untr_unmatched" = out_cem[["tab"]][2, 1],
     "BIC" = BIC(out_lm1),
-    "R2" = summary(out_lm1)$r.squared),
     "BIC_tobit" = if(CALC_TOBIT) BIC(out_tob) else NA,
+    "R2" = summary(out_lm1)$r.squared),
     path = paste0("output/txt/info_", get_iso(file), "_",
       names(formulas)[i], ".csv"))
 }
