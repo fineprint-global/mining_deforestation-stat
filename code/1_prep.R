@@ -27,7 +27,7 @@ files <- files[grep("AGO|BRA|COL|COG|CIV|ECU|GAB|GHA|GTM|GIN|GUY|HND|IND|IDN|KEN
 STORE_CEM <- TRUE
 CALC_LASSO <- FALSE
 SCALE_CENTER <- FALSE
-CALC_TOBIT <- TRUE
+CALC_TOBIT <- TRUE # May fail annoyingly due to singular VCOV (ECU)
 
 file <- files[1]
 for(file in files) {
