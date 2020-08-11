@@ -10,6 +10,7 @@ if(!exists("tbl")) {stop("Please prepare the data in `tbl`.")}
 if(!exists("out_cem")) {stop("Please provide matched data in `out_cem`.")}
 
 
+i <- 1
 for(i in seq(formulas)) {
 
   # Models -----
