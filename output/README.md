@@ -1,4 +1,39 @@
 
+# 2020-08-18
+
+Da die truncated dependent (`forest_loss >= 0`) doch ordentlich Probleme macht verwenden wir jetzt ein Tobit Modell. Prinzipiell sehen die Ergebnisse sehr ähnlich aus und die Form wird besser eingefangen. In dem Modell sind die Standard Errors teils deutlich höher und wir finden einige Länder mit insignifikanten Ergebnissen. Für Ecuador gibt es keine Ergebnisse, da die Schätzung zurzeit abstürzt.
+
+## Resultate
+
+|vars       | lm_coef| lm_se| tob_coef| tob_se|country |       N| N_tr_matched|   R2|
+|:----------|-------:|-----:|--------:|------:|:-------|-------:|------------:|----:|
+|d_mine_log |   -0.13|  0.03|    -0.07|   0.05|AGO     |   70163|        32554| 0.05|
+|d_mine_log |   -0.34|  0.00|    -0.62|   0.01|BRA     | 2535873|       332495| 0.32|
+|d_mine_log |    0.02|  0.01|     0.02|   0.01|CIV     |   70121|        19791| 0.51|
+|d_mine_log |   -0.06|  0.03|    -0.09|   0.03|COL     |   33130|        15306| 0.33|
+|d_mine_log |   -0.71|  0.08|       NA|     NA|ECU     |    4935|         1970| 0.35|
+|d_mine_log |   -1.85|  0.19|    -2.58|   0.27|GAB     |    3556|         1550| 0.15|
+|d_mine_log |   -0.18|  0.02|    -0.18|   0.04|GHA     |   29006|        16058| 0.89|
+|d_mine_log |    0.99|  0.02|     1.09|   0.03|GIN     |   85208|        33836| 0.20|
+|d_mine_log |   -0.05|  0.09|    -0.05|   0.09|GTM     |    4950|         2114| 0.34|
+|d_mine_log |   -0.52|  0.02|    -1.52|   0.06|GUY     |  138060|        61043| 0.08|
+|d_mine_log |   -0.22|  0.08|    -0.22|   0.08|HND     |    2437|         1217| 0.38|
+|d_mine_log |   -0.30|  0.01|    -0.38|   0.01|IDN     |  530312|       215127| 0.47|
+|d_mine_log |   -0.20|  0.13|    -0.21|   0.16|KEN     |    2489|         1100| 0.27|
+|d_mine_log |   -0.31|  0.04|    -0.33|   0.04|LBR     |   25944|        10395| 0.42|
+|d_mine_log |    0.56|  0.02|     0.65|   0.03|MOZ     |   58836|        17783| 0.36|
+|d_mine_log |   -0.11|  0.03|    -0.12|   0.03|MYS     |   63529|        28321| 0.34|
+|d_mine_log |   -0.42|  0.03|    -0.84|   0.06|PNG     |   42000|        15005| 0.19|
+|d_mine_log |   -0.01|  0.04|    -0.01|   0.04|SLE     |   14092|         8417| 0.47|
+|d_mine_log |    0.63|  0.02|     0.86|   0.03|TZA     |   68301|        27081| 0.42|
+|d_mine_log |   -0.13|  0.02|    -0.55|   0.07|VEN     |  145751|        25572| 0.17|
+|d_mine_log |   -0.30|  0.05|    -0.29|   0.07|VNM     |   18035|         8144| 0.53|
+|d_mine_log |   -0.55|  0.02|    -0.70|   0.03|ZMB     |  103452|        27250| 0.28|
+
+Auf dem 5% Level sind AGO, CIV, GTM, KEN und SLE insignifikant (AGO als lm nicht). Signifikant positive sind GIN, MOZ und TZA. Die 13 restlichen Länder entsprechen der Hypothese.
+Außerdem ist GHA empfindlich auf das Auslassen von protected areas (- > +).
+
+
 # 2020-08-11
 
 ## Modell
