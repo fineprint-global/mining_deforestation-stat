@@ -39,7 +39,7 @@ for(i in seq(formulas)) {
     vc <- vcov(out_tob)
     XX <- XX[, (diag(vc) != 0)[c(-1, -ncol(vc))]]
     
-    out_tob <- AER::tobit(yy ~ XX, weights = w[w > 0])
+    out_tob <- AER::tobit(yy ~ XX, weights = w[w > 0], robust = TRUE)
     summary(out_tob)
     
     tmp <- coef(out_tob)

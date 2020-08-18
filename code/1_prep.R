@@ -29,7 +29,7 @@ CALC_LASSO <- FALSE
 SCALE_CENTER <- FALSE
 CALC_TOBIT <- TRUE # May fail annoyingly due to singular VCOV (ECU)
 
-file <- files[1]
+file <- files[2]
 for(file in files) {
 
   cat("Running for ", get_iso(file), ".\n", sep = "")
