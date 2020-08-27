@@ -1,7 +1,11 @@
 
 # Methods
 
-We perform inference on the impact of mining sites and activity on forest loss. Information is available on a fine-scale grid level, leading to an abundance of observations. In order to reduce imbalance and combat model dependence, we apply coarsened exact matching \citep{iacus2009cem} to this dataset. Our causal effect estimates are derived from a linear regression model. We specify and check robustness of models based theory and model selection procedures. Additionally, we employ a causal random forest \citep{wagner2018estimation} to estimate effects. This non-parametric approach captures more flexible processes and provides a valuable indicator of robustness.
+We perform inference on the impact of mining sites and activity on forest loss. Information is available on a fine-scale grid level, leading to an abundance of observations. To control for national heterogeneity, we separate our dataset and operate on country-level data.
+In order to reduce imbalance and combat model dependence, we use a coarsened exact matching approach \citep{iacus2009}.
+We use a Tobit regression model, considering the fact that the dependent variable, forest loss, is truncated at zero. We control for a range of other variables that are known to affect forest loss to derive a causal estimate. These include population, distance to infrastructure, distance to agriculture, biomes, initial forest cover, and others. The dependent and explanatory distances are log-transformed. This allows an elasticity interpretation of coefficients and better reflect relevant quantities.
+Several interaction terms are considered in order to capture non-linearities. Model selection builds upon our theoretical model; LASSO model selection techniques \citep{tibshirani} are used to explore potential permutations thereof.
+<!-- Additionally, we employ a causal random forest \citep{wagner2018estimation} to estimate effects. This non-parametric approach captures more flexible processes and provides a valuable indicator of robustness. -->
 
 # Results
 
