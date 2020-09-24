@@ -4,7 +4,7 @@ library("sf")
 
 # Prepare GeoJSONs --------------------------------------------------------
 
-path <- "/gpfs/home/home/vmaus/data/geoserver/fineprint_grid_30sec/timeseries/"
+path <- "/gpfs/home/home/vmaus/data/geoserver/fineprint_grid_30sec/timeseries_20200918/"
 positions <- list.files(path)
 
 pos <- positions[[job_id]]
@@ -16,7 +16,7 @@ files <- files[grepl("[.]geojson$", files)]
 x <- do.call(rbind, sapply(files, function(x) {
   read_sf(paste0(path, pos, "/", x))
 }, simplify = FALSE))
-  
+
 # Don't talk to me or my JSON ever again
 saveRDS(x, paste0(data, pos, ".rds"))
 rm(x); gc()

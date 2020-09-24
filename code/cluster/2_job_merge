@@ -1,14 +1,16 @@
 #$ -N min_def_merge -t 1:5
 #$ -q node.q
 
-R-g --vanilla <<-EOF
+conda activate rgeo
+
+R --vanilla <<-EOF
 
   home <- "/gpfs/home/home/nkuschnig/"
   data <- "/gpfs/home/home/nkuschnig/data/"
 
-  Sys.setenv(R_LIBS_USER = "/gpfs/home/home/nkuschnig/R/x86_64-pc-linux-gnu-library/3.5.2/")
+  # Sys.setenv(R_LIBS_USER = "/gpfs/home/home/nkuschnig/R/x86_64-pc-linux-gnu-library/3.5.2/")
 
-  .libPaths(c(Sys.getenv("R_LIBS_USER"), .libPaths()))
+  # .libPaths(c(Sys.getenv("R_LIBS_USER"), .libPaths()))
 
   # Get ID
   job_id <- as.integer(Sys.getenv("SGE_TASK_ID"))
