@@ -1,7 +1,9 @@
 #$ -N job_name -t 1:2
 #$ -q node.q
 
-R-g --vanilla <<-EOF
+conda activate rgeo
+
+R --vanilla <<-EOF
 
   home <- "/gpfs/home/home/nkuschnig/"
   data <- "/gpfs/home/home/nkuschnig/data/"

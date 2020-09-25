@@ -1,7 +1,7 @@
 #$ -N min_def_match_BRA -t 1
 #$ -q node.q
 
-R-g --vanilla <<-EOF
+R --vanilla <<-EOF
 
 home <- "/gpfs/home/home/nkuschnig/"
 data <- "/gpfs/home/home/nkuschnig/data/"
