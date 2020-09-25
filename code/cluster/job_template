@@ -1,5 +1,6 @@
 #$ -N job_name -t 1:2
 #$ -q node.q
+#$ -wd ${HOME}/mining_deforestation_stat
 
 conda activate rgeo
 

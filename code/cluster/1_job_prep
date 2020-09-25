@@ -1,5 +1,6 @@
 #$ -N min_def_json -t 1:327
 #$ -q node.q
+#$ -wd ${HOME}/mining_deforestation_stat
 
 conda activate rgeo
 
