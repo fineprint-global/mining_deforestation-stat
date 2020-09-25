@@ -20,7 +20,7 @@ if(!dir.exists(path_in)) {
 
 # files <- list.files(path_in)
 files <- paste0(countries$continent, "-", countries$iso, ".rds")
-files <- files[grep("AGO|BRA|COL|COG|CIV|ECU|GAB|GHA|GTM|GIN|GUY|HND|IND|IDN|KEN|LBR|MOZ|MYS|NIC|PNG|SLE|TZA|VEN|VNM|ZMB", files)]
+files <- files[grep("AGO|BRA|COL|COD|CIV|GAB|GHA|GTM|GIN|GUY|HND|IND|IDN|KEN|LBR|MOZ|MYS|NIC|PNG|SLE|TZA|VEN|VNM|ZMB", files)] # No ECU cause it crashes
 # files <- files[grep("BRA", files)]
 
 # Store CEM outputs
@@ -29,7 +29,7 @@ CALC_LASSO <- FALSE
 SCALE_CENTER <- FALSE
 CALC_TOBIT <- TRUE # May fail annoyingly due to singular VCOV (ECU)
 
-file <- files[2]
+file <- files[grep("IDN", files)]
 for(file in files) {
 
   cat("Running for ", get_iso(file), ".\n", sep = "")

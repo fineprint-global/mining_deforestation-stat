@@ -4,9 +4,9 @@ library("tidyverse")
 # BRA, IDN, MYS analysis --------------------------------------------------
 
 BIM <- c("BRA", "IDN", "MYS")
-# BIM <- c("BRA", "IDN", "MYS", "AGO", "BFA", "CHN", "CIV", "COG", "COL", "ECU",
-#   "GAB", "GHA", "GIN", "GTM", "GUY", "HND", "KEN", "LAO", "LBR", "MDG", "MOZ",
-#   "PER", "PHL", "PNG", "SLE", "SUR", "THA", "TZA", "VEN", "VNM", "ZMB")
+BIM <- c("BRA", "IDN", "MYS", "AGO", "BFA", "CHN", "CIV", "COD", "COL", "ECU",
+  "GAB", "GHA", "GIN", "GTM", "GUY", "HND", "KEN", "LAO", "LBR", "MDG", "MOZ",
+  "PER", "PHL", "PNG", "SLE", "SUR", "THA", "TZA", "VEN", "VNM", "ZMB")
 
 info <- compare_models_info(path = "output/txt",
                     paste0("info_", rep(BIM, length( names(formulas))), "_", names(formulas), ".csv"))
