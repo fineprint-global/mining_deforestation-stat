@@ -1,4 +1,72 @@
 
+# 2020-08-18
+
+Da die truncated dependent (`forest_loss >= 0`) doch ordentlich Probleme macht verwenden wir jetzt ein Tobit Modell. Prinzipiell sehen die Ergebnisse sehr ähnlich aus und die Form wird besser eingefangen. In dem Modell sind die Standard Errors teils deutlich höher und wir finden einige Länder mit insignifikanten Ergebnissen. Für Ecuador gibt es keine Ergebnisse, da die Schätzung zurzeit abstürzt.
+
+## Resultate
+
+|vars       | lm_coef| lm_se| tob_coef| tob_se|country |       N| N_tr_matched|   R2|
+|:----------|-------:|-----:|--------:|------:|:-------|-------:|------------:|----:|
+|d_mine_log |   -0.13|  0.03|    -0.07|   0.05|AGO     |   70163|        32554| 0.05|
+|d_mine_log |   -0.34|  0.00|    -0.62|   0.01|BRA     | 2535873|       332495| 0.32|
+|d_mine_log |    0.02|  0.01|     0.02|   0.01|CIV     |   70121|        19791| 0.51|
+|d_mine_log |   -0.06|  0.03|    -0.09|   0.03|COL     |   33130|        15306| 0.33|
+|d_mine_log |   -0.71|  0.08|       NA|     NA|ECU     |    4935|         1970| 0.35|
+|d_mine_log |   -1.85|  0.19|    -2.58|   0.27|GAB     |    3556|         1550| 0.15|
+|d_mine_log |   -0.18|  0.02|    -0.18|   0.04|GHA     |   29006|        16058| 0.89|
+|d_mine_log |    0.99|  0.02|     1.09|   0.03|GIN     |   85208|        33836| 0.20|
+|d_mine_log |   -0.05|  0.09|    -0.05|   0.09|GTM     |    4950|         2114| 0.34|
+|d_mine_log |   -0.52|  0.02|    -1.52|   0.06|GUY     |  138060|        61043| 0.08|
+|d_mine_log |   -0.22|  0.08|    -0.22|   0.08|HND     |    2437|         1217| 0.38|
+|d_mine_log |   -0.30|  0.01|    -0.38|   0.01|IDN     |  530312|       215127| 0.47|
+|d_mine_log |   -0.20|  0.13|    -0.21|   0.16|KEN     |    2489|         1100| 0.27|
+|d_mine_log |   -0.31|  0.04|    -0.33|   0.04|LBR     |   25944|        10395| 0.42|
+|d_mine_log |    0.56|  0.02|     0.65|   0.03|MOZ     |   58836|        17783| 0.36|
+|d_mine_log |   -0.11|  0.03|    -0.12|   0.03|MYS     |   63529|        28321| 0.34|
+|d_mine_log |   -0.42|  0.03|    -0.84|   0.06|PNG     |   42000|        15005| 0.19|
+|d_mine_log |   -0.01|  0.04|    -0.01|   0.04|SLE     |   14092|         8417| 0.47|
+|d_mine_log |    0.63|  0.02|     0.86|   0.03|TZA     |   68301|        27081| 0.42|
+|d_mine_log |   -0.13|  0.02|    -0.55|   0.07|VEN     |  145751|        25572| 0.17|
+|d_mine_log |   -0.30|  0.05|    -0.29|   0.07|VNM     |   18035|         8144| 0.53|
+|d_mine_log |   -0.55|  0.02|    -0.70|   0.03|ZMB     |  103452|        27250| 0.28|
+
+Auf dem 5% Level sind AGO, CIV, GTM, KEN und SLE insignifikant (AGO als lm nicht). Signifikant positive sind GIN, MOZ und TZA. Die 13 restlichen Länder entsprechen der Hypothese.
+Außerdem ist GHA empfindlich auf das Auslassen von protected areas (- > +).
+
+
+# 2020-08-11
+
+## Modell
+
+Das Biome ist als zusätzliche Explanatory dabei (mit wenig Effekt). Für mehr Detail könnte man stattdessen die Ecoregions heranziehen. Ansonsten ist die `distance_mine` relativ simpel gelogged, mit 5km und 25km Interaktion. Die restlichen Distanzen bekommen die vollen 5/10/25/50km Interaktionen. Auch wenn es vielleicht im Modell nicht besonders wichtig war, würd ich'S doch definitiv erwägen die Booleans trotzdem einzubauen (v.a. etwa bei protected areas).
+Zusätzlich läuft es jetzt nochmal ohne Straßen und ohne protected areas als robustness check.
+
+Erwartungsgemäß haben wir die größten Outlier-Probleme bei bewaldeten Regionen ganz ohne Abholzung. Da ist die Frage wie das in unserem Modell am besten addressierbar ist. Eventuell two-stage, also binomial und dann linear/count oder censored regression? Auf Basis der Residuen ist das fast zwingend notwendig.
+
+## Ergebnisse
+
+Die Ergebnisse scheinen weiterhin robust. Allerdings ist Heteroskedastizität ein given und bei den Residuen fällt das Problem mit 0 Abholzung stark auf. Dadurch wird dann auch die tatsächliche Abholzung unterschätzt.
+
+![](./img/proposal_2_coefs.png)
+![](./img/proposal_2_BRA_resid.png)
+
+
+# 2020-08-06
+
+## Ergebnisse
+
+Darstellung der Ergebnisse in Form von fitted values. Log Modell impliziert logarithmische Kurven, Interaktionen mit Distanzdummies implizieren Sprünge in den Kurven.
+
+#### BIM, 2 Modellvarianten (2 bzw. 4 Interaktionen):
+
+![](./img/proposal_1_fitted_BIM.png)
+
+Vielleicht wäre es doch schlauer für mehr als 2 Brüche zu erlauben?
+
+#### Alle Länder, 2 Interaktionen
+
+![](./img/proposal_1_fitted.png)
+
 # 2020-08-04
 
 ## Modell
@@ -58,13 +126,13 @@ Distance Cropland:
 
 #### Erstes Proposal (log-log, keine on-site Dummies, ausgewählte Distanzinteraktionen):
 
-![](https://github.com/fineprint-global/mining_deforestation-stat/blob/master/proposal_1_BIM.png?raw=true)
+![](./img/proposal_1_BIM.png)
 
 #### Erstes Proposal, alle Länder:
 
-Hier wird nur das Modell ohne zusätzliche Interaktionen wie etwa Elevation * Slope gezwigt, da das Interaktionsmodell kaum veränderte Koeffizienten und minimal bessererem Fit zeigt.
+Hier wird nur das Modell ohne zusätzliche Interaktionen wie etwa Elevation * Slope gezeigt, da das Interaktionsmodell kaum veränderte Koeffizienten und minimal bessererem Fit zeigt.
 
-![](https://github.com/fineprint-global/mining_deforestation-stat/blob/master/proposal_1.png?raw=true)
+![](./img/proposal_1.png)
 
 # 2020-08-03
 
@@ -79,7 +147,7 @@ Für einige Länder haben wir sehr niedrigen Fit:
 
 Das Matching ist bei folgenden Ländern interessant:
 
-- MDG behält 8005 von 566k Observationen (3,157 treated & 4,848 untreated)
+- MDG behält 8,005 von 566k Observationen (3,157 treated & 4,848 untreated)
 - LAO behält 12,732 von 284k Observationen (5,489 treated & 7,243 untreated)
 - KEN behält 2,489 von 664k Observationen (1,100 treated & 1,389 untreated)
 - HND behält 2,437 von 131k Observationen (1,217 treated & 1,220 untreated)

@@ -70,23 +70,28 @@ tbl <- tbl %>%
     pop_2000 = as.numeric(pop_2000),
     distance_waterway_canal = as.numeric(distance_waterway_canal),
     distance_waterway_river = as.numeric(distance_waterway_river),
+    distance_sea = as.numeric(distance_sea),
     distance_highway_primary = as.numeric(distance_highway_primary),
     distance_highway_motorway = as.numeric(distance_highway_motorway),
     distance_highway_secondary = as.numeric(distance_highway_secondary),
     distance_highway_trunk = as.numeric(distance_highway_trunk),
     distance_mine = as.numeric(distance_mine),
+    min_area_5arcmin = as.numeric(min_area_5arcmin),
+    min_area_30arcmin = as.numeric(min_area_30arcmin),
+    min_area_1degree = as.numeric(min_area_1degree),
+    min_area_10degree = as.numeric(min_area_10degree),
     distance_protected_area = as.numeric(distance_protected_area),
+    contiguous_land = as.numeric(contiguous_land),
     accessibility_cities_2015 = as.numeric(accessibility_cities_2015),
     area_forest_2000 = as.numeric(area_forest_2000),
     area_accumulated_forest_loss = as.numeric(area_accumulated_forest_loss),
     area_forest_2000_mine_lease = as.numeric(area_forest_2000_mine_lease),
     area_accumulated_loss_mine_lease = as.numeric(area_accumulated_loss_mine_lease),
     area_mine = as.numeric(area_mine),
-    distance_cropland_2000 = as.numeric(distance_cropland_2000),
-    ecoregions_2017 = as.numeric(ecoregions_2017),
-    area = as.numeric(area) # ,
-    # id_grid,
-    # geometry
+    # To-do: The next two were erroneously skipped in the latest run
+    # distance_cropland_2000 = as.numeric(distance_cropland_2000),
+    # ecoregions_2017 = as.numeric(ecoregions_2017),
+    area = as.numeric(area)
   )
 
 saveRDS(tbl, paste0(data, names(files)[i], ".rds"))
