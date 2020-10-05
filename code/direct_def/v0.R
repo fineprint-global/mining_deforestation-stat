@@ -13,7 +13,7 @@ countries <- read.csv("input/countries.csv")
 
 files <- paste0(countries$continent, "-", countries$iso, ".rds")
 # files <- files[grep("AGO|ZMB", files)]
-files <- files[grep("AGO|BRA|COL|COG|CIV|ECU|GAB|GHA|GTM|GIN|GUY|HND|IND|IDN|KEN|LBR|MOZ|NIC|PNG|SLE|TZA|VEN|VNM|ZMB", files)]
+files <- files[grep("AGO|BRA|COL|COD|CIV|ECU|GAB|GHA|GTM|GIN|GUY|HND|IND|IDN|KEN|LBR|MOZ|NIC|PNG|SLE|TZA|VEN|VNM|ZMB", files)]
 
 path <- "/mnt/nfs_fineprint/tmp/mining_def/"
 
