@@ -2,6 +2,7 @@
 #$ -q node.q
 #$ -wd ${HOME}/mining_deforestation_stat
 
+source ${HOME}/activate
 conda activate rgeo
 
 R --vanilla <<-EOF
