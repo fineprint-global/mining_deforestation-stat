@@ -56,10 +56,11 @@ rds <- sapply(files[[i]], function(x) {
 tbl <- do.call(rbind, rds)
 rm(rds)
 
+# To-do: lwgeom crashes
 # Watch out for variable conversion to character
-area <- tbl %>%
-  mutate(area = sf::st_area(tbl)) %>%
-  .$area
+# area <- tbl %>%
+#   mutate(area = sf::st_area(tbl)) %>%
+#   .$area
 
 tbl <- tbl %>%
   mutate(countries = factor(countries, levels = cntry[[3]], labels = cntry[[1]]),
@@ -87,11 +88,10 @@ tbl <- tbl %>%
     area_accumulated_forest_loss = as.numeric(area_accumulated_forest_loss),
     area_forest_2000_mine_lease = as.numeric(area_forest_2000_mine_lease),
     area_accumulated_loss_mine_lease = as.numeric(area_accumulated_loss_mine_lease),
-    area_mine = as.numeric(area_mine),
-    # To-do: The next two were erroneously skipped in the latest run
-    # distance_cropland_2000 = as.numeric(distance_cropland_2000),
-    # ecoregions_2017 = as.numeric(ecoregions_2017),
-    area = as.numeric(area)
+    distance_cropland_2000 = as.numeric(distance_cropland_2000),
+    ecoregions_2017 = as.numeric(ecoregions_2017),
+    # area = as.numeric(area),
+    area_mine = as.numeric(area_mine)
   )
 
 saveRDS(tbl, paste0(data, names(files)[i], ".rds"))
