@@ -1,4 +1,10 @@
 
+# 2020-10-06
+
+First impressions actual rates vs fitted.
+
+![](./img/y_yhat_1_subs.png)
+
 # 2020-08-18
 
 Da die truncated dependent (`forest_loss >= 0`) doch ordentlich Probleme macht verwenden wir jetzt ein Tobit Modell. Prinzipiell sehen die Ergebnisse sehr ähnlich aus und die Form wird besser eingefangen. In dem Modell sind die Standard Errors teils deutlich höher und wir finden einige Länder mit insignifikanten Ergebnissen. Für Ecuador gibt es keine Ergebnisse, da die Schätzung zurzeit abstürzt.
