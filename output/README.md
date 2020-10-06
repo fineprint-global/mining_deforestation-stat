@@ -1,7 +1,7 @@
 
 # 2020-10-06
 
-First impressions actual rates vs fitted.
+First impressions actual rates vs fitted (OLS, most recent variable selection).
 
 ![](./img/y_yhat_1_subs.png)
 
