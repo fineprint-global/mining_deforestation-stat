@@ -1,9 +1,9 @@
 
 # 2020-10-06
 
-First impressions actual rates vs fitted (OLS, most recent variable selection).
+First impressions actual rates vs fitted (OLS, most recent variable selection). Counterfactual (mean distance) in green. Alternative model without PA yields almost same results.
 
-![](./img/y_yhat_1_subs.png)
+![](./img/y_yhat_subs_OLS_f_vary_log.png)
 
 # 2020-08-18
 
