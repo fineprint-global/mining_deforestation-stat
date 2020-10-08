@@ -92,7 +92,7 @@ tbl <- tbl %>%
     area_forest_2000_mine_lease = as.numeric(area_forest_2000_mine_lease),
     area_accumulated_loss_mine_lease = as.numeric(area_accumulated_loss_mine_lease),
     distance_cropland_2000 = as.numeric(distance_cropland_2000),
-    ecoregions_2017 = as.numeric(ecoregions_2017),
+    ecoregions = as.numeric(ecoregions),
     # area = as.numeric(area),
     area_mine = as.numeric(area_mine)
   )
