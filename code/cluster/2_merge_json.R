@@ -63,7 +63,8 @@ rm(rds)
 #   .$area
 
 tbl <- tbl %>%
-  mutate(countries = factor(countries, levels = cntry[[3]], labels = cntry[[1]]),
+  mutate(
+    countries = factor(countries, levels = cntry[[3]], labels = cntry[[1]]),
     elevation = as.numeric(elevation),
     slope = as.numeric(slope),
     soilgrid = as.numeric(soilgrid),
@@ -76,7 +77,9 @@ tbl <- tbl %>%
     distance_highway_motorway = as.numeric(distance_highway_motorway),
     distance_highway_secondary = as.numeric(distance_highway_secondary),
     distance_highway_trunk = as.numeric(distance_highway_trunk),
-    distance_mine = as.numeric(distance_mine),
+    distance_mine = as.numeric(distance_mine))
+tbl <- tbl %>%
+  mutate(
     min_area_5arcmin = as.numeric(min_area_5arcmin),
     min_area_30arcmin = as.numeric(min_area_30arcmin),
     min_area_1degree = as.numeric(min_area_1degree),

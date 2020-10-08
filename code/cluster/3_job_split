@@ -1,6 +1,5 @@
 #$ -N min_def_split -t 1:5
 #$ -q node.q
-#$ -wd ${HOME}/mining_deforestation_stat
 
 source ${HOME}/activate
 conda activate rgeo
