@@ -1,4 +1,11 @@
 
+# 2020-10-09
+
+Well... results barely improved for `has_forest = TRUE`
+
+![](./img/y_yhat_subs_OLS_hasforestTRUE_f_vary_log.png)
+
+
 # 2020-10-06
 
 First impressions actual rates vs fitted (OLS, most recent variable selection). Counterfactual (mean distance) in green. Alternative model without PA yields almost same results.
