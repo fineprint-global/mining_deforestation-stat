@@ -20,14 +20,15 @@ if(!dir.exists(path_in)) {
 
 # files <- list.files(path_in)
 files <- paste0(countries$continent, "-", countries$iso, ".rds")
-files <- files[grep("AGO|BRA|COL|COD|CIV|GAB|GHA|GTM|GIN|GUY|HND|IND|IDN|KEN|LBR|MOZ|MYS|NIC|PNG|SLE|TZA|VEN|VNM|ZMB", files)] # No ECU cause it crashes
+files <- files[grep("AGO|BRA|COL|COD|CIV|GAB|GHA|GTM|GIN|GUY|HND|IND|IDN|KEN|LBR|MOZ|MYS|MEX|NIC|PNG|SLE|TZA|VEN|VNM|ZMB", files)] # No ECU cause it crashes
 # files <- files[grep("BRA", files)]
 
 # Store CEM outputs
 STORE_CEM <- TRUE
 CALC_LASSO <- FALSE
 SCALE_CENTER <- FALSE
-CALC_TOBIT <- TRUE # May fail annoyingly due to singular VCOV (ECU)
+CALC_TOBIT <- FALSE # May fail annoyingly due to singular VCOV (ECU)
+CALC_LOGIT <- TRUE
 
 file <- files[grep("IDN", files)]
 for(file in files) {
@@ -47,7 +48,7 @@ for(file in files) {
 
   # CEM
   match_on <- c("elevation", "slope", "area_forest_2000", "pop_2000",
-    "dist_waterway", "soilgrid_grouped", "esa_cci_2000", "ecoregions_2017")
+    "dist_waterway", "soilgrid_grouped", "esa_cci_2000", "ecoregions")
 
   source("code/2_cem.R")
 
