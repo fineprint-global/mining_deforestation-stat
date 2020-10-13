@@ -34,6 +34,17 @@ for(i in seq(formulas)) {
   save(X, file = paste0("output/reg_out_rda/X_", get_iso(file), "_",
                         names(formulas)[i], ".RData"))
   
+  # Logistic regression -----
+  if(CALC_LOGIT) {
+    cat("Fitting logit model.\n")
+    
+    y_glm <- tbl$area_accumulated_forest_loss / tbl$area
+    y_glm <- pmin(y_glm, 1)
+    
+    out_glm <- glm(y_glm ~ X, weights = w, family = "binomial")
+  }
+  
+  
   # Trucated tobit regression -----
   if(CALC_TOBIT) {
     cat("Fitting tobit model.\n")
@@ -81,6 +92,8 @@ for(i in seq(formulas)) {
     "lm_se" = sqrt(diag(vcov(out_lm1))),
     "tob_coef" = if(CALC_TOBIT) tob_coef else NA,
     "tob_se" = if(CALC_TOBIT) tob_se else NA,
+    "logit_coef" = if(CALC_LOGIT) coef(out_glm) else NA,
+    "logit_se" = if(CALC_LOGIT) sqrt(diag(vcov(out_glm))) else NA,
     "lasso_cv_coef" = if(CALC_LASSO) (coef(out_lasso, exact = TRUE,
       s = cv_lasso[["lambda.min"]]))[, 1] else NA,
     "lasso_n_0" = if(CALC_LASSO) apply(coef(out_lasso), 1, function(x) 
@@ -101,6 +114,7 @@ for(i in seq(formulas)) {
     "N_untr_unmatched" = out_cem[["tab"]][2, 1],
     "BIC" = BIC(out_lm1),
     "BIC_tobit" = if(CALC_TOBIT) BIC(out_tob) else NA,
+    "BIC_logit"= if(CALC_LOGIT) BIC(out_glm) else NA,
     "R2" = summary(out_lm1)$r.squared),
     path = paste0("output/txt/info_", get_iso(file), "_",
       names(formulas)[i], ".csv"))
