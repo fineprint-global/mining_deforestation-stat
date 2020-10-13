@@ -11,7 +11,6 @@
 #' @param geom Logical. Whether to keep sf's geometry column.
 #'
 #' @return Returns a modified x.
-
 prep_data <- function(x,
   has_forest = FALSE, has_access = FALSE, calc_dist = TRUE,
   adjust_soil = TRUE, adjust_esa = TRUE,
@@ -21,7 +20,7 @@ prep_data <- function(x,
 
   # Note: Can remove this after next run
   x$distance_cropland_2000 <- as.numeric(x$distance_cropland_2000)
-  x$ecoregions_2017 <- as.numeric(x$ecoregions_2017)
+  x$ecoregions <- as.numeric(x$ecoregions)
 
   if(!isTRUE(geom)) {x$geometry <- NULL}
   # Subset grids to ones with forest
@@ -37,7 +36,7 @@ prep_data <- function(x,
     x$dist_road <- pmin(
       x$distance_highway_motorway, x$distance_highway_trunk, na.rm = TRUE)
     x$dist_waterway <- pmin(
-      x$distance_waterway_canal, x$distance_waterway_river, na.rm = TRUE)
+      x$distance_waterway_canal, x$distance_waterway_river, x$distance_sea, na.rm = TRUE)
   }
   # Create a grouped soilgrid variable
   if(isTRUE(adjust_soil)) {
@@ -59,10 +58,10 @@ prep_data <- function(x,
 
   if(isTRUE(adjust_eco)) {
     groups <- read.csv("input/ecoregions_2017_concordance.csv")
-    x$ecoregions_2017 <- droplevels(factor(x$ecoregions_2017,
+    x$ecoregions <- droplevels(factor(x$ecoregions,
       levels = groups$ECO_ID, label = groups$ECO_NAME))
     x$biomes_2017 <- as.factor(
-      groups[match(x$ecoregions_2017, groups$ECO_NAME), "BIOME_NAME"])
+      groups[match(x$ecoregions, groups$ECO_NAME), "BIOME_NAME"])
     if(!is.null(sub_eco)) {
       x <- x[grep(sub_eco, x$biomes_2017), ]
     }
