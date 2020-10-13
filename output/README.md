@@ -1,4 +1,17 @@
 
+# 2020-10-09
+
+Well... results barely improved for `has_forest = TRUE`
+
+![](./img/y_yhat_subs_OLS_hasforestTRUE_f_vary_log.png)
+
+
+# 2020-10-06
+
+First impressions actual rates vs fitted (OLS, most recent variable selection). Counterfactual (mean distance) in green. Alternative model without PA yields almost same results.
+
+![](./img/y_yhat_subs_OLS_f_vary_log.png)
+
 # 2020-08-18
 
 Da die truncated dependent (`forest_loss >= 0`) doch ordentlich Probleme macht verwenden wir jetzt ein Tobit Modell. Prinzipiell sehen die Ergebnisse sehr ähnlich aus und die Form wird besser eingefangen. In dem Modell sind die Standard Errors teils deutlich höher und wir finden einige Länder mit insignifikanten Ergebnissen. Für Ecuador gibt es keine Ergebnisse, da die Schätzung zurzeit abstürzt.

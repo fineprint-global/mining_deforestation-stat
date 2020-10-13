@@ -29,6 +29,7 @@ STORE_CEM <- FALSE
 CALC_LASSO <- FALSE
 SCALE_CENTER <- FALSE
 CALC_TOBIT <- FALSE # May fail annoyingly due to singular VCOV (ECU)
+CALC_LOGIT <- TRUE
 FITTED_SCATTER <- FALSE
 
 file <- files[grep("HND", files)]
