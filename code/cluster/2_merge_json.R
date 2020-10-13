@@ -56,13 +56,15 @@ rds <- sapply(files[[i]], function(x) {
 tbl <- do.call(rbind, rds)
 rm(rds)
 
+# To-do: lwgeom crashes
 # Watch out for variable conversion to character
-area <- tbl %>%
-  mutate(area = sf::st_area(tbl)) %>%
-  .$area
+# area <- tbl %>%
+#   mutate(area = sf::st_area(tbl)) %>%
+#   .$area
 
 tbl <- tbl %>%
-  mutate(countries = factor(countries, levels = cntry[[3]], labels = cntry[[1]]),
+  mutate(
+    countries = factor(countries, levels = cntry[[3]], labels = cntry[[1]]),
     elevation = as.numeric(elevation),
     slope = as.numeric(slope),
     soilgrid = as.numeric(soilgrid),
@@ -75,7 +77,9 @@ tbl <- tbl %>%
     distance_highway_motorway = as.numeric(distance_highway_motorway),
     distance_highway_secondary = as.numeric(distance_highway_secondary),
     distance_highway_trunk = as.numeric(distance_highway_trunk),
-    distance_mine = as.numeric(distance_mine),
+    distance_mine = as.numeric(distance_mine))
+tbl <- tbl %>%
+  mutate(
     min_area_5arcmin = as.numeric(min_area_5arcmin),
     min_area_30arcmin = as.numeric(min_area_30arcmin),
     min_area_1degree = as.numeric(min_area_1degree),
@@ -87,11 +91,10 @@ tbl <- tbl %>%
     area_accumulated_forest_loss = as.numeric(area_accumulated_forest_loss),
     area_forest_2000_mine_lease = as.numeric(area_forest_2000_mine_lease),
     area_accumulated_loss_mine_lease = as.numeric(area_accumulated_loss_mine_lease),
-    area_mine = as.numeric(area_mine),
-    # To-do: The next two were erroneously skipped in the latest run
-    # distance_cropland_2000 = as.numeric(distance_cropland_2000),
-    # ecoregions_2017 = as.numeric(ecoregions_2017),
-    area = as.numeric(area)
+    distance_cropland_2000 = as.numeric(distance_cropland_2000),
+    ecoregions = as.numeric(ecoregions),
+    # area = as.numeric(area),
+    area_mine = as.numeric(area_mine)
   )
 
 saveRDS(tbl, paste0(data, names(files)[i], ".rds"))
