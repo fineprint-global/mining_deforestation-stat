@@ -4,7 +4,7 @@ library("sf")
 
 # Prepare GeoJSONs --------------------------------------------------------
 
-path <- "/gpfs/home/home/vmaus/data/geoserver/fineprint_grid_30sec/timeseries_20200925/"
+path <- "/gpfs/home/home/vmaus/data/geoserver/fineprint_grid_30sec/timeseries_20201016/"
 positions <- list.files(path)
 
 pos <- positions[[job_id]]

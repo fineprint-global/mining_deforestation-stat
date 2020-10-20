@@ -11,7 +11,6 @@
 #' @param geom Logical. Whether to keep sf's geometry column.
 #'
 #' @return Returns a modified x.
-
 prep_data <- function(x,
   has_forest = FALSE, has_access = FALSE, calc_dist = TRUE,
   adjust_soil = TRUE, adjust_esa = TRUE,

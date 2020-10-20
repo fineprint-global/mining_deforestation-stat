@@ -27,6 +27,12 @@ for(i in seq(formulas)) {
 
   out_lm1 <- lm(y ~ X, weights = w)
   # summary(out_lm1)
+  save(out_lm1, file = paste0("output/reg_out_rda/lm_", get_iso(file), "_",
+                                            names(formulas)[i], ".RData"))
+  save(y, file = paste0("output/reg_out_rda/y_", get_iso(file), "_",
+                              names(formulas)[i], ".RData"))
+  save(X, file = paste0("output/reg_out_rda/X_", get_iso(file), "_",
+                        names(formulas)[i], ".RData"))
   
   # Logistic regression -----
   if(CALC_LOGIT) {
