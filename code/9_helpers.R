@@ -80,6 +80,9 @@ prep_data <- function(x,
       x <- x[x$distance_mine <= 200000, ] # Cut islands
     }
   }
+  
+  # Add areas
+  x$area <- st_area(x)
 
   return(x)
 }

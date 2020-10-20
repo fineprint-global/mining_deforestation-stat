@@ -208,8 +208,7 @@ formulas <- list(
     I(distance_protected_area_log * distance_protected_area_km25) + I(distance_protected_area_log * distance_protected_area_km50) +
     distance_cropland_2000_log + I(distance_cropland_2000_log * distance_cropland_2000_km5) + I(distance_cropland_2000_log * distance_cropland_2000_km10) +
     I(distance_cropland_2000_log * distance_cropland_2000_km25) + I(distance_cropland_2000_log * distance_cropland_2000_km50) +
-    soilgrid_grouped + esa_cci_2000 + biomes_2017
-  
+    soilgrid_grouped + esa_cci_2000 + biomes_2017,
   "f_vary_log" = area_accumulated_forest_loss_log ~
     distance_mine_log +
     I(distance_mine_log * distance_mine_km5) + I(distance_mine_log * distance_mine_km25) +

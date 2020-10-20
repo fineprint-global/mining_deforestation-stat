@@ -30,7 +30,7 @@ SCALE_CENTER <- FALSE
 CALC_TOBIT <- FALSE # May fail annoyingly due to singular VCOV (ECU)
 CALC_LOGIT <- TRUE
 
-file <- files[grep("IDN", files)]
+file <- files[grep("PNG", files)]
 for(file in files) {
 
   cat("Running for ", get_iso(file), ".\n", sep = "")
