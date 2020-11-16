@@ -7,7 +7,7 @@ library("scales")
 library("viridis")
 source("code/9_helpers.R")
 countries <- read.csv("input/countries.csv")
-countries <- countries$iso[grep("AGO|BRA|COL|COD|CIV|ECU|GAB|GHA|GTM|GIN|GUY|HND|IND|IDN|KEN|LBR|MOZ|NIC|PNG|SLE|TZA|VEN|VNM|ZMB", countries$iso)]
+countries <- countries$iso[grep("AGO|BRA|COL|COD|CIV|ECU|GAB|GHA|GTM|GIN|GUY|HND|IND|IDN|KEN|LBR|MYS|MOZ|NIC|PNG|SLE|TZA|VEN|VNM|ZMB", countries$iso)]
 
 
 path <- "/mnt/nfs_fineprint/data/geoserver/fineprint_grid_30sec/timeseries_20200926"
