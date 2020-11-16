@@ -38,10 +38,15 @@ for(i in seq(formulas)) {
   if(CALC_LOGIT) {
     cat("Fitting logit model.\n")
     
-    y_glm <- tbl$area_accumulated_forest_loss / tbl$area
+    y_glm <- as.numeric(tbl$area_accumulated_forest_loss_2019 / tbl$area)
     y_glm <- pmin(y_glm, 1)
     
     out_glm <- glm(y_glm ~ X, weights = w, family = "binomial")
+    # summary(out_glm)
+    save(out_glm, file = paste0("output/reg_out_rda/logit_", get_iso(file), "_",
+                                names(formulas)[i], ".RData"))
+    save(y_glm, file = paste0("output/reg_out_rda/y_logit_", get_iso(file), "_",
+                          names(formulas)[i], ".RData"))
   }
   
   
