@@ -1,3 +1,7 @@
+# 2020-10-30
+After data update, classical model and logit model seem to run in the loop over countries. I tried a subset with IDN, NIC, ZMB and two models (fullest by now specified interaction model and the same model incl variable on mine size).
+
+![](./img/lm_vs_logit.png)
 
 # 2020-10-09
 
