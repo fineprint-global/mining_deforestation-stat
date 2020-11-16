@@ -81,7 +81,10 @@ prep_data <- function(x,
   }
   
   # Add areas
-  x$area <- st_area(x)
+  if(isTRUE(geom)) {
+    as(x, "Spatial")
+    x$area <- sf::st_area(x)
+    }
 
   return(x)
 }
@@ -228,8 +231,9 @@ add_vars <- function(x,
   }
 
   # Other variables
-  x <- mutate_at(x, c("area_accumulated_forest_loss", "area_forest_2000",
-    "pop_2000", "elevation"),
+  x <- mutate_at(x, c("area_accumulated_forest_loss_2010", "area_accumulated_forest_loss_2019", 
+                      "area_forest_2000",
+                      "pop_2000", "elevation"),
     list(log = function(.) log(pmax(., 1))))
 
   return(x)
@@ -240,16 +244,37 @@ add_vars <- function(x,
 #' @title Plot coefficients from merged outputs
 #'
 #' @param data Merged tibble obtained from compare_models_merge()
+#' @param coef_type (Vector of) Selected column(s) from data input, e.g. "lm_coef", "tob_coef", or "logit_coef"
 #'
 #' @return Returns a ggplot object.
-compare_models_plot <- function(data){
+compare_models_plot <- function(data, coef_type){
+  
+  if (length(coef_type) == 1){
+    
+    data <- data %>% dplyr::select(vars, coef_type, country, model)
+    colnames(data) <- c("vars", "coef", "country", "model")
+    
+    p <- data %>%
+      ggplot2::ggplot(aes(x = vars, y = coef, color = country, shape = model)) +
+      ggplot2::geom_point() +
+      ggplot2::labs(y = coef_type) +
+      ggplot2::theme_bw() +
+      ggplot2::theme(axis.text.x = element_text(angle=90, hjust = 1, vjust = 0.5))
+    
+  } else {
+    
+    data <- data %>% dplyr::select(vars, coef_type, country, model)
+    data <- data %>% tidyr::gather("type", "coef", -vars, -country, -model)
+    
+    p <- data %>%
+      ggplot2::ggplot(aes(x = vars, y = coef, color = country, shape = model)) +
+      ggplot2::geom_point() +
+      ggplot2::facet_grid(. ~ type) +
+      ggplot2::theme_bw() +
+      ggplot2::theme(axis.text.x = element_text(angle=90, hjust = 1, vjust = 0.5))
 
-  p <- data %>%
-    ggplot2::ggplot(aes(x = vars, y = lm_coef, color = country, shape = model)) +
-    ggplot2::geom_point() +
-    ggplot2::theme_bw() +
-    ggplot2::theme(axis.text.x = element_text(angle=90, hjust = 1, vjust = 0.5))
-
+  }
+  
   return(p)
 }
 
