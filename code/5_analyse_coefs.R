@@ -1,7 +1,8 @@
 
-# Evaluate coefficients from fitted models on data summaries.
-
 library("dplyr")
+library("ggplot2")
+
+# Evaluate coefficients from fitted models on data summaries.
 
 country_sm <- read.csv("output/country_data-summary.csv")
 files <- list.files("output/txt/", pattern = "coef")
@@ -36,8 +37,6 @@ rownames(sign) <- sub(".*([A-Z]{3}).*.csv", "\\1", files)
 
 
 # alternative approach: use compare_models_merge() and compare_models_plot() functions:
-
-library("ggplot2")
 
 compare_models_plot(compare_models_merge(path = "output/txt",
                files = c("coef_NIC_f_more_quad.csv", "coef_ZMB_f_more_quad.csv", "coef_GHA_f_more_quad.csv"),
@@ -401,5 +400,35 @@ compare_models_plot(p_dat)
 
 # intercept for "distance_mine_boolTRUE"
 # include scatter to fitted plot
+
+
+# 2020-10-30 logit vs clm -------------------------------------------------
+
+countries <- c("IDN","NIC","ZMB")
+model_names <- c("f_vary_minesize", "f_vary_log")
+
+### distance mine
+info <- compare_models_info(path = "output/txt",
+                            files = paste0(paste0("info_", rep(countries, length( model_names)), "_"), 
+                                           rep(model_names, each = length(countries)), ".csv"))
+
+df <- compare_models_merge(path = "output/txt",
+                           files = paste0(paste0("coef_", rep(countries, length( model_names)), "_"), 
+                                          rep(model_names, each = length(countries)), ".csv"),
+                           coef_subs = c("distance_mine_log", 
+                                         "I(distance_mine_log * distance_mine_km5)", 
+                                         "I(distance_mine_log * distance_mine_km25)",
+                                         "area_forest_2000_log",
+                                         "I(pop_2000_log * area_forest_2000_log)"))
+
+df$vars <- factor(df$vars, levels = c("distance_mine_log", "I(distance_mine_log * distance_mine_km5)", "I(distance_mine_log * distance_mine_km25)",
+                                      "area_forest_2000_log", "I(pop_2000_log * area_forest_2000_log)"))
+
+# compare_models_plot(df, coef_type = "lm_coef")
+# compare_models_plot(df, coef_type = "logit_coef")
+p <- compare_models_plot(df, coef_type = c("lm_coef", "logit_coef"))
+ggplot2::ggsave("output/plots/coefs/lm_vs_logit.png", 
+                plot = p, device = "png", 
+                scale = 1, width = 300, height = 200, units = "mm")
 
 
