@@ -28,12 +28,12 @@ files <- files[grep("AGO|BRA|COL|COD|CIV|ECU|GAB|GHA|GTM|GIN|GUY|HND|IND|IDN|KEN
 # files <- files[grep("AGO|BRA|COD|GUY|HND|IDN|MYS|NIC|ZMB", files)]
 
 # Store CEM outputs
-STORE_CEM <- TRUE
+STORE_CEM <- TRUE # if TRUE load existing matches
 CALC_LASSO <- FALSE
 SCALE_CENTER <- FALSE
 CALC_TOBIT <- FALSE # May fail annoyingly due to singular VCOV (ECU)
-CALC_LOGIT <- TRUE # demands 'geom = TRUE' in prep_data()
-FITTED_SCATTER <- TRUE
+CALC_LOGIT <- FALSE # demands 'geom = TRUE' in prep_data()
+FITTED_SCATTER <- FALSE
 
 file <- files[grep("NIC", files)]
 for(file in files) {
@@ -49,7 +49,8 @@ for(file in files) {
     treated = c(-1, 5e4),
     dist_log = TRUE,
     dist_bool = TRUE, # _bool at 1km, then suffixed
-    dist_decay = 0.5)
+    dist_decay = 0.5,
+    dist_mine_dummy = TRUE)
 
   # CEM
   match_on <- c("elevation", "slope", "area_forest_2000", "pop_2000",
