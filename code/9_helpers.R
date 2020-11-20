@@ -202,7 +202,7 @@ compare_models_info <- function(path, files){
 #' @return Returns a character vector with just the ISO
 add_vars <- function(x,
   treated = c(-1, 5e4),
-  dist_log = TRUE, dist_bool = TRUE, dist_decay = 0.5) {
+  dist_log = TRUE, dist_bool = TRUE, dist_decay = 0.5, dist_mine_dummy = TRUE) {
 
   x$treated <- calc_treatment(tbl,
     dist_treated = treated, dist_control = treated[2])
@@ -235,6 +235,25 @@ add_vars <- function(x,
                       "area_forest_2000",
                       "pop_2000", "elevation"),
     list(log = function(.) log(pmax(., 1))))
+  
+  # dummies for dist mine
+  if(dist_mine_dummy){
+    x <- x %>% dplyr::mutate(
+      km_inside = ifelse(-1 < distance_mine & distance_mine <= 1000, TRUE, FALSE),
+      km1_10 = ifelse(1000 < distance_mine & distance_mine <= 10000, TRUE, FALSE),
+      km10_20 = ifelse(10000 < distance_mine & distance_mine <= 20000, TRUE, FALSE),
+      km20_30 = ifelse(20000 < distance_mine & distance_mine <= 30000, TRUE, FALSE),
+      km30_40 = ifelse(30000 < distance_mine & distance_mine <= 40000, TRUE, FALSE),
+      km40_50 = ifelse(40000 < distance_mine & distance_mine <= 50000, TRUE, FALSE),
+      km50_60 = ifelse(50000 < distance_mine & distance_mine <= 60000, TRUE, FALSE),
+      km60_70 = ifelse(60000 < distance_mine & distance_mine <= 70000, TRUE, FALSE),
+      km70_80 = ifelse(70000 < distance_mine & distance_mine <= 80000, TRUE, FALSE),
+      km80_90 = ifelse(80000 < distance_mine & distance_mine <= 90000, TRUE, FALSE),
+      km90_100 = ifelse(90000 < distance_mine & distance_mine <= 100000, TRUE, FALSE),
+      km50_up = ifelse(50000 < distance_mine, FALSE, TRUE),
+      km100_up = ifelse(100000 < distance_mine, FALSE, TRUE)
+    )
+  }
 
   return(x)
 }
