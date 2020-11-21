@@ -10,12 +10,13 @@ source("code/9_formulas.R")
 
 # Settings ---
 
-STORE_CEM <- TRUE # if TRUE load existing matches
+STORED_CEM <- TRUE # if TRUE load existing matches
+CALC_IMBALANCE <- FALSE # if TRUE calculate imbalance in out_imb
 CALC_LASSO <- FALSE
 SCALE_CENTER <- FALSE
 CALC_TOBIT <- FALSE # may fail annoyingly due to singular VCOV (ECU)
 CALC_LOGIT <- FALSE # demands 'geom = TRUE' in prep_data()
-FITTED_SCATTER <- FALSE
+
 
 # Run ---
 
