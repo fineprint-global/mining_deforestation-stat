@@ -3,7 +3,7 @@
 # Produces:
 #   - tbl_raw, tbl
 #   - out_cem (out_imb)
-#   - out_lm
+#   - out_lm1, (out_glm), (out_tob), (out_lasso, cv_lasso)
 
 # Dependencies ---
 
@@ -16,6 +16,8 @@ source("code/9_formulas.R")
 STORED_CEM <- TRUE # if TRUE load existing matches
 CALC_IMBALANCE <- FALSE # if TRUE calculate imbalance in out_imb
 SCALE_CENTER <- FALSE # if TRUE scale and center explanatories
+SAVE_MDL <- TRUE # whether to save model outputs
+SAVE_MAT <- FALSE # whether to save X and y matrices
 CALC_LASSO <- FALSE
 CALC_TOBIT <- FALSE # may fail annoyingly due to singular VCOV (ECU)
 CALC_LOGIT <- FALSE # demands 'geom = TRUE' in prep_data()

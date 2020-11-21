@@ -1,80 +1,108 @@
 
 # Fit specified models with linear and penalised regression. Save coefficients
 # and summary statistics for later use.
+# Produces:
+#   - out_lm1, (out_glm), (out_tob), (out_lasso, cv_lasso)
 
-# Dependencies -----
+# Dependencies ---
 
 if(CALC_LASSO) {library("glmnet")}
 if(CALC_TOBIT) {library("AER")}
 
 if(!exists("tbl")) {stop("Please prepare the data in `tbl`.")}
 if(!exists("out_cem")) {stop("Please provide matched data in `out_cem`.")}
+if(!exists("formulas")) {stop("Please provide specifications in `formulas`.")}
 
 
-i <- 1
+# Run ---
+
+# i <- 1
 for(i in seq(formulas)) {
 
   # Models -----
+
   cat("Running model ", names(formulas)[i], ".\n", sep = "")
 
   y <- tbl[[as.character(formulas[[i]][[2]])]]
-  X <- model.matrix(formulas[[i]], data = tbl)[, -1] # no need for constant here
+  X <- model.matrix(formulas[[i]], data = tbl)[, -1] # no need for constant
+
   if(SCALE_CENTER) {X <- scale(X)}
-  X <- X[, !apply(X, 2, function(x) all(is.na(x)))]
+
+  NA_cols <- apply(X, 2, function(x) all(is.na(x)))
+  if(any(NA_cols)) {warning("Found NA values in the design matrix.")}
+  X <- X[, !NA_cols] # kick NAs
   w <- out_cem[["w"]]
 
-  cat("Fitting models with least squares.\n")
+  cat("Fitting model with least squares.\n")
 
   out_lm1 <- lm(y ~ X, weights = w)
   # summary(out_lm1)
-  save(out_lm1, file = paste0("output/reg_out_rda/lm_", get_iso(file), "_",
-                                            names(formulas)[i], ".RData"))
-  save(y, file = paste0("output/reg_out_rda/y_", get_iso(file), "_",
-                              names(formulas)[i], ".RData"))
-  save(X, file = paste0("output/reg_out_rda/X_", get_iso(file), "_",
-                        names(formulas)[i], ".RData"))
-  
-  # Logistic regression -----
+
+  # Store outputs and data - To-do: Should really be RDS
+  if(SAVE_LM) {
+    save(out_lm1, file = paste0("output/reg_out_rda/lm_",
+      get_iso(file), "_", names(formulas)[i], ".RData"))
+  }
+  if(SAVE_MAT) {
+    save(y, file = paste0("output/reg_out_rda/y_",
+      get_iso(file), "_", names(formulas)[i], ".RData"))
+    save(X, file = paste0("output/reg_out_rda/X_",
+      get_iso(file), "_", names(formulas)[i], ".RData"))
+  }
+
+
+  # Logistic regression ---
+
   if(CALC_LOGIT) {
     cat("Fitting logit model.\n")
-    
-    y_glm <- as.numeric(tbl$area_accumulated_forest_loss_2019 / tbl$area)
+
+    y_glm <- as.numeric(tbl[[as.character(formulas[[i]][[2]])]] / tbl$area)
     y_glm <- pmin(y_glm, 1)
-    
+
+    # To-do: Add robust standard errors
     out_glm <- glm(y_glm ~ X, weights = w, family = "binomial")
     # summary(out_glm)
-    save(out_glm, file = paste0("output/reg_out_rda/logit_", get_iso(file), "_",
-                                names(formulas)[i], ".RData"))
-    save(y_glm, file = paste0("output/reg_out_rda/y_logit_", get_iso(file), "_",
-                          names(formulas)[i], ".RData"))
+
+    # Store outputs and data - To-do: Should really be RDS
+    if(SAVE_LM) {
+      save(out_glm, file = paste0("output/reg_out_rda/logit_",
+        get_iso(file), "_", names(formulas)[i], ".RData"))
+    }
+    if(SAVE_MAT) {
+      save(y_glm, file = paste0("output/reg_out_rda/y_logit_",
+        get_iso(file), "_", names(formulas)[i], ".RData"))
+    }
   }
-  
-  
-  # Trucated tobit regression -----
+
+
+  # Trucated tobit regression ---
+
   if(CALC_TOBIT) {
     cat("Fitting tobit model.\n")
-    
+
     yy <- y[w > 0]
     XX <- X[w > 0, ]
     out_tob <- AER::tobit(yy ~ XX, weights = w[w > 0])
     # Tobit is needy about 0s in the data
     vc <- vcov(out_tob)
     XX <- XX[, (diag(vc) != 0)[c(-1, -ncol(vc))]]
-    
+
     out_tob <- AER::tobit(yy ~ XX, weights = w[w > 0], robust = TRUE)
-    summary(out_tob)
-    
+    # summary(out_tob)
+
     tmp <- coef(out_tob)
     pos <- match(substr(names(tmp[-1]), 3, nchar(names(tmp[-1]))), colnames(X))
     tob_coef <- rep(NA_real_, 1 + ncol(X))
     tob_coef[c(1, pos + 1)] <- tmp
-    
+
     tmp <- diag(vcov(out_tob))
     tob_se <- rep(NA_real_, 1 + ncol(X))
     tob_se[c(1, pos + 1)] <- sqrt(tmp[-length(tmp)])
   }
 
-  # Penalized regression -----
+
+  # Penalized regression ---
+
   if(CALC_LASSO) {
     cat("Fitting penalised models.\n")
 
@@ -82,14 +110,8 @@ for(i in seq(formulas)) {
     out_lasso <- glmnet(x = X, y = y, weights = w, alpha = 1)
   }
 
-  # Outputs -----
 
-  # if(CALC_LASSO) {
-  #   png(paste0("output/plots/lasso_simple",
-  #     get_iso(file), ".png"), width = 960, height = 720)
-  #   plot(out_lasso, label = TRUE)
-  #   dev.off()
-  # }
+  # Outputs ---
 
   readr::write_csv(tibble(
     "vars" = c("constant", colnames(X)),
@@ -101,7 +123,7 @@ for(i in seq(formulas)) {
     "logit_se" = if(CALC_LOGIT) sqrt(diag(vcov(out_glm))) else NA,
     "lasso_cv_coef" = if(CALC_LASSO) (coef(out_lasso, exact = TRUE,
       s = cv_lasso[["lambda.min"]]))[, 1] else NA,
-    "lasso_n_0" = if(CALC_LASSO) apply(coef(out_lasso), 1, function(x) 
+    "lasso_n_0" = if(CALC_LASSO) apply(coef(out_lasso), 1, function(x)
       sum(abs(x) > 0.01)) else NA,
     "country" = rep(get_iso(file), length(coef(out_lm1))),
     "model" = rep(names(formulas)[i], length(coef(out_lm1)))),

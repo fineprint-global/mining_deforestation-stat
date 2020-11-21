@@ -1,5 +1,7 @@
 
 # Perform CEM, optionally store summary statistics.
+# Produces:
+#   - out_cem, (out_imb)
 
 # Dependencies ---
 
