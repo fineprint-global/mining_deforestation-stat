@@ -1,15 +1,43 @@
 
-# Create and source prelminaries
+# Create and source preliminaries
+
+
+# Dependencies ---
 
 library("dplyr")
 library("sf")
 
 countries <- read.csv("input/countries.csv")
 
-source("code/9_helpers.R")
+
+# Functions ---
+
+#' @title Helper to get ISO from a file-string.
+#'
+#' @param x Object with the string.
+#'
+#' @return Returns a character vector with just the ISO
+get_iso <- function(x) {
+
+  sub(".*([A-Z]{3}).*.rds", "\\1", x)
+}
+
+#' @title Get CEM info about the data
+#'
+#' @param x CEM object.
+#'
+#' @return Returns a dataframe with the group indicator and weight.
+cem_data <- function(x) {
+
+  if(!inherits(x, "cem.match")) stop("Provide a 'cem.match' object.")
+
+  out <- data.frame(cem_treated = x[["groups"]], cem_weight = x[["w"]])
+
+  return(out)
+}
 
 
-# Prepare data -----
+# Prepare files ---
 
 # Cloud, home, or cluster?
 path_in <- "/mnt/nfs_fineprint/tmp/mining_def/"
