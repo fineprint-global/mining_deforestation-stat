@@ -7,6 +7,8 @@
 
 library("cem") # Matching
 
+dir.create("input/cem", FALSE)
+
 #' @title Helper for CEM's drop
 #'
 #' @param x Object with names.
