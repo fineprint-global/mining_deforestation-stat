@@ -85,3 +85,11 @@ p4 <- ggplot(test, aes(x = distance_protected_area_log, y = preds)) +
   geom_point() +
   geom_smooth(method = "loess", span = 1) +
   theme_light()
+
+range <- 5000
+resol <- 1000
+X_eff <- matrix(0, resol, ncol(X) - 1)
+X_eff[, 1] <- seq(0, range, length.out = resol) # 0 to 10,000km
+predictions <- predict(out_grf, X_eff)$predictions
+
+plot(seq(0, range, length.out = resol), predictions)
