@@ -56,7 +56,7 @@ p11 <- p_dat %>%
                  legend.title = element_blank(),
                  legend.position = "bottom",
                  panel.grid.major.x = element_blank())  +
-  ggplot2::guides(fill = guide_legend(reverse = TRUE)) 
+  ggplot2::guides(fill = guide_legend(reverse = TRUE))
 
 p12 <- p_dat %>% 
   dplyr::mutate(area_direct_forest_loss  = area_direct_forest_loss  / 1000000) %>%
@@ -259,3 +259,27 @@ write.csv(p_dat,"output/plots/direct_def/p_dat.csv", row.names = FALSE)
 
 # TBC when needed
 
+p11b <- p_dat %>% 
+  dplyr::mutate(ISO3_CODE = as.character(ISO3_CODE)) %>% 
+  dplyr::mutate(ISO3_CODE = ifelse(ISO3_CODE %in% c("IDN", "BRA", "GHA", "VEN"), ISO3_CODE, "OTH")) %>% 
+  dplyr::mutate(ISO3_CODE = factor(ISO3_CODE, levels = c("IDN", "BRA", "GHA", "VEN", "OTH"))) %>% 
+  dplyr::mutate(area_direct_forest_loss  = area_direct_forest_loss  / 1000000) %>%
+  ggplot2::ggplot(aes(x = ISO3_CODE, y = area_direct_forest_loss, fill = period)) +
+  ggplot2::geom_bar(stat = "identity", position = "stack") +
+  ggplot2::scale_y_continuous(expand = c(0, 0), breaks=pretty_breaks(n=6)) +
+  ggplot2::labs(title = NULL, x = NULL, y = "Direct deforestation [km2]")  +
+  ggplot2::scale_fill_manual(values = viridis(4, end = 0.85)) +
+  ggplot2::theme_minimal() +
+  ggplot2::ggtitle("Direct deforestation") +
+  ggplot2::theme(axis.line = element_line(colour = "black"),
+    axis.title.x = element_text(hjust = 1),
+    axis.title.y = element_text(hjust = 1),
+    axis.text.x = element_text(angle = 90, vjust = 0.5),
+    legend.title = element_blank(),
+    panel.background = element_rect(fill = "transparent"),
+    plot.background = element_rect(fill = "transparent", color = NA),
+    legend.position = "bottom",
+    panel.grid.major.x = element_blank())  +
+  ggplot2::guides(fill = guide_legend(reverse = TRUE))
+ggplot2::ggsave("output/plots/direct_deforestation_2019_custom.png", 
+  plot = p11b, device = "png", scale = 1, width = 220, height = 120, units = "mm")

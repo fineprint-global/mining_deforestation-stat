@@ -1,5 +1,6 @@
 
 # Create and source preliminaries
+# Set `file_subset` beforehand to subset countries manually
 
 
 # Dependencies ---
@@ -51,5 +52,7 @@ if(!dir.exists(path_in)) {
 files <- paste0(countries$continent, "-", countries$iso, ".rds")
 
 # Subset
-file_subset <- "AGO|BRA|COL|COD|CIV|ECU|GAB|GHA|GTM|GIN|GUY|HND|IND|IDN|KEN|LBR|MOZ|MYS|NIC|PNG|SLE|TZA|VEN|VNM|ZMB"
+if(!exists("file_subset")) {
+  file_subset <- "AGO|BRA|COL|COD|CIV|ECU|GAB|GHA|GTM|GIN|GUY|HND|IND|IDN|KEN|LBR|MEX|MOZ|MYS|NIC|PNG|SLE|TZA|VEN|VNM|ZMB"
+}
 files <- files[grep(file_subset, files)]

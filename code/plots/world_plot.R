@@ -14,7 +14,7 @@ ggplot(data = world) +
   theme_void() + 
   theme(legend.position = "none")
 
-ggsave("country_subset.png", width = 10, height = 6)
+ggsave("output/plots/country_subset.png", width = 10, height = 6)
 
 world$coefs <- c()
 
@@ -35,7 +35,7 @@ ggplot(world) +
   labs(fill = "Coefficient") +
   theme(legend.position = "bottom")
 
-ggsave("country_coefficients.png", width = 10, height = 4)
+ggsave("output/plots/country_coefficients.png", width = 10, height = 4)
 
 mine_coef <- coefs %>% 
   filter(grepl("mine_log", vars), grepl("^f_vary_log$", model)) %>% 
