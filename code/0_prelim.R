@@ -53,6 +53,6 @@ files <- paste0(countries$continent, "-", countries$iso, ".rds")
 
 # Subset
 if(!exists("file_subset")) {
-  file_subset <- "AGO|BRA|COL|COD|CIV|ECU|GAB|GHA|GTM|GIN|GUY|HND|IND|IDN|KEN|LBR|MEX|MOZ|MYS|NIC|PNG|SLE|TZA|VEN|VNM|ZMB"
+  file_subset <- "AGO|BRA|COL|COD|CIV|ECU|GAB|GHA|GTM|GIN|GUY|HND|IND|IDN|KEN|LBR|MEX|MOZ|MYS|NIC|PHL|PNG|SLE|SUR|THA|TZA|VEN|VNM|ZMB"
 }
 files <- files[grep(file_subset, files)]
