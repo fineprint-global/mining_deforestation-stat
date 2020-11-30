@@ -17,17 +17,17 @@ STORED_CEM <- TRUE # if TRUE load existing matches
 CALC_IMBALANCE <- FALSE # if TRUE calculate imbalance in out_imb
 SCALE_CENTER <- FALSE # if TRUE scale and center explanatories
 SAVE_MDL <- TRUE # whether to save model outputs
-SAVE_MAT <- FALSE # whether to save X and y matrices
+SAVE_MAT <- TRUE # whether to save X and y matrices
 CALC_LASSO <- FALSE
 CALC_TOBIT <- FALSE # may fail annoyingly due to singular VCOV (ECU)
-CALC_LOGIT <- TRUE # demands 'geom = TRUE' in prep_data()
+CALC_LOGIT <- FALSE # demands 'geom = TRUE' in prep_data()
 
 match_on <- c("elevation", "slope", "area_forest_2000", "pop_2000",
   "dist_waterway", "soilgrid_grouped", "esa_cci_2000", "ecoregions")
 
 # Run ---
 
-# file <- files[grep("PHL", files)]
+# file <- files[grep("NIC", files)]
 for(file in files) {
 
   cat("Running for ", get_iso(file), ".\n", sep = "")
