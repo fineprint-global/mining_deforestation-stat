@@ -5,12 +5,13 @@ library(countrycode)
 
 source("code/9_helpers.R")
 path_out <- "output/change_szenario/"
-countries <- c("AGO", "BRA", "COL", "COD", "CIV", "ECU", "GAB", "GHA", "GTM", "GIN", "GUY", "HND", "IND", "IDN", "KEN", "LBR", "MOZ", "MYS", "NIC", "PNG", "SLE", "TZA", "VEN", "VNM", "ZMB")
+countries <- c("AGO", "BRA", "COL", "COD", "CIV", "ECU", "GAB", "GHA", "GTM", "GIN", "GUY", "HND", "IND", "IDN", "KEN", 
+               "LBR", "MEX", "MOZ", "MYS", "NIC", "PHL", "PNG", "SLE", "SUR", "TZA", "THA", "VEN", "VNM", "ZMB")
 model_name <- "f_base_log_minesize"
 coef_names <- c("distance_mine_log")
 
 
-country <- "IDN"
+country <- "SUR"
 for(country in countries){
   
 cat("\n Processing", country, "...")
@@ -52,10 +53,10 @@ df <- df %>% dplyr::mutate(beta = betas, beta_025 = betas_025, beta_975 = betas_
 # df <- df %>% dplyr::mutate(beta = ifelse(distance_mine < 25000 & is.na(beta), betas[1] + betas[2], beta))
 # df <- df %>% dplyr::mutate(beta = ifelse(distance_mine >= 25000, betas[1] + betas[2] + betas[3],  beta))
 
-# hypothetically shift all distances by 1 km and compute relative change
+# hypothetically shift all distances by 100 m and compute relative change
 df <- df %>%
-  dplyr::filter(distance_mine > 1000) %>% # is there a better solution???
-  dplyr::mutate(new_dist = distance_mine - 1000) %>%
+  dplyr::filter(distance_mine > 100) %>% # is there a better solution???
+  dplyr::mutate(new_dist = distance_mine - 100) %>%
   dplyr::mutate(relative_change = (distance_mine - new_dist) / distance_mine * -1 * 100) 
 
 # calculate deforestation effect 95 confidence bound
@@ -68,7 +69,7 @@ df <- df %>%
   dplyr::mutate(deforestation_change_beta_975 = beta_change_975 * def_m2)
 
 # write
-readr::write_csv(df, path = paste0(path_out, country, "_1km.csv"))
+readr::write_csv(df, path = paste0(path_out, country, "_100m.csv"))
 
 cat("Done.")
 
@@ -78,12 +79,12 @@ cat("Done.")
 
 # summarise szenario ------------------------------------------------------
 
-country <- "NIC"
+country <- "MEX"
 store <- list()
 
 for (country in countries){
   
-  df <- readr::read_csv(file.path(path_out, paste0(country, "_1km.csv")))
+  df <- readr::read_csv(file.path(path_out, paste0(country, "_100m.csv")))
   df <- df %>% dplyr::mutate("country" = country)
   store[[country]] <- df
   
@@ -104,7 +105,7 @@ df_summary <- df %>%
 
 addtorow <- list()
 addtorow$pos <- list(0)
-addtorow$command <- "& \\multicolumn{3}{c}{Deforestation effect 1 km }"
+addtorow$command <- "& \\multicolumn{3}{c}{Deforestation effect (100 m mine expansion)}"
 
 dfx <- df_summary %>% 
   dplyr::select(-extra_deforestation_beta) %>%
@@ -113,8 +114,8 @@ dfx <- df_summary %>%
 print(xtable::xtable(dfx,
                      align = "llrr",
                      digits = 0,
-                     caption = "Estimated deforestation in a scenario where all observations were 1 km closer to a mine; lower and upper bound of 95\\% confidence interval.", 
-                     label = "tab:effects_1km"), 
+                     caption = "Estimated deforestation in a scenario where all mines expand their borders by 100 m; lower and upper bound of 95\\% confidence interval.", 
+                     label = "tab:effects_100m"), 
       format.args = list(big.mark = ",", decimal.mark = "."),
       add.to.row=addtorow, include.rownames=FALSE, size="\\footnotesize")
 
