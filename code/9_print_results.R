@@ -5,7 +5,8 @@ library(xtable)
 library(countrycode)
 
 source("code/9_helpers.R")
-countries <- c("AGO", "BRA", "COL", "COD", "CIV", "ECU", "GAB", "GHA", "GTM", "GIN", "GUY", "HND", "IND", "IDN", "KEN", "LBR", "MOZ", "MYS", "NIC", "PNG", "SLE", "TZA", "VEN", "VNM", "ZMB")
+countries <- c("AGO", "BRA", "COL", "COD", "CIV", "ECU", "GAB", "GHA", "GTM", "GIN", "GUY", "HND", "IND", "IDN", "KEN", 
+               "LBR", "MEX", "MOZ", "MYS", "NIC", "PHL", "PNG", "SLE", "SUR", "TZA", "THA", "VEN", "VNM", "ZMB")
 
 # base log minesize (main table) ------------------------------------------
 
@@ -63,7 +64,7 @@ dfx$Country[seq(2, nrow(dfx), 2)] <- NA
 print(xtable::xtable(dfx, 
                      align = "llcrrr",
                      digits = c(0, 0, 0, 0, 2, 2),
-                     caption = "\\small Indirect deforestation effects induced by mining in 25 tropical countries; OLS estimates; standard errors in parentheses; see supplementary material for control variables", 
+                     caption = "\\small Indirect deforestation effects induced by mining in 29 tropical countries; OLS estimates; standard errors in parentheses; see supplementary material for control variables", 
                      label = "tab:coefs"), include.rownames=FALSE, size="\\footnotesize")
 
 ### latex se next to
@@ -73,7 +74,7 @@ dfx <- df %>% dplyr::select(country, dm, dm_se, N, N_tr_perc, R2) %>%
 print(xtable::xtable(dfx, 
                      align = "llrrrrr",
                      digits = c(0, 0, 3, 3, 0, 2, 2),
-                     caption = "\\small Indirect deforestation effects induced by mining in 25 tropical countries. Dependent variable is the log-transformed accumulated forest loss area between 2000 and 2019, DM (log) represents OLS estimates for the log-transformed distance to mine, and SE indicates standard errors. See supplementary material for control variables.", 
+                     caption = "\\small Indirect deforestation effects induced by mining in 29 tropical countries. Dependent variable is the log-transformed accumulated forest loss area between 2000 and 2019, DM (log) represents OLS estimates for the log-transformed distance to mine, and SE indicates standard errors. See Extended Data Table \\ref{tab:all_coefs} for control variables.", 
                      label = "tab:coefs"), include.rownames=FALSE, size="\\footnotesize")
 
 
@@ -138,7 +139,7 @@ print(xtable::xtable(dfx,
                      caption = "\\small OLS estimates; standard errors in parentheses; incl. all control variables except interaction terms and categorical landcover, soilgrid and biome variables", 
                      label = "tab:all_coefs"), 
       floating = TRUE, floating.environment = "sidewaystable",
-      include.rownames=FALSE, size="\\footnotesize")
+      include.rownames=FALSE, size="\\scriptsize")
 
 
 # vary log minesize (5 and 25 km interactions) ----------------------------
@@ -201,7 +202,7 @@ dfx$Country[seq(2, nrow(dfx), 2)] <- NA
 print(xtable::xtable(dfx,
                      align = "llcccrrr",
                      digits = c(0, 0, 0, 0, 0, 0, 2, 2),
-                     caption = "Indirect deforestation effects induced by mining in 25 tropical countries; OLS estimates; standard errors in parentheses",
+                     caption = "Indirect deforestation effects induced by mining in 29 tropical countries; OLS estimates; standard errors in parentheses",
                      label = "tab:vary_coefs"), include.rownames=FALSE, size="\\scriptsize")
 
 # base log minesize vs logit ----------------------------------------------
@@ -258,8 +259,8 @@ dfx$Country[seq(2, nrow(dfx), 2)] <- NA
 print(xtable::xtable(dfx, 
                      align = "llccrrr",
                      digits = c(0, 0, 0, 0, 0, 2, 2),
-                     caption = "\\small Indirect deforestation effects induced by mining in 25 tropical countries; OLS and logit estimates; standard errors in parentheses", 
-                     label = "tab:compare_coefs"), include.rownames=FALSE, size="\\footnotesize")
+                     caption = "\\small Indirect deforestation effects induced by mining in 29 tropical countries; OLS and logit estimates; standard errors in parentheses", 
+                     label = "tab:compare_coefs_ols_logit"), include.rownames=FALSE, size="\\scriptsize")
 
 
 # dummy model -------------------------------------------------------------
@@ -335,6 +336,6 @@ print(xtable::xtable(dfx,
                      digits = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2),
                      caption = "\\small OLS estimates; standard errors in parentheses; dummy variable for buffered distances to mine", 
                      label = "tab:dummies"), 
-      floating = TRUE, floating.environment = "sidewaystable", include.rownames=FALSE, size="\\footnotesize")
+      include.rownames=FALSE, size="\\scriptsize")
 
 
