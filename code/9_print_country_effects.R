@@ -35,37 +35,59 @@ for(country in countries){
 
   # predict and calculate effect --------------------------------------------
 
-  sum(exp(y))
+  def_orig <- sum(exp(y)) / 1000000
 
   y_0 <- predict(out_lm1)
-  sum(exp(y_0))
+  pred_lm_0 <- sum(exp(y_0)) / 1000000
   y_1 <- predict(out_lm2)
-  sum(exp(y_1))
+  pred_lm_1 <- sum(exp(y_1)) / 1000000
   y_1_int <- predict(out_lm2, interval = "conf")
+  pred_low <- sum(exp(y_1_int[, "lwr"])) / 1000000
+  pred_upp <- sum(exp(y_1_int[, "upr"])) / 1000000
 
-  sum(exp(y_1)) - sum(exp(y_0))
-  sum(exp(y_1)) - sum(exp(y))
   
-  sum(exp(y_1_int[,2])) - sum(exp(y))
-  sum(exp(y_1_int[,3])) - sum(exp(y))
+  t(data.frame(
+    "y_1 vs y_0" = pred_lm_1 - pred_lm_0,
+    "y_1_lwr vs y" = pred_low - def_orig,
+    "y_1 vs y" = pred_lm_1 - def_orig,
+    "y_1_upr vs y" = pred_upp - def_orig
+             ))
   
   # problematic, that actual deforestation is higher than predicted deforestation
+  
+  # manual bounds -----------------------------------------------------------
+  
+  pred_lm_0 <- sum(exp(pmin(13.65615, pmax(0, y_0)))) / 1000000
+  pred_lm_1 <- sum(exp(pmin(13.65615, pmax(0, y_1)))) / 1000000
+  pred_low <- sum(exp(pmin(13.65615, pmax(0, y_1_int[, "lwr"])))) / 1000000
+  pred_upp <- sum(exp(pmin(13.65615, pmax(0, y_1_int[, "upr"])))) / 1000000
+  
+  t(data.frame(
+    "y_1 vs y_0" = pred_lm_1 - pred_lm_0,
+    "y_1_lwr vs y" = pred_low - def_orig,
+    "y_1 vs y" = pred_lm_1 - def_orig,
+    "y_1_upr vs y" = pred_upp - def_orig
+  ))
 
   # predict and calculate manually ------------------------------------------
 
+  ### with transformation
+  
   # set up df with distances and relative change
-  df <- data.frame(distance_mine = exp(X[, "distance_mine_log"]),
-                   def_m2 = exp(y)) %>%
+  df <- data.frame(
+    distance_mine = exp(X[, "distance_mine_log"]),
+    def_m2 = exp(y)) %>%
     dplyr::filter(distance_mine > 100) %>% # is there a better solution???
-    dplyr::mutate(distance_mine_new = distance_mine - 100,
-                  relative_change = (distance_mine - distance_mine_new) / distance_mine * -1 * 100) 
+    dplyr::mutate(
+      distance_mine_new = distance_mine - 100,
+      relative_change = (distance_mine - distance_mine_new) / distance_mine * -1 * 100)  # THIS *100 MIGHT BE A MISTAKE???
   
   # extract dist_mine coeffs and confidence bounds
   beta <- coef(out_lm1)["Xdistance_mine_log"]
   beta_ci <- confint(out_lm1)["Xdistance_mine_log", ]
   
   # merge into data frame
-  df <- df %>% dplyr::mutate(beta_mean = beta, beta_lwr = beta_ci[1], beta_upr = beta_ci[2])
+  df <- df %>% dplyr::mutate(beta_mean = beta, beta_lwr = beta_ci[2], beta_upr = beta_ci[1])
   
   # calculate deforestation effect and 95 confidence bound
   df <- df %>%
@@ -76,12 +98,47 @@ for(country in countries){
     dplyr::mutate(deforestation_change_mean = beta_change_mean * def_m2) %>%
     dplyr::mutate(deforestation_change_upr = beta_change_upr * def_m2)
   
+  colSums(df)[c(2, 11:13)] / 1000000
+
+  
+  
+  ### without transformation
+  
+  # set up df with distances and relative change
+  df <- data.frame(
+    distance_mine_log = X[, "distance_mine_log"],
+    distance_mine = exp(X[, "distance_mine_log"]),
+    def_m2_log = y,
+    def_m2 = exp(y)) %>%
+    dplyr::filter(distance_mine > 100) %>% # is there a better solution???
+    dplyr::mutate(
+      distance_mine_new = distance_mine - 100,
+      distance_mine_log_new = log(distance_mine_new),
+      log_change = (distance_mine_log - distance_mine_log_new) * -1)
+  
+  # extract dist_mine coeffs and confidence bounds
+  beta <- coef(out_lm1)["Xdistance_mine_log"]
+  beta_ci <- confint(out_lm1)["Xdistance_mine_log", ]
+  
+  # merge into data frame
+  df <- df %>% dplyr::mutate(beta_mean = beta, beta_lwr = beta_ci[2], beta_upr = beta_ci[1])
+  
+  # calculate deforestation effect and 95 confidence bound
+  df <- df %>%
+    dplyr::mutate(def_m2_new_lwr = exp(log_change*beta_lwr + def_m2_log)) %>%
+    dplyr::mutate(deforestation_change_lwr = def_m2_new_lwr - def_m2) %>%
+    dplyr::mutate(def_m2_new = exp(log_change*beta_mean + def_m2_log)) %>%
+    dplyr::mutate(deforestation_change_mean = def_m2_new - def_m2) %>%
+    dplyr::mutate(def_m2_new_upr = exp(log_change*beta_upr + def_m2_log)) %>%
+    dplyr::mutate(deforestation_change_upr = def_m2_new_upr - def_m2)
+  
+  colSums(df)[c(4, 12, 14, 16)] / 1000000
+  
+  
   # write
   readr::write_csv(df, path = paste0(path_out, country, "_100m.csv"))
-  
   cat("Done.")
   
-
 }
 
 
