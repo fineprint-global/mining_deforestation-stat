@@ -1,89 +1,155 @@
-
 library(tidyverse)
 library(xtable)
 library(countrycode)
 
 source("code/9_helpers.R")
 path_out <- "output/change_szenario/"
-countries <- c("AGO", "BRA", "COL", "COD", "CIV", "ECU", "GAB", "GHA", "GTM", "GIN", "GUY", "HND", "IND", "IDN", "KEN", "LBR", "MOZ", "MYS", "NIC", "PNG", "SLE", "TZA", "VEN", "VNM", "ZMB")
+countries <- c("AGO", "BRA", "COL", "COD", "CIV", "ECU", "GAB", "GHA", "GTM", "GIN", "GUY", "HND", "IND", "IDN", "KEN", 
+               "LBR", "MEX", "MOZ", "MYS", "NIC", "PHL", "PNG", "SLE", "SUR", "TZA", "THA", "VEN", "VNM", "ZMB")
 model_name <- "f_base_log_minesize"
 coef_names <- c("distance_mine_log")
 
-
-country <- "IDN"
+country <- "NIC"
 for(country in countries){
   
-cat("\n Processing", country, "...")
+  cat("\n Processing", country, "...")
+  
+  # load data used for regression -------------------------------------------
+  
+  load(paste0("output/reg_out_rda/lm_", country, "_", model_name, ".RData"))
+  
+  # prepare new data --------------------------------------------------------
+  
+  X <- out_lm1$model$X
+  y <- out_lm1$model$y
+  
+  X_new <- X %>% as.data.frame() %>%
+    dplyr::mutate(distance_mine = exp(distance_mine_log)) %>%
+    dplyr::mutate(distance_mine_new = distance_mine - 100) %>%
+    dplyr::mutate(distance_mine_log = log(pmax(distance_mine_new - 100, 1))) %>%
+    dplyr::select(colnames(X))
+  X_new <- as.matrix(X_new)
 
-# load data used for regression -------------------------------------------
+  out_lm2 <- out_lm1
+  out_lm2$model$X <- X_new
 
-load(paste0("output/reg_out_rda/lm_", country, "_", model_name, ".RData"))
-load(paste0("output/reg_out_rda/y_", country, "_", model_name, ".RData"))
-load(paste0("output/reg_out_rda/X_", country, "_", model_name, ".RData"))
+  # predict and calculate effect --------------------------------------------
 
-# extract distances to mine
-distance_mine <- X %>% as.data.frame() %>% 
-  dplyr::mutate(distance_mine = exp(distance_mine_log)) %>%
-  .$distance_mine
+  def_orig <- sum(exp(y)) / 1000000
 
-# extract absolute deforestation of each observation
-def_m2 <- exp(y)-1 
+  y_0 <- predict(out_lm1)
+  pred_lm_0 <- sum(exp(y_0)) / 1000000
+  y_1 <- predict(out_lm2)
+  pred_lm_1 <- sum(exp(y_1)) / 1000000
+  y_1_int <- predict(out_lm2, interval = "conf")
+  pred_low <- sum(exp(y_1_int[, "lwr"])) / 1000000
+  pred_upp <- sum(exp(y_1_int[, "upr"])) / 1000000
 
-# load output csv ---------------------------------------------------------
+  
+  t(data.frame(
+    "y_1 vs y_0" = pred_lm_1 - pred_lm_0,
+    "y_1_lwr vs y" = pred_low - def_orig,
+    "y_1 vs y" = pred_lm_1 - def_orig,
+    "y_1_upr vs y" = pred_upp - def_orig
+             ))
+  
+  # problematic, that actual deforestation is higher than predicted deforestation
+  
+  # manual bounds -----------------------------------------------------------
+  
+  pred_lm_0 <- sum(exp(pmin(13.65615, pmax(0, y_0)))) / 1000000
+  pred_lm_1 <- sum(exp(pmin(13.65615, pmax(0, y_1)))) / 1000000
+  pred_low <- sum(exp(pmin(13.65615, pmax(0, y_1_int[, "lwr"])))) / 1000000
+  pred_upp <- sum(exp(pmin(13.65615, pmax(0, y_1_int[, "upr"])))) / 1000000
+  
+  t(data.frame(
+    "y_1 vs y_0" = pred_lm_1 - pred_lm_0,
+    "y_1_lwr vs y" = pred_low - def_orig,
+    "y_1 vs y" = pred_lm_1 - def_orig,
+    "y_1_upr vs y" = pred_upp - def_orig
+  ))
 
-coeffs <- compare_models_merge(path = "output/txt",
-                           files = paste0("coef_", country, "_", model_name, ".csv"),
-                           coef_subs = coef_names)
+  # predict and calculate manually ------------------------------------------
 
-# extract dist_mine coeffs
-betas <- coeffs$lm_coef
-betas_025 <- coeffs$lm_coef - 2*coeffs$lm_se
-betas_975 <- coeffs$lm_coef + 2*coeffs$lm_se
+  ### with transformation
+  
+  # set up df with distances and relative change
+  df <- data.frame(
+    distance_mine = exp(X[, "distance_mine_log"]),
+    def_m2 = exp(y)) %>%
+    dplyr::filter(distance_mine > 100) %>% # is there a better solution???
+    dplyr::mutate(
+      distance_mine_new = distance_mine - 100,
+      relative_change = (distance_mine - distance_mine_new) / distance_mine * -1 * 100)  # THIS *100 MIGHT BE A MISTAKE???
+  
+  # extract dist_mine coeffs and confidence bounds
+  beta <- coef(out_lm1)["Xdistance_mine_log"]
+  beta_ci <- confint(out_lm1)["Xdistance_mine_log", ]
+  
+  # merge into data frame
+  df <- df %>% dplyr::mutate(beta_mean = beta, beta_lwr = beta_ci[2], beta_upr = beta_ci[1])
+  
+  # calculate deforestation effect and 95 confidence bound
+  df <- df %>%
+    dplyr::mutate(beta_change_lwr = relative_change * beta_lwr) %>%
+    dplyr::mutate(beta_change_mean = relative_change * beta_mean) %>%
+    dplyr::mutate(beta_change_upr = relative_change * beta_upr) %>%
+    dplyr::mutate(deforestation_change_lwr = beta_change_lwr * def_m2) %>%
+    dplyr::mutate(deforestation_change_mean = beta_change_mean * def_m2) %>%
+    dplyr::mutate(deforestation_change_upr = beta_change_upr * def_m2)
+  
+  colSums(df)[c(2, 11:13)] / 1000000
 
-# set up data for computations --------------------------------------------
-
-# merge into data frame
-df <- data.frame(distance_mine = distance_mine,
-                 def_m2 = def_m2)
-
-df <- df %>% dplyr::mutate(beta = betas, beta_025 = betas_025, beta_975 = betas_975)
-
-# df <- df %>% dplyr::mutate(beta = ifelse(distance_mine < 5000, betas[1], NA))
-# df <- df %>% dplyr::mutate(beta = ifelse(distance_mine < 25000 & is.na(beta), betas[1] + betas[2], beta))
-# df <- df %>% dplyr::mutate(beta = ifelse(distance_mine >= 25000, betas[1] + betas[2] + betas[3],  beta))
-
-# hypothetically shift all distances by 1 km and compute relative change
-df <- df %>%
-  dplyr::filter(distance_mine > 1000) %>% # is there a better solution???
-  dplyr::mutate(new_dist = distance_mine - 1000) %>%
-  dplyr::mutate(relative_change = (distance_mine - new_dist) / distance_mine * -1 * 100) 
-
-# calculate deforestation effect 95 confidence bound
-df <- df %>%
-  dplyr::mutate(beta_change_025 = relative_change * beta_025) %>%
-  dplyr::mutate(beta_change = relative_change * beta) %>%
-  dplyr::mutate(beta_change_975 = relative_change * beta_975) %>%
-  dplyr::mutate(deforestation_change_beta_025 = beta_change_025 * def_m2) %>%
-  dplyr::mutate(deforestation_change_beta = beta_change * def_m2) %>%
-  dplyr::mutate(deforestation_change_beta_975 = beta_change_975 * def_m2)
-
-# write
-readr::write_csv(df, path = paste0(path_out, country, "_1km.csv"))
-
-cat("Done.")
-
+  
+  
+  ### without transformation
+  
+  # set up df with distances and relative change
+  df <- data.frame(
+    distance_mine_log = X[, "distance_mine_log"],
+    distance_mine = exp(X[, "distance_mine_log"]),
+    def_m2_log = y,
+    def_m2 = exp(y)) %>%
+    dplyr::filter(distance_mine > 100) %>% # is there a better solution???
+    dplyr::mutate(
+      distance_mine_new = distance_mine - 100,
+      distance_mine_log_new = log(distance_mine_new),
+      log_change = (distance_mine_log - distance_mine_log_new) * -1)
+  
+  # extract dist_mine coeffs and confidence bounds
+  beta <- coef(out_lm1)["Xdistance_mine_log"]
+  beta_ci <- confint(out_lm1)["Xdistance_mine_log", ]
+  
+  # merge into data frame
+  df <- df %>% dplyr::mutate(beta_mean = beta, beta_lwr = beta_ci[2], beta_upr = beta_ci[1])
+  
+  # calculate deforestation effect and 95 confidence bound
+  df <- df %>%
+    dplyr::mutate(def_m2_new_lwr = exp(log_change*beta_lwr + def_m2_log)) %>%
+    dplyr::mutate(deforestation_change_lwr = def_m2_new_lwr - def_m2) %>%
+    dplyr::mutate(def_m2_new = exp(log_change*beta_mean + def_m2_log)) %>%
+    dplyr::mutate(deforestation_change_mean = def_m2_new - def_m2) %>%
+    dplyr::mutate(def_m2_new_upr = exp(log_change*beta_upr + def_m2_log)) %>%
+    dplyr::mutate(deforestation_change_upr = def_m2_new_upr - def_m2)
+  
+  colSums(df)[c(4, 12, 14, 16)] / 1000000
+  
+  
+  # write
+  readr::write_csv(df, path = paste0(path_out, country, "_100m.csv"))
+  cat("Done.")
+  
 }
-
 
 
 # summarise szenario ------------------------------------------------------
 
-country <- "NIC"
+country <- "MEX"
 store <- list()
 
 for (country in countries){
   
-  df <- readr::read_csv(file.path(path_out, paste0(country, "_1km.csv")))
+  df <- readr::read_csv(file.path(path_out, paste0(country, "_100m.csv")))
   df <- df %>% dplyr::mutate("country" = country)
   store[[country]] <- df
   
@@ -104,7 +170,7 @@ df_summary <- df %>%
 
 addtorow <- list()
 addtorow$pos <- list(0)
-addtorow$command <- "& \\multicolumn{3}{c}{Deforestation effect 1 km }"
+addtorow$command <- "& \\multicolumn{3}{c}{Deforestation effect (100 m mine expansion)}"
 
 dfx <- df_summary %>% 
   dplyr::select(-extra_deforestation_beta) %>%
@@ -113,10 +179,12 @@ dfx <- df_summary %>%
 print(xtable::xtable(dfx,
                      align = "llrr",
                      digits = 0,
-                     caption = "Estimated deforestation in a scenario where all observations were 1 km closer to a mine; lower and upper bound of 95\\% confidence interval.", 
-                     label = "tab:effects_1km"), 
+                     caption = "Estimated deforestation in a scenario where all mines expand their borders by 100 m; lower and upper bound of 95\\% confidence interval.", 
+                     label = "tab:effects_100m"), 
       format.args = list(big.mark = ",", decimal.mark = "."),
       add.to.row=addtorow, include.rownames=FALSE, size="\\footnotesize")
+
+
 
 
 

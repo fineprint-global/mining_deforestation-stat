@@ -39,7 +39,7 @@ for(i in seq(formulas)) {
   # summary(out_lm1)
 
   # Store outputs and data - To-do: Should really be RDS
-  if(SAVE_LM) {
+  if(SAVE_MDL) {
     save(out_lm1, file = paste0("output/reg_out_rda/lm_",
       get_iso(file), "_", names(formulas)[i], ".RData"))
   }
@@ -64,7 +64,7 @@ for(i in seq(formulas)) {
     # summary(out_glm)
 
     # Store outputs and data - To-do: Should really be RDS
-    if(SAVE_LM) {
+    if(SAVE_MDL) {
       save(out_glm, file = paste0("output/reg_out_rda/logit_",
         get_iso(file), "_", names(formulas)[i], ".RData"))
     }

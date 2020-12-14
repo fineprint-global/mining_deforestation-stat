@@ -17,7 +17,7 @@ STORED_CEM <- TRUE # if TRUE load existing matches
 CALC_IMBALANCE <- FALSE # if TRUE calculate imbalance in out_imb
 SCALE_CENTER <- FALSE # if TRUE scale and center explanatories
 SAVE_MDL <- TRUE # whether to save model outputs
-SAVE_MAT <- FALSE # whether to save X and y matrices
+SAVE_MAT <- TRUE # whether to save X and y matrices
 CALC_LASSO <- FALSE
 CALC_TOBIT <- FALSE # may fail annoyingly due to singular VCOV (ECU)
 CALC_LOGIT <- FALSE # demands 'geom = TRUE' in prep_data()
