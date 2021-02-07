@@ -56,7 +56,10 @@ for(i in seq(formulas)) {
   if(CALC_LOGIT) {
     cat("Fitting logit model.\n")
 
-    y_glm <- as.numeric(tbl[[as.character(formulas[[i]][[2]])]] / tbl$area)
+    if(stringr::str_detect(as.character(formulas[[i]][[2]]), "log")) {
+      y_nominator <- exp(tbl[[as.character(formulas[[i]][[2]])]])-1} else {
+      y_nominator <- tbl[[as.character(formulas[[i]][[2]])]]}
+    y_glm <- as.numeric(y_nominator / tbl$area); rm(y_nominator)
     y_glm <- pmin(y_glm, 1)
 
     # To-do: Add robust standard errors
