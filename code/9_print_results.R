@@ -49,7 +49,7 @@ df <- dplyr::left_join(A, B, by = "country") %>%
   dplyr::select(country, dm, dm_se, N, N_tr_perc, R2)
 
 ### export excel
-readr::write_csv(df, path = paste0("output/result_table_base_log_minesize.csv"))
+readr::write_csv(df, path = paste0("output/results_tables/base_log_minesize.csv"))
 
 ### latex se below coeffs
 A <- df %>% dplyr::select(country, dm, N, N_tr_perc, R2) %>%
@@ -124,7 +124,7 @@ df <- dplyr::left_join(A, B, by = "country") %>%
   dplyr::select(cnames, N, N_tr_perc, R2)
 
 ### export excel
-readr::write_csv(df, path = paste0("output/result_table_base_log_minesize_full.csv"))
+readr::write_csv(df, path = paste0("output/results_tables/base_log_minesize_full.csv"))
 
 ### latex
 A <- df %>% dplyr::select(country, grep("\\.x$", cnames), N, N_tr_perc, R2)
@@ -183,7 +183,7 @@ df <- dplyr::left_join(A, B, by = "country") %>%
   dplyr::select(country, dm, dm_se, dm_km5, dm_km5_se, dm_km25, dm_km25_se, N, N_tr_perc, R2)
 
 ### export excel
-readr::write_csv(df, path = paste0("output/result_table_vary_log_minesize.csv"))
+readr::write_csv(df, path = paste0("output/results_tables/vary_log_minesize.csv"))
 
 ### latex
 A <- df %>% dplyr::select(country, dm, dm_km5, dm_km25, N, N_tr_perc, R2) %>%
@@ -242,7 +242,7 @@ df <- dplyr::left_join(A, B, by = "country") %>%
   dplyr::select(country, lm_coef, lm_se, logit_coef, logit_se, N, N_tr_perc, R2)
 
 ### export excel
-readr::write_csv(df, path = paste0("output/result_table_compare_log_minesize.csv"))
+readr::write_csv(df, path = paste0("output/results_tables/compare_log_minesize.csv"))
 
 ### latex
 A <- df %>% dplyr::select(country, lm_coef, logit_coef, N, N_tr_perc, R2) %>%
@@ -259,7 +259,7 @@ dfx$Country[seq(2, nrow(dfx), 2)] <- NA
 print(xtable::xtable(dfx, 
                      align = "llccrrr",
                      digits = c(0, 0, 0, 0, 0, 2, 2),
-                     caption = "\\small Indirect deforestation effects induced by mining in 29 tropical countries; OLS and logit estimates; standard errors in parentheses", 
+                     caption = "\\small Indirect deforestation effects induced by mining in 29 tropical countries; OLS and logit estimates; standard errors in parentheses; logit model uses share of forest loss relative to total area as dependent variable", 
                      label = "tab:compare_coefs_ols_logit"), include.rownames=FALSE, size="\\scriptsize")
 
 
@@ -307,7 +307,7 @@ df <- dplyr::left_join(A, B, by = "country") %>%
                 N, N_tr_perc, R2)
 
 ### export excel
-readr::write_csv(df, path = paste0("output/result_table_dummy_minesize.csv"))
+readr::write_csv(df, path = paste0("output/results_tables/dummy_minesize.csv"))
 
 ### latex
 A <- df %>% dplyr::select(country, "km_insideTRUE", "km1_10TRUE", "km10_20TRUE", "km20_30TRUE", "km30_40TRUE", "km40_50TRUE", "min_area_1degree", N, N_tr_perc, R2) %>%
