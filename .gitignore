@@ -44,6 +44,8 @@ docs/
 # Data
 data/
 input/cem
+input/cem_oct2020
+input/mine_forest_timeseries.csv
 
 # Results
 output/
