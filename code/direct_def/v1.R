@@ -10,10 +10,14 @@ countries <- read.csv("input/countries.csv")
 # countries <- countries$iso[grep("AGO|BRA|COL|COD|CIV|ECU|GAB|GHA|GTM|GIN|GUY|HND|IND|IDN|KEN|LBR|MYS|MOZ|NIC|PNG|SLE|TZA|VEN|VNM|ZMB", countries$iso)]
 countries <- countries$iso[grep("AGO|BRA|COL|COD|CIV|ECU|GAB|GHA|GTM|GIN|GUY|HND|IND|IDN|KEN|LBR|MEX|MOZ|MYS|NIC|PHL|PNG|SLE|SUR|THA|TZA|VEN|VNM|ZMB", countries$iso)]
 
-path <- "/mnt/nfs_fineprint/data/geoserver/fineprint_grid_30sec/timeseries_20200926"
-file <- "mine_forest_timeseries.csv"
+### from server
+# path <- "/mnt/nfs_fineprint/data/geoserver/fineprint_grid_30sec/timeseries_20200926"
+# file <- "mine_forest_timeseries.csv"
+# 
+# tbl_raw <- readr::read_csv(file.path(path, file))
 
-tbl_raw <- readr::read_csv(file.path(path, file))
+### hardcoded
+tbl_raw <- read_csv("input/mine_forest_timeseries.csv")
 
 tbl <- tbl_raw %>% dplyr::filter(ISO3_CODE %in% countries)
 
@@ -33,8 +37,12 @@ p_dat <- tbl %>%
   mutate(period = ifelse(year %in% c(2015:2019), "2015-2019", period)) %>%
   dplyr::group_by(period, ISO3_CODE) %>%
   dplyr::summarise(area_direct_forest_loss = sum(area_direct_forest_loss),
-                   area_remaining_forest_period = max(area_remaining_forest )) %>%
-  dplyr::mutate(relative_direct_forest_loss_period = area_direct_forest_loss / area_remaining_forest_period)
+                   area_remaining_forest_period = max(area_remaining_forest)) %>%
+  dplyr::mutate(relative_direct_forest_loss_period = area_direct_forest_loss / area_remaining_forest_period) %>%
+  dplyr::ungroup() %>%
+  dplyr::group_by(ISO3_CODE) %>%
+  dplyr::mutate(area_forest_2000 = max(area_remaining_forest_period),
+                relative_direct_forest_loss = area_direct_forest_loss / area_forest_2000)
 
 cat.levels <- levels(reorder(data_summary$ISO3_CODE, -data_summary$area_accumulated_direct_forest_loss))
 data_summary$ISO3_CODE <- factor(data_summary$ISO3_CODE, levels = cat.levels)
@@ -253,7 +261,7 @@ ggplot2::ggsave("direct_deforestation_2019_final.pdf",
                 scale = 1, width = 220, height = 120, units = "mm")
 
 # export data
-write.csv(p_dat,"output/plots/direct_def/p_dat.csv", row.names = FALSE)
+write.csv(p_dat,"output/plots/direct_def/p_dat_20201217.csv", row.names = FALSE)
 
 # plot boxplots
 
