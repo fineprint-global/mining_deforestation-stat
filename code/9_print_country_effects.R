@@ -116,7 +116,7 @@ for(country in countries){
   
 }
 
-# summarise szenario ------------------------------------------------------
+# summarise scenario ------------------------------------------------------
 
 country <- "MEX"
 store <- list()
@@ -134,9 +134,9 @@ df <- dplyr::bind_rows(store)
 # note that lower and upper bound are switched
 df_summary <- df %>%
   dplyr::group_by(country) %>%
-  dplyr::summarise(extra_deforestation_beta_025 = sum(deforestation_change_upr) / 1000000,
+  dplyr::summarise(extra_deforestation_beta_025 = sum(deforestation_change_lwr) / 1000000,
                    extra_deforestation_beta = sum(deforestation_change_mean) / 1000000,
-                   extra_deforestation_beta_975 = sum(deforestation_change_lwr) / 1000000) %>%
+                   extra_deforestation_beta_975 = sum(deforestation_change_upr) / 1000000) %>%
   dplyr::arrange(-extra_deforestation_beta)
 
 
