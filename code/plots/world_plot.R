@@ -29,18 +29,59 @@ mine_coef <- coefs %>%
 world <- left_join(world, mine_coef, by = c("iso_a3" = "country")) %>% 
   mutate(coef = ifelse(used, lm_coef, NA))
 
+world <- world %>% mutate(coef_fac = cut(world$coef, c(-Inf, -1.5, -1, -0.5, -0.25, 0, Inf)))
+
 ggplot(world) +
-  geom_sf(aes(fill = coef)) + 
-  scale_fill_viridis_c(na.value = "#e4e4e4") +
+  geom_sf(aes(fill = coef_fac), col = "#bdbdbd", size = .2) + 
+  scale_fill_manual(na.value = "#f0f0f0",
+    values = rev(c("#fde725", "#95d840", "#3cbb75", "#1f968b", "#2d708e", "#482677"))) + 
+  # scale_fill_viridis_d(na.value = "#f0f0f0", direction = -1) +
+  # scale_fill_viridis_c(na.value = "#f0f0f0") +
   # scale_fill_viridis_c(rescaler = function(x, to = c(0, 1), from = NULL) {
   #   ifelse(x < 0, scales::rescale(x, to = to, from = c(min(x, na.rm = TRUE), 1.2)), 1)
   #   }) +
-  coord_sf(xlim = c(-120, 160), ylim = c(-50, 40), expand = FALSE) +
+  coord_sf(xlim = c(-180, 240), ylim = c(-60, 60), expand = FALSE) +
   theme_void() +
   labs(fill = "Coefficient") +
   theme(legend.position = "bottom")
 
 ggsave("output/plots/country_coefficients.png", width = 10, height = 4)
+
+library("cowplot")
+library("ggplot2") 
+library("grid")
+library("gridExtra") 
+
+df <- data.frame(
+  Coefficient = factor(x = c("< -1.5", "(-1.5, -1]", "(-1, -0.5]", "(-0.5, -0.25]", "(-0.25, 0]", "> 0"),
+    levels = c("< -1.5", "(-1.5, -1]", "(-1, -0.5]", "(-0.5, -0.25]", "(-0.25, 0]", "> 0")),
+  Colour = c("#fde725", "#95d840", "#3cbb75", "#1f968b", "#2d708e", "#482677"),
+  Value = 1:6,
+  stringsAsFactors = FALSE)
+
+(gg_legend <- ggplot(df, aes(Value, fill = Coefficient)) + 
+    geom_bar() +
+    scale_fill_manual(values = df$Colour # , 
+      # labels = list(
+      #   latex2exp::TeX("$x \\leq -1.5$"), 
+      #   latex2exp::TeX("$-1.5 < x \\leq -1$"),
+      #   latex2exp::TeX("$-1 < x \\leq -0.5$"),
+      #   latex2exp::TeX("$-0.5 < x \\leq -0.25$"),
+      #   latex2exp::TeX("$-0.25 < x \\leq 0$"),
+      #   latex2exp::TeX("$x > 0$"))
+      ) +
+    theme_bw(base_family = "Arial") +
+    theme(rect = element_rect(fill = "transparent")))
+
+# Using the cowplot package
+legend <- cowplot::get_legend(gg_legend)
+
+grid.newpage()
+grid.draw(legend)
+ggsave("output/plots/legend.png", legend, width = 2, height = 2, bg = "white")
+
+
+
 
 mine_coef <- coefs %>% 
   filter(grepl("mine_log", vars), grepl("^f_vary_log$", model)) %>% 
