@@ -101,6 +101,7 @@ for(i in seq(formulas)) {
     tmp <- diag(vcov(out_tob))
     tob_se <- rep(NA_real_, 1 + ncol(X))
     tob_se[c(1, pos + 1)] <- sqrt(tmp[-length(tmp)])
+
   }
 
 
