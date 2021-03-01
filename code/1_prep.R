@@ -40,5 +40,7 @@ for(file in files) {
 
   # Estimate
   source("code/4_models.R")
+    
+  gc()
 
 }
