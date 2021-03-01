@@ -205,7 +205,7 @@ print(xtable::xtable(dfx,
                      caption = "Indirect deforestation effects induced by mining in 29 tropical countries; OLS estimates; standard errors in parentheses",
                      label = "tab:vary_coefs"), include.rownames=FALSE, size="\\scriptsize")
 
-# base log minesize vs logit ----------------------------------------------
+# base log minesize vs logit vs tobit --------------------------------------
 
 model_names <- c("f_base_log_minesize")
 coef_names <- c("distance_mine_log")
@@ -261,6 +261,173 @@ print(xtable::xtable(dfx,
                      digits = c(0, 0, 0, 0, 0, 2, 2),
                      caption = "\\small Indirect deforestation effects induced by mining in 29 tropical countries; OLS and logit estimates; standard errors in parentheses; logit model uses share of forest loss relative to total area as dependent variable", 
                      label = "tab:compare_coefs_ols_logit"), include.rownames=FALSE, size="\\scriptsize")
+
+### export excel
+readr::write_csv(df, path = paste0("output/results_tables/compare_log_minesize_add_tobit.csv"))
+
+### latex
+A <- df %>% dplyr::select(country, lm_coef, logit_coef, tob_coef, N, N_tr_perc, R2) %>%
+  dplyr::mutate(lm_coef = as.character(round(lm_coef, 3)),
+                logit_coef = as.character(round(logit_coef, 3)),
+                tob_coef = as.character(round(tob_coef, 3)))
+B <- df %>% dplyr::select(country, lm_se, logit_se, tob_se, N, N_tr_perc, R2) %>%
+  dplyr::mutate(lm_se = paste0("(", round(lm_se, 3), ")")) %>%
+  dplyr::mutate(logit_se = paste0("(", round(logit_se, 3), ")")) %>%
+  dplyr::mutate(tob_se = paste0("(", round(tob_se, 3), ")"))
+B <- B %>% dplyr::mutate(N = NA, N_tr_perc = NA, R2 = NA) %>%
+  `colnames<-`(c("country", "lm_coef", "logit_coef", "tob_coef", "N", "N_tr_perc", "R2"))
+dfx <- dplyr::bind_rows(A, B) %>% dplyr::arrange(country) %>%
+  `colnames<-`(c("Country", "DM (lm)", "DM (logit)", "DM (tobit)", "Observations", "Share treated", "$R^2$"))
+dfx$Country[seq(2, nrow(dfx), 2)] <- NA
+print(xtable::xtable(dfx, 
+                     align = "llcccrrr",
+                     digits = c(0, 0, 0, 0, 0, 0, 2, 2),
+                     caption = "\\small Indirect deforestation effects induced by mining in 29 tropical countries; OLS, logit and tobit estimates; standard errors in parentheses; logit model uses share of forest loss relative to total area as dependent variable", 
+                     label = "tab:compare_coefs_ols_logit_tobit"), include.rownames=FALSE, size="\\scriptsize")
+
+
+# add tobit
+dat <- readr::read_csv("output/results_tables/compare_log_minesize.csv")
+column_names <- c("tob_coef", "tob_se")
+
+### load output csv 
+df <- compare_models_merge(path = "output/txt",
+                           files = paste0(paste0("coef_", rep(countries, length( model_names)), "_"), 
+                                          rep(model_names, each = length(countries)), ".csv"),
+                           coef_subs = coef_names)
+
+info <- compare_models_info(path = "output/txt",
+                            files = paste0(paste0("info_", rep(countries, length( model_names)), "_"), 
+                                           rep(model_names, each = length(countries)), ".csv"))
+
+# select columns and merge
+df <- df %>% dplyr::select("country", all_of(column_names))
+df <- dplyr::left_join(dat, df, by = "country") %>%
+  dplyr::select(country, lm_coef, lm_se, logit_coef, logit_se, tob_coef, tob_se, N, N_tr_perc, R2)
+
+
+
+# alternative specifications ----------------------------------------------
+
+model_names <- c("f_base_log_minesize_2010", # main model, change deforestation to 2010 instead of 2019
+                 "f_minimal_log_minesize", # minimal model: few variables
+                 "f_base_log_no_interactions", # no interactions
+                 "f_base_log_minesize_no-road_log") # main model, exclude road variables
+coef_names <- c("distance_mine_log")
+column_names <- c("lm_coef", "lm_se")
+
+### load output csv 
+df <- compare_models_merge(path = "output/txt",
+                           files = paste0(paste0("coef_", rep(countries, length( model_names)), "_"), 
+                                          rep(model_names, each = length(countries)), ".csv"),
+                           coef_subs = coef_names)
+
+info <- compare_models_info(path = "output/txt",
+                            files = paste0(paste0("info_", rep(countries, length( model_names)), "_"), 
+                                           rep(model_names, each = length(countries)), ".csv"))
+
+### tidy data
+# select columns
+df <- df %>% dplyr::select("country", "model", "vars", all_of(column_names))
+
+# spread by coef
+A1 <- df %>% 
+  dplyr::filter(model == "f_base_log_minesize_2010") %>%
+  dplyr::select(-lm_se, -model) %>%
+  tidyr::spread(key = "vars", value = "lm_coef") %>%
+  `colnames<-`(c("country", "dm 2010"))
+A2 <- df %>% 
+  dplyr::filter(model == "f_minimal_log_minesize") %>%
+  dplyr::select(-lm_se, -model) %>%
+  tidyr::spread(key = "vars", value = "lm_coef") %>%
+  `colnames<-`(c("country", "dm minimal"))
+A3 <- df %>% 
+  dplyr::filter(model == "f_base_log_no_interactions") %>%
+  dplyr::select(-lm_se, -model) %>%
+  tidyr::spread(key = "vars", value = "lm_coef") %>%
+  `colnames<-`(c("country", "dm no interactions"))
+A4 <- df %>% 
+  dplyr::filter(model == "f_base_log_minesize_no-road_log") %>%
+  dplyr::select(-lm_se, -model) %>%
+  tidyr::spread(key = "vars", value = "lm_coef") %>%
+  `colnames<-`(c("country", "dm no road"))
+A <- dplyr::left_join(A1, A2, by = "country") %>% dplyr::left_join(A3, by = "country") %>% dplyr::left_join(A4, by = "country")
+rm(A1, A2, A3, A4)
+
+B1 <- df %>% 
+  dplyr::filter(model == "f_base_log_minesize_2010") %>%
+  dplyr::select(-lm_coef, -model) %>%
+  tidyr::spread(key = "vars", value = "lm_se") %>%
+  `colnames<-`(c("country", "se 2010"))
+B2 <- df %>% 
+  dplyr::filter(model == "f_minimal_log_minesize") %>%
+  dplyr::select(-lm_coef, -model) %>%
+  tidyr::spread(key = "vars", value = "lm_se") %>%
+  `colnames<-`(c("country", "se minimal"))
+B3 <- df %>% 
+  dplyr::filter(model == "f_base_log_no_interactions") %>%
+  dplyr::select(-lm_coef, -model) %>%
+  tidyr::spread(key = "vars", value = "lm_se") %>%
+  `colnames<-`(c("country", "se no interactions"))
+B4 <- df %>% 
+  dplyr::filter(model == "f_base_log_minesize_no-road_log") %>%
+  dplyr::select(-lm_coef, -model) %>%
+  tidyr::spread(key = "vars", value = "lm_se") %>%
+  `colnames<-`(c("country", "se no road"))
+B <- dplyr::left_join(B1, B2, by = "country") %>% dplyr::left_join(B3, by = "country") %>% dplyr::left_join(B4, by = "country")
+rm(B1, B2, B3, B4)
+
+C <- info %>%
+  dplyr::select(country, R2, model) %>%
+  tidyr::spread(key = "model", value = "R2") %>%
+  `colnames<-`(c("country", "R2 2010", "R2 no road", "R2 no interactions", "R2 minimal"))
+
+# merge
+df <- dplyr::left_join(A, B, by = "country") %>%
+  dplyr::left_join(C, by = "country") %>%
+  dplyr::select(country, 
+                "dm 2010", "se 2010", "R2 2010", 
+                "dm minimal", "se minimal", "R2 minimal",
+                "dm no interactions", "se no interactions", "R2 no interactions",
+                "dm no road", "se no road", "R2 no road")
+
+### export excel
+readr::write_csv(df, path = paste0("output/results_tables/alternative_spec.csv"))
+
+### latex se below coeffs
+A <- df %>% dplyr::select(country, 
+                          "dm 2010", "R2 2010",
+                          "dm minimal", "R2 minimal",
+                          "dm no interactions", "R2 no interactions",
+                          "dm no road", "R2 no road") %>%
+  dplyr::mutate("dm 2010" = as.character(round(`dm 2010`, 3)),
+                "dm minimal" = as.character(round(`dm minimal`, 3)),
+                "dm no interactions" = as.character(round(`dm no interactions`, 3)),
+                "dm no road" = as.character(round(`dm no road`, 3)))
+B <- df %>% dplyr::select(country, 
+                          "se 2010", "R2 2010",
+                          "se minimal", "R2 minimal",
+                          "se no interactions", "R2 no interactions",
+                          "se no road", "R2 no road") %>%
+  dplyr::mutate("se 2010" = paste0("(", round(`se 2010`, 3), ")"),
+                "se minimal" = paste0("(", round(`se minimal`, 3), ")"),
+                "se no interactions" = paste0("(", round(`se no interactions`, 3), ")"),
+                "se no road" = paste0("(", round(`se no road`, 3), ")"))
+B <- B %>% dplyr::mutate("R2 2010" = NA, "R2 minimal" = NA, "R2 no interactions" = NA, "R2 no road" = NA) %>%
+  `colnames<-`(c("country", 
+                 "dm 2010", "R2 2010",
+                 "dm minimal", "R2 minimal",
+                 "dm no interactions", "R2 no interactions",
+                 "dm no road", "R2 no road"))
+dfx <- dplyr::bind_rows(A, B) %>% dplyr::arrange(country) %>%
+  `colnames<-`(c("Country", "DM 2010", "R2 2010", "DM minimal", "R2 minimal", "DM no interact", "R2 no interact", "DM no road", "R2 no road"))
+dfx$Country[seq(2, nrow(dfx), 2)] <- NA
+print(xtable::xtable(dfx, 
+                     align = "llcccccccc",
+                     digits = c(0, 0, 0, 2, 0, 2, 0, 2, 0, 2),
+                     caption = "\\small Indirect deforestation effects induced by mining in 29 tropical countries; OLS estimates; standard errors in parentheses; see supplementary material for control variables", 
+                     label = "tab:coefs"), include.rownames=FALSE, size="\\scriptsize")
+
 
 
 # dummy model -------------------------------------------------------------
