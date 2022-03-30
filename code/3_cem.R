@@ -33,10 +33,12 @@ if(CALC_IMBALANCE) {
 
 # CEM ---
 
+cached <- "/home/luckeneder/mining_deforestation-stat/"
+
 if(exists("STORED_CEM") && STORED_CEM && # Local
-    file.exists(paste0("input/cem/", get_iso(file), ".rds"))) {
+    file.exists(paste0(cached, "input/cem/", get_iso(file), ".rds"))) {
   cat("Retrieving matches.\n")
-  out_cem <- readRDS(paste0("input/cem/", get_iso(file), ".rds"))
+  out_cem <- readRDS(paste0(cached, "input/cem/", get_iso(file), ".rds"))
 } else if(exists("STORED_CEM") && STORED_CEM && # Cloud
   file.exists(paste0("/home/luckeneder/mining_deforestation-stat/",
     "input/cem/", get_iso(file), ".rds"))) {

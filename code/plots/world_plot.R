@@ -22,19 +22,18 @@ world$coefs <- c()
 
 # Get coef object from 6_focus...
 
-mine_coef <- coefs %>% 
-  filter(grepl("mine_log$", vars), grepl("^f_base_log_minesize$", model)) %>% 
-  select(country, lm_coef)
+mine_coef <- read.csv("/home/luckeneder/mining_deforestation-stat/output/results_tables/base_log_minesize.csv")
 
 world <- left_join(world, mine_coef, by = c("iso_a3" = "country")) %>% 
-  mutate(coef = ifelse(used, lm_coef, NA))
+  mutate(coef = ifelse(used, dm, NA))
 
 world <- world %>% mutate(coef_fac = cut(world$coef, c(-Inf, -1.5, -1, -0.5, -0.25, 0, Inf)))
 
+cols <- rev(c("#fde725", "#95d840", "#3cbb75", "#1f968b", "#2d708e", "#482677"))
+
 ggplot(world) +
   geom_sf(aes(fill = coef_fac), col = "#bdbdbd", size = .2) + 
-  scale_fill_manual(na.value = "#f0f0f0",
-    values = rev(c("#fde725", "#95d840", "#3cbb75", "#1f968b", "#2d708e", "#482677"))) + 
+  scale_fill_manual(na.value = "#f0f0f0", values = cols) + 
   # scale_fill_viridis_d(na.value = "#f0f0f0", direction = -1) +
   # scale_fill_viridis_c(na.value = "#f0f0f0") +
   # scale_fill_viridis_c(rescaler = function(x, to = c(0, 1), from = NULL) {

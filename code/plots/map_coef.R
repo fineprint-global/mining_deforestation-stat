@@ -2,7 +2,7 @@
 library("ggplot2")
 library("sf")
 
-file <- "BRA"
+file <- "GHA"
 
 source("code/0_prelim.R")
 
@@ -15,7 +15,7 @@ mine_coef <- switch(get_iso(file), BRA = -0.306, IDN = -0.227, COD = -0.141)
 # Kick zeros, do `log-distance * coefficient`
 
 x <- tbl_raw[tbl_raw$area_accumulated_forest_loss_2019 > 0, ]
-x$predicted = log(pmax(x$distance_mine, 1)) * -.25
+x$predicted = log(pmax(x$distance_mine, 1)) * -.25 # Fixed decay instead
 x$pred_bin <- cut(x$predicted, 
   c(-Inf, -2.5, -2.4, -2.3, -2.2, -2.1, -2, -1.9, -1.8, -1.7, -1.6, -1.5, -1, -0.5, 0))
 
@@ -59,10 +59,11 @@ x %>% sf:::select.sf(predicted, pred_bin, area_accumulated_forest_loss_2019) %>%
 p <- x %>%
   ggplot() +
   geom_sf(aes(fill = pred_bin), lwd = 0) +
-  switch(get_iso(file), 
+  switch(get_iso(file),
     BRA = coord_sf(xlim = c(-60, -20), ylim = c(-40, -10), expand = FALSE),
     IDN = coord_sf(xlim = c(90, 130), ylim = c(-20, 10), expand = FALSE),
-    COD = coord_sf(xlim = c(0, 40), ylim = c(-20, 10), expand = FALSE)) +
+    COD = coord_sf(xlim = c(0, 40), ylim = c(-20, 10), expand = FALSE),
+    GHA = coord_sf(xlim = c(-4, 1), ylim = c(4, 9), expand = FALSE)) +
   scale_fill_manual(values = cols) +
   labs(fill = "Effect") +
   ggtitle(paste0("Forest loss ~ mine distance (", get_iso(file), ")")) +

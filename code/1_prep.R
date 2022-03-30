@@ -13,7 +13,7 @@ source("code/0_prelim.R")
 
 source("code/a_formulas.R")
 
-STORED_CEM <- FALSE # if TRUE load existing matches
+STORED_CEM <- TRUE # if TRUE load existing matches
 CALC_IMBALANCE <- FALSE # if TRUE calculate imbalance in out_imb
 SCALE_CENTER <- FALSE # if TRUE scale and center explanatories
 SAVE_MDL <- TRUE # whether to save model outputs

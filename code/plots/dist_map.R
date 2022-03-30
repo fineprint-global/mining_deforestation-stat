@@ -2,8 +2,8 @@
 library("ggplot2")
 library("sf")
 
-files <- c("BRA", "COD", "IDN")
-file <- files[1]
+files <- c("BRA", "COD", "IDN", "GHA")
+file <- files[4]
 
 for(file in files) {
 
@@ -38,7 +38,8 @@ names(cols) <- levels(x$Distance)
 y <- switch(file,
   BRA = st_crop(x, xmin = -45, xmax = 40, ymin = -22.5, ymax = -17.5),
   IDN = st_crop(x, xmin = 110, xmax = 115, ymin = -5, ymax = 0),
-  COD = st_crop(x, xmin = 25, xmax = 30, ymin = -15, ymax = -10))
+  COD = st_crop(x, xmin = 25, xmax = 30, ymin = -15, ymax = -10),
+  GHA = st_crop(x, xmin = -4, xmax = 1, ymin = 4, ymax = 9))
 
 # Plot ---
 p <- ggplot(y) +
@@ -47,7 +48,8 @@ p <- ggplot(y) +
   switch(file, 
     BRA = coord_sf(xlim = c(-60, -20), ylim = c(-40, -10), expand = FALSE),
     IDN = coord_sf(xlim = c(90, 130), ylim = c(-20, 10), expand = FALSE),
-    COD = coord_sf(xlim = c(0, 40), ylim = c(-20, 10), expand = FALSE)) +
+    COD = coord_sf(xlim = c(0, 40), ylim = c(-20, 10), expand = FALSE),
+    GHA = coord_sf(xlim = c(-4, 1), ylim = c(4, 9), expand = FALSE)) +
   labs(fill = "Effect") +
   ggtitle(paste0("Forest loss ~ mine distance (", file, ")")) +
   theme(

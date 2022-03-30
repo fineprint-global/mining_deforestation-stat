@@ -1,122 +1,7 @@
 
 formulas <- list(
-  # main model
-  "f_base_log_minesize" = area_accumulated_forest_loss_2019_log ~
+  "f_test" = area_accumulated_forest_loss_2019_log ~
     distance_mine_log +
-    min_area_1degree +
-    elevation + slope + I(elevation * slope) +
-    pop_2000_log + area_forest_2000_log +
-    I(pop_2000_log * area_forest_2000_log) + I(pop_2000_log * dist_road_log) +
-    # Distance + Distance * 5/10/25/50 dummies
-    dist_road_log + I(dist_road_log * dist_road_km5) + I(dist_road_log * dist_road_km10) +
-    I(dist_road_log * dist_road_km25) + I(dist_road_log * dist_road_km50) +
-    dist_waterway_log + I(dist_waterway_log * dist_waterway_km5) + I(dist_waterway_log * dist_waterway_km10) +
-    I(dist_waterway_log * dist_waterway_km25) + I(dist_waterway_log * dist_waterway_km50) +
-    distance_protected_area_log + I(distance_protected_area_log * distance_protected_area_km5) + I(distance_protected_area_log * distance_protected_area_km10) +
-    I(distance_protected_area_log * distance_protected_area_km25) + I(distance_protected_area_log * distance_protected_area_km50) +
-    distance_cropland_2000_log + I(distance_cropland_2000_log * distance_cropland_2000_km5) + I(distance_cropland_2000_log * distance_cropland_2000_km10) +
-    I(distance_cropland_2000_log * distance_cropland_2000_km25) + I(distance_cropland_2000_log * distance_cropland_2000_km50) +
-    soilgrid_grouped + esa_cci_2000 + biomes_2017,
-
-  # include 5km and 25km distance to mine interactions
-  "f_vary_minesize" = area_accumulated_forest_loss_2019_log ~
-    distance_mine_log +
-    I(distance_mine_log * distance_mine_km5) + I(distance_mine_log * distance_mine_km25) +
-    min_area_1degree +
-    elevation + slope + I(elevation * slope) +
-    pop_2000_log + area_forest_2000_log +
-    I(pop_2000_log * area_forest_2000_log) + I(pop_2000_log * dist_road_log) +
-    # Distance + Distance * 5/10/25/50 dummies
-    dist_road_log + I(dist_road_log * dist_road_km5) + I(dist_road_log * dist_road_km10) +
-    I(dist_road_log * dist_road_km25) + I(dist_road_log * dist_road_km50) +
-    dist_waterway_log + I(dist_waterway_log * dist_waterway_km5) + I(dist_waterway_log * dist_waterway_km10) +
-    I(dist_waterway_log * dist_waterway_km25) + I(dist_waterway_log * dist_waterway_km50) +
-    distance_protected_area_log + I(distance_protected_area_log * distance_protected_area_km5) + I(distance_protected_area_log * distance_protected_area_km10) +
-    I(distance_protected_area_log * distance_protected_area_km25) + I(distance_protected_area_log * distance_protected_area_km50) +
-    distance_cropland_2000_log + I(distance_cropland_2000_log * distance_cropland_2000_km5) + I(distance_cropland_2000_log * distance_cropland_2000_km10) +
-    I(distance_cropland_2000_log * distance_cropland_2000_km25) + I(distance_cropland_2000_log * distance_cropland_2000_km50) +
-    soilgrid_grouped + esa_cci_2000 + biomes_2017,
-
-  # main model, change deforestation to 2010 instead of 2019
-  "f_base_log_minesize_2010" = area_accumulated_forest_loss_2010_log ~
-    distance_mine_log +
-    min_area_1degree +
-    elevation + slope + I(elevation * slope) +
-    pop_2000_log + area_forest_2000_log +
-    I(pop_2000_log * area_forest_2000_log) + I(pop_2000_log * dist_road_log) +
-    # Distance + Distance * 5/10/25/50 dummies
-    dist_road_log + I(dist_road_log * dist_road_km5) + I(dist_road_log * dist_road_km10) +
-    I(dist_road_log * dist_road_km25) + I(dist_road_log * dist_road_km50) +
-    dist_waterway_log + I(dist_waterway_log * dist_waterway_km5) + I(dist_waterway_log * dist_waterway_km10) +
-    I(dist_waterway_log * dist_waterway_km25) + I(dist_waterway_log * dist_waterway_km50) +
-    distance_protected_area_log + I(distance_protected_area_log * distance_protected_area_km5) + I(distance_protected_area_log * distance_protected_area_km10) +
-    I(distance_protected_area_log * distance_protected_area_km25) + I(distance_protected_area_log * distance_protected_area_km50) +
-    distance_cropland_2000_log + I(distance_cropland_2000_log * distance_cropland_2000_km5) + I(distance_cropland_2000_log * distance_cropland_2000_km10) +
-    I(distance_cropland_2000_log * distance_cropland_2000_km25) + I(distance_cropland_2000_log * distance_cropland_2000_km50) +
-    soilgrid_grouped + esa_cci_2000 + biomes_2017,
-
-  # minimal model: few variables
-  "f_minimal_log_minesize" = area_accumulated_forest_loss_2019_log ~
-    distance_mine_log +
-    min_area_1degree +
-    elevation + slope + I(elevation * slope) +
-    pop_2000_log + area_forest_2000_log +
-    I(pop_2000_log * area_forest_2000_log) + I(pop_2000_log * dist_road_log),
-
-  # no interactions
-  "f_base_log_no_interactions" = area_accumulated_forest_loss_2019_log ~
-    distance_mine_log +
-    min_area_1degree +
-    elevation + slope +
-    pop_2000_log + area_forest_2000_log +
-    dist_road_log +
-    dist_waterway_log +
-    distance_protected_area_log +
-    distance_cropland_2000_log +
-    soilgrid_grouped + esa_cci_2000,
-
-  # main model, exclude road variables
-  "f_base_log_minesize_no-road_log" = area_accumulated_forest_loss_2019_log ~
-    distance_mine_log +
-    min_area_1degree +
-    elevation + slope + I(elevation * slope) +
-    pop_2000_log + area_forest_2000_log +
-    I(pop_2000_log * area_forest_2000_log) +
-    # Distance + Distance * 5/10/25/50 dummies
-    dist_waterway_log + I(dist_waterway_log * dist_waterway_km5) + I(dist_waterway_log * dist_waterway_km10) +
-    I(dist_waterway_log * dist_waterway_km25) + I(dist_waterway_log * dist_waterway_km50) +
-    distance_protected_area_log + I(distance_protected_area_log * distance_protected_area_km5) + I(distance_protected_area_log * distance_protected_area_km10) +
-    I(distance_protected_area_log * distance_protected_area_km25) + I(distance_protected_area_log * distance_protected_area_km50) +
-    distance_cropland_2000_log + I(distance_cropland_2000_log * distance_cropland_2000_km5) + I(distance_cropland_2000_log * distance_cropland_2000_km10) +
-    I(distance_cropland_2000_log * distance_cropland_2000_km25) + I(distance_cropland_2000_log * distance_cropland_2000_km50) +
-    soilgrid_grouped + esa_cci_2000 + biomes_2017,
-
-  # main model, exclude protected area variables
-  "f_base_log_minesize_no-pa_log" = area_accumulated_forest_loss_2019_log ~
-    distance_mine_log +
-    min_area_1degree +
-    elevation + slope + I(elevation * slope) +
-    pop_2000_log + area_forest_2000_log +
-    I(pop_2000_log * area_forest_2000_log) + I(pop_2000_log * dist_road_log) +
-    # Distance + Distance * 5/10/25/50 dummies
-    dist_road_log + I(dist_road_log * dist_road_km5) + I(dist_road_log * dist_road_km10) +
-    I(dist_road_log * dist_road_km25) + I(dist_road_log * dist_road_km50) +
-    dist_waterway_log + I(dist_waterway_log * dist_waterway_km5) + I(dist_waterway_log * dist_waterway_km10) +
-    I(dist_waterway_log * dist_waterway_km25) + I(dist_waterway_log * dist_waterway_km50) +
-    distance_cropland_2000_log + I(distance_cropland_2000_log * distance_cropland_2000_km5) + I(distance_cropland_2000_log * distance_cropland_2000_km10) +
-    I(distance_cropland_2000_log * distance_cropland_2000_km25) + I(distance_cropland_2000_log * distance_cropland_2000_km50) +
-    soilgrid_grouped + esa_cci_2000 + biomes_2017,
-
-  # Effect persistence - 10 km buffer dummy approach
-  "f_dummy_minesize" = area_accumulated_forest_loss_2019_log ~
-    # > 50 is baseline
-    km_inside +
-    km1_10 +
-    km10_20 +
-    km20_30 +
-    km30_40 +
-    km40_50 +
-    min_area_1degree +
     elevation + slope + I(elevation * slope) +
     pop_2000_log + area_forest_2000_log +
     I(pop_2000_log * area_forest_2000_log) + I(pop_2000_log * dist_road_log) +
@@ -131,6 +16,141 @@ formulas <- list(
     I(distance_cropland_2000_log * distance_cropland_2000_km25) + I(distance_cropland_2000_log * distance_cropland_2000_km50) +
     soilgrid_grouped + esa_cci_2000 + biomes_2017
 )
+
+#   
+# 
+# formulas <- list(
+#   # main model
+#   "f_base_log_minesize" = area_accumulated_forest_loss_2019_log ~
+#     distance_mine_log +
+#     min_area_1degree +
+#     elevation + slope + I(elevation * slope) +
+#     pop_2000_log + area_forest_2000_log +
+#     I(pop_2000_log * area_forest_2000_log) + I(pop_2000_log * dist_road_log) +
+#     # Distance + Distance * 5/10/25/50 dummies
+#     dist_road_log + I(dist_road_log * dist_road_km5) + I(dist_road_log * dist_road_km10) +
+#     I(dist_road_log * dist_road_km25) + I(dist_road_log * dist_road_km50) +
+#     dist_waterway_log + I(dist_waterway_log * dist_waterway_km5) + I(dist_waterway_log * dist_waterway_km10) +
+#     I(dist_waterway_log * dist_waterway_km25) + I(dist_waterway_log * dist_waterway_km50) +
+#     distance_protected_area_log + I(distance_protected_area_log * distance_protected_area_km5) + I(distance_protected_area_log * distance_protected_area_km10) +
+#     I(distance_protected_area_log * distance_protected_area_km25) + I(distance_protected_area_log * distance_protected_area_km50) +
+#     distance_cropland_2000_log + I(distance_cropland_2000_log * distance_cropland_2000_km5) + I(distance_cropland_2000_log * distance_cropland_2000_km10) +
+#     I(distance_cropland_2000_log * distance_cropland_2000_km25) + I(distance_cropland_2000_log * distance_cropland_2000_km50) +
+#     soilgrid_grouped + esa_cci_2000 + biomes_2017,
+# 
+#   # include 5km and 25km distance to mine interactions
+#   "f_vary_minesize" = area_accumulated_forest_loss_2019_log ~
+#     distance_mine_log +
+#     I(distance_mine_log * distance_mine_km5) + I(distance_mine_log * distance_mine_km25) +
+#     min_area_1degree +
+#     elevation + slope + I(elevation * slope) +
+#     pop_2000_log + area_forest_2000_log +
+#     I(pop_2000_log * area_forest_2000_log) + I(pop_2000_log * dist_road_log) +
+#     # Distance + Distance * 5/10/25/50 dummies
+#     dist_road_log + I(dist_road_log * dist_road_km5) + I(dist_road_log * dist_road_km10) +
+#     I(dist_road_log * dist_road_km25) + I(dist_road_log * dist_road_km50) +
+#     dist_waterway_log + I(dist_waterway_log * dist_waterway_km5) + I(dist_waterway_log * dist_waterway_km10) +
+#     I(dist_waterway_log * dist_waterway_km25) + I(dist_waterway_log * dist_waterway_km50) +
+#     distance_protected_area_log + I(distance_protected_area_log * distance_protected_area_km5) + I(distance_protected_area_log * distance_protected_area_km10) +
+#     I(distance_protected_area_log * distance_protected_area_km25) + I(distance_protected_area_log * distance_protected_area_km50) +
+#     distance_cropland_2000_log + I(distance_cropland_2000_log * distance_cropland_2000_km5) + I(distance_cropland_2000_log * distance_cropland_2000_km10) +
+#     I(distance_cropland_2000_log * distance_cropland_2000_km25) + I(distance_cropland_2000_log * distance_cropland_2000_km50) +
+#     soilgrid_grouped + esa_cci_2000 + biomes_2017,
+# 
+#   # main model, change deforestation to 2010 instead of 2019
+#   "f_base_log_minesize_2010" = area_accumulated_forest_loss_2010_log ~
+#     distance_mine_log +
+#     min_area_1degree +
+#     elevation + slope + I(elevation * slope) +
+#     pop_2000_log + area_forest_2000_log +
+#     I(pop_2000_log * area_forest_2000_log) + I(pop_2000_log * dist_road_log) +
+#     # Distance + Distance * 5/10/25/50 dummies
+#     dist_road_log + I(dist_road_log * dist_road_km5) + I(dist_road_log * dist_road_km10) +
+#     I(dist_road_log * dist_road_km25) + I(dist_road_log * dist_road_km50) +
+#     dist_waterway_log + I(dist_waterway_log * dist_waterway_km5) + I(dist_waterway_log * dist_waterway_km10) +
+#     I(dist_waterway_log * dist_waterway_km25) + I(dist_waterway_log * dist_waterway_km50) +
+#     distance_protected_area_log + I(distance_protected_area_log * distance_protected_area_km5) + I(distance_protected_area_log * distance_protected_area_km10) +
+#     I(distance_protected_area_log * distance_protected_area_km25) + I(distance_protected_area_log * distance_protected_area_km50) +
+#     distance_cropland_2000_log + I(distance_cropland_2000_log * distance_cropland_2000_km5) + I(distance_cropland_2000_log * distance_cropland_2000_km10) +
+#     I(distance_cropland_2000_log * distance_cropland_2000_km25) + I(distance_cropland_2000_log * distance_cropland_2000_km50) +
+#     soilgrid_grouped + esa_cci_2000 + biomes_2017,
+# 
+#   # minimal model: few variables
+#   "f_minimal_log_minesize" = area_accumulated_forest_loss_2019_log ~
+#     distance_mine_log +
+#     min_area_1degree +
+#     elevation + slope + I(elevation * slope) +
+#     pop_2000_log + area_forest_2000_log +
+#     I(pop_2000_log * area_forest_2000_log) + I(pop_2000_log * dist_road_log),
+# 
+#   # no interactions
+#   "f_base_log_no_interactions" = area_accumulated_forest_loss_2019_log ~
+#     distance_mine_log +
+#     min_area_1degree +
+#     elevation + slope +
+#     pop_2000_log + area_forest_2000_log +
+#     dist_road_log +
+#     dist_waterway_log +
+#     distance_protected_area_log +
+#     distance_cropland_2000_log +
+#     soilgrid_grouped + esa_cci_2000,
+# 
+#   # main model, exclude road variables
+#   "f_base_log_minesize_no-road_log" = area_accumulated_forest_loss_2019_log ~
+#     distance_mine_log +
+#     min_area_1degree +
+#     elevation + slope + I(elevation * slope) +
+#     pop_2000_log + area_forest_2000_log +
+#     I(pop_2000_log * area_forest_2000_log) +
+#     # Distance + Distance * 5/10/25/50 dummies
+#     dist_waterway_log + I(dist_waterway_log * dist_waterway_km5) + I(dist_waterway_log * dist_waterway_km10) +
+#     I(dist_waterway_log * dist_waterway_km25) + I(dist_waterway_log * dist_waterway_km50) +
+#     distance_protected_area_log + I(distance_protected_area_log * distance_protected_area_km5) + I(distance_protected_area_log * distance_protected_area_km10) +
+#     I(distance_protected_area_log * distance_protected_area_km25) + I(distance_protected_area_log * distance_protected_area_km50) +
+#     distance_cropland_2000_log + I(distance_cropland_2000_log * distance_cropland_2000_km5) + I(distance_cropland_2000_log * distance_cropland_2000_km10) +
+#     I(distance_cropland_2000_log * distance_cropland_2000_km25) + I(distance_cropland_2000_log * distance_cropland_2000_km50) +
+#     soilgrid_grouped + esa_cci_2000 + biomes_2017,
+# 
+#   # main model, exclude protected area variables
+#   "f_base_log_minesize_no-pa_log" = area_accumulated_forest_loss_2019_log ~
+#     distance_mine_log +
+#     min_area_1degree +
+#     elevation + slope + I(elevation * slope) +
+#     pop_2000_log + area_forest_2000_log +
+#     I(pop_2000_log * area_forest_2000_log) + I(pop_2000_log * dist_road_log) +
+#     # Distance + Distance * 5/10/25/50 dummies
+#     dist_road_log + I(dist_road_log * dist_road_km5) + I(dist_road_log * dist_road_km10) +
+#     I(dist_road_log * dist_road_km25) + I(dist_road_log * dist_road_km50) +
+#     dist_waterway_log + I(dist_waterway_log * dist_waterway_km5) + I(dist_waterway_log * dist_waterway_km10) +
+#     I(dist_waterway_log * dist_waterway_km25) + I(dist_waterway_log * dist_waterway_km50) +
+#     distance_cropland_2000_log + I(distance_cropland_2000_log * distance_cropland_2000_km5) + I(distance_cropland_2000_log * distance_cropland_2000_km10) +
+#     I(distance_cropland_2000_log * distance_cropland_2000_km25) + I(distance_cropland_2000_log * distance_cropland_2000_km50) +
+#     soilgrid_grouped + esa_cci_2000 + biomes_2017,
+# 
+#   # Effect persistence - 10 km buffer dummy approach
+#   "f_dummy_minesize" = area_accumulated_forest_loss_2019_log ~
+#     # > 50 is baseline
+#     km_inside +
+#     km1_10 +
+#     km10_20 +
+#     km20_30 +
+#     km30_40 +
+#     km40_50 +
+#     min_area_1degree +
+#     elevation + slope + I(elevation * slope) +
+#     pop_2000_log + area_forest_2000_log +
+#     I(pop_2000_log * area_forest_2000_log) + I(pop_2000_log * dist_road_log) +
+#     # Distance + Distance * 5/10/25/50 dummies
+#     dist_road_log + I(dist_road_log * dist_road_km5) + I(dist_road_log * dist_road_km10) +
+#     I(dist_road_log * dist_road_km25) + I(dist_road_log * dist_road_km50) +
+#     dist_waterway_log + I(dist_waterway_log * dist_waterway_km5) + I(dist_waterway_log * dist_waterway_km10) +
+#     I(dist_waterway_log * dist_waterway_km25) + I(dist_waterway_log * dist_waterway_km50) +
+#     distance_protected_area_log + I(distance_protected_area_log * distance_protected_area_km5) + I(distance_protected_area_log * distance_protected_area_km10) +
+#     I(distance_protected_area_log * distance_protected_area_km25) + I(distance_protected_area_log * distance_protected_area_km50) +
+#     distance_cropland_2000_log + I(distance_cropland_2000_log * distance_cropland_2000_km5) + I(distance_cropland_2000_log * distance_cropland_2000_km10) +
+#     I(distance_cropland_2000_log * distance_cropland_2000_km25) + I(distance_cropland_2000_log * distance_cropland_2000_km50) +
+#     soilgrid_grouped + esa_cci_2000 + biomes_2017
+# )
 
 
 
